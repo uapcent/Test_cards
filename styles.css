@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  position: relative;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;      /* Fixed height for uniformity */
+  object-fit: cover;  /* Crop sides, no distortion */
+  display: block;
+  background: #222;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 12px;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
