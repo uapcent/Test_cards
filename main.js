@@ -1,5 +1,8 @@
 // Example card data
-import { groups } from './cardData.js';
+import { marvelGroups } from './cardData.js';
+import { dcGroups } from './cardData.js';
+import { ninjagoGroups } from './cardData.js';
+import { starWarsGroups } from './cardData.js';
 
 // Helper to normalize card data
 function normalizeCard(card) {
@@ -15,7 +18,13 @@ function normalizeCard(card) {
 }
 
 // Normalize all cards
-groups.forEach(group => {
+displayCardInfo(marvelGroups);
+displayCardInfo(dcGroups);
+displayCardInfo(ninjagoGroups);
+displayCardInfo(starWarsGroups);
+
+function displayCardInfo(groups) {
+  groups.forEach(group => {
   group.cards = group.cards.map(normalizeCard);
 });
 
@@ -99,3 +108,5 @@ groupsContainer.addEventListener('mouseleave', function (e) {
   if (!cardDiv) return;
   cardDiv.style.transform = '';
 }, true);
+}
+
