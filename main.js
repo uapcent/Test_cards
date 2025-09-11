@@ -1,8 +1,8 @@
 // Example card data
-import { marvelGroups } from './cardData.js';
-import { dcGroups } from './cardData.js';
-import { ninjagoGroups } from './cardData.js';
-import { starWarsGroups } from './cardData.js';
+import { marvelGroups } from './marvelCardData.js';
+import { dcGroups } from './dcCardData.js';
+import { ninjagoGroups } from './ninjagoCardData.js';
+import { starWarsGroups } from './starWarsCardData.js';
 
 // Helper to normalize card data
 function normalizeCard(card) {
