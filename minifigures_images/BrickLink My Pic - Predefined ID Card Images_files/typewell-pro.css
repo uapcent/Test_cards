@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "Typewell";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Typewell Black"), local("LEGOTypewell-Black"),
+    url("typewell/LEGOTypewell-Black.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Black.woff") format("woff"),
+    url("typewell/LEGOTypewell-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: italic;
+  font-weight: 900;
+  src: local("Typewell Black Italic"), local("LEGOTypewell-BlackItalic"),
+    url("typewell/LEGOTypewell-BlackItalic.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-BlackItalic.woff") format("woff"),
+    url("typewell/LEGOTypewell-BlackItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Typewell Bold"), local("LEGOTypewell-Bold"),
+    url("typewell/LEGOTypewell-Bold.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Bold.woff") format("woff"),
+    url("typewell/LEGOTypewell-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Typewell Bold Italic"), local("LEGOTypewell-BoldItalic"),
+    url("typewell/LEGOTypewell-BoldItalic.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-BoldItalic.woff") format("woff"),
+    url("typewell/LEGOTypewell-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Typewell Italic"), local("LEGOTypewell-Italic"),
+    url("typewell/LEGOTypewell-Italic.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Italic.woff") format("woff"),
+    url("typewell/LEGOTypewell-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Typewell Light"), local("LEGOTypewell-Light"),
+    url("typewell/LEGOTypewell-Light.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Light.woff") format("woff"),
+    url("typewell/LEGOTypewell-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Typewell Light Italic"), local("LEGOTypewell-LightItalic"),
+    url("typewell/LEGOTypewell-LightItalic.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-LightItalic.woff") format("woff"),
+    url("typewell/LEGOTypewell-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Typewell Medium"), local("LEGOTypewell-Medium"),
+    url("typewell/LEGOTypewell-Medium.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Medium.woff") format("woff"),
+    url("typewell/LEGOTypewell-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: italic;
+  font-weight: 500;
+  src: local("Typewell Medium Italic"), local("LEGOTypewell-MediumItalic"),
+    url("typewell/LEGOTypewell-MediumItalic.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-MediumItalic.woff") format("woff"),
+    url("typewell/LEGOTypewell-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Typewell Regular"), local("LEGOTypewell-Regular"),
+    url("typewell/LEGOTypewell-Regular.woff2") format("woff2"),
+    url("typewell/LEGOTypewell-Regular.woff") format("woff"),
+    url("typewell/LEGOTypewell-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell Condensed";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Typewell Condensed Black"), local("LEGOTypewellCondensed-Black"),
+    url("typewell/LEGOTypewellCondensed-Black.woff2") format("woff2"),
+    url("typewell/LEGOTypewellCondensed-Black.woff") format("woff"),
+    url("typewell/LEGOTypewellCondensed-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell Condensed";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Typewell Condensed Bold"), local("LEGOTypewellCondensed-Bold"),
+    url("typewell/LEGOTypewellCondensed-Bold.woff2") format("woff2"),
+    url("typewell/LEGOTypewellCondensed-Bold.woff") format("woff"),
+    url("typewell/LEGOTypewellCondensed-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell Condensed";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Typewell Condensed Light"), local("LEGOTypewellCondensed-Light"),
+    url("typewell/LEGOTypewellCondensed-Light.woff2") format("woff2"),
+    url("typewell/LEGOTypewellCondensed-Light.woff") format("woff"),
+    url("typewell/LEGOTypewellCondensed-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell Condensed";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Typewell Condensed Medium"), local("LEGOTypewellCondensed-Medium"),
+    url("typewell/LEGOTypewellCondensed-Medium.woff2") format("woff2"),
+    url("typewell/LEGOTypewellCondensed-Medium.woff") format("woff"),
+    url("typewell/LEGOTypewellCondensed-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Typewell Condensed";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Typewell Condensed Regular"),
+    local("LEGOTypewellCondensed-Regular"),
+    url("typewell/LEGOTypewellCondensed-Regular.woff2") format("woff2"),
+    url("typewell/LEGOTypewellCondensed-Regular.woff") format("woff"),
+    url("typewell/LEGOTypewellCondensed-Regular.ttf") format("truetype");
+}

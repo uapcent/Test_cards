@@ -1,0 +1,30 @@
+#lbOverlay { position: fixed; top: 0; left: 0; z-index: 99998; width: 100%; height: 500px; }
+#lbOverlay { background-color: #000000; }
+
+#lbMain { position: absolute; left: 0; width: 100%; z-index: 99999; text-align: center; line-height: 0;}
+#lbMain a img { border: none; }
+
+#lbOuterContainer { position: relative; background-color: #fff; width: 200px; height: 200px; margin: 0 auto; }
+#lbOuterContainer { border: 3px solid #888888; }
+
+#lbDetailsContainer { font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; width: 100%; line-height: 1.4em; overflow: auto; margin: 0 auto; }
+#lbDetailsContainer { border: 3px solid #888888; border-top: none; }
+
+#lbImageContainer { padding: 10px; }
+#lbLoading {
+        position: absolute; top: 45%; left: 0%; height: 32px; width: 100%; text-align: center; line-height: 0; background: url(/lytebox/images/loading.gif) center no-repeat;
+}
+
+#lbDetailsData { padding: 0 10px; }
+#lbDetailsData { color: #333333; }
+
+#lbDetails { width: 60%; float: left; text-align: left; }
+#lbCaption { display: block; padding-bottom: 5px;}
+#lbNavDisplay { position: relative; top: 10; display: block; padding-bottom: 20px;}
+
+#lbCatLink:link { text-decoration: none;}
+#lbCatLink:visited { text-decoration: none;}
+#lbCatLink:hover { text-decoration: underline;}
+
+#lbClose { width: 64px; height: 28px; float: right; margin-bottom: 1px; }
+#lbClose { background: url(/lytebox/images/close_grey.png) no-repeat; }
