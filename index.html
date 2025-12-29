@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Minifigure Checklist</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 </head>
+
 <body>
   <h1>Minifigure checklist</h1>
+  <div id="filters">
+    <label>
+      <input type="checkbox" id="filter-legendary">
+      Legendary only
+    </label>
+
+    <label>
+      <input type="checkbox" id="filter-unlocked">
+      Unlocked only
+    </label>
+  </div>
+
   <div id="groupsContainer"></div>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>

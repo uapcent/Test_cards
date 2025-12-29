@@ -1,21 +1,27 @@
 // Example card data
-import { marvelGroups } from './marvelCardData.js';
-import { dcGroups } from './dcCardData.js';
-import { ninjagoGroups } from './ninjagoCardData.js';
-import { starWarsGroups } from './starWarsCardData.js';
+import { marvelGroups } from './card_data/marvelCardData.js';
+import { dcGroups } from './card_data/dcCardData.js';
+import { ninjagoGroups } from './card_data/ninjagoCardData.js';
+import { starWarsGroups } from './card_data/starWarsCardData.js';
+
+const IMAGE_BASE_PATH = "assets/minifigures_images/";
+
 
 // Helper to normalize card data
 function normalizeCard(card) {
   return {
     name: card.name,
-    images: card.images || ["minifigures_images/unknown_character.png"],
+    images: (card.images || []).map(
+      img => IMAGE_BASE_PATH + img
+    ),
     infos: Array.isArray(card.infos) ? card.infos : [card.info || ""],
     locked: Array.isArray(card.locked) ? card.locked : [card.locked || false],
     legendary: !!card.legendary,
-    glow_color: card.glow_color, // <-- Add this line
+    glow_color: card.glow_color,
     currentIndex: 0
   };
 }
+
 
 // Normalize all cards
 displayCardInfo(marvelGroups);
