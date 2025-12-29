@@ -48,8 +48,7 @@ export const marvelGroups = [
             {
                 name: "Spider-Man 2099 - Miguel O'Hara",
                 info: "Across the Spider-Verse",
-                images: ["colspi05.png"],
-                locked: true
+                images: ["colspi05.png"]
             },
             {
                 name: "Crossbones",
@@ -98,6 +97,24 @@ export const marvelGroups = [
                 info: "Kate Bishop",
                 images: ["colmar19.png"],
                 locked: true
+            },
+            {
+                name: "Green Goblin",
+                images: ["sh0695.jpg"]
+            },
+            {
+                name: "Mysterio",
+                images: ["sh0709.original.png"]
+            },
+            {
+                name: "Agatha Harkness",
+                info: "Minifigures Series 2",
+                images: ["colmar13.original.png"],
+                locked: true
+            },
+            {
+                name: "J. Jonah Jameson",
+                images: ["sh0710.original.png"]
             },
         ]
     },

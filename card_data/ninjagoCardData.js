@@ -3,8 +3,8 @@ export const ninjagoGroups = [{
   cards: [
     {
       name: "Kai",
-      infos: ["The Golden Weapons", "DX", "The Lego Ninjago Movie"],
-      images: ["njo0007.png", "njo0009.png", "njo0360.png"],
+      infos: ["The Golden Weapons", "DX", "The Lego Ninjago Movie", "Legacy"],
+      images: ["njo0007.png", "njo0009.png", "njo0360.png", "njo0492.png"],
       glow_color: '#ff0000ff'
 
     },
@@ -25,8 +25,8 @@ export const ninjagoGroups = [{
     },
     {
       name: "Cole",
-      infos: ["RX", "Dragons Rising - Mech"],
-      images: ["njo0262.png", "njo0900.png"],
+      infos: ["RX", "Legacy Rebooted", "Dragons Rising - Mech"],
+      images: ["njo0262.png", "njo0575.original.png", "njo0900.png"],
       glow_color: '#ff9900ff'
     },
     {
@@ -92,6 +92,11 @@ export const ninjagoGroups = [{
       info: "Day of the Departed",
       images: ["njo0246.png"],
     },
+      {
+      name: "Nindroid",
+      info: "Day of the Departed",
+      images: ["njo0267.jpg"],
+    },
     {
       name: "Morro",
       info: "Possession",
@@ -152,6 +157,11 @@ export const ninjagoGroups = [{
       info: "Dragons Rising Season 2",
       images: ["njo0851.png"],
     },
+            {
+      name: "Dragonian Scout",
+      info: "Dragons Rising Season 3",
+      images: ["njo0926.original.png"],
+    },
     {
       name: "Nindroid",
       info: "Day of the Departed",
@@ -172,6 +182,22 @@ export const ninjagoGroups = [{
       info: "Day of the Departed",
       images: ["njo0222.png"],
     },
+        {
+      name: "Ghost Archer",
+      info: "Legacy",
+      images: ["njo0804.original.png"],
+    },
+    {
+      name: "GPL Tech",
+      info: "The Lego Ninjago Movie",
+      images: ["coltlnm18.original.png"],
+    },
+        {
+      name: "Ham",
+      info: "The Lego Ninjago Movie",
+      images: ["njo0358.jpg"],
+    },
+    
     {
       name: "Dummy, Training",
       info: "The Golden Weapons",

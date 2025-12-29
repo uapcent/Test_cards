@@ -50,10 +50,11 @@ export const starWarsGroups = [{
 
     {
       name: "Obi-Wan Kenobi",
-      infos: ["Jedi Master", "Clone Wars", "Clone Wars (Old)"],
-      images: ["sw0362.png", "sw1424.png", "sw0449.png"],
-      locked: [true, true, false],
-      glow_color: '#0099ffff'
+      infos: ["Jedi Master", "Episode II", "Clone Wars", "Clone Wars (Old)"],
+      images: ["sw0362.png", "sw1255.original.png", "sw1424.png", "sw0449.png"],
+      locked: [true, false, true, false],
+      glow_color: '#0099ffff',
+      wantedList: true
     },
     {
       name: "R4-P17",

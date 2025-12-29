@@ -6,7 +6,7 @@ export const dcGroups = [
       {
         name: "Batman",
         infos: ["New 52", "Lego Batman movie", "Wing Suit", "Armored Suit", "Space Suit", "Fairy Batman"],
-        images: ["sh0151.png", "sh0329.original.png", "sh0402.png", "sh0217.png", "sh0146.png", "coltlbm03.original.png"],
+        images: ["sh0151.png", "sh0329.png", "sh0402.png", "sh0217.png", "sh0146.png", "coltlbm03.png"],
       },
       {
         name: "Robin - Dick Grayson",
@@ -21,30 +21,30 @@ export const dcGroups = [
       },
       {
         name: "Robin - Damian Wayne",
-        images: ["sh0289.original.png"],
+        images: ["sh0289.png"],
         locked: [true]
       },
       {
         name: "Nightwing",
-        images: ["sh0659.original.png"],
+        images: ["sh0659.png"],
         locked: true
       },
       {
         name: "Red Hood",
-        images: ["sh0282.original.png"],
+        images: ["sh0282.png"],
         locked: true
       },
       {
         name: "Batgirl",
         info: ["Lego Batman Movie", "Rebirth"],
-        images: ["sh0305.png", "sh0658.original.png"],
+        images: ["sh0305.png", "sh0658.png"],
         locked: [false, true]
       },
       // Justice League
       {
         name: "Superman",
         infos: ["Classic Superman", "Down of Justice"],
-        images: ["sh1055.png", "sh0219.original.png"],
+        images: ["sh1055.png", "sh0219.png"],
       },
       {
         name: "Wonder Woman",
@@ -53,7 +53,7 @@ export const dcGroups = [
       },
       {
         name: "Aquaman",
-        images: ["colsh03.original.png"],
+        images: ["colsh03.png"],
         locked: true
       },
       {
@@ -64,12 +64,12 @@ export const dcGroups = [
       },
       {
         name: "The Flash",
-        images: ["sh0087.original.png"],
+        images: ["sh0087.png"],
         locked: true,
         glow_color: '#ffe600ff'
       }, {
         name: "Hawkman",
-        images: ["sh0154.original.png"],
+        images: ["sh0154.png"],
         locked: true
       },
       {
@@ -79,43 +79,43 @@ export const dcGroups = [
       },
       {
         name: "Cyborg",
-        images: ["sh0155.original.png"],
+        images: ["sh0155.png"],
         locked: true
       },
       {
         name: "Martian ManHunter",
-        images: ["sh0158.original.png"],
+        images: ["sh0158.png"],
         locked: true
       },
       // Other heroes
       {
         name: "Supergirl",
-        images: ["sh0670.original.png"],
+        images: ["sh0670.png"],
         locked: true
       },
       {
         name: "Bizarro",
-        images: ["sh0043.original.png"],
+        images: ["sh0043.png"],
         locked: true
       },
       // Bat-Villains
       {
         name: "The Joker",
         infos: ["", "Lego Batman Movie"],
-        images: ["dim017.png", "sh0353.original.png"],
+        images: ["dim017.png", "sh0353.png"],
       },
       {
         name: "Harley Quinn",
-        images: ["sh0024.original.png"],
+        images: ["sh0024.png"],
       },
       {
         name: "Scarecrow",
         info: "Lego Batman Movie",
-        images: ["sh0391.original.png"],
+        images: ["sh0391.png"],
       },
       {
         name: "Two Face",
-        images: ["sh0007.original.png"],
+        images: ["sh0007.png"],
         locked: true
       },
       {
@@ -131,7 +131,7 @@ export const dcGroups = [
       {
         name: "Catwoman",
         infos: ["Lego Batman Movie", ""],
-        images: ["sh0330.original.png", "sh0595.original.png"],
+        images: ["sh0330.png", "sh0595.png"],
         locked: [false, true]
       },
       {
@@ -141,17 +141,17 @@ export const dcGroups = [
       },
       {
         name: "Bane",
-        images: ["sh0009.original.png"],
+        images: ["sh0009.png"],
         locked: true
       },
       {
         name: "The riddler",
-        images: ["sh0593.original.png"],
+        images: ["sh0593.png"],
         locked: true
       },
       {
         name: "Sinestro",
-        images: ["sh0144.original.png"],
+        images: ["sh0144.png"],
         glow_color: '#ffe600ff'
       },
       {
@@ -161,12 +161,12 @@ export const dcGroups = [
       {
         name: "Lex Luthor",
         infos: ["Black suit", "Power Armor"],
-        images: ["sh0012.original.png", "sh1007.original.png"],
+        images: ["sh0012.png", "sh1007.png"],
         locked: [true, true]
       },
       {
         name: "Metamorpho",
-        images: ["colsh12.original.png"],
+        images: ["colsh12.png"],
         locked: true
       },
       {
@@ -176,13 +176,13 @@ export const dcGroups = [
       },
       {
         name: "Captain Cold",
-        images: ["sh0148.original.png"],
+        images: ["sh0148.png"],
         locked: true
       },
       {
         name: "Commissioner Gordon",
         infos: ["", "Lego Batman Movie", "The Dark Knight Triology"],
-        images: ["sh0591.original.png", "coltlbm07.original.png", "sh0063.original.png"],
+        images: ["sh0591.png", "coltlbm07.png", "sh0063.png"],
         locked: [true, true, true]
       }
 
