@@ -117,8 +117,51 @@ export const miscGroups = [
 
         ]
     },
+    {
+        name: "Dungeons & Dragons",
+        cards: [
+            {
+                name: "Elf Bard",
+                images: ["coldnd09.original.png"]
+            },
+            {
+                name: "Szass Tam",
+            },
+            {
+                name: "Mind Flayer",
+            },
+            {
+                name: "Gith Warlock",
+            },
+            {
+                name: "Halfling Druid",
+            },
+            {
+                name: "Dwarf Barbarian",
+            },
+            {
+                name: "Aarakocra Ranger",
+            },
+            {
+                name: "The Lady of Pain",
+            },
+            {
+                name: "Tiefling Sorcerer",
+            },
+            {
+                name: "Dragonborn Paladin",
+            },
+            {
+                name: "Strahd von Zarovich",
+            },
+            {
+                name: "Tasha the Witch",
+            }
 
-    
+        ]
+    },
+
+
     {
         name: "Lego City",
         cards: [
@@ -149,11 +192,38 @@ export const miscGroups = [
                 wantedList: true,
                 locked: true
             },
-            
             {
                 name: "Female Islander",
                 info: "Pirates: Islander",
                 images: ["pi066.jpg"],
+            },
+            {
+                name: "Emmet",
+                info: "The Lego Movie",
+                images: ["tlm096.jpg"],
+            },
+            {
+                name: "Benny",
+                info: "The Lego Movie",
+                images: ["tlm094.jpg"],
+            },
+            {
+                name: "Unikitty",
+                info: "The Lego Movie",
+                images: ["tlm093.jpg"],
+            },
+            {
+                name: "Vitruvius",
+                infos: ["The Lego Movie", "Ghost"],
+                images: ["tlm021.original.png", "tlm092.jpg"],
+                locked: [true, false],
+                wantedList: true
+            },
+
+            {
+                name: "President Business",
+                info: "The Lego Movie",
+                images: ["tlm095.jpg"],
             },
             {
                 name: "Wiley Fusebot",
