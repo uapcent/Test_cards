@@ -5,8 +5,9 @@ export const dcGroups = [
       // Main bat-family
       {
         name: "Batman",
-        infos: ["New 52", "Lego Batman movie", "Wing Suit", "Armored Suit", "Space Suit", "Fairy Batman"],
-        images: ["sh0151.png", "sh0329.png", "sh0402.png", "sh0217.png", "sh0146.png", "coltlbm03.png"],
+        infos: ["New 52", "Lego Batman movie", "Wing Suit", "Armored Suit", "Space Suit", "Fairy Batman", "The Batman Movie"],
+        images: ["sh0151.png", "sh0329.png", "sh0402.png", "sh0217.png", "sh0146.png", "coltlbm03.png", "sh0786.png"],
+        locked: [false, false, false, false, false, false, true],
       },
       {
         name: "Robin - Dick Grayson",
@@ -57,8 +58,9 @@ export const dcGroups = [
       },
       {
         name: "Aquaman",
-        images: ["colsh03.png"],
-        locked: true
+        images: ["sh0050.original.png", "colsh03.png"],
+        locked: true,
+        wantedList: true
       },
       {
         name: "Green Lantern",
@@ -70,7 +72,8 @@ export const dcGroups = [
         name: "The Flash",
         images: ["sh0087.png"],
         locked: true,
-        glow_color: '#ffe600ff'
+        glow_color: '#ffe600ff',
+        wantedList: true
       }, {
         name: "Hawkman",
         images: ["sh0154.png"],
@@ -120,17 +123,20 @@ export const dcGroups = [
       {
         name: "Two Face",
         images: ["sh0007.png"],
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "Poison Ivy",
         images: ["sh0327.png"],
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "The Penguin",
         images: ["sh0314.png"],
-        locked: true
+        locked: true, 
+        wantedList: true
       },
       {
         name: "Catwoman",
@@ -141,12 +147,14 @@ export const dcGroups = [
       {
         name: "Mr Freeze",
         images: ["sh0049.png"],
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "Bane",
         images: ["sh0009.png"],
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "The Riddler",
@@ -163,6 +171,12 @@ export const dcGroups = [
         images: ["sh0194.jpg"],
       },
       {
+        name: "Black Manta",
+        images: ["sh0526.png"],
+        locked: true
+      },
+      
+      {
         name: "Lex Luthor",
         infos: ["Black suit", "Power Armor"],
         images: ["sh0012.png", "sh1007.png"],
@@ -178,6 +192,17 @@ export const dcGroups = [
         images: ["sh0143.png"],
         locked: true
       },
+            {
+        name: "Flash - Jay Garrick",
+        images: ["colsh15.png"],
+        locked: true
+      },
+      {
+        name: "Reverse Flash",
+        images: ["sh0471.png"],
+        locked: true
+      },
+      
       {
         name: "Captain Cold",
         images: ["sh0148.png"],
@@ -187,7 +212,15 @@ export const dcGroups = [
         name: "Commissioner Gordon",
         infos: ["", "Lego Batman Movie", "The Dark Knight Triology"],
         images: ["sh0591.png", "coltlbm07.png", "sh0063.png"],
-        locked: [true, true, true]
+        locked: [true, true, true],
+        wantedList: true
+      },
+            {
+        name: "Alfred Pennyworth",
+        infos: ["Lego Batman Movie"],
+        images: ["sh0313.png"],
+        locked: [true],
+        wantedList: true
       }
 
     ]

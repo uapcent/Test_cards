@@ -34,7 +34,7 @@ export const marvelGroups = [
                 name: "Storm",
                 images: ["colmar23.png"],
             },
-                        {
+            {
                 name: "Scarlet Witch",
                 info: "Infinity Saga",
                 images: ["sh0897.jpg"],
@@ -45,14 +45,49 @@ export const marvelGroups = [
                 images: ["sh0038.png"]
             },
             {
-                name: "Dr. Octopus (Otto Octavius)",
-                info: "Black Web Pattern",
-                images: ["sh0110.png"],
+                name: "Spider-Man - Miles Morales",
+                images: ["colspi01.original.png"]
+            },
+            
+            {
+                name: "Spider-Gwen - Gwen Stacy",
+                images: ["colspi04.original.png"]
             },
             {
                 name: "Spider-Man 2099 - Miguel O'Hara",
                 info: "Across the Spider-Verse",
                 images: ["colspi05.png"]
+            },
+            {
+                name: "Spider-Punk - Hobart Brown",
+                info: "Across the Spider-Verse",
+                images: ["colspi02.original.png"]
+            },
+            {
+                name: "Peter B. Parker",
+                info: "Across the Spider-Verse",
+                images: ["colspi10.original.png"]
+            },
+            {
+                name: "May 'Mayday' Parker",
+                info: "Across the Spider-Verse",
+                images: ["colspi11.original.png"]
+            },
+            {
+                name: "Pavitr Prabhakar / Spider-Man India",
+                info: "Across the Spider-Verse",
+                images: ["colspi06.original.png"]
+            },
+            
+            {
+                name: "Patrick O'Hara / Web-Slinger",
+                info: "Across the Spider-Verse",
+                images: ["colspi12.original.png"]
+            },
+            {
+                name: "Peter Parker / Werewolf Spider-Man",
+                info: "Across the Spider-Verse",
+                images: ["colspi13.original.png"]
             },
             {
                 name: "Crossbones",
@@ -114,9 +149,14 @@ export const marvelGroups = [
                 name: "Sandman",
                 images: ["sh0685.jpg"]
             },
-                        {
+            {
                 name: "Venom",
                 images: ["sh0542.jpg"]
+            },
+            {
+                name: "Dr. Octopus (Otto Octavius)",
+                info: "Black Web Pattern",
+                images: ["sh0110.png"],
             },
             {
                 name: "Agatha Harkness",
@@ -128,6 +168,8 @@ export const marvelGroups = [
                 name: "J. Jonah Jameson",
                 images: ["sh0710.original.png"]
             },
+
+
         ]
     },
 ];
