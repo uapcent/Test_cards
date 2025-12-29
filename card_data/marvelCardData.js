@@ -29,11 +29,15 @@ export const marvelGroups = [
                 name: "Moon Knight",
                 images: ["colmar14.png"],
                 glow_color: '#ffffffff'
-
             },
             {
                 name: "Storm",
                 images: ["colmar23.png"],
+            },
+                        {
+                name: "Scarlet Witch",
+                info: "Infinity Saga",
+                images: ["sh0897.jpg"],
             },
             {
                 name: "Spider-man",
@@ -105,6 +109,14 @@ export const marvelGroups = [
             {
                 name: "Mysterio",
                 images: ["sh0709.original.png"]
+            },
+            {
+                name: "Sandman",
+                images: ["sh0685.jpg"]
+            },
+                        {
+                name: "Venom",
+                images: ["sh0542.jpg"]
             },
             {
                 name: "Agatha Harkness",

@@ -92,7 +92,7 @@ export const ninjagoGroups = [{
       info: "Day of the Departed",
       images: ["njo0246.png"],
     },
-      {
+    {
       name: "Nindroid",
       info: "Day of the Departed",
       images: ["njo0267.jpg"],
@@ -157,7 +157,12 @@ export const ninjagoGroups = [{
       info: "Dragons Rising Season 2",
       images: ["njo0851.png"],
     },
-            {
+    {
+      name: "Spectral Dragonian Scout",
+      info: "Dragons Rising Season 3",
+      images: ["njo0983.jpg"],
+    },
+    {
       name: "Dragonian Scout",
       info: "Dragons Rising Season 3",
       images: ["njo0926.original.png"],
@@ -182,7 +187,7 @@ export const ninjagoGroups = [{
       info: "Day of the Departed",
       images: ["njo0222.png"],
     },
-        {
+    {
       name: "Ghost Archer",
       info: "Legacy",
       images: ["njo0804.original.png"],
@@ -192,12 +197,12 @@ export const ninjagoGroups = [{
       info: "The Lego Ninjago Movie",
       images: ["coltlnm18.original.png"],
     },
-        {
+    {
       name: "Ham",
       info: "The Lego Ninjago Movie",
       images: ["njo0358.jpg"],
     },
-    
+
     {
       name: "Dummy, Training",
       info: "The Golden Weapons",

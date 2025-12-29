@@ -2,10 +2,15 @@ export const miscGroups = [
     {
         name: "Harry Potter",
         cards: [
-                        {
+            {
                 name: "Harry Potter",
                 infos: ["Griffindor Robe", "Lego Dimensions"],
                 images: ["hp314.jpg", "dim036.jpg"]
+            },
+            {
+                name: "Ron Weasley",
+                infos: ["Griffindor Robe"],
+                images: ["hp283.jpg"]
             },
             {
                 name: "Draco Malfoy",
@@ -22,10 +27,33 @@ export const miscGroups = [
     {
         name: "One Piece",
         cards: [
+            
             {
-                name: "Iron Man",
-                info: "Mark 45 Armor",
-                images: ["sh0164.png"]
+                name: "Luffy",
+                infos: ["Straw Hat", "Young"],
+                images: ["op016.original.png", "op003.original.png"]
+            },
+            {
+                name: "Buggy the Clown",
+                images: ["op004.original.png"],
+                locked: true,
+                wantedList: true
+            },
+            {
+                name: "Garp",
+                images: ["op021.original.png"],
+                locked: true,
+                wantedList: true
+            },
+            {
+                name: "Mihawk",
+                images: ["op017.original.png"],
+                locked: true,
+                wantedList: true
+            },
+            {
+                name: "Makino",
+                images: ["op002.original.png"]
             }
         ]
     },
@@ -63,8 +91,16 @@ export const miscGroups = [
                 name: "Jake Raines",
                 info: "Pharaoh's Quest",
                 images: ["pha009.png"],
+            },
+            {
+                name: "Wiley Fusebot",
+                info: "The Lego Movie",
+                images: ["tlm014.jpg"],
+            },
+            {
+                name: "Rocket Racer",
+                images: ["cty1319.jpg"],
             }
-
         ]
     },
 ];

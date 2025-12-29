@@ -22,17 +22,21 @@ export const dcGroups = [
       {
         name: "Robin - Damian Wayne",
         images: ["sh0289.png"],
-        locked: [true]
+        locked: [true],
+        wantedList: true
       },
       {
         name: "Nightwing",
         images: ["sh0659.png"],
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "Red Hood",
         images: ["sh0282.png"],
-        locked: true
+        locked: true,
+        wantedList: true
+
       },
       {
         name: "Batgirl",
@@ -145,9 +149,9 @@ export const dcGroups = [
         locked: true
       },
       {
-        name: "The riddler",
-        images: ["sh0593.png"],
-        locked: true
+        name: "The Riddler",
+        images: ["sh1081.jpg","sh0593.png"],
+        locked: [false, true]
       },
       {
         name: "Sinestro",

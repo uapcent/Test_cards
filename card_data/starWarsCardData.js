@@ -4,8 +4,8 @@ export const starWarsGroups = [{
     {
       name: "Qui-Gon Jinn",
       glow_color: '#4bff27ff',
-      images: ["sw1404.png"],
-      locked: true
+      images: ["sw1334b.jpg", "sw1404.png"],
+      locked: [false, true]
     },
     {
       name: "Obi-Wan Kenobi",
@@ -50,9 +50,15 @@ export const starWarsGroups = [{
 
     {
       name: "Obi-Wan Kenobi",
-      infos: ["Jedi Master", "Episode II", "Clone Wars", "Clone Wars (Old)"],
-      images: ["sw0362.png", "sw1255.original.png", "sw1424.png", "sw0449.png"],
-      locked: [true, false, true, false],
+      infos: ["Episode II"],
+      images: ["sw1255.original.png"],
+      glow_color: '#0099ffff',
+    },
+    {
+      name: "Obi-Wan Kenobi",
+      infos: ["Clone Wars", "Clone Wars (Old)"],
+      images: ["sw1424.png", "sw0449.png"],
+      locked: [true, false],
       glow_color: '#0099ffff',
       wantedList: true
     },
@@ -64,6 +70,7 @@ export const starWarsGroups = [{
     {
       name: "Anakin Skywalker",
       info: "Padawan",
+      images: ["sw0488.png"],
       locked: true
     },
     {
@@ -90,16 +97,19 @@ export const starWarsGroups = [{
     },
     {
       name: "Yoda",
-      locked: true
+      images: ["sw0707.png"],
+      locked: true,
+      wantedList: true
     },
     {
       name: "Obi-Wan Kenobi",
       info: "Episode III",
+      images: ["sw0362.png"],
       locked: true
     },
     {
       name: "Anakin Skywalker",
-      info: "Jedi",
+      info: "Episode III",
       images: ["80564.png"],
       glow_color: '#0099ffff'
     },
@@ -110,6 +120,7 @@ export const starWarsGroups = [{
     },
     {
       name: "Commander Cody",
+      images: ["sw1233.png"],
       locked: true
     },
     {
@@ -129,16 +140,17 @@ export const starWarsGroups = [{
     },
     {
       name: "Rebel Friend",
-      locked: true
+      images: ["sw1285.jpg"],
     },
     {
       name: "Luke Skywalker",
       infos: ["Tatooine", "Stormtrooper"],
       images: ["sw0778.png", "sw1203.png"],
-      locked: true
+      locked: [true, true]
     },
     {
       name: "Ben Kenobi",
+      images: ["sw0552.png"],
       locked: true
     },
     {
@@ -169,6 +181,7 @@ export const starWarsGroups = [{
     {
       name: "Princess Leia",
       infos: ["Boushh", "Slave", "Endor"],
+      images: ["sw0407.png", "sw1389.original.png", ""],
       locked: [true, true, true]
     },
     {
@@ -178,7 +191,6 @@ export const starWarsGroups = [{
     },
     {
       name: "Darth Vader",
-      info: "",
       images: ["sw1273.png"],
       glow_color: '#ff0000ff'
     },
@@ -190,6 +202,7 @@ export const starWarsGroups = [{
     },
     {
       name: "PK Droid",
+      images: ["sw0591.png"],
       locked: true
     },
     {
@@ -220,7 +233,6 @@ export const starWarsGroups = [{
     },
     {
       name: "Darth Maul",
-      info: "",
       images: ["sw1415.png", "sw1333.png"],
       glow_color: '#ff0000ff'
     },
@@ -251,7 +263,8 @@ export const starWarsGroups = [{
     {
       name: "Jango Fett",
       images: ["sw1406.png"],
-      locked: true
+      locked: true,
+      wantedList: true
     },
     {
       name: "Boba Fett",
@@ -263,14 +276,16 @@ export const starWarsGroups = [{
       name: "Count Dooku",
       images: ["sw0472.png"],
       glow_color: '#ff0000ff',
-      locked: true
+      locked: true,
+      wantedList: true
     },
     {
       name: "General Grievous",
       images: ["sw0515.png"],
-      locked: true
+      locked: true,
+      wantedList: true
     },
-        {
+    {
       name: "Imperial Stormtrooper",
       images: ["sw1327.png"],
       locked: true
