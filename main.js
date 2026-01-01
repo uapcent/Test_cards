@@ -77,10 +77,13 @@ function displayCardInfo(groups) {
     section.appendChild(grid);
     groupsContainer.appendChild(section);
 
-    new Sortable(grid, {
-      animation: 150,
-      ghostClass: 'sortable-ghost'
-    });
+const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+new Sortable(grid, {
+  animation: 150,
+  ghostClass: 'sortable-ghost',
+  disabled: isTouch
+});
   });
 
   initFilters();
