@@ -34,6 +34,14 @@ h1 {
   box-shadow: 0 0 24px 8px var(--glow-color, #d85f5f), 0 0 48px 16px #97979779;
 }
 
+@media (pointer: coarse) {
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
 .card img {
   width: 100%;
   height: 150px;      /* Fixed height for uniformity */
