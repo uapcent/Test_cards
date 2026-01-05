@@ -15,8 +15,7 @@ export const miscGroups = [
             {
                 name: "Draco Malfoy",
                 images: ["hp254.jpg"]
-            }
-            ,
+            },
             {
                 name: "Voldemort",
                 infos: ["Lego Dimensions"],
@@ -49,12 +48,10 @@ export const miscGroups = [
                 name: "Usopp",
                 images: ["op015.original.png"]
             },
-
             {
                 name: "Shanks",
                 images: ["op001.original.png"]
             },
-
             {
                 name: "Buggy the Clown",
                 images: ["op004.original.png"],
@@ -217,7 +214,6 @@ export const miscGroups = [
                 locked: [true, false],
                 wantedList: true
             },
-
             {
                 name: "President Business",
                 info: "The Lego Movie",

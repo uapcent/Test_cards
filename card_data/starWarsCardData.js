@@ -47,12 +47,16 @@ export const starWarsGroups = [{
       info: "Boy",
       locked: true
     },
-
     {
       name: "Obi-Wan Kenobi",
       infos: ["Episode II"],
       images: ["sw1255.original.png"],
       glow_color: '#0099ffff',
+    },
+    {
+      name: "Clone",
+      images: ["sw0442.png"],
+      locked: true
     },
     {
       name: "Obi-Wan Kenobi",
@@ -61,6 +65,12 @@ export const starWarsGroups = [{
       locked: [true, false],
       glow_color: '#0099ffff',
       wantedList: true
+    },
+        {
+      name: "Anakin Skywalker",
+      info: "Clone Wars",
+      images: ["sw0939.original.png"],
+      locked: true
     },
     {
       name: "R4-P17",
@@ -96,6 +106,11 @@ export const starWarsGroups = [{
       locked: true
     },
     {
+      name: "Kit Fisto",
+      glow_color: '#00ffafff',
+      locked: true
+    },
+    {
       name: "Yoda",
       images: ["sw0707.png"],
       locked: true,
@@ -105,6 +120,7 @@ export const starWarsGroups = [{
       name: "Obi-Wan Kenobi",
       info: "Episode III",
       images: ["sw0362.png"],
+      glow_color: '#0099ffff',
       locked: true
     },
     {
@@ -117,6 +133,10 @@ export const starWarsGroups = [{
       name: "Chancellor Palpatine",
       images: ["sw1306.png"],
       locked: true
+    },
+    {
+      name: "Captain Rex",
+      images: ["sw0450.png"],
     },
     {
       name: "Commander Cody",
@@ -236,15 +256,6 @@ export const starWarsGroups = [{
       name: "Darth Maul",
       images: ["sw1415.png", "sw1333.png"],
       glow_color: '#ff0000ff'
-    },
-    {
-      name: "Clone",
-      images: ["sw0442.png"],
-      locked: true
-    },
-    {
-      name: "Captain Rex",
-      images: ["sw0450.png"],
     },
     {
       name: "Clone Scout Trooper",

@@ -192,9 +192,36 @@ export const marvelGroups = [
                 images: ["colmar17.original.png"],
                 locked: true
             },
+            // Guardians of the Galaxy Series
+            {
+                name: "Star-Lord",
+                locked: true
+            },
+            {
+                name: "Gamora",
+                locked: true
+            },
+            {
+                name: "Drax",
+                locked: true
+            },
+            {
+                name: "Groot",
+                locked: true
+            },
+            {
+                name: "Rocket Raccoon",
+                locked: true
+            },
+
             // Villains
             {
                 name: "Dr Doom",
+                locked: true
+            },
+            {
+                name: "Thanos",
+                locked: true
             },
             {
                 name: "Crossbones",

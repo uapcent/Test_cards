@@ -172,6 +172,8 @@ export const dcGroups = [
       },
             {
         name: "Condiment King",
+        images: ["sh0488.original.png"],
+        locked: true
       },
       {
         name: "Deathstroke",
@@ -182,7 +184,6 @@ export const dcGroups = [
         images: ["sh0526.png"],
         locked: true
       },
-
       {
         name: "Lex Luthor",
         infos: ["Black suit", "Power Armor"],

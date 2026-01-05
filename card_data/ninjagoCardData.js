@@ -202,7 +202,6 @@ export const ninjagoGroups = [{
       info: "The Lego Ninjago Movie",
       images: ["njo0358.jpg"],
     },
-
     {
       name: "Dummy, Training",
       info: "The Golden Weapons",
