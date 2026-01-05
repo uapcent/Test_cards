@@ -48,6 +48,11 @@ export const starWarsGroups = [{
       locked: true
     },
     {
+      name: "Darth Maul",
+      images: ["sw1415.png", "sw1333.png"],
+      glow_color: '#ff0000ff'
+    },
+    {
       name: "Obi-Wan Kenobi",
       infos: ["Episode II"],
       images: ["sw1255.original.png"],
@@ -71,6 +76,12 @@ export const starWarsGroups = [{
       info: "Clone Wars",
       images: ["sw0939.original.png"],
       locked: true
+    },
+    {
+      name: "Ahsoka Tano",
+      infos: ["Padawan"],
+      images: ["sw1396.png"],
+      glow_color: '#00ffafff'
     },
     {
       name: "R4-P17",
@@ -216,6 +227,11 @@ export const starWarsGroups = [{
       glow_color: '#ff0000ff'
     },
     {
+      name: "Imperial Stormtrooper",
+      images: ["sw1327.png"],
+      locked: true
+    },
+    {
       name: "Gonk Droid",
       info: "Servo (SR-V0)",
       images: ["sw1380.png"],
@@ -251,11 +267,6 @@ export const starWarsGroups = [{
       name: "Gungan Soldier",
       info: "Episode I",
       images: ["sw0302.png"],
-    },
-    {
-      name: "Darth Maul",
-      images: ["sw1415.png", "sw1333.png"],
-      glow_color: '#ff0000ff'
     },
     {
       name: "Clone Scout Trooper",
@@ -298,11 +309,6 @@ export const starWarsGroups = [{
       wantedList: true
     },
     {
-      name: "Imperial Stormtrooper",
-      images: ["sw1327.png"],
-      locked: true
-    },
-    {
       name: "Jedi Bob",
       info: "Bobarian Afol",
       images: ["sw1379.png"],
@@ -320,11 +326,6 @@ export const starWarsGroups = [{
     {
       name: "Jek Porkins",
       images: ["sw0372.png"]
-    },
-    {
-      name: "Ahsoka Tano",
-      infos: ["Padawan"],
-      images: ["sw1396.png"]
     },
     {
       name: "R7-A7",

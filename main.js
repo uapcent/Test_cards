@@ -8,6 +8,15 @@ import { miscGroups } from './card_data/miscCardData.js';
 
 const IMAGE_BASE_PATH = "assets/minifigures_images/";
 
+const allGroups = [
+  ...marvelGroups,
+  ...dcGroups,
+  ...ninjagoGroups,
+  ...starWarsGroups,
+  ...miscGroups
+];
+
+
 
 // Helper to normalize card data
 function normalizeCard(card) {
@@ -26,11 +35,8 @@ function normalizeCard(card) {
 
 
 // Normalize all cards
-displayCardInfo(marvelGroups);
-displayCardInfo(dcGroups);
-displayCardInfo(ninjagoGroups);
-displayCardInfo(starWarsGroups);
-displayCardInfo(miscGroups);
+displayCardInfo(allGroups);
+
 
 function displayCardInfo(groups) {
   groups.forEach(group => {
