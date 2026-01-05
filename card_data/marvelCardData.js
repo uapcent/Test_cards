@@ -2,6 +2,7 @@ export const marvelGroups = [
     {
         name: "Marvel",
         cards: [
+            // Avengers Series
             {
                 name: "Iron Man",
                 info: "Mark 45 Armor",
@@ -16,9 +17,31 @@ export const marvelGroups = [
                 glow_color: '#09ff00ff'
             },
             {
+                name: "Captain America",
+                locked: true
+            },
+            {
+                name: "Thor",
+                locked: true
+            },
+            {
+                name: "Hawkeye",
+                images: ["colmar18.png"],
+                locked: true
+            },
+            {
                 name: "Black Widow",
                 info: "Captain America: Civil War",
                 images: ["sh0186.png"],
+            },
+            {
+                name: "Scarlet Witch",
+                info: "Infinity Saga",
+                images: ["sh0897.jpg"],
+            },
+            {
+                name: "Vision",
+                images: ["sh0303.png"],
             },
             {
                 name: "Falcon",
@@ -26,19 +49,64 @@ export const marvelGroups = [
                 images: ["sh0261.png"],
             },
             {
+                name: "Dr Strange",
+                images: ["sh0802.png"],
+            },
+            {
                 name: "Moon Knight",
                 images: ["colmar14.png"],
                 glow_color: '#ffffffff'
             },
             {
+                name: "Black Panther",
+                images: ["sh1019.original.png"],
+                locked: true
+            },
+            {
+                name: "Winter Soldier",
+                images: ["sh0257.original.png"],
+                locked: true
+            },
+            {
+                name: "Daredevil",
+                images: ["sh0724.original.png"],
+                locked: true
+            },
+            // X-Men Series
+            {
                 name: "Storm",
                 images: ["colmar23.png"],
             },
             {
-                name: "Scarlet Witch",
-                info: "Infinity Saga",
-                images: ["sh0897.jpg"],
+                name: "Jean Grey",
             },
+            {
+                name: "Quicksilver",
+            },
+            {
+                name: "Magneto",
+                images: ["sh0031.original.png"],
+                locked: true
+            },
+            {
+                name: "Professor X",
+            },
+            {
+                name: "Cyclops",
+                images: ["sh0992.original.png"],
+                locked: true
+            },
+            {
+                name: "Deadpool",
+                images: ["sh0032.original.png"],
+                locked: true
+            },
+            {
+                name: "Wolverine",
+                images: ["sh0017.original.png"],
+                locked: true
+            },
+            // Spider-man Series
             {
                 name: "Spider-man",
                 info: "Black Web Pattern",
@@ -48,7 +116,7 @@ export const marvelGroups = [
                 name: "Spider-Man - Miles Morales",
                 images: ["colspi01.original.png"]
             },
-            
+
             {
                 name: "Spider-Gwen - Gwen Stacy",
                 images: ["colspi04.original.png"]
@@ -78,7 +146,6 @@ export const marvelGroups = [
                 info: "Across the Spider-Verse",
                 images: ["colspi06.original.png"]
             },
-            
             {
                 name: "Patrick O'Hara / Web-Slinger",
                 info: "Across the Spider-Verse",
@@ -89,27 +156,59 @@ export const marvelGroups = [
                 info: "Across the Spider-Verse",
                 images: ["colspi13.original.png"]
             },
+            // Fantastic Four Series
+            {
+                name: "Mr. Fantastic",
+            },
+            {
+                name: "Inivisible Woman",
+            },
+            {
+                name: "Human Torch",
+            },
+            {
+                name: "The Thing",
+            },
+            {
+                name: "War Machine",
+                infos: ["", "Iron Patriot"],
+                images: ["sh0819.original.png", "sh0084.png"],
+                locked: true
+            },
+            {
+                name: "Captain Marvel",
+                images: ["sh0639.png"],
+                locked: true
+            },
+            {
+                name: "Hawkeye",
+                info: "Kate Bishop",
+                images: ["colmar19.png"],
+                locked: true,
+                wantedList: true
+            },
+            {
+                name: "She-Hulk",
+                images: ["colmar17.original.png"],
+                locked: true
+            },
+            // Villains
+            {
+                name: "Dr Doom",
+            },
             {
                 name: "Crossbones",
                 info: "Captain America: Civil War",
                 images: ["sh0262.png"],
             },
             {
-                name: "Armored Truck Driver",
-                images: ["sh0109.png"],
+                name: "Ultron",
+                locked: true
             },
             {
                 name: "Ultron Sentry",
-                images: ["sh0166.png"],
-            },
-            {
-                name: "Ultron Sentry Officer",
-                images: ["sh0165.png"],
-            },
-            {
-                name: "Iron Patriot",
-                images: ["sh0084.png"],
-                locked: true
+                infos: ["", "Officer"],
+                images: ["sh0166.png", "sh0165.png"],
             },
             {
                 name: "GhostRider",
@@ -122,21 +221,13 @@ export const marvelGroups = [
                 locked: true
             },
             {
-                name: "Captain Marvel",
-                images: ["sh0639.png"],
-                locked: true
+                name: "Loki",
+                infos: ["Infinity Saga", "TVA Variant"],
+                images: ["sh0860.original.png", "colmar06.original.png"],
+                locked: [true, true],
+                wantedList: true
             },
-            {
-                name: "Hawkeye",
-                images: ["colmar18.png"],
-                locked: true
-            },
-            {
-                name: "Hawkeye",
-                info: "Kate Bishop",
-                images: ["colmar19.png"],
-                locked: true
-            },
+            // Spider-Man Villains
             {
                 name: "Green Goblin",
                 images: ["sh0695.jpg"]
@@ -159,6 +250,19 @@ export const marvelGroups = [
                 images: ["sh0110.png"],
             },
             {
+                name: "Lizard",
+                locked: true
+            },
+            {
+                name: "Vulture",
+                images: ["sh0618.png"],
+                locked: true
+            },
+            {
+                name: "Electro",
+                locked: true
+            },
+            {
                 name: "Agatha Harkness",
                 info: "Minifigures Series 2",
                 images: ["colmar13.original.png"],
@@ -168,8 +272,10 @@ export const marvelGroups = [
                 name: "J. Jonah Jameson",
                 images: ["sh0710.original.png"]
             },
-
-
+            {
+                name: "Armored Truck Driver",
+                images: ["sh0109.png"],
+            }
         ]
     },
 ];

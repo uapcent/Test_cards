@@ -55,6 +55,9 @@ function displayCardInfo(groups) {
       const div = document.createElement("div");
       div.classList.add("card");
       if (card.wantedList) div.classList.add("wantedList");
+      if (card.images == undefined || card.images.length === 0) {
+        card.images = [IMAGE_BASE_PATH + "unknown_character.png"];
+      }
 
       div.dataset.group = group.name;
       div.dataset.cardIdx = cardIdx;

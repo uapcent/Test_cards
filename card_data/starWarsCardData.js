@@ -151,6 +151,7 @@ export const starWarsGroups = [{
     {
       name: "Ben Kenobi",
       images: ["sw0552.png"],
+      glow_color: '#0099ffff',
       locked: true
     },
     {

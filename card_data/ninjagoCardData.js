@@ -207,6 +207,17 @@ export const ninjagoGroups = [{
       name: "Dummy, Training",
       info: "The Golden Weapons",
       images: ["gen035.png"],
+    },
+    {
+      name: "Dareth",
+      images: ["njo0110.png"],
+      locked: true
+      
+    },
+    {
+      name: "Pixal",
+      images: ["njo0742.original.png"],
+      locked: true
     }
   ]
 },];

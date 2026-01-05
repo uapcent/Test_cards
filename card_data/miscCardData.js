@@ -160,8 +160,6 @@ export const miscGroups = [
 
         ]
     },
-
-
     {
         name: "Lego City",
         cards: [

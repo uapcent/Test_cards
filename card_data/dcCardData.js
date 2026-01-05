@@ -135,7 +135,7 @@ export const dcGroups = [
       {
         name: "The Penguin",
         images: ["sh0314.png"],
-        locked: true, 
+        locked: true,
         wantedList: true
       },
       {
@@ -151,6 +151,10 @@ export const dcGroups = [
         wantedList: true
       },
       {
+        name: "Killer Crock",
+        locked: true
+      },
+      {
         name: "Bane",
         images: ["sh0009.png"],
         locked: true,
@@ -158,13 +162,16 @@ export const dcGroups = [
       },
       {
         name: "The Riddler",
-        images: ["sh1081.jpg","sh0593.png"],
+        images: ["sh1081.jpg", "sh0593.png"],
         locked: [false, true]
       },
       {
         name: "Sinestro",
         images: ["sh0144.png"],
         glow_color: '#ffe600ff'
+      },
+            {
+        name: "Condiment King",
       },
       {
         name: "Deathstroke",
@@ -175,7 +182,7 @@ export const dcGroups = [
         images: ["sh0526.png"],
         locked: true
       },
-      
+
       {
         name: "Lex Luthor",
         infos: ["Black suit", "Power Armor"],
@@ -192,7 +199,7 @@ export const dcGroups = [
         images: ["sh0143.png"],
         locked: true
       },
-            {
+      {
         name: "Flash - Jay Garrick",
         images: ["colsh15.png"],
         locked: true
@@ -202,7 +209,6 @@ export const dcGroups = [
         images: ["sh0471.png"],
         locked: true
       },
-      
       {
         name: "Captain Cold",
         images: ["sh0148.png"],
@@ -215,7 +221,7 @@ export const dcGroups = [
         locked: [true, true, true],
         wantedList: true
       },
-            {
+      {
         name: "Alfred Pennyworth",
         infos: ["Lego Batman Movie"],
         images: ["sh0313.png"],
