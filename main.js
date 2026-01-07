@@ -26,7 +26,8 @@ function normalizeCard(card) {
       image: v.image ? IMAGE_BASE_PATH + v.image : UNKNOWN_IMAGE,
       info: v.info || "",
       locked: !!v.locked,
-      wantedList: !!v.wantedList // now each variant has it
+      wantedList: !!v.wantedList,
+      defective: !!v.defective
     }));
 
     return {
@@ -34,7 +35,8 @@ function normalizeCard(card) {
       glow_color: card.glow_color,
       variants,
       filteredVariants: [...variants],
-      currentIndex: 0
+      currentIndex: 0,
+      defective: !!card.defective
     };
   }
 
@@ -43,7 +45,8 @@ function normalizeCard(card) {
     image: card.image ? IMAGE_BASE_PATH + card.image : UNKNOWN_IMAGE,
     info: card.info || "",
     locked: !!card.locked,
-    wantedList: !!card.wantedList
+    wantedList: !!card.wantedList,
+    defective: !!card.defective
   };
 
   return {
@@ -51,7 +54,8 @@ function normalizeCard(card) {
     glow_color: card.glow_color,
     variants: [variant],
     filteredVariants: [variant],
-    currentIndex: 0
+    currentIndex: 0,
+    defective: !!card.defective
   };
 }
 
@@ -103,6 +107,11 @@ function createCardElement(card, groupName, cardIdx) {
   div.style.setProperty("--glow-color", card.glow_color);
 
   const variant = card.filteredVariants[0];
+
+  div.className = "card";
+  if (variant.defective) div.classList.add("defective");
+
+
   const variantInfo = variant ? variant.info : "No available variants";
   const variantImage = variant
     ? variant.image
@@ -141,14 +150,18 @@ function attachCardInteractions(groups) {
     const card = group.cards[cardDiv.dataset.cardIdx];
     if (!card.filteredVariants.length) return;
 
-    card.currentIndex =
-      (card.currentIndex + 1) % card.filteredVariants.length;
-
+    card.currentIndex = (card.currentIndex + 1) % card.filteredVariants.length;
     const variant = card.filteredVariants[card.currentIndex];
 
     const img = cardDiv.querySelector("img");
     img.src = variant.image;
     img.style.filter = variant.locked ? "grayscale(100%)" : "";
+    cardDiv.querySelector(".card-desc").textContent = variant.info;
+
+    // 🔴 update defective class
+    if (variant.defective) cardDiv.classList.add("defective");
+    else cardDiv.classList.remove("defective");
+
 
     cardDiv.querySelector(".card-desc").textContent = variant.info;
   });
