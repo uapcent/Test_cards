@@ -5,148 +5,228 @@ export const dcGroups = [
       // Main bat-family
       {
         name: "Batman",
-        infos: ["New 52", "Lego Batman movie", "Wing Suit", "Armored Suit", "Space Suit", "Fairy Batman", "The Batman Movie"],
-        images: ["sh0151.png", "sh0329.png", "sh0402.png", "sh0217.png", "sh0146.png", "coltlbm03.png", "sh0786.png"],
-        locked: [false, false, false, false, false, false, true],
+        currentIndex: 0,
+        variants: [
+          {
+            image: "sh0151.png",
+            info: "New 52",
+            locked: false
+          },
+          {
+            image: "sh0329.png",
+            info: "Lego Batman movie",
+            locked: false
+          },
+          {
+            image: "sh0402.png",
+            info: "Wing Suit",
+            locked: false
+          },
+          {
+            image: "sh0217.png",
+            info: "Armored Suit",
+            locked: false
+          },
+          {
+            image: "sh0146.png",
+            info: "Space Suit",
+            locked: false
+          }, {
+            image: "coltlbm03.png",
+            info: "Fairy Batman",
+            locked: false
+          },
+          {
+            image: "sh0786.png",
+            info: "The Batman Movie",
+            locked: true
+          }
+        ]
       },
       {
         name: "Robin - Dick Grayson",
         info: "Lego Batman Movie",
-        images: ["sh0315.png"],
+        image: "sh0315.png"
       },
       {
         name: "Robin - Tim Drake",
-        infos: ["New 52", "Batman 2"],
-        images: ["sh0195.jpg", "sh0011.png"],
-        locked: [false, true]
+        variants: [{
+          image: "sh0195.jpg",
+          info: "New 52",
+          locked: false
+        }, {
+          image: "sh0011.png",
+          info: "Batman 2",
+          locked: true
+        }]
       },
       {
         name: "Robin - Damian Wayne",
-        images: ["sh0289.png"],
+        image: "sh0289.png",
         locked: [true],
         wantedList: true
       },
       {
         name: "Nightwing",
-        images: ["sh0659.png"],
+        image: "sh0659.png",
         locked: true,
         wantedList: true
       },
       {
         name: "Red Hood",
-        images: ["sh0282.png"],
+        image: "sh0282.png",
         locked: true,
         wantedList: true
 
       },
       {
         name: "Batgirl",
-        info: ["Lego Batman Movie", "Rebirth"],
-        images: ["sh0305.png", "sh0658.png"],
-        locked: [false, true]
+        variants: [
+          {
+            image: "sh0305.png",
+            info: "Lego Batman Movie",
+            locked: false
+          }, {
+            image: "sh0658.png",
+            info: "Rebirth",
+            locked: true
+          }
+        ]
       },
       // Justice League
       {
         name: "Superman",
-        infos: ["Classic Superman", "Down of Justice"],
-        images: ["sh1055.png", "sh0219.png"],
+        variants: [
+          {
+            image: "sh1055.png",
+            info: "Classic Superman",
+            locked: false
+          },
+          {
+            image: "sh0219.png",
+            info: "Down of Justice",
+            locked: true
+          }
+        ]
       },
       {
         name: "Wonder Woman",
-        images: ["sh0456.png"],
+        image: "sh0456.png",
         locked: true
       },
       {
         name: "Aquaman",
-        images: ["sh0050.original.png", "colsh03.png"],
+        variants: [
+          {
+            image: "sh0050.original.png",
+            info: "Classic Aquaman",
+            locked: true
+          },
+          {
+            image: "colsh03.png",
+            info: "Aquaman: The New 52",
+            locked: true
+          }
+        ],
         locked: true,
         wantedList: true
       },
       {
         name: "Green Lantern",
         info: "Hal Jordan",
-        images: ["sh0145.png"],
+        image: "sh0145.png",
         glow_color: '#09ff00ff'
       },
       {
         name: "The Flash",
-        images: ["sh0087.png"],
+        image: "sh0087.png",
         locked: true,
         glow_color: '#ffe600ff',
         wantedList: true
       }, {
         name: "Hawkman",
-        images: ["sh0154.png"],
+        image: "sh0154.png",
         locked: true
       },
       {
         name: "Hawkgirl",
-        images: ["sh0461.png"],
+        image: "sh0461.png",
         locked: true
       },
       {
         name: "Cyborg",
-        images: ["sh0155.png"],
+        image: "sh0155.png",
         locked: true
       },
       {
         name: "Martian ManHunter",
-        images: ["sh0158.png"],
+        image: "sh0158.png",
         locked: true
       },
       // Other heroes
       {
         name: "Supergirl",
-        images: ["sh0670.png"],
+        image: "sh0670.png",
         locked: true
       },
       {
         name: "Bizarro",
-        images: ["sh0043.png"],
+        image: "sh0043.png",
         locked: true
       },
       // Bat-Villains
       {
         name: "The Joker",
-        infos: ["", "Lego Batman Movie"],
-        images: ["dim017.png", "sh0353.png"],
+        variants: [{
+          image: "dim017.png",
+        }, {
+          info: "Lego Batman Movie",
+          image: "sh0353.png"
+        }]
       },
       {
         name: "Harley Quinn",
-        images: ["sh0024.png"],
+        image: "sh0024.png",
       },
       {
         name: "Scarecrow",
         info: "Lego Batman Movie",
-        images: ["sh0391.png"],
+        image: "sh0391.png",
       },
       {
         name: "Two Face",
-        images: ["sh0007.png"],
+        image: "sh0007.png",
         locked: true,
         wantedList: true
       },
       {
         name: "Poison Ivy",
-        images: ["sh0327.png"],
+        image: "sh0327.png",
         locked: true,
         wantedList: true
       },
       {
         name: "The Penguin",
-        images: ["sh0314.png"],
+        image: "sh0314.png",
         locked: true,
         wantedList: true
       },
       {
         name: "Catwoman",
-        infos: ["Lego Batman Movie", ""],
-        images: ["sh0330.png", "sh0595.png"],
-        locked: [false, true]
+        locked: [false, true],
+        variants: [{
+          info: "Lego Batman Movie",
+          image: "sh0330.png",
+          locked: false
+        }, {
+          info: "",
+          image: "sh0595.png",
+          locked: true
+        }]
       },
       {
         name: "Mr Freeze",
-        images: ["sh0049.png"],
+        image: "sh0049.png",
         locked: true,
         wantedList: true
       },
@@ -156,76 +236,103 @@ export const dcGroups = [
       },
       {
         name: "Bane",
-        images: ["sh0009.png"],
+        image: "sh0009.png",
         locked: true,
         wantedList: true
       },
       {
         name: "The Riddler",
-        images: ["sh1081.jpg", "sh0593.png"],
-        locked: [false, true]
+        variants: [{
+          image: "sh1081.jpg",
+          locked: false
+        }, {
+          image: "sh0593.png",
+          locked: true
+        }]
       },
       {
         name: "Sinestro",
-        images: ["sh0144.png"],
+        image: "sh0144.png",
         glow_color: '#ffe600ff'
       },
-            {
+      {
         name: "Condiment King",
-        images: ["sh0488.original.png"],
+        image: "sh0488.original.png",
         locked: true
       },
       {
         name: "Deathstroke",
-        images: ["sh0194.jpg"],
+        image: "sh0194.jpg",
       },
       {
         name: "Black Manta",
-        images: ["sh0526.png"],
+        image: "sh0526.png",
         locked: true
       },
       {
         name: "Lex Luthor",
-        infos: ["Black suit", "Power Armor"],
-        images: ["sh0012.png", "sh1007.png"],
-        locked: [true, true]
+        variants: [
+          {
+            info: "Black suit",
+            image: "sh0012.png",
+            locked: true
+          },
+          {
+            info: "Power Armor",
+            image: "sh1007.png",
+            locked: true
+          }
+        ]
       },
       {
         name: "Metamorpho",
-        images: ["colsh12.png"],
+        image: "colsh12.png",
         locked: true
       },
       {
         name: "Superboy",
-        images: ["sh0143.png"],
+        image: "sh0143.png",
         locked: true
       },
       {
         name: "Flash - Jay Garrick",
-        images: ["colsh15.png"],
+        image: "colsh15.png",
         locked: true
       },
       {
         name: "Reverse Flash",
-        images: ["sh0471.png"],
+        image: "sh0471.png",
         locked: true
       },
       {
         name: "Captain Cold",
-        images: ["sh0148.png"],
+        image: "sh0148.png",
         locked: true
       },
       {
         name: "Commissioner Gordon",
-        infos: ["", "Lego Batman Movie", "The Dark Knight Triology"],
-        images: ["sh0591.png", "coltlbm07.png", "sh0063.png"],
-        locked: [true, true, true],
+        variants: [
+          {
+            image: "sh0591.png",
+            locked: true
+          },
+          {
+            info: "Lego Batman Movie",
+            image: "coltlbm07.png",
+            locked: true
+          },
+          {
+            info: "The Dark Knight Triology",
+            image: "sh0063.png",
+            locked: true
+          }
+        ],
         wantedList: true
       },
       {
         name: "Alfred Pennyworth",
-        infos: ["Lego Batman Movie"],
-        images: ["sh0313.png"],
+        info: "Lego Batman Movie",
+        image: "sh0313.png",
         locked: [true],
         wantedList: true
       }

@@ -5,6 +5,7 @@ import { dcGroups } from "./card_data/dcCardData.js";
 import { ninjagoGroups } from "./card_data/ninjagoCardData.js";
 import { starWarsGroups } from "./card_data/starWarsCardData.js";
 import { miscGroups } from "./card_data/miscCardData.js";
+import { testGroups } from "./card_data/testData.js";
 
 const IMAGE_BASE_PATH = "assets/minifigures_images/";
 const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.png";
@@ -15,22 +16,45 @@ const allGroups = [
   ...ninjagoGroups,
   ...starWarsGroups,
   ...miscGroups
+  // ...testGroups
 ];
 
-// Normalization (single responsibility)
+// -------- Normalization --------
 function normalizeCard(card) {
-  const images = (card.images || []).map(img => IMAGE_BASE_PATH + img);
+  if (card.variants && card.variants.length) {
+    const variants = card.variants.map(v => ({
+      image: v.image ? IMAGE_BASE_PATH + v.image : UNKNOWN_IMAGE,
+      info: v.info || "",
+      locked: !!v.locked,
+      wantedList: !!v.wantedList // now each variant has it
+    }));
+
+    return {
+      name: card.name,
+      glow_color: card.glow_color,
+      variants,
+      filteredVariants: [...variants],
+      currentIndex: 0
+    };
+  }
+
+  // Single-image card → wrap into a single variant
+  const variant = {
+    image: card.image ? IMAGE_BASE_PATH + card.image : UNKNOWN_IMAGE,
+    info: card.info || "",
+    locked: !!card.locked,
+    wantedList: !!card.wantedList
+  };
 
   return {
     name: card.name,
-    images: images.length ? images : [UNKNOWN_IMAGE],
-    infos: Array.isArray(card.infos) ? card.infos : [card.info || ""],
-    locked: Array.isArray(card.locked) ? card.locked : [card.locked || false],
-    wantedList: !!card.wantedList,
     glow_color: card.glow_color,
+    variants: [variant],
+    filteredVariants: [variant],
     currentIndex: 0
   };
 }
+
 
 function normalizeGroups(groups) {
   groups.forEach(group => {
@@ -38,7 +62,7 @@ function normalizeGroups(groups) {
   });
 }
 
-// Rendering (pure DOM work)
+// -------- Rendering --------
 function renderGroups(groups) {
   const container = document.getElementById("groupsContainer");
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
@@ -68,37 +92,42 @@ function renderGroups(groups) {
   });
 }
 
-// Car creation
+// -------- Card creation --------
 function createCardElement(card, groupName, cardIdx) {
   const div = document.createElement("div");
   div.className = "card";
 
-  if (card.wantedList) div.classList.add("wantedList");
-
   div.dataset.group = groupName;
   div.dataset.cardIdx = cardIdx;
-  div.dataset.wantedList = card.wantedList;
-  div.dataset.locked = card.locked.some(Boolean);
 
   div.style.setProperty("--glow-color", card.glow_color);
 
+  const variant = card.filteredVariants[0];
+  const variantInfo = variant ? variant.info : "No available variants";
+  const variantImage = variant
+    ? variant.image
+    : UNKNOWN_IMAGE;
+
+  const lockedVariant = variant ? variant.locked : true;
+
   div.innerHTML = `
     <img
-      src="${card.images[0]}"
+      src="${variantImage}"
       alt="${card.name}"
       loading="lazy"
-      style="${card.locked[0] ? "filter: grayscale(100%)" : ""}"
+      style="${lockedVariant ? "filter: grayscale(100%)" : ""}"
     >
     <div class="overlay">
       <strong>${card.name}</strong><br>
-      <span class="card-desc">${card.infos[0]}</span>
+      <span class="card-desc">${variantInfo}</span>
     </div>
   `;
 
   return div;
 }
 
-// Event handling
+
+// -------- Interactions --------
 function attachCardInteractions(groups) {
   const container = document.getElementById("groupsContainer");
 
@@ -110,16 +139,20 @@ function attachCardInteractions(groups) {
     if (!group) return;
 
     const card = group.cards[cardDiv.dataset.cardIdx];
+    if (!card.filteredVariants.length) return;
 
-    card.currentIndex = (card.currentIndex + 1) % card.images.length;
+    card.currentIndex =
+      (card.currentIndex + 1) % card.filteredVariants.length;
+
+    const variant = card.filteredVariants[card.currentIndex];
 
     const img = cardDiv.querySelector("img");
-    img.src = card.images[card.currentIndex];
-    img.style.filter = card.locked[card.currentIndex] ? "grayscale(100%)" : "";
+    img.src = variant.image;
+    img.style.filter = variant.locked ? "grayscale(100%)" : "";
 
-    cardDiv.querySelector(".card-desc").textContent =
-      card.infos[card.currentIndex % card.infos.length];
+    cardDiv.querySelector(".card-desc").textContent = variant.info;
   });
+
 
   container.addEventListener("mousemove", e => {
     const cardDiv = e.target.closest(".card");
@@ -146,10 +179,11 @@ function attachCardInteractions(groups) {
   );
 }
 
-// Initialization
+// -------- Init --------
 normalizeGroups(allGroups);
 renderGroups(allGroups);
 attachCardInteractions(allGroups);
 
-initFilters();
+initFilters(allGroups);
 applyFilters();
+

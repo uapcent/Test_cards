@@ -1,15 +1,15 @@
-// filters.js
-
 let filters = {
   wantedList: false,
   unlocked: false
 };
 
-export function initFilters() {
+let groupsRef = null;
+
+export function initFilters(groups) {
+  groupsRef = groups;
+
   const wantedList = document.getElementById("filter-wantedList");
   const unlockedCheckbox = document.getElementById("filter-unlocked");
-
-  if (!wantedList || !unlockedCheckbox) return;
 
   wantedList.addEventListener("change", () => {
     filters.wantedList = wantedList.checked;
@@ -23,20 +23,34 @@ export function initFilters() {
 }
 
 export function applyFilters() {
-  const cards = document.querySelectorAll(".card");
+  document.querySelectorAll(".card").forEach(cardDiv => {
+    const group = groupsRef.find(g => g.name === cardDiv.dataset.group);
+    const card = group.cards[cardDiv.dataset.cardIdx];
 
-  cards.forEach(card => {
-    let visible = true;
+    card.filteredVariants = card.variants.filter(v => {
+      if (filters.unlocked && v.locked) return false;
 
-    if (filters.wantedList && card.dataset.wantedList !== "true") {
-      visible = false;
+      // Card-level wishlist
+      if (filters.wantedList && !v.wantedList) return false; // per-variant check
+
+      return true;
+    });
+
+    card.currentIndex = 0;
+
+    if (!card.filteredVariants.length) {
+      cardDiv.style.display = "none";
+      return;
     }
 
-    if (filters.unlocked && card.dataset.locked === "true") {
-      visible = false;
-    }
+    cardDiv.style.display = "";
 
-    card.style.display = visible ? "" : "none";
+    const variant = card.filteredVariants[0];
+    const img = cardDiv.querySelector("img");
+
+    img.src = variant.image;
+    img.style.filter = variant.locked ? "grayscale(100%)" : "";
+    cardDiv.querySelector(".card-desc").textContent = variant.info;
   });
 
   updateGroupVisibility();
@@ -44,7 +58,9 @@ export function applyFilters() {
 
 function updateGroupVisibility() {
   document.querySelectorAll(".group-section").forEach(section => {
-    const visibleCards = section.querySelectorAll(".card:not([style*='display: none'])");
-    section.style.display = visibleCards.length ? "" : "none";
+    const visibleCard = section.querySelector(
+      ".card:not([style*='display: none'])"
+    );
+    section.style.display = visibleCard ? "" : "none";
   });
 }

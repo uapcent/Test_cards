@@ -3,116 +3,131 @@ export const starWarsGroups = [{
   cards: [
     {
       name: "Qui-Gon Jinn",
-      glow_color: '#4bff27ff',
-      images: ["sw1334b.jpg", "sw1404.png"],
-      locked: [false, true]
+      variants: [{
+        image: "sw1334b.jpg",
+        locked: false
+      }, {
+        image: "sw1404.png",
+        locked: true
+      }],
+      glow_color: '#4bff27ff'
     },
     {
       name: "Obi-Wan Kenobi",
       info: "Padawan",
-      images: ["sw0812.png"],
+      image: "sw0812.png",
       glow_color: '#0099ffff',
       locked: true
     },
     {
       name: "Jar Jar Binks",
       info: "Episode I",
-      images: ["sw0301.png"],
+      image: "sw0301.png",
     },
     {
       name: "Queen Amidala",
       info: "Episode I",
-      images: ["sw0387.png"],
+      image: "sw0387.png",
       locked: true
     },
     {
       name: "Captain Panaka",
-      images: ["sw0321.png"],
+      image: "sw0321.png",
       info: "Episode I",
       locked: true
     },
     {
       name: "Padmé Amidala",
       info: "Senator",
-      images: ["sw1303.png"],
+      image: "sw1303.png",
       locked: true
     },
     {
       name: "R2-D2",
-      images: ["sw0217.png"]
+      image: "sw0217.png"
     },
     {
       name: "Anakin Skywalker",
-      images: ["sw1332.png"],
+      image: "sw1332.png",
       info: "Boy",
       locked: true
     },
     {
       name: "Darth Maul",
-      images: ["sw1415.png", "sw1333.png"],
+      variants: [{
+        image: "sw1415.png"
+      }, {
+        image: "sw1333.png",
+      }],
       glow_color: '#ff0000ff'
     },
     {
       name: "Obi-Wan Kenobi",
-      infos: ["Episode II"],
-      images: ["sw1255.original.png"],
+      info: "Episode II",
+      image: "sw1255.original.png",
       glow_color: '#0099ffff',
     },
     {
       name: "Clone",
-      images: ["sw0442.png"],
+      image: "sw0442.png",
       locked: true
     },
     {
       name: "Obi-Wan Kenobi",
-      infos: ["Clone Wars", "Clone Wars (Old)"],
-      images: ["sw1424.png", "sw0449.png"],
-      locked: [true, false],
+      variants: [{
+        info: "Clone Wars",
+        image: "sw1424.png",
+        wantedList: true,
+        locked: true
+      }, {
+        info: "Clone Wars (Old)",
+        image: "sw0449.png",
+        locked: false
+      }],
       glow_color: '#0099ffff',
-      wantedList: true
     },
-        {
+    {
       name: "Anakin Skywalker",
       info: "Clone Wars",
-      images: ["sw0939.original.png"],
+      image: "sw0939.original.png",
       locked: true
     },
     {
       name: "Ahsoka Tano",
-      infos: ["Padawan"],
-      images: ["sw1396.png"],
+      info: "Padawan",
+      image: "sw1396.png",
       glow_color: '#00ffafff'
     },
     {
       name: "R4-P17",
-      images: ["sw1221.png"],
+      image: "sw1221.png",
       locked: true
     },
     {
       name: "Anakin Skywalker",
       info: "Padawan",
-      images: ["sw0488.png"],
+      image: "sw0488.png",
       locked: true
     },
     {
       name: "Padmé Amidala",
       info: "Geonosis",
-      images: ["sw0490.png"],
+      image: "sw0490.png",
       locked: true
     },
     {
       name: "C-3PO",
-      images: ["sw0365.png"],
+      image: "sw0365.png",
     },
     {
       name: "Mace Windu",
-      images: ["sw1205.png"],
+      image: "sw1205.png",
       glow_color: '#9900ffff',
       locked: true
     },
     {
       name: "Plo Koon",
-      images: ["sw1414.png"],
+      image: "sw1414.png",
       glow_color: '#0099ffff',
       locked: true
     },
@@ -123,229 +138,286 @@ export const starWarsGroups = [{
     },
     {
       name: "Yoda",
-      images: ["sw0707.png"],
+      image: "sw0707.png",
       locked: true,
-      wantedList: true
+      wantedList: true,
+      glow_color: '#33ff00ff'
     },
     {
       name: "Obi-Wan Kenobi",
       info: "Episode III",
-      images: ["sw0362.png"],
+      image: "sw0362.png",
       glow_color: '#0099ffff',
       locked: true
     },
     {
       name: "Anakin Skywalker",
       info: "Episode III",
-      images: ["80564.png"],
+      image: "80564.png",
       glow_color: '#0099ffff'
     },
     {
       name: "Chancellor Palpatine",
-      images: ["sw1306.png"],
+      image: "sw1306.png",
       locked: true
     },
     {
       name: "Captain Rex",
-      images: ["sw0450.png"],
+      image: "sw0450.png",
     },
     {
       name: "Commander Cody",
-      images: ["sw1233.png"],
+      image: "sw1233.png",
       locked: true
     },
     {
       name: "Chewbacca",
-      images: ["sw0532.png"],
+      image: "sw0532.png",
     },
     {
       name: "Princess Leia",
-      infos: ["", "Hoth", "Bespin"],
-      images: ["sw0337.png", "sw0878.png", ""],
-      locked: [true, true, true]
+      variants: [{
+        image: "sw0337.png",
+        locked: true
+      }, {
+        info: "Hoth",
+        image: "sw0878.png",
+        locked: true
+      }, {
+        info: "Bespin",
+        locked: true
+      }]
     },
     {
       name: "Captain Antilles",
-      images: ["sw1328.png"],
+      image: "sw1328.png",
       locked: true
     },
     {
       name: "Rebel Friend",
-      images: ["sw1285.jpg"],
+      image: "sw1285.jpg",
     },
     {
       name: "Luke Skywalker",
-      infos: ["Tatooine", "Stormtrooper"],
-      images: ["sw0778.png", "sw1203.png"],
-      locked: [true, true]
+      variants: [{
+        info: "Tatooine",
+        image: "sw0778.png",
+        locked: true
+      },
+      {
+        info: "Stormtrooper",
+        image: "sw1203.png",
+        locked: true
+      }],
     },
     {
       name: "Ben Kenobi",
-      images: ["sw0552.png"],
+      image: "sw0552.png",
       glow_color: '#0099ffff',
       locked: true
     },
     {
       name: "Han Solo",
-      infos: ["", "Stormtrooper", "Celebration", "Hoth", "Endor"],
-      images: ["sw0539.png", "sw1204.png", "sw0356.png", "sw0709.png", "sw0644.png"],
-      locked: [false, true, false, true, true]
+      variants: [{
+        image: "sw0539.png",
+        locked: false
+      }, {
+        info: "Stormtrooper",
+        image: "sw1204.png",
+        locked: true
+      }, {
+        info: "Celebration",
+        image: "sw0356.png",
+        locked: false
+      }, {
+        info: "Hoth",
+        image: "sw0709.png",
+        locked: true
+      }, {
+        info: "Endor",
+        image: "sw0644.png",
+        locked: true
+      }]
     },
     {
       name: "Luke Skywalker",
-      infos: ["X-Wing Pilot", "Dagobah", "Cloud City"],
-      images: ["sw0295.png", "sw1199.png", "sw0971.png"],
-      locked: [false, true, true]
+      variants: [{
+        info: "X-Wing Pilot",
+        image: "sw0295.png",
+        locked: false
+      }, {
+        info: "Dagobah",
+        image: "sw1199.png",
+        locked: true
+      }, {
+        info: "Cloud City",
+        image: "sw0971.png",
+        locked: true
+      }]
     },
     {
       name: "Lando Calrissian",
-      images: ["sw0973.png"],
+      image: "sw0973.png",
       locked: true
     },
     {
       name: "Luke Skywalker",
-      infos: ["Jedi", "Endor"],
-      images: ["sw1262.png", ""],
-      locked: [true, true],
+      variants: [
+        {
+          info: "Jedi",
+          image: "sw1262.png",
+          locked: true
+        }, {
+          info: "Endor",
+          locked: true
+        }],
       glow_color: '#00ff0dff'
 
     },
     {
       name: "Princess Leia",
-      infos: ["Boushh", "Slave", "Endor"],
-      images: ["sw0407.png", "sw1389.original.png", ""],
-      locked: [true, true, true]
+      variants: [{
+        info: "Boushh",
+        image: "sw0407.png",
+        locked: true
+      }, {
+        info: "Slave",
+        image: "sw1389.original.png",
+        locked: true
+      }, {
+        info: "Endor",
+        locked: true
+      }, {}]
     },
     {
       name: "Wicket",
-      images: ["sw1435.png"],
+      image: "sw1435.png",
       locked: true
     },
     {
       name: "Darth Vader",
-      images: ["sw1273.png"],
+      image: "sw1273.png",
       glow_color: '#ff0000ff'
     },
     {
       name: "Imperial Stormtrooper",
-      images: ["sw1327.png"],
+      image: "sw1327.png",
       locked: true
     },
     {
       name: "Gonk Droid",
       info: "Servo (SR-V0)",
-      images: ["sw1380.png"],
+      image: "sw1380.png",
       locked: false
     },
     {
       name: "PK Droid",
-      images: ["sw0591.png"],
+      image: "sw0591.png",
       locked: true
     },
     {
       name: "Battle Droid",
-      images: ["sw0001c.png"],
+      image: "sw0001c.png",
     },
     {
       name: "Battle Droid Pilot",
-      images: ["sw0300.png"],
+      image: "sw0300.png",
     },
     {
       name: "Commando Droid",
-      images: ["sw0359.png"],
+      image: "sw0359.png",
     },
     {
       name: "Super Battle Droid",
-      images: ["sw0092.png"],
+      image: "sw0092.png",
     },
     {
       name: "Droideka",
       info: "Destroyer Droid",
-      images: ["sw1340.png"],
+      image: "sw1340.png",
     },
     {
       name: "Gungan Soldier",
       info: "Episode I",
-      images: ["sw0302.png"],
+      image: "sw0302.png",
     },
     {
       name: "Clone Scout Trooper",
-      infos: ["41st Elite Corps Scout Battalion"],
-      images: ["sw0518.png"],
+      info: "41st Elite Corps Scout Battalion",
+      image: "sw0518.png",
     },
     {
       name: "Clone ARC Tropper Hammer",
-      infos: ["Rancor Battalion (Phase 2)"],
-      images: ["sw0377.png"],
+      info: "Rancor Battalion (Phase 2)",
+      image: "sw0377.png",
     },
     {
       name: "Clone ARF Trooper",
-      infos: ["Rancor Battalion (Phase 1)"],
-      images: ["sw0378.png"],
+      info: "Rancor Battalion (Phase 1)",
+      image: "sw0378.png",
     },
     {
       name: "Jango Fett",
-      images: ["sw1406.png"],
+      image: "sw1406.png",
       locked: true,
       wantedList: true
     },
     {
       name: "Boba Fett",
       info: "Boy",
-      images: ["sw0844.png"],
+      image: "sw0844.png",
       locked: true
     },
     {
       name: "Count Dooku",
-      images: ["sw0472.png"],
+      image: "sw0472.png",
       glow_color: '#ff0000ff',
       locked: true,
       wantedList: true
     },
     {
       name: "General Grievous",
-      images: ["sw0515.png"],
+      image: "sw0515.png",
       locked: true,
       wantedList: true
     },
     {
       name: "Jedi Bob",
       info: "Bobarian Afol",
-      images: ["sw1379.png"],
+      image: "sw1379.png",
     },
-
     {
       name: "Ackbar Trooper",
       info: "Rebuild the Galaxy",
-      images: ["sw1378.png"],
+      image: "sw1378.png",
     },
     {
       name: "R5-D8 / R5-D4",
-      images: ["sw0373.png"]
+      image: "sw0373.png"
     },
     {
       name: "Jek Porkins",
-      images: ["sw0372.png"]
+      image: "sw0372.png"
     },
     {
       name: "R7-A7",
-      infos: ["Astromech Droid"],
-      images: ["sw1397.png"]
+      info: "Astromech Droid",
+      image: "sw1397.png"
     },
     {
       name: "Boba Fett",
       info: "The Book of Boba Fett",
-      images: ["sw1245.png"],
+      image: "sw1245.png",
     },
     {
       name: "Rey",
       info: "Episonde VII",
-      images: ["sw0677.png"],
+      image: "sw0677.png",
     },
     {
       name: "Unkar's Thug",
       info: "Episonde VII",
-      images: ["sw0655.png"],
+      image: "sw0655.png",
     },
   ]
-},];
+}];
