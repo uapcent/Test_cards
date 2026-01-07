@@ -7,8 +7,8 @@ import { starWarsGroups } from "./card_data/starWarsCardData.js";
 import { miscGroups } from "./card_data/miscCardData.js";
 import { testGroups } from "./card_data/testData.js";
 
-const IMAGE_BASE_PATH = "assets/minifigures_images/";
-const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.png";
+const IMAGE_BASE_PATH = "assets/minifigures_images/thumbnails/";
+const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.webp";
 
 const allGroups = [
   ...marvelGroups,
