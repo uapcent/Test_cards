@@ -258,7 +258,8 @@ export const dcGroups = [
       {
         name: "Condiment King",
         image: "sh0488.original.png",
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "Deathstroke",
