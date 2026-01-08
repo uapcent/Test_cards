@@ -30,3 +30,17 @@
   50% { background-position: 100% 60%; }
   100% { background-position: 0% 50%; }
 }
+
+.card.defective {
+  /* opacity: 0.5; */
+  position: relative;
+}
+
+.card.defective::before {
+  content: '⚠️';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 16px;
+  pointer-events: none;
+}

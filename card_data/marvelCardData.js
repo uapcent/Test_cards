@@ -8,7 +8,7 @@ export const marvelGroups = [
                 variants: [
                     {
                         info: "Mark 45 Armor",
-                        image: "sh0164.png"
+                        image: "sh0164.webp"
                     }],
                 glow_color: '#04e2ffff'
             },
@@ -16,7 +16,7 @@ export const marvelGroups = [
                 name: "Hulk",
                 variants: [{
                     info: "Strongest Avenger.",
-                    image: "lego-hulk-large-with-dark-tan-pants-minifigure-1219731.jpg",
+                    image: "lego-hulk-large-with-dark-tan-pants-minifigure-1219731.webp",
                     locked: true,
                 }],
                 glow_color: '#09ff00ff'
@@ -37,7 +37,7 @@ export const marvelGroups = [
             {
                 name: "Hawkeye",
                 variants: [{
-                    image: "colmar18.png",
+                    image: "colmar18.webp",
                     locked: true
                 }],
 
@@ -46,7 +46,7 @@ export const marvelGroups = [
                 name: "Black Widow",
                 variants: [{
                     info: "Captain America: Civil War",
-                    image: "sh0186.png"
+                    image: "sh0186.webp"
                 }],
 
             },
@@ -54,14 +54,14 @@ export const marvelGroups = [
                 name: "Scarlet Witch",
                 variants: [{
                     info: "Infinity Saga",
-                    image: "sh0897.jpg"
+                    image: "sh0897.webp"
                 }],
                 glow_color: '#ff0000ff'
             },
             {
                 name: "Vision",
                 variants: [{
-                    image: "sh0303.png",
+                    image: "sh0303.webp",
                     locked: true
                 }],
                 glow_color: '#fbff00ff'
@@ -70,40 +70,40 @@ export const marvelGroups = [
                 name: "Falcon",
                 variants: [{
                     info: "Captain America: Civil War",
-                    image: "sh0261.png"
+                    image: "sh0261.webp"
                 }],
 
             },
             {
                 name: "Dr Strange",
-                image: "sh0802.png",
+                image: "sh0802.webp",
                 locked: true,
                 glow_color: '#00ff37ff'
             },
             {
                 name: "Moon Knight",
-                image: "colmar14.png",
+                image: "colmar14.webp",
                 glow_color: '#ffffffff'
             },
             {
                 name: "Black Panther",
-                image: "sh1019.original.png",
+                image: "sh1019.original.webp",
                 locked: true
             },
             {
                 name: "Winter Soldier",
-                image: "sh0257.original.png",
+                image: "sh0257.original.webp",
                 locked: true
             },
             {
                 name: "Daredevil",
-                image: "sh0724.original.png",
+                image: "sh0724.original.webp",
                 locked: true
             },
             // X-Men Series
             {
                 name: "Storm",
-                image: "colmar23.png"
+                image: "colmar23.webp"
 
             },
             {
@@ -116,7 +116,7 @@ export const marvelGroups = [
             },
             {
                 name: "Magneto",
-                image: "sh0031.original.png",
+                image: "sh0031.original.webp",
                 locked: true
             },
             {
@@ -126,108 +126,117 @@ export const marvelGroups = [
             {
                 name: "Cyclops",
                 locked: true,
-                image: "sh0992.original.png"
+                image: "sh0992.original.webp"
             },
             {
                 name: "Deadpool",
-                image: "sh0032.original.png",
+                image: "sh0032.original.webp",
                 locked: true
             },
             {
                 name: "Wolverine",
-                image: "sh0017.original.png",
+                image: "sh0017.original.webp",
                 locked: true
             },
             // Spider-man Series
             {
                 name: "Spider-man",
                 info: "Black Web Pattern",
-                image: "sh0038.png"
+                image: "sh0038.webp"
             },
             {
                 name: "Spider-Man - Miles Morales",
-                image: "colspi01.original.png"
+                image: "colspi01.original.webp"
             },
 
             {
                 name: "Spider-Gwen - Gwen Stacy",
-                image: "colspi04.original.png"
+                image: "colspi04.original.webp"
             },
             {
                 name: "Spider-Man 2099 - Miguel O'Hara",
                 info: "Across the Spider-Verse",
-                image: "colspi05.png"
+                image: "colspi05.webp"
             },
             {
                 name: "Spider-Punk - Hobart Brown",
                 info: "Across the Spider-Verse",
-                image: "colspi02.original.png"
+                image: "colspi02.original.webp"
             },
             {
                 name: "Peter B. Parker",
                 info: "Across the Spider-Verse",
-                image: "colspi10.original.png"
+                image: "colspi10.original.webp"
             },
             {
                 name: "May 'Mayday' Parker",
                 info: "Across the Spider-Verse",
-                image: "colspi11.original.png"
+                image: "colspi11.original.webp"
             },
             {
                 name: "Pavitr Prabhakar / Spider-Man India",
                 info: "Across the Spider-Verse",
-                image: "colspi06.original.png"
+                image: "colspi06.original.webp"
             },
             {
                 name: "Patrick O'Hara / Web-Slinger",
                 info: "Across the Spider-Verse",
-                image: "colspi12.original.png"
+                image: "colspi12.original.webp"
             },
             {
                 name: "Peter Parker / Werewolf Spider-Man",
                 info: "Across the Spider-Verse",
-                image: "colspi13.original.png"
+                image: "colspi13.original.webp"
             },
             // Fantastic Four Series
             {
                 name: "Mr. Fantastic",
+                image: "TP285.webp",
+                defective: true
             },
             {
                 name: "Inivisible Woman",
+                image: "TP286.webp",
+                defective: true
             },
             {
                 name: "Human Torch",
+                image: "TP287.webp",
+                locked: true,
+                defective: true
             },
             {
                 name: "The Thing",
+                locked: true,
+                defective: true
             },
             {
                 name: "War Machine",
                 variants: [{
-                    image: "sh0819.original.png",
+                    image: "sh0819.original.webp",
                     locked: true
                 },
                 {
                     info: "Iron Patriot",
-                    image: "sh0084.png",
+                    image: "sh0084.webp",
                     locked: true
                 }],
             },
             {
                 name: "Captain Marvel",
-                image: "sh0639.png",
+                image: "sh0639.webp",
                 locked: true
             },
             {
                 name: "Hawkeye",
                 info: "Kate Bishop",
-                image: "colmar19.png",
+                image: "colmar19.webp",
                 locked: true,
                 wantedList: true
             },
             {
                 name: "She-Hulk",
-                image: "colmar17.original.png",
+                image: "colmar17.original.webp",
                 locked: true
             },
             // Guardians of the Galaxy Series
@@ -249,7 +258,7 @@ export const marvelGroups = [
             },
             {
                 name: "Rocket Raccoon",
-                image: "sh0384.original.png",
+                image: "sh0384.original.webp",
                 locked: true
             },
 
@@ -265,7 +274,7 @@ export const marvelGroups = [
             {
                 name: "Crossbones",
                 info: "Captain America: Civil War",
-                image: "sh0262.png",
+                image: "sh0262.webp",
             },
             {
                 name: "Ultron",
@@ -274,33 +283,33 @@ export const marvelGroups = [
             {
                 name: "Ultron Sentry",
                 variants: [{
-                    image: "sh0166.png",
+                    image: "sh0166.webp",
                 },
                 {
                     info: "Officer",
-                    image: "sh0165.png"
+                    image: "sh0165.webp"
                     
                 }]
             },
             {
                 name: "GhostRider",
-                image: "sh0861.png",
+                image: "sh0861.webp",
                 locked: true
             },
             {
                 name: "Adam Warlock",
-                image: "sh0877.png",
+                image: "sh0877.webp",
                 locked: true
             },
             {
                 name: "Loki",
                 variants: [{
                     info: "Infinity Saga",
-                    image: "sh0860.original.png",
+                    image: "sh0860.original.webp",
                     locked: true
                 }, {
                     info: "TVA Variant",
-                    image: "colmar06.original.png",
+                    image: "colmar06.original.webp",
                     locked: true,
                     wantedList: true
                 }],
@@ -309,24 +318,24 @@ export const marvelGroups = [
             // Spider-Man Villains
             {
                 name: "Green Goblin",
-                image: "sh0695.jpg"
+                image: "sh0695.webp"
             },
             {
                 name: "Mysterio",
-                image: "sh0709.original.png"
+                image: "sh0709.original.webp"
             },
             {
                 name: "Sandman",
-                image: "sh0685.jpg"
+                image: "sh0685.webp"
             },
             {
                 name: "Venom",
-                image: "sh0542.jpg"
+                image: "sh0542.webp"
             },
             {
                 name: "Dr. Octopus (Otto Octavius)",
                 info: "Black Web Pattern",
-                image: "sh0110.png",
+                image: "sh0110.webp",
             },
             {
                 name: "Lizard",
@@ -334,7 +343,7 @@ export const marvelGroups = [
             },
             {
                 name: "Vulture",
-                image: "sh0618.png",
+                image: "sh0618.webp",
                 locked: true
             },
             {
@@ -344,16 +353,16 @@ export const marvelGroups = [
             {
                 name: "Agatha Harkness",
                 info: "Minifigures Series 2",
-                image: "colmar13.original.png",
+                image: "colmar13.original.webp",
                 locked: true
             },
             {
                 name: "J. Jonah Jameson",
-                image: "sh0710.original.png"
+                image: "sh0710.original.webp"
             },
             {
                 name: "Armored Truck Driver",
-                image: "sh0109.png",
+                image: "sh0109.webp",
             }
         ]
     }
