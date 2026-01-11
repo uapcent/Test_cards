@@ -32,8 +32,9 @@
 }
 
 .card.defective {
-  /* opacity: 0.5; */
+  opacity: 0.5;
   position: relative;
+  /* filter: grayscale(50%) sepia(100%) hue-rotate(-20deg); */
 }
 
 .card.defective::before {
@@ -44,3 +45,18 @@
   font-size: 16px;
   pointer-events: none;
 }
+
+/* .card.defective::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,0,0,0.3),
+    rgba(255,0,0,0.3) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  pointer-events: none;
+} */
+

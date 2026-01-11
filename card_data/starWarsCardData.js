@@ -20,6 +20,10 @@ export const starWarsGroups = [{
       locked: true
     },
     {
+      name: "TC-14", 
+      locked: true ,
+    },
+    {
       name: "Jar Jar Binks",
       info: "Episode I",
       image: "sw0301.webp",
@@ -38,7 +42,7 @@ export const starWarsGroups = [{
     },
     {
       name: "Padmé Amidala",
-      info: "Senator",
+      info: "Battle",
       image: "sw1303.webp",
       locked: true
     },
@@ -50,6 +54,10 @@ export const starWarsGroups = [{
       name: "Anakin Skywalker",
       image: "sw1332.webp",
       info: "Boy",
+      locked: true
+    },
+    {
+      name: "Watto",
       locked: true
     },
     {

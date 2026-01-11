@@ -211,6 +211,11 @@ export const ninjagoGroups = [{
       image: "njo0267.webp",
     },
     {
+      name: "Ghost Archer",
+      info: "Legacy",
+      image: "njo0804.original.webp",
+    },
+    {
       name: "Morro",
       info: "Possession",
       image: "njo0158.webp",
@@ -238,7 +243,7 @@ export const ninjagoGroups = [{
       name: "Chen",
       info: "Tournament of Elements",
       image: "njo0126.webp",
-      locked: true
+      defective: true
     },
     {
       name: "Cyren",
@@ -271,14 +276,14 @@ export const ninjagoGroups = [{
       image: "njo0851.webp",
     },
     {
-      name: "Spectral Dragonian Scout",
-      info: "Dragons Rising Season 3",
-      image: "njo0983.webp",
-    },
-    {
       name: "Dragonian Scout",
       info: "Dragons Rising Season 3",
       image: "njo0926.original.webp",
+    },
+    {
+      name: "Spectral Dragonian Scout",
+      info: "Dragons Rising Season 3",
+      image: "njo0983.webp",
     },
     {
       name: "Nindroid",
@@ -299,11 +304,6 @@ export const ninjagoGroups = [{
       name: "Stone Army Swordsman",
       info: "Day of the Departed",
       image: "njo0222.webp",
-    },
-    {
-      name: "Ghost Archer",
-      info: "Legacy",
-      image: "njo0804.original.webp",
     },
     {
       name: "GPL Tech",
