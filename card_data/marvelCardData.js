@@ -202,13 +202,11 @@ export const marvelGroups = [
             {
                 name: "Human Torch",
                 image: "TP287.webp",
-                locked: true,
-                defective: true
+                locked: true
             },
             {
                 name: "The Thing",
-                locked: true,
-                defective: true
+                locked: true
             },
             {
                 name: "War Machine",

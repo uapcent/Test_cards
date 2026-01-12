@@ -181,8 +181,13 @@ export const dcGroups = [
         locked: true
       },
       {
-        name: "Bizarro",
-        image: "sh0043.webp",
+        name: "Superboy",
+        image: "sh0143.webp",
+        locked: true
+      },
+      {
+        name: "Flash - Jay Garrick",
+        image: "colsh15.webp",
         locked: true
       },
       // Bat-Villains
@@ -218,9 +223,12 @@ export const dcGroups = [
       },
       {
         name: "The Penguin",
-        image: "sh0314.webp",
-        locked: true,
-        wantedList: true
+        variants: [{
+          info: "Lego Batman Movie",
+          image: "sh0314.webp",
+          locked: true,
+          wantedList: true
+        }]
       },
       {
         name: "Catwoman",
@@ -230,7 +238,6 @@ export const dcGroups = [
           image: "sh0330.webp",
           locked: false
         }, {
-          info: "",
           image: "sh0595.webp",
           locked: true
         }]
@@ -269,7 +276,8 @@ export const dcGroups = [
       {
         name: "Condiment King",
         image: "sh0488.original.webp",
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         name: "Deathstroke",
@@ -291,23 +299,19 @@ export const dcGroups = [
           {
             info: "Power Armor",
             image: "sh1007.webp",
-            locked: true
+            locked: true,
+            wantedList: true
           }
         ]
       },
       {
+        name: "Bizarro",
+        image: "sh0043.webp",
+        locked: true
+      },
+      {
         name: "Metamorpho",
         image: "colsh12.webp",
-        locked: true
-      },
-      {
-        name: "Superboy",
-        image: "sh0143.webp",
-        locked: true
-      },
-      {
-        name: "Flash - Jay Garrick",
-        image: "colsh15.webp",
         locked: true
       },
       {
@@ -325,26 +329,31 @@ export const dcGroups = [
         variants: [
           {
             image: "sh0591.webp",
-            locked: true
+            locked: true,
+            wantedList: true
+
           },
           {
             info: "Lego Batman Movie",
             image: "coltlbm07.webp",
-            locked: true
+            locked: true,
+            wantedList: true
+
           },
           {
             info: "The Dark Knight Triology",
             image: "sh0063.webp",
-            locked: true
+            locked: true,
+            wantedList: true
+
           }
         ],
-        wantedList: true
       },
       {
         name: "Alfred Pennyworth",
         info: "Lego Batman Movie",
         image: "sh0313.webp",
-        locked: [true],
+        locked: true,
         wantedList: true
       }
 

@@ -1,5 +1,85 @@
 export const miscGroups = [
     {
+        name: "Lord of the Rings",
+        cards: [
+            {
+                name: "Frodo Saquet",
+                locked: true
+            },
+            {
+                name: "Samwise Gamgee",
+                locked: true
+            },{
+              name: "Merry Brandybuck",
+              locked: true
+            },{
+              name: "Pippin Took",
+              locked: true  
+            },
+            {
+                name: "Aragorn",
+            },
+            {
+                name: "Gandalf the Grey",
+                image: "lor001.original.png"
+            },{
+                name: "Legolas",
+                locked: true
+            },{
+                name: "Gimli",
+                locked: true
+            },
+            {
+                name: "Boromir",
+                locked: true
+            },{
+                name: "Gollum",
+                locked: true
+            },{
+                name: "Saruman the White",
+                locked: true
+            },
+            {
+                name: "Elrond",
+                locked: true
+            },
+            {
+                name: "Arwen",
+                locked: true
+            },{
+                name: "Galadriel",
+                locked: true
+            },
+            {
+                name: "Bilbo Saquet",
+                locked: true
+            },
+            {
+                name: "Orc Warrior",
+                locked: true
+            },{
+                name: "Uruk-hai Warrior",
+                locked: true
+            },{
+                name: "Nazgûl",
+                locked: true
+            },{
+                name: "Mouth of Sauron",
+                locked: true
+            },{
+                name: "Sauron",
+                locked: true
+            },
+            {
+                name: "King of the Dead",
+                locked: true
+            },{
+                name: "Soldier of the Dead",
+                locked: true
+            }
+        ]
+    },
+    {
         name: "Harry Potter",
         cards: [
             {
