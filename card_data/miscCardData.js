@@ -121,6 +121,16 @@ export const miscGroups = [
                 name: "Vampire Knight",
                 info: "Series 25",
                 image: "col426.original.webp",
+            },
+            {
+                name: "Goatherd",
+                info: "Series 25",
+                image: "col25-5.webp",
+            },
+            {
+                name: "Wolfpack Beastmaster",
+                info: "Series 27",
+                image: "col450.original.webp",
             }
 
         ]
@@ -264,6 +274,20 @@ export const miscGroups = [
             {
                 name: "Rocket Racer",
                 image: "cty1319.webp",
+            },{
+                name: "Jetpack Racer",
+                info: "Series 27",
+                image: "col451.original.webp",
+            },
+            {
+                name: "Steampunk Inventor",
+                info: "Series 27",
+                image: "col460.original.webp",
+            },
+            {
+                name: "Film Noir Detective",
+                info: "Series 25",
+                image: "col25-1.webp",
             }
         ]
     },

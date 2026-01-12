@@ -105,7 +105,6 @@ export const dcGroups = [
           {
             image: "sh0219.webp",
             info: "Down of Justice",
-            locked: true
           }
         ]
       },
@@ -138,6 +137,12 @@ export const dcGroups = [
         glow_color: '#09ff00ff'
       },
       {
+        name: "Green Lantern",
+        info: "Guy Gardner",
+        image: "tp302.webp",
+        glow_color: '#09ff00ff'
+      },
+      {
         name: "The Flash",
         image: "sh0087.webp",
         locked: true,
@@ -150,8 +155,14 @@ export const dcGroups = [
       },
       {
         name: "Hawkgirl",
-        image: "sh0461.webp",
-        locked: true
+        variants: [{
+          info: "Justice Gang",
+          image: "tp301.webp",
+        }, {
+          info: "Classic",
+          image: "sh0461.webp",
+          locked: true,
+        }]
       },
       {
         name: "Cyborg",
