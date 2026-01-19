@@ -8,36 +8,36 @@ export const dcGroups = [
         currentIndex: 0,
         variants: [
           {
-            image: "sh0151.webp",
+            image: "sh0151",
             info: "New 52",
             locked: false
           },
           {
-            image: "sh0329.webp",
+            image: "sh0329",
             info: "Lego Batman movie",
             locked: false
           },
           {
-            image: "sh0402.webp",
+            image: "sh0402",
             info: "Wing Suit",
             locked: false
           },
           {
-            image: "sh0217.webp",
+            image: "sh0217",
             info: "Armored Suit",
             locked: false
           },
           {
-            image: "sh0146.webp",
+            image: "sh0146",
             info: "Space Suit",
             locked: false
           }, {
-            image: "coltlbm03.webp",
+            image: "coltlbm03",
             info: "Fairy Batman",
             locked: false
           },
           {
-            image: "sh0786.webp",
+            image: "sh0786",
             info: "The Batman Movie",
             locked: true
           }
@@ -46,35 +46,35 @@ export const dcGroups = [
       {
         name: "Robin - Dick Grayson",
         info: "Lego Batman Movie",
-        image: "sh0315.webp"
+        image: "sh0315"
       },
       {
         name: "Robin - Tim Drake",
         variants: [{
-          image: "sh0195.webp",
+          image: "sh0195",
           info: "New 52",
           locked: false
         }, {
-          image: "sh0011.webp",
+          image: "sh0011",
           info: "Batman 2",
           locked: true
         }]
       },
       {
         name: "Robin - Damian Wayne",
-        image: "sh0289.webp",
+        image: "sh0289",
         locked: [true],
         wantedList: true
       },
       {
         name: "Nightwing",
-        image: "sh0659.webp",
+        image: "sh0659",
         locked: true,
         wantedList: true
       },
       {
         name: "Red Hood",
-        image: "sh0282.webp",
+        image: "sh0282",
         locked: true,
         wantedList: true
 
@@ -83,11 +83,11 @@ export const dcGroups = [
         name: "Batgirl",
         variants: [
           {
-            image: "sh0305.webp",
+            image: "sh0305",
             info: "Lego Batman Movie",
             locked: false
           }, {
-            image: "sh0658.webp",
+            image: "sh0658",
             info: "Rebirth",
             locked: true
           }
@@ -98,31 +98,31 @@ export const dcGroups = [
         name: "Superman",
         variants: [
           {
-            image: "sh1055.webp",
+            image: "sh1055",
             info: "Classic Superman",
             locked: false
           },
           {
-            image: "sh0219.webp",
+            image: "sh0219",
             info: "Down of Justice",
           }
         ]
       },
       {
         name: "Wonder Woman",
-        image: "sh0456.webp",
+        image: "sh0456",
         locked: true
       },
       {
         name: "Aquaman",
         variants: [
           {
-            image: "sh0050.original.webp",
+            image: "sh0050.original",
             info: "Classic Aquaman",
             locked: true
           },
           {
-            image: "colsh03.webp",
+            image: "colsh03",
             info: "Aquaman: The New 52",
             locked: true
           }
@@ -133,91 +133,91 @@ export const dcGroups = [
       {
         name: "Green Lantern",
         info: "Hal Jordan",
-        image: "sh0145.webp",
+        image: "sh0145",
         glow_color: '#09ff00ff'
       },
       {
         name: "Green Lantern",
         info: "Guy Gardner",
-        image: "tp302.webp",
+        image: "tp302",
         glow_color: '#09ff00ff'
       },
       {
         name: "The Flash",
-        image: "sh0087.webp",
+        image: "sh0087",
         locked: true,
         glow_color: '#ffe600ff',
         wantedList: true
       }, {
         name: "Hawkman",
-        image: "sh0154.webp",
+        image: "sh0154",
         locked: true
       },
       {
         name: "Hawkgirl",
         variants: [{
           info: "Justice Gang",
-          image: "tp301.webp",
+          image: "tp301",
         }, {
           info: "Classic",
-          image: "sh0461.webp",
+          image: "sh0461",
           locked: true,
         }]
       },
       {
         name: "Cyborg",
-        image: "sh0155.webp",
+        image: "sh0155",
         locked: true
       },
       {
         name: "Martian ManHunter",
-        image: "sh0158.webp",
+        image: "sh0158",
         locked: true
       },
       // Other heroes
       {
         name: "Supergirl",
-        image: "sh0670.webp",
+        image: "sh0670",
         locked: true
       },
       {
         name: "Superboy",
-        image: "sh0143.webp",
+        image: "sh0143",
         locked: true
       },
       {
         name: "Flash - Jay Garrick",
-        image: "colsh15.webp",
+        image: "colsh15",
         locked: true
       },
       // Bat-Villains
       {
         name: "The Joker",
         variants: [{
-          image: "dim017.webp",
+          image: "dim017",
         }, {
           info: "Lego Batman Movie",
-          image: "sh0353.webp"
+          image: "sh0353"
         }]
       },
       {
         name: "Harley Quinn",
-        image: "sh0024.webp",
+        image: "sh0024",
       },
       {
         name: "Scarecrow",
         info: "Lego Batman Movie",
-        image: "sh0391.webp",
+        image: "sh0391",
       },
       {
         name: "Two Face",
-        image: "sh0007.webp",
+        image: "sh0007",
         locked: true,
         wantedList: true
       },
       {
         name: "Poison Ivy",
-        image: "sh0327.webp",
+        image: "sh0327",
         locked: true,
         wantedList: true
       },
@@ -225,7 +225,7 @@ export const dcGroups = [
         name: "The Penguin",
         variants: [{
           info: "Lego Batman Movie",
-          image: "sh0314.webp",
+          image: "sh0314",
           locked: true,
           wantedList: true
         }]
@@ -235,16 +235,16 @@ export const dcGroups = [
         locked: [false, true],
         variants: [{
           info: "Lego Batman Movie",
-          image: "sh0330.webp",
+          image: "sh0330",
           locked: false
         }, {
-          image: "sh0595.webp",
+          image: "sh0595",
           locked: true
         }]
       },
       {
         name: "Mr Freeze",
-        image: "sh0049.webp",
+        image: "sh0049",
         locked: true,
         wantedList: true
       },
@@ -254,38 +254,38 @@ export const dcGroups = [
       },
       {
         name: "Bane",
-        image: "sh0009.webp",
+        image: "sh0009",
         locked: true,
         wantedList: true
       },
       {
         name: "The Riddler",
         variants: [{
-          image: "sh1081.webp",
+          image: "sh1081",
           locked: false
         }, {
-          image: "sh0593.webp",
+          image: "sh0593",
           locked: true
         }]
       },
       {
         name: "Sinestro",
-        image: "sh0144.webp",
+        image: "sh0144",
         glow_color: '#ffe600ff'
       },
       {
         name: "Condiment King",
-        image: "sh0488.original.webp",
+        image: "sh0488.original",
         locked: true,
         wantedList: true
       },
       {
         name: "Deathstroke",
-        image: "sh0194.webp",
+        image: "sh0194",
       },
       {
         name: "Black Manta",
-        image: "sh0526.webp",
+        image: "sh0526",
         locked: true
       },
       {
@@ -293,12 +293,12 @@ export const dcGroups = [
         variants: [
           {
             info: "Black suit",
-            image: "sh0012.webp",
+            image: "sh0012",
             locked: true
           },
           {
             info: "Power Armor",
-            image: "sh1007.webp",
+            image: "sh1007",
             locked: true,
             wantedList: true
           }
@@ -306,43 +306,43 @@ export const dcGroups = [
       },
       {
         name: "Bizarro",
-        image: "sh0043.webp",
+        image: "sh0043",
         locked: true
       },
       {
         name: "Metamorpho",
-        image: "colsh12.webp",
+        image: "colsh12",
         locked: true
       },
       {
         name: "Reverse Flash",
-        image: "sh0471.webp",
+        image: "sh0471",
         locked: true
       },
       {
         name: "Captain Cold",
-        image: "sh0148.webp",
+        image: "sh0148",
         locked: true
       },
       {
         name: "Commissioner Gordon",
         variants: [
           {
-            image: "sh0591.webp",
+            image: "sh0591",
             locked: true,
             wantedList: true
 
           },
           {
             info: "Lego Batman Movie",
-            image: "coltlbm07.webp",
+            image: "coltlbm07",
             locked: true,
             wantedList: true
 
           },
           {
             info: "The Dark Knight Triology",
-            image: "sh0063.webp",
+            image: "sh0063",
             locked: true,
             wantedList: true
 
@@ -352,7 +352,7 @@ export const dcGroups = [
       {
         name: "Alfred Pennyworth",
         info: "Lego Batman Movie",
-        image: "sh0313.webp",
+        image: "sh0313",
         locked: true,
         wantedList: true
       }

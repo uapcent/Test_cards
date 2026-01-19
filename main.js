@@ -8,6 +8,7 @@ import { miscGroups } from "./card_data/miscCardData.js";
 import { testGroups } from "./card_data/testData.js";
 
 const IMAGE_BASE_PATH = "assets/minifigures_images/thumbnails/";
+const IMAGE_FORMAT = ".webp";
 const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.webp";
 
 const allGroups = [
@@ -201,7 +202,7 @@ function resolveImage(image) {
   }
 
   // Otherwise, treat as local asset
-  return IMAGE_BASE_PATH + image;
+  return IMAGE_BASE_PATH + image + IMAGE_FORMAT;
 }
 
 
