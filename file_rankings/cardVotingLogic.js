@@ -66,8 +66,4 @@ function pickPair(images, ratings) {
   return [sorted[i], sorted[i + 1]];
 }
 
-function getRanking(images, ratings) {
-  return [...images].sort(
-    (a, b) => ratings[b].rating - ratings[a].rating
-  );
-}
+

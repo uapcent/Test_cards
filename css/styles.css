@@ -67,3 +67,13 @@ h1 {
 .card:hover .overlay {
   opacity: 1;
 }
+
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color:#d85f5f;
+    background-color: #222;
+    text-decoration: none;
+}
+

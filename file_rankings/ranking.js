@@ -85,8 +85,8 @@ let currentPair = [];
 function renderPair() {
   currentPair = pickPair(images, ratings);
 
-  const leftImg = `assets/minifigures_images/thumbnails/${currentPair[0]}.webp`;
-  const rightImg = `assets/minifigures_images/thumbnails/${currentPair[1]}.webp`;
+  const leftImg = `../assets/minifigures_images/thumbnails/${currentPair[0]}.webp`;
+  const rightImg = `../assets/minifigures_images/thumbnails/${currentPair[1]}.webp`;
 
   leftBtn.innerHTML = `<img src="${leftImg}" alt="${cardMap.get(currentPair[0]).name}">`;
   rightBtn.innerHTML = `<img src="${rightImg}" alt="${cardMap.get(currentPair[1]).name}">`;
@@ -102,7 +102,7 @@ function renderRanking() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <img src="assets/minifigures_images/thumbnails/${img}.webp" alt="${cardMap.get(img).name}" width="40" height="40">
+      <img src="../assets/minifigures_images/thumbnails/${img}.webp" alt="${cardMap.get(img).name}" width="40" height="40">
       <span>${cardMap.get(img).name} — ${Math.round(ratings[img].rating)}</span>
     `;
 

@@ -356,7 +356,7 @@ export const miscGroups = [
             },
             {
                 name: "Orc Rogue",
-                image: "idea183.original.png",
+                image: "idea183",
                 defective: true
             },
             {
