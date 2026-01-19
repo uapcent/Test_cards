@@ -357,6 +357,95 @@ export const dcGroups = [
         image: "sh0313",
         locked: true,
         wantedList: true
+      }, {
+        name: "Huntress",
+        image: "colsh11",
+        locked: true
+      }, {
+        name: "Black Canary",
+        image: "coltlbm43",
+        locked: true
+      }, {
+        name: "Captain Boomerang",
+        variants: [{
+          info: "Lego Batman Movie",
+          image: "sh0491",
+          locked: true
+        }, {
+          info: "Batman II",
+          image: "sh0281",
+          locked: true
+        }]
+      }, {
+        name: "Mad Hatter",
+        locked: true
+      }, {
+        name: "Killer Moth",
+        image: "coltlbm36",
+        locked: true
+      }, {
+        name: "Clayface",
+        locked: true
+      }, {
+        name: "Hush",
+        locked: true
+      }, {
+        name: "Ra's Al Ghul",
+        image: "sh0290",
+        locked: true
+      }, {
+        name: "Talia Al Ghul",
+        image: "sh0291",
+        locked: true
+      }, {
+        name: "General Zod",
+        image: "sh0078",
+        locked: true
+      }, {
+        name: "Shazam",
+        image: "sh0586",
+        locked: true
+      }, {
+        name: "Brainiac",
+        image: "sh0159",
+        locked: true
+      }, {
+        name: "Bruce Wayne",
+        image: "sh0308",
+        locked: true
+      }, {
+        name: "Dick Grayson",
+        image: "sh0236",
+        locked: true
+      }, {
+        name: "Clark Kent",
+        image: "sh0083",
+        locked: true
+      }, {
+        name: "Lois Lane",
+        info: "Man of Steel",
+        image: "sh0075",
+        locked: true
+      }, {
+        name: "Zatanna",
+        locked: true
+      }, {
+        name: "Black Adam",
+        locked: true
+      }, {
+        name: "Green Arrow",
+        variants: [{
+          info: "New 52",
+          image: "sh0153",
+          locked: true
+
+        }, {
+          info: "Classic",
+          image: "sh0465",
+          locked: true
+
+        }],
+
       }
 
     ]
