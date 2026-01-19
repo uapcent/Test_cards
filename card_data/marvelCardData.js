@@ -24,12 +24,15 @@ export const marvelGroups = [
             {
                 name: "Captain America",
                 variants: [{
+                    info: "Age of Ultron",
+                    image: "sh0177",
                     locked: true
                 }]
             },
             {
                 name: "Thor",
                 variants: [{
+                    image: "sh0734",
                     locked: true
 
                 }],
@@ -112,6 +115,7 @@ export const marvelGroups = [
             },
             {
                 name: "Quicksilver",
+                image: "sh1072",
                 locked: true
             },
             {
@@ -246,17 +250,37 @@ export const marvelGroups = [
                 image: "colmar17",
                 locked: true
             },
+            {
+                name: "Nova",
+                image: "sh0051",
+            },
+            {
+                name: "Ms. Marvel",
+                image: "sh0375",
+            },
+            
             // Guardians of the Galaxy Series
             {
                 name: "Star-Lord",
-                locked: true
+                variants: [{
+                    image: "sh0127",
+                    info: "Masked",
+                    locked: true
+                },{
+                    image: "sh0380",
+                    info: "Guardians of the Galaxy Vol. 2",
+                    locked: true
+                }],
+                
             },
             {
                 name: "Gamora",
+                image: "sh0506",
                 locked: true
             },
             {
                 name: "Drax",
+                image: "sh0977",
                 locked: true
             },
             {
@@ -272,10 +296,12 @@ export const marvelGroups = [
             // Villains
             {
                 name: "Dr Doom",
+                image: "sh0052",
                 locked: true
             },
             {
                 name: "Thanos",
+                image: "sh0504",
                 locked: true
             },
             {
@@ -285,6 +311,7 @@ export const marvelGroups = [
             },
             {
                 name: "Ultron",
+                image: "sh1009",
                 locked: true
             },
             {
@@ -346,6 +373,7 @@ export const marvelGroups = [
             },
             {
                 name: "Lizard",
+                image: "sh0938",
                 locked: true
             },
             {
@@ -365,7 +393,7 @@ export const marvelGroups = [
             },
             {
                 name: "Nick Fury",
-                image: "http://img.bricklink.com/ItemImage/MN/0/sh0585a.png",
+                image: "sh0585a",
                 locked: true
             },
             {
@@ -375,7 +403,7 @@ export const marvelGroups = [
             {
                 name: "Armored Truck Driver",
                 image: "sh0109",
-            }
+            },
         ]
     }
 ];

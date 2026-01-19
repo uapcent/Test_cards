@@ -155,7 +155,7 @@ export const starWarsGroups = [{
     },
     {
       name: "Ki-Adi-Mundi",
-      image: "http://img.bricklink.com/ItemImage/MN/0/sw0911.png",
+      image: "sw0911",
       glow_color: '#ffff00ff',
       locked: true
     },

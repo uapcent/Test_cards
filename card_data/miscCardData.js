@@ -22,42 +22,60 @@ export const miscGroups = [
             },
             {
                 name: "Aragorn",
-                image: "https://img.bricklink.com/ItemImage/MN/0/lor017.original.png",
+                image: "lor017",
                 locked: true
             },
             {
-                name: "Gandalf the Grey",
-                image: "lor001"
+                name: "Gandalf",
+                variants: [{
+                    info: "The Grey",
+                    image: "lor001",
+                    locked: true
+                }, {
+                    info: "The Grey",
+                    image: "lor063",
+                    locked: true
+                }],
+                
             }, {
                 name: "Legolas",
+                image: "dim008",
                 locked: true
             }, {
                 name: "Gimli",
+                image: "dim007",
                 locked: true
             },
             {
                 name: "Boromir",
+                image: "lor126",
                 locked: true
             }, {
                 name: "Gollum",
+                image: "lor031",
                 locked: true
             }, {
                 name: "Saruman the White",
+                image: "lor074",
                 locked: true
             },
             {
                 name: "Elrond",
+                image: "lor128",
                 locked: true
             },
             {
                 name: "Arwen",
+                image: "lor121",
                 locked: true
             }, {
                 name: "Galadriel",
+                image: "lor103",
                 locked: true
             },
             {
                 name: "Bilbo Saquet",
+                image: "lor144",
                 locked: true
             },
             {
@@ -65,9 +83,11 @@ export const miscGroups = [
                 locked: true
             }, {
                 name: "Uruk-hai Warrior",
+                image: "lor022",
                 locked: true
             }, {
                 name: "Nazgûl",
+                image: "lor018",
                 locked: true
             }, {
                 name: "Mouth of Sauron",
@@ -80,10 +100,17 @@ export const miscGroups = [
             },
             {
                 name: "King of the Dead",
+                image: "lor071",
                 locked: true
             }, {
                 name: "Soldier of the Dead",
-                locked: true
+                variants: [{
+                    image: "lor069",
+                    locked: true
+                },{
+                    image: "lor070",
+                    locked: true
+            }]
             }
         ]
     },
@@ -369,7 +396,7 @@ export const miscGroups = [
                 image: "idea188",
                 defective: true
             }
-            
+
 
         ]
     },
@@ -443,7 +470,7 @@ export const miscGroups = [
                         info: "Ghost",
                     }
                 ]
-            },{
+            }, {
                 name: "Wyldstyle",
                 info: "The Lego Movie",
                 image: "tlm099",
@@ -465,7 +492,7 @@ export const miscGroups = [
                 name: "Robo SWAT",
                 info: "Lego Movie",
                 image: "tlm046",
-            },{
+            }, {
                 name: "Robo SWAT - Cap",
                 info: "Lego Movie",
                 image: "tlm100",
@@ -552,49 +579,49 @@ export const miscGroups = [
                 name: "Saw Fist",
                 info: "Agents",
                 image: "agt005",
-            },{
+            }, {
                 name: "Imposter",
                 info: "Series 26",
                 image: "col437",
-            },{
+            }, {
                 name: "Spacewalking Astronaut",
                 info: "Series 26",
                 image: "col436",
-            },{
+            }, {
                 name: "Alien Tourist",
                 info: "Series 26",
                 image: "col438",
-            },{
+            }, {
                 name: "M-Tron Powerlifter",
                 info: "Series 26",
                 image: "col440",
-            },{
+            }, {
                 name: "Nurse Android",
                 info: "Series 26",
                 image: "col441",
-            },{
+            }, {
                 name: "Spacebaby",
                 info: "Series 26",
                 image: "col442",
-            },{
+            }, {
                 name: "Ice Planet Explorer",
                 info: "Series 26",
                 image: "col444",
-            },{
+            }, {
                 name: "Alien Beetlezoid",
                 info: "Series 26",
                 image: "col446",
-            },{
+            }, {
                 name: "Orion",
                 info: "Series 26",
                 image: "col447",
-            },{
+            }, {
                 name: "Blacktron Mutant",
                 info: "Series 26",
                 image: "col448",
             }
-            
-            
+
+
         ]
     }, {
         name: "Miscellaneous",
@@ -604,30 +631,62 @@ export const miscGroups = [
                 image: "dim006"
             },
             {
+                name: "The Doctor",
+                info: "Doctor Who",
+                image: "dim009",
+                locked: true
+            },
+            {
                 name: "Cyberman",
+                info: "Doctor Who",
                 image: "dim014"
             },
             {
                 name: "Dalek",
+                info: "Doctor Who",
                 image: "dim014b"
             },
             {
                 name: "Marty McFly",
+                info: "Back to the Future",
                 image: "idea001"
             },
             {
                 name: "Doc Brown",
+                info: "Back to the Future",
                 image: "dim015"
             },
             {
                 name: "Dr. Peter Venkman",
+                info: "Ghostbusters",
                 image: "dim016"
             }, {
-                name: "Doctor Who",
-                info: "Twelfth Doctor",
-                image: "dim009",
+                name: "Indiana Jones",
+                image: "iaj001",
+                locked: true
+            }, {
+                name: "Woody",
+                info: "Toy Story",
+                image: "toy003",
+                locked: true
+            }, {
+                name: "Buzz Lightyear",
+                info: "Toy Story",
+                image: "toy004",
+                locked: true
+            }, {
+                name: "Jessie",
+                info: "Toy Story",
+                image: "toy008",
                 locked: true
             }
+            , {
+                name: "Alien",
+                info: "Toy Story",
+                image: "toy006",
+                locked: true
+            }
+
 
 
         ]
