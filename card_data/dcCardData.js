@@ -117,7 +117,7 @@ export const dcGroups = [
         name: "Aquaman",
         variants: [
           {
-            image: "sh0050.original",
+            image: "sh0050",
             info: "Classic Aquaman",
             locked: true
           },
@@ -140,7 +140,8 @@ export const dcGroups = [
         name: "Green Lantern",
         info: "Guy Gardner",
         image: "tp302",
-        glow_color: '#09ff00ff'
+        glow_color: '#09ff00ff',
+        defective: true
       },
       {
         name: "The Flash",
@@ -158,6 +159,7 @@ export const dcGroups = [
         variants: [{
           info: "Justice Gang",
           image: "tp301",
+          defective: true
         }, {
           info: "Classic",
           image: "sh0461",
@@ -275,7 +277,7 @@ export const dcGroups = [
       },
       {
         name: "Condiment King",
-        image: "sh0488.original",
+        image: "sh0488",
         locked: true,
         wantedList: true
       },

@@ -225,7 +225,7 @@ export const miscGroups = [
                 info: "Kingdoms",
                 image: "cas513",
             },
-            
+
             {
                 name: "Lion Knight",
                 info: "Kingdoms",
@@ -241,7 +241,7 @@ export const miscGroups = [
                 info: "Kingdoms",
                 image: "cas511"
             },
-                        {
+            {
                 name: "Chess Queen",
                 info: "Kingdoms",
                 image: "cas504"
@@ -265,7 +265,7 @@ export const miscGroups = [
                 name: "Chess Queen",
                 info: "Kingdoms",
                 image: "cas510",
-            },{
+            }, {
                 name: "Green Wizard",
                 image: "cas509",
             }
@@ -344,17 +344,18 @@ export const miscGroups = [
                 image: "pi068",
             },
             {
+                name: "Female Islander",
+                info: "Pirates: Islander",
+                image: "pi066",
+            },
+            {
                 name: "Pirate Captain",
                 info: "Pirates: III",
                 image: "pi148",
                 wantedList: true,
                 locked: true
             },
-            {
-                name: "Female Islander",
-                info: "Pirates: Islander",
-                image: "pi066",
-            },
+
             {
                 name: "Emmet",
                 info: "The Lego Movie",
@@ -384,16 +385,59 @@ export const miscGroups = [
                         info: "Ghost",
                     }
                 ]
+            },{
+                name: "Wyldstyle",
+                info: "The Lego Movie",
+                image: "tlm099",
+            },
+            {
+                name: "Bad Cop",
+                info: "The Lego Movie",
+                image: "tlm098",
             },
             {
                 name: "President Business",
                 info: "The Lego Movie",
                 image: "tlm095",
+            }, {
+                name: "Robo Skeleton",
+                info: "Lego Movie",
+                image: "tlm048",
+            }, {
+                name: "Robo SWAT",
+                info: "Lego Movie",
+                image: "tlm046",
+            },{
+                name: "Robo SWAT - Cap",
+                info: "Lego Movie",
+                image: "tlm100",
             },
             {
                 name: "Wiley Fusebot",
                 info: "The Lego Movie",
                 image: "tlm014",
+            },
+            {
+                name: "Frank the Foreman",
+                info: "The Lego Movie",
+                image: "tlm047",
+            }, {
+                name: "Executive Ellen",
+                info: "The Lego Movie",
+                image: "tlm034",
+            }, {
+                name: "Kebab Bob",
+                info: "The Lego Movie",
+                image: "tlm035",
+            }, {
+                name: "Rootbeer Belle",
+                info: "The Lego Movie",
+                image: "tlm037",
+            },
+            {
+                name: "Sudds Backwash",
+                info: "The Lego Movie",
+                image: "tlm036",
             },
             {
                 name: "Chase McCain",
@@ -411,10 +455,6 @@ export const miscGroups = [
             {
                 name: "Rocket Racer",
                 image: "cty1319",
-            }, {
-                name: "Jetpack Racer",
-                info: "Series 27",
-                image: "col451",
             },
             {
                 name: "Steampunk Inventor",
@@ -440,7 +480,56 @@ export const miscGroups = [
                 name: "Alien Commander",
                 info: "Mars Mission",
                 image: "mm010",
+            }, {
+                name: "Jetpack Racer",
+                info: "Series 27",
+                image: "col451",
+            },
+            {
+                name: "Agent Chase",
+                info: "Agents",
+                image: "agt004",
+            },
+            {
+                name: "Saw Fist",
+                info: "Agents",
+                image: "agt005",
             }
+        ]
+    }, {
+        name: "Miscellaneous",
+        cards: [
+            {
+                name: "Chell",
+                image: "dim006"
+            },
+            {
+                name: "Cyberman",
+                image: "dim014"
+            },
+            {
+                name: "Dalek",
+                image: "dim014b"
+            },
+            {
+                name: "Marty McFly",
+                image: "idea001"
+            },
+            {
+                name: "Doc Brown",
+                image: "dim015"
+            },
+            {
+                name: "Dr. Peter Venkman",
+                image: "dim016"
+            }, {
+                name: "Doctor Who",
+                info: "Twelfth Doctor",
+                image: "dim009",
+                locked: true
+            }
+
+
         ]
     },
 ];
