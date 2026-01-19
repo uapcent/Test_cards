@@ -1,8 +1,8 @@
-import { marvelGroups } from "./card_data/marvelCardData.js";
-import { dcGroups } from "./card_data/dcCardData.js";
-import { ninjagoGroups } from "./card_data/ninjagoCardData.js";
-import { starWarsGroups } from "./card_data/starWarsCardData.js";
-import { miscGroups } from "./card_data/miscCardData.js";
+import { marvelGroups } from "../card_data/marvelCardData.js";
+import { dcGroups } from "../card_data/dcCardData.js";
+import { ninjagoGroups } from "../card_data/ninjagoCardData.js";
+import { starWarsGroups } from "../card_data/starWarsCardData.js";
+import { miscGroups } from "../card_data/miscCardData.js";
 
 // ---------- helpers ----------
 function normalizeImage(image) {

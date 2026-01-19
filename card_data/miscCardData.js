@@ -4,12 +4,12 @@ export const miscGroups = [
         cards: [
             {
                 name: "Frodo Saquet",
-                image: "https://img.bricklink.com/ItemImage/MN/0/lor112.original.png",
+                image: "lor112",
                 locked: true
             },
             {
                 name: "Samwise Gamgee",
-                image: "https://img.bricklink.com/ItemImage/MN/0/lor113.original.png",
+                image: "lor113",
                 locked: true
             }, {
                 name: "Merry Brandybuck",
@@ -281,37 +281,95 @@ export const miscGroups = [
             },
             {
                 name: "Szass Tam",
+                image: "coldnd11"
             },
             {
                 name: "Mind Flayer",
+                image: "coldnd07"
             },
             {
                 name: "Gith Warlock",
+                image: "coldnd02"
             },
             {
                 name: "Halfling Druid",
+                image: "coldnd05"
             },
             {
                 name: "Dwarf Barbarian",
+                image: "coldnd01"
             },
             {
                 name: "Aarakocra Ranger",
+                image: "coldnd06"
             },
             {
                 name: "The Lady of Pain",
+                image: "coldnd10"
             },
             {
                 name: "Tiefling Sorcerer",
+                image: "coldnd03"
             },
             {
                 name: "Dragonborn Paladin",
+                image: "coldnd04"
             },
             {
                 name: "Strahd von Zarovich",
+                image: "coldnd08"
             },
             {
                 name: "Tasha the Witch",
+                image: "coldnd12"
+            },
+            {
+                name: "Dragonborn Alax Jadescales",
+                image: "idea185",
+                defective: true
+            },
+            {
+                name: "Dwarf Cleric",
+                image: "idea180",
+                defective: true
+            },
+            {
+                name: "Elf Wizard",
+                image: "idea181",
+                defective: true
+            },
+            {
+                name: "Gnome Fighter",
+                image: "idea182",
+                defective: true
+            },
+            {
+                name: "Merry Rumwell",
+                info: "Ervan Soulfallen in Disguise",
+                image: "idea184",
+                defective: true
+            },
+            {
+                name: "Myconid",
+                image: "idea186",
+                defective: true
+            },
+            {
+                name: "Orc Rogue",
+                image: "idea183.original.png",
+                defective: true
+            },
+            {
+                name: "Colin the Fighter",
+                image: "idea187",
+                defective: true
+            },
+            {
+                name: "Kildar the Wizard",
+                image: "idea188",
+                defective: true
             }
+            
 
         ]
     },
@@ -494,7 +552,49 @@ export const miscGroups = [
                 name: "Saw Fist",
                 info: "Agents",
                 image: "agt005",
+            },{
+                name: "Imposter",
+                info: "Series 26",
+                image: "col437",
+            },{
+                name: "Spacewalking Astronaut",
+                info: "Series 26",
+                image: "col436",
+            },{
+                name: "Alien Tourist",
+                info: "Series 26",
+                image: "col438",
+            },{
+                name: "M-Tron Powerlifter",
+                info: "Series 26",
+                image: "col440",
+            },{
+                name: "Nurse Android",
+                info: "Series 26",
+                image: "col441",
+            },{
+                name: "Spacebaby",
+                info: "Series 26",
+                image: "col442",
+            },{
+                name: "Ice Planet Explorer",
+                info: "Series 26",
+                image: "col444",
+            },{
+                name: "Alien Beetlezoid",
+                info: "Series 26",
+                image: "col446",
+            },{
+                name: "Orion",
+                info: "Series 26",
+                image: "col447",
+            },{
+                name: "Blacktron Mutant",
+                info: "Series 26",
+                image: "col448",
             }
+            
+            
         ]
     }, {
         name: "Miscellaneous",
