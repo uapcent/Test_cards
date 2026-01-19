@@ -23,7 +23,7 @@ const allGroups = [
 function normalizeCard(card) {
   if (card.variants && card.variants.length) {
     const variants = card.variants.map(v => ({
-      image: v.image ? IMAGE_BASE_PATH + v.image : UNKNOWN_IMAGE,
+      image: resolveImage(v.image),
       info: v.info || "",
       locked: !!v.locked,
       wantedList: !!v.wantedList,
@@ -42,7 +42,7 @@ function normalizeCard(card) {
 
   // Single-image card → wrap into a single variant
   const variant = {
-    image: card.image ? IMAGE_BASE_PATH + card.image : UNKNOWN_IMAGE,
+    image: resolveImage(card.image),
     info: card.info || "",
     locked: !!card.locked,
     wantedList: !!card.wantedList,
@@ -191,6 +191,20 @@ function attachCardInteractions(groups) {
     true
   );
 }
+
+function resolveImage(image) {
+  if (!image) return UNKNOWN_IMAGE;
+
+  // If already a full URL (http, https, protocol-relative)
+  if (/^(https?:)?\/\//i.test(image)) {
+    return image;
+  }
+
+  // Otherwise, treat as local asset
+  return IMAGE_BASE_PATH + image;
+}
+
+
 
 // -------- Init --------
 normalizeGroups(allGroups);

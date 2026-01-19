@@ -140,6 +140,12 @@ export const starWarsGroups = [{
       locked: true
     },
     {
+      name: "Ki-Adi-Mundi",
+      image: "http://img.bricklink.com/ItemImage/MN/0/sw0911.png",
+      glow_color: '#ffff00ff',
+      locked: true
+    },
+    {
       name: "Kit Fisto",
       glow_color: '#00ffafff',
       locked: true
@@ -210,7 +216,8 @@ export const starWarsGroups = [{
       variants: [{
         info: "Tatooine",
         image: "sw0778.webp",
-        locked: true
+        locked: true,
+        wantedList: true
       },
       {
         info: "Stormtrooper",
@@ -222,7 +229,8 @@ export const starWarsGroups = [{
       name: "Ben Kenobi",
       image: "sw0552.webp",
       glow_color: '#0099ffff',
-      locked: true
+      locked: true,
+      wantedList: true
     },
     {
       name: "Han Solo",

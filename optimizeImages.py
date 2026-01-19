@@ -1,24 +1,36 @@
 from pathlib import Path
 from PIL import Image
+import re
 
 # ===== CONFIG =====
 IMAGE_DIR = Path("assets/minifigures_images")
 THUMB_DIR = IMAGE_DIR / "thumbnails"
 
-TARGET_WIDTH = 200      # ideal for cards
-TARGET_HEIGHT = 200     # uniform size
-WEBP_QUALITY = 80       # good balance quality/size
+TARGET_WIDTH = 200
+TARGET_HEIGHT = 200
+WEBP_QUALITY = 80
 # ==================
 
 THUMB_DIR.mkdir(exist_ok=True)
 
 SUPPORTED_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
 
+def clean_stem(stem: str) -> str:
+    # Remove "original" (case-insensitive)
+    cleaned = re.sub(r"original", "", stem, flags=re.IGNORECASE)
+
+    # Remove leftover separators like ".", "_" or "-"
+    cleaned = cleaned.rstrip("._-")
+
+    return cleaned
+
 def create_thumbnail(image_path: Path):
-    out_path = THUMB_DIR / (image_path.stem + ".webp")
+    cleaned_stem = clean_stem(image_path.stem)
+    out_path = THUMB_DIR / f"{cleaned_stem}.webp"
 
     if out_path.exists():
-        return  # skip already processed
+        print(f"{image_path.name} -> thumbnails/{out_path.name} (skipped)")
+        return
 
     with Image.open(image_path) as img:
         img = img.convert("RGBA")
@@ -39,7 +51,7 @@ def create_thumbnail(image_path: Path):
             method=6
         )
 
-        print(f"✔ {image_path.name} → thumbnails/{out_path.name}")
+        print(f"{image_path.name} -> thumbnails/{out_path.name}")
 
 def main():
     for img_path in IMAGE_DIR.iterdir():

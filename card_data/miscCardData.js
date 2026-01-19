@@ -4,38 +4,44 @@ export const miscGroups = [
         cards: [
             {
                 name: "Frodo Saquet",
+                image: "https://img.bricklink.com/ItemImage/MN/0/lor112.original.png",
                 locked: true
             },
             {
                 name: "Samwise Gamgee",
+                image: "https://img.bricklink.com/ItemImage/MN/0/lor113.original.png",
                 locked: true
-            },{
-              name: "Merry Brandybuck",
-              locked: true
-            },{
-              name: "Pippin Took",
-              locked: true  
+            }, {
+                name: "Merry Brandybuck",
+                image: "https://img.bricklink.com/ItemImage/MN/0/lor124.original.png",
+                locked: true
+            }, {
+                name: "Pippin Took",
+                image: "https://img.bricklink.com/ItemImage/MN/0/lor123.original.png",
+                locked: true
             },
             {
                 name: "Aragorn",
+                image: "https://img.bricklink.com/ItemImage/MN/0/lor017.original.png",
+                locked: true
             },
             {
                 name: "Gandalf the Grey",
-                image: "lor001.original.png"
-            },{
+                image: "lor001.webp"
+            }, {
                 name: "Legolas",
                 locked: true
-            },{
+            }, {
                 name: "Gimli",
                 locked: true
             },
             {
                 name: "Boromir",
                 locked: true
-            },{
+            }, {
                 name: "Gollum",
                 locked: true
-            },{
+            }, {
                 name: "Saruman the White",
                 locked: true
             },
@@ -46,7 +52,7 @@ export const miscGroups = [
             {
                 name: "Arwen",
                 locked: true
-            },{
+            }, {
                 name: "Galadriel",
                 locked: true
             },
@@ -57,23 +63,23 @@ export const miscGroups = [
             {
                 name: "Orc Warrior",
                 locked: true
-            },{
+            }, {
                 name: "Uruk-hai Warrior",
                 locked: true
-            },{
+            }, {
                 name: "Nazgûl",
                 locked: true
-            },{
+            }, {
                 name: "Mouth of Sauron",
                 locked: true
-            },{
+            }, {
                 name: "Sauron",
                 locked: true
             },
             {
                 name: "King of the Dead",
                 locked: true
-            },{
+            }, {
                 name: "Soldier of the Dead",
                 locked: true
             }
@@ -117,53 +123,53 @@ export const miscGroups = [
                 name: "Luffy",
                 variants: [{
                     info: "Straw Hat",
-                    image: "op016.original.webp"
+                    image: "op016.webp"
                 }, {
                     info: "Young",
-                    image: "op003.original.webp"
+                    image: "op003.webp"
                 }]
             },
             {
                 name: "Nami",
-                image: "op005.original.webp"
+                image: "op005.webp"
             },
             {
                 name: "Zoro",
-                image: "op013.original.webp"
+                image: "op013.webp"
             },
             {
                 name: "Sanji",
-                image: "op014.original.webp"
+                image: "op014.webp"
             },
             {
                 name: "Usopp",
-                image: "op015.original.webp"
+                image: "op015.webp"
             },
             {
                 name: "Shanks",
-                image: "op001.original.webp"
+                image: "op001.webp"
             },
             {
                 name: "Buggy the Clown",
-                image: "op004.original.webp",
+                image: "op004.webp",
                 locked: true,
                 wantedList: true
             },
             {
                 name: "Garp",
-                image: "op021.original.webp",
+                image: "op021.webp",
                 locked: true,
                 wantedList: true
             },
             {
                 name: "Mihawk",
-                image: "op017.original.webp",
+                image: "op017.webp",
                 locked: true,
                 wantedList: true
             },
             {
                 name: "Makino",
-                image: "op002.original.webp"
+                image: "op002.webp"
             }
         ]
     },
@@ -180,16 +186,16 @@ export const miscGroups = [
             },
             {
                 name: "Lord Vampyre",
-                image: "mof013.original.webp",
+                image: "mof013.webp",
             },
             {
                 name: "Lord Vampyre's Bride",
-                image: "mof008.original.webp",
+                image: "mof008.webp",
                 locked: true
             },
             {
                 name: "Zombie Driver",
-                image: "mof012.original.webp",
+                image: "mof012.webp",
             }
 
         ]
@@ -200,7 +206,7 @@ export const miscGroups = [
             {
                 name: "Vampire Knight",
                 info: "Series 25",
-                image: "col426.original.webp",
+                image: "col426.webp",
             },
             {
                 name: "Goatherd",
@@ -210,7 +216,7 @@ export const miscGroups = [
             {
                 name: "Wolfpack Beastmaster",
                 info: "Series 27",
-                image: "col450.original.webp",
+                image: "col450.webp",
             }
 
         ]
@@ -284,7 +290,7 @@ export const miscGroups = [
             {
                 name: "King Kahuka",
                 info: "Pirates: Islander",
-                image: "pi068.original.webp",
+                image: "pi068.webp",
             },
             {
                 name: "Pirate Captain",
@@ -341,11 +347,11 @@ export const miscGroups = [
             {
                 name: "Chase McCain",
                 info: "Lego City Undercover",
-                image: "cty0356.original.webp",
+                image: "cty0356.webp",
             },
             {
                 name: "Elite Police Motorcycle Officer",
-                image: "cty0357.original.webp",
+                image: "cty0357.webp",
             },
             {
                 name: "City Burglar",
@@ -354,20 +360,20 @@ export const miscGroups = [
             {
                 name: "Rocket Racer",
                 image: "cty1319.webp",
-            },{
+            }, {
                 name: "Jetpack Racer",
                 info: "Series 27",
-                image: "col451.original.webp",
+                image: "col451.webp",
             },
             {
                 name: "Steampunk Inventor",
                 info: "Series 27",
-                image: "col460.original.webp",
+                image: "col460.webp",
             },
             {
                 name: "Film Noir Detective",
                 info: "Series 25",
-                image: "col25-1.webp",
+                image: "col424.webp",
             }
         ]
     },

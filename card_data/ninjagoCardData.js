@@ -190,9 +190,7 @@ export const ninjagoGroups = [{
     },
     {
       name: "Dareth",
-      image: "njo0110.webp",
-      locked: true,
-      wantedList: true
+      image: "njo0110.webp"
     },
     {
       name: "Ronin",
@@ -309,6 +307,7 @@ export const ninjagoGroups = [{
       name: "GPL Tech",
       info: "The Lego Ninjago Movie",
       image: "coltlnm18.original.webp",
+      locked: true
     },
     {
       name: "Ham",

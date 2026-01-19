@@ -355,6 +355,11 @@ export const marvelGroups = [
                 locked: true
             },
             {
+                name: "Nick Fury",
+                image: "http://img.bricklink.com/ItemImage/MN/0/sh0585a.png",
+                locked: true
+            },
+            {
                 name: "J. Jonah Jameson",
                 image: "sh0710.original.webp"
             },
