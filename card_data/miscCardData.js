@@ -36,7 +36,7 @@ export const miscGroups = [
                     image: "lor063",
                     locked: true
                 }],
-                
+
             }, {
                 name: "Legolas",
                 image: "dim008",
@@ -107,10 +107,10 @@ export const miscGroups = [
                 variants: [{
                     image: "lor069",
                     locked: true
-                },{
+                }, {
                     image: "lor070",
                     locked: true
-            }]
+                }]
             }
         ]
     },
@@ -453,8 +453,15 @@ export const miscGroups = [
             },
             {
                 name: "Unikitty",
-                info: "The Lego Movie",
-                image: "tlm093",
+                variants: [
+                    {
+                        image: "tlm093"
+                    },
+                    {
+                        image: "tlm091",
+                        info: "Angry Kitty"
+                    }
+                ]
             },
             {
                 name: "Vitruvius",
@@ -551,6 +558,32 @@ export const miscGroups = [
                 info: "Series 25",
                 image: "col424",
             },
+
+            {
+                name: "Agent Chase",
+                info: "Agents",
+                image: "agt004",
+            },
+            {
+                name: "Saw Fist",
+                info: "Agents",
+                image: "agt005",
+            },
+            {
+                name: "Spacewalking Astronaut",
+                info: "Series 26",
+                image: "col436",
+            },
+            {
+                name: "Jetpack Racer",
+                info: "Series 27",
+                image: "col451",
+            },
+            {
+                name: "Ice Planet Explorer",
+                info: "Series 26",
+                image: "col444",
+            },
             {
                 name: "Astronaut",
                 info: "Mars Mission",
@@ -565,37 +598,28 @@ export const miscGroups = [
                 name: "Alien Commander",
                 info: "Mars Mission",
                 image: "mm010",
-            }, {
-                name: "Jetpack Racer",
-                info: "Series 27",
-                image: "col451",
             },
             {
-                name: "Agent Chase",
-                info: "Agents",
-                image: "agt004",
-            },
-            {
-                name: "Saw Fist",
-                info: "Agents",
-                image: "agt005",
-            }, {
-                name: "Imposter",
-                info: "Series 26",
-                image: "col437",
-            }, {
-                name: "Spacewalking Astronaut",
-                info: "Series 26",
-                image: "col436",
-            }, {
-                name: "Alien Tourist",
-                info: "Series 26",
-                image: "col438",
-            }, {
                 name: "M-Tron Powerlifter",
                 info: "Series 26",
                 image: "col440",
-            }, {
+            },
+            {
+                name: "Blacktron Mutant",
+                info: "Series 26",
+                image: "col448",
+            },
+            {
+                name: "Alien Tourist",
+                info: "Series 26",
+                image: "col438",
+            },
+            {
+                name: "Imposter",
+                info: "Series 26",
+                image: "col437",
+            },
+            {
                 name: "Nurse Android",
                 info: "Series 26",
                 image: "col441",
@@ -604,10 +628,6 @@ export const miscGroups = [
                 info: "Series 26",
                 image: "col442",
             }, {
-                name: "Ice Planet Explorer",
-                info: "Series 26",
-                image: "col444",
-            }, {
                 name: "Alien Beetlezoid",
                 info: "Series 26",
                 image: "col446",
@@ -615,11 +635,7 @@ export const miscGroups = [
                 name: "Orion",
                 info: "Series 26",
                 image: "col447",
-            }, {
-                name: "Blacktron Mutant",
-                info: "Series 26",
-                image: "col448",
-            }
+            },
 
 
         ]
@@ -668,23 +684,19 @@ export const miscGroups = [
                 name: "Woody",
                 info: "Toy Story",
                 image: "toy003",
-                locked: true
             }, {
                 name: "Buzz Lightyear",
                 info: "Toy Story",
                 image: "toy004",
-                locked: true
             }, {
                 name: "Jessie",
                 info: "Toy Story",
                 image: "toy008",
-                locked: true
             }
             , {
                 name: "Alien",
                 info: "Toy Story",
                 image: "toy006",
-                locked: true
             }
 
 

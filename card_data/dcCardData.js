@@ -188,6 +188,16 @@ export const dcGroups = [
         locked: true
       },
       {
+        name: "Plastic Man",
+        image: "sh0142",
+        locked: true
+      },
+      {
+        name: "Blue Beetle",
+        image:"sh0278",
+        locked: true
+      },
+      {
         name: "Flash - Jay Garrick",
         image: "colsh15",
         locked: true

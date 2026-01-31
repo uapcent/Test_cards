@@ -171,7 +171,16 @@ export const ninjagoGroups = [{
         info: "Day of the Departed",
         image: "njo0247",
       }]
+    },{
+      name: "Nuckal",
+      image: "njo0003",
+      locked: true
+    },{
+      name: "Wyplash",
+      image: "njo0028",
+      locked: true
     },
+    
     {
       name: "Samukai (Skulkin)",
       info: "The Golden Weapons",

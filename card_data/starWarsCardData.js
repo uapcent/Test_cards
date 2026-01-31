@@ -439,5 +439,20 @@ export const starWarsGroups = [{
       info: "Episonde VII",
       image: "sw0655",
     },
+        {
+      name: "Clone Bomb Squad Trooper",
+      info: "Phase 1",
+      image: "sw0299",
+    },
+    {
+      name: "Clone ARF Trooper Razor",
+      info: "91st Mobile Reconnaissance Corps",
+      image: "sw0297",
+    },
+    {
+      name: "Clone Trooper, Horn Company",
+      info: "Phase 1",
+      image: "sw0298",
+    },
   ]
 }];
