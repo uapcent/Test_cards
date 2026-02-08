@@ -636,6 +636,13 @@ export const miscGroups = [
                 info: "Series 26",
                 image: "col447",
             },
+            {
+                name: "LOM Assistant",
+                info: "Life on Mars",
+                image: "lom014",
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=7310-1",
+                year: 2001
+            }
 
 
         ]

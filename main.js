@@ -10,6 +10,11 @@ import { testGroups } from "./card_data/testData.js";
 const IMAGE_BASE_PATH = "assets/minifigures_images/thumbnails/";
 const IMAGE_FORMAT = ".webp";
 const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.webp";
+const modal = document.getElementById("cardModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalVariants = document.getElementById("modalVariants");
+const closeBtn = modal.querySelector(".modal-close");
+
 
 const allGroups = [
   ...marvelGroups,
@@ -47,7 +52,9 @@ function normalizeCard(card) {
     info: card.info || "",
     locked: !!card.locked,
     wantedList: !!card.wantedList,
-    defective: !!card.defective
+    defective: !!card.defective,
+    appears_in: card.appears_in || "",
+    year: card.year || null
   };
 
   return {
@@ -121,17 +128,21 @@ function createCardElement(card, groupName, cardIdx) {
   const lockedVariant = variant ? variant.locked : true;
 
   div.innerHTML = `
-    <img
-      src="${variantImage}"
-      alt="${card.name}"
-      loading="lazy"
-      style="${lockedVariant ? "filter: grayscale(100%)" : ""}"
-    >
-    <div class="overlay">
-      <strong>${card.name}</strong><br>
-      <span class="card-desc">${variantInfo}</span>
-    </div>
-  `;
+  <img
+    src="${variantImage}"
+    alt="${card.name}"
+    loading="lazy"
+    style="${lockedVariant ? "filter: grayscale(100%)" : ""}"
+  >
+
+  <button class="info-btn" aria-label="Card info">i</button>
+
+  <div class="overlay">
+    <strong>${card.name}</strong><br>
+    <span class="card-desc">${variantInfo}</span>
+  </div>
+`;
+
 
   return div;
 }
@@ -142,6 +153,19 @@ function attachCardInteractions(groups) {
   const container = document.getElementById("groupsContainer");
 
   container.addEventListener("click", e => {
+
+    const infoBtn = e.target.closest(".info-btn");
+    if (infoBtn) {
+      e.stopPropagation(); // 🔴 key line
+
+      const cardDiv = infoBtn.closest(".card");
+      const group = groups.find(g => g.name === cardDiv.dataset.group);
+      const card = group.cards[cardDiv.dataset.cardIdx];
+
+      openCardModal(card);
+      return;
+    }
+
     const cardDiv = e.target.closest(".card");
     if (!cardDiv) return;
 
@@ -205,6 +229,40 @@ function resolveImage(image) {
   return IMAGE_BASE_PATH + image + IMAGE_FORMAT;
 }
 
+function openCardModal(card) {
+  modalTitle.textContent = card.name;
+  modalVariants.innerHTML = "";
+
+  card.variants.forEach((variant, idx) => {
+
+    const appearsIn = variant.appears_in
+    ? `<a href="${variant.appears_in}" target="_blank" rel="noopener noreferrer">
+       ${variant.appears_in}
+     </a>`
+    : "No info";
+
+    const div = document.createElement("div");
+    div.className = "modal-variant";
+    div.innerHTML = `
+      <img src="${variant.image}">
+      <p>${variant.info || "No info"}</p>
+      <p>Appears in: ${appearsIn}</p>
+      <p>Year: ${variant.year || "Unknown"}</p>
+    `;
+
+    modalVariants.appendChild(div);
+  });
+
+  modal.classList.remove("hidden");
+}
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.classList.add("hidden");
+});
 
 
 // -------- Init --------

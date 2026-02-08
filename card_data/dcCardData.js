@@ -10,7 +10,8 @@ export const dcGroups = [
           {
             image: "sh0151",
             info: "New 52",
-            locked: false
+            locked: false,
+            appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1"
           },
           {
             image: "sh0329",
@@ -53,7 +54,8 @@ export const dcGroups = [
         variants: [{
           image: "sh0195",
           info: "New 52",
-          locked: false
+          locked: false,
+          appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1"
         }, {
           image: "sh0011",
           info: "Batman 2",
@@ -99,8 +101,7 @@ export const dcGroups = [
         variants: [
           {
             image: "sh1055",
-            info: "Classic Superman",
-            locked: false
+            info: "Classic Superman"
           },
           {
             image: "sh0219",
@@ -110,8 +111,17 @@ export const dcGroups = [
       },
       {
         name: "Wonder Woman",
-        image: "sh0456",
-        locked: true
+        variants: [
+          {
+            image: "sh0150",
+            info: "Silver",
+            year: 2015
+          },
+          {
+            image: "sh0456"
+          }
+        ],
+        
       },
       {
         name: "Aquaman",
@@ -146,9 +156,8 @@ export const dcGroups = [
       {
         name: "The Flash",
         image: "sh0087",
-        locked: true,
         glow_color: '#ffe600ff',
-        wantedList: true
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1"
       }, {
         name: "Hawkman",
         image: "sh0154",
@@ -194,7 +203,7 @@ export const dcGroups = [
       },
       {
         name: "Blue Beetle",
-        image:"sh0278",
+        image: "sh0278",
         locked: true
       },
       {
@@ -296,6 +305,11 @@ export const dcGroups = [
         image: "sh0194",
       },
       {
+        name: "Gorilla Grodd",
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1",
+        image: "sh0147"
+      },
+      {
         name: "Black Manta",
         image: "sh0526",
         locked: true
@@ -334,7 +348,7 @@ export const dcGroups = [
       {
         name: "Captain Cold",
         image: "sh0148",
-        locked: true
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1",
       },
       {
         name: "Commissioner Gordon",
@@ -456,6 +470,12 @@ export const dcGroups = [
 
         }],
 
+      },
+      {
+        name: "Truck Driver",
+        info: "Overalls",
+        image: "sh0149",
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1"
       }
 
     ]
