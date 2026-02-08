@@ -18,10 +18,10 @@ function extractCards(groupsArray) {
   for (const groups of groupsArray) {
     for (const group of groups) {
       for (const card of group.cards ?? []) {
-        if (card.image) map.set(normalizeImage(card.image), { name: card.name, image: normalizeImage(card.image) });
+        if (card.image) map.set(normalizeImage(card.image), { name: card.name, year: card.year, image: normalizeImage(card.image) });
         if (Array.isArray(card.variants)) {
           for (const v of card.variants) {
-            if (v.image) map.set(normalizeImage(v.image), { name: card.name, image: normalizeImage(v.image) });
+            if (v.image) map.set(normalizeImage(v.image), { name: card.name, year: card.year, image: normalizeImage(v.image) });
           }
         }
       }
@@ -88,8 +88,17 @@ function renderPair() {
   const leftImg = `../assets/minifigures_images/thumbnails/${currentPair[0]}.webp`;
   const rightImg = `../assets/minifigures_images/thumbnails/${currentPair[1]}.webp`;
 
-  leftBtn.innerHTML = `<img src="${leftImg}" alt="${cardMap.get(currentPair[0]).name}">`;
-  rightBtn.innerHTML = `<img src="${rightImg}" alt="${cardMap.get(currentPair[1]).name}">`;
+  leftBtn.innerHTML = `
+    <img src="${leftImg}" alt="${cardMap.get(currentPair[0]).name}">  
+    <p> ${cardMap.get(currentPair[0]).name} </p>
+    <p> Year: ${cardMap.get(currentPair[0]).year || "Unknown"} </p>
+
+    `;
+  rightBtn.innerHTML = `
+    <img src="${rightImg}" alt="${cardMap.get(currentPair[1]).name}">
+    <p> ${cardMap.get(currentPair[1]).name} </p>
+    <p> Year: ${cardMap.get(currentPair[1]).year || "Unknown"} </p>
+  `;
 
   console.log(`New pair: ${cardMap.get(currentPair[0]).name} vs ${cardMap.get(currentPair[1]).name}`);
 }
@@ -113,7 +122,7 @@ function renderRanking() {
     rankingEl.appendChild(li);
   }
 
-  console.log("Top ranking:", sorted.slice(0, 5).map(i => `${cardMap.get(i).name}(${Math.round(ratings[i].rating)})`));
+  // console.log("Top ranking:", sorted.slice(0, 5).map(i => `${cardMap.get(i).name}(${Math.round(ratings[i].rating)})`));
 }
 
 leftBtn.onclick = () => {

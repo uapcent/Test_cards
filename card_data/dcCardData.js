@@ -11,6 +11,7 @@ export const dcGroups = [
             image: "sh0151",
             info: "New 52",
             locked: false,
+            year: 2015,
             appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1"
           },
           {
@@ -157,6 +158,7 @@ export const dcGroups = [
         name: "The Flash",
         image: "sh0087",
         glow_color: '#ffe600ff',
+        year: 2015,
         appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1"
       }, {
         name: "Hawkman",
@@ -233,6 +235,8 @@ export const dcGroups = [
       {
         name: "Two Face",
         image: "sh0007",
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=6864-1",
+        year: 2012,
         locked: true,
         wantedList: true
       },
@@ -306,6 +310,7 @@ export const dcGroups = [
       },
       {
         name: "Gorilla Grodd",
+        year: 2015,
         appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1",
         image: "sh0147"
       },
@@ -348,6 +353,7 @@ export const dcGroups = [
       {
         name: "Captain Cold",
         image: "sh0148",
+        year: 2015,
         appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1",
       },
       {

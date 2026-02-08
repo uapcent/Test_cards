@@ -31,10 +31,13 @@ function normalizeCard(card) {
     const variants = card.variants.map(v => ({
       image: resolveImage(v.image),
       info: v.info || "",
+      appears_in: v.appears_in ?? card.appears_in ?? "",
+      year: v.year ?? card.year ?? null,
       locked: !!v.locked,
       wantedList: !!v.wantedList,
       defective: !!v.defective
     }));
+
 
     return {
       name: card.name,
@@ -50,12 +53,13 @@ function normalizeCard(card) {
   const variant = {
     image: resolveImage(card.image),
     info: card.info || "",
+    appears_in: card.appears_in || "",
     locked: !!card.locked,
     wantedList: !!card.wantedList,
     defective: !!card.defective,
-    appears_in: card.appears_in || "",
-    year: card.year || null
+    year: card.year ?? null
   };
+
 
   return {
     name: card.name,
@@ -236,10 +240,10 @@ function openCardModal(card) {
   card.variants.forEach((variant, idx) => {
 
     const appearsIn = variant.appears_in
-    ? `<a href="${variant.appears_in}" target="_blank" rel="noopener noreferrer">
+      ? `<a href="${variant.appears_in}" target="_blank" rel="noopener noreferrer">
        ${variant.appears_in}
      </a>`
-    : "No info";
+      : "No info";
 
     const div = document.createElement("div");
     div.className = "modal-variant";

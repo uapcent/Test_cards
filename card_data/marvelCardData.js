@@ -159,35 +159,44 @@ export const marvelGroups = [
             },
             {
                 name: "Spider-Man - Miles Morales",
+                info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi01"
             },
 
             {
                 name: "Spider-Gwen - Gwen Stacy",
+                info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi04"
             },
             {
                 name: "Spider-Man 2099 - Miguel O'Hara",
                 info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi05"
             },
             {
                 name: "Spider-Punk - Hobart Brown",
                 info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi02"
             },
             {
                 name: "Peter B. Parker",
                 info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi10"
             },
             {
                 name: "May 'Mayday' Parker",
+                year: 2025,
                 info: "Across the Spider-Verse",
                 image: "colspi11"
             },
             {
                 name: "Pavitr Prabhakar / Spider-Man India",
+                year: 2025,
                 info: "Across the Spider-Verse",
                 image: "colspi06"
             },
