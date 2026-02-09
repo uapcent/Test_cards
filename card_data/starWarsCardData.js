@@ -337,6 +337,8 @@ export const starWarsGroups = [{
     {
       name: "Darth Vader",
       image: "sw1273",
+      year: 2023,
+      appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=227299",
       glow_color: '#ff0000ff'
     },
     {

@@ -207,23 +207,32 @@ export const miscGroups = [
         cards: [
             {
                 name: "Doctor Rodney Rathbone",
+                year: 2012,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962",
                 image: "mof005",
             },
             {
                 name: "Ann Lee",
+                year: 2012,
+                appears_in: "Bricklink",
                 image: "mof002",
             },
             {
                 name: "Lord Vampyre",
+                year: 2012,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962",
                 image: "mof013",
             },
             {
                 name: "Lord Vampyre's Bride",
+                year: 2012,
                 image: "mof008",
                 locked: true
             },
             {
                 name: "Zombie Driver",
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962",
+                year: 2012,
                 image: "mof012",
             }
 
@@ -304,50 +313,62 @@ export const miscGroups = [
         cards: [
             {
                 name: "Elf Bard",
+                year: 2024,
                 image: "coldnd09"
             },
             {
                 name: "Szass Tam",
+                year: 2024,
                 image: "coldnd11"
             },
             {
                 name: "Mind Flayer",
+                year: 2024,
                 image: "coldnd07"
             },
             {
                 name: "Gith Warlock",
+                year: 2024,
                 image: "coldnd02"
             },
             {
                 name: "Halfling Druid",
+                year: 2024,
                 image: "coldnd05"
             },
             {
                 name: "Dwarf Barbarian",
+                year: 2024,
                 image: "coldnd01"
             },
             {
                 name: "Aarakocra Ranger",
+                year: 2024,
                 image: "coldnd06"
             },
             {
                 name: "The Lady of Pain",
+                year: 2024,
                 image: "coldnd10"
             },
             {
                 name: "Tiefling Sorcerer",
+                year: 2024,
                 image: "coldnd03"
             },
             {
                 name: "Dragonborn Paladin",
+                year: 2024,
                 image: "coldnd04"
             },
             {
                 name: "Strahd von Zarovich",
+                year: 2024,
                 image: "coldnd08"
             },
             {
                 name: "Tasha the Witch",
+                year: 2024,
                 image: "coldnd12"
             },
             {
@@ -558,15 +579,18 @@ export const miscGroups = [
                 info: "Series 25",
                 image: "col424",
             },
-
             {
                 name: "Agent Chase",
                 info: "Agents",
+                year: 2008,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=77813",
                 image: "agt004",
             },
             {
                 name: "Saw Fist",
                 info: "Agents",
+                year: 2008,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=77813",
                 image: "agt005",
             },
             {
@@ -577,6 +601,7 @@ export const miscGroups = [
             {
                 name: "Jetpack Racer",
                 info: "Series 27",
+                year: 2025,
                 image: "col451",
             },
             {
@@ -636,6 +661,13 @@ export const miscGroups = [
                 info: "Series 26",
                 image: "col447",
             },
+            {
+                name: "LOM Assistant",
+                info: "Life on Mars",
+                image: "lom014",
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=7310-1",
+                year: 2001
+            }
 
 
         ]
@@ -644,6 +676,8 @@ export const miscGroups = [
         cards: [
             {
                 name: "Chell",
+                info: "Portal",
+                year: 2015,
                 image: "dim006"
             },
             {

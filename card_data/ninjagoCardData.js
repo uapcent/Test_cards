@@ -124,6 +124,8 @@ export const ninjagoGroups = [{
         },
         {
           info: "Skybound",
+          year: 2016,
+          appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125",
           image: "njo0245"
         }
       ],
@@ -160,6 +162,8 @@ export const ninjagoGroups = [{
     {
       name: "Frakjaw (Skulkin)",
       info: "Day of the Departed",
+      year: 2016,
+      appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125",
       image: "njo0244",
     },
     {
@@ -169,6 +173,8 @@ export const ninjagoGroups = [{
         image: "njo0017",
       }, {
         info: "Day of the Departed",
+        year: 2016,
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125",
         image: "njo0247",
       }]
     },{
@@ -204,6 +210,8 @@ export const ninjagoGroups = [{
     {
       name: "Ronin",
       info: "Day of the Departed",
+      year: 2016,
+      appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125",
       image: "njo0246",
     },
     {
