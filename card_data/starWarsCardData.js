@@ -286,6 +286,15 @@ export const starWarsGroups = [{
         locked: true
       }]
     },
+        {
+      name: "Jek Porkins",
+      image: "sw0372"
+    },
+    {
+      name: "R7-A7",
+      info: "Astromech Droid",
+      image: "sw1397"
+    },
     {
       name: "Lando Calrissian",
       image: "sw0973",
@@ -414,15 +423,6 @@ export const starWarsGroups = [{
     {
       name: "R5-D8 / R5-D4",
       image: "sw0373"
-    },
-    {
-      name: "Jek Porkins",
-      image: "sw0372"
-    },
-    {
-      name: "R7-A7",
-      info: "Astromech Droid",
-      image: "sw1397"
     },
     {
       name: "Boba Fett",
