@@ -345,7 +345,8 @@ export const marvelGroups = [
             {
                 name: "GhostRider",
                 image: "sh0861",
-                locked: true
+                locked: true,
+                wantedList: true
             },
             {
                 name: "Adam Warlock",
