@@ -77,7 +77,7 @@ export const starWarsGroups = [{
       image: "sw1255",
       glow_color: '#0099ffff',
     },
-        {
+    {
       name: "Jango Fett",
       image: "sw1406",
       locked: true,
@@ -195,6 +195,34 @@ export const starWarsGroups = [{
       image: "sw0450",
     },
     {
+      name: "Clone Bomb Squad Trooper",
+      info: "Phase 1",
+      image: "sw0299",
+    },
+    {
+      name: "Clone ARF Trooper Razor",
+      info: "91st Mobile Reconnaissance Corps",
+      image: "sw0297",
+    },
+    {
+      name: "Clone Trooper, Horn Company",
+      info: "Phase 1",
+      image: "sw0298",
+    },
+    {
+      name: "Count Dooku",
+      image: "sw0472",
+      glow_color: '#ff0000ff',
+      locked: true,
+      wantedList: true
+    },
+    {
+      name: "General Grievous",
+      image: "sw0515",
+      locked: true,
+      wantedList: true
+    },
+    {
       name: "Commander Cody",
       image: "sw1233",
       locked: true
@@ -286,7 +314,7 @@ export const starWarsGroups = [{
         locked: true
       }]
     },
-        {
+    {
       name: "Jek Porkins",
       image: "sw0372"
     },
@@ -398,20 +426,6 @@ export const starWarsGroups = [{
       info: "Rancor Battalion (Phase 1)",
       image: "sw0378",
     },
-
-    {
-      name: "Count Dooku",
-      image: "sw0472",
-      glow_color: '#ff0000ff',
-      locked: true,
-      wantedList: true
-    },
-    {
-      name: "General Grievous",
-      image: "sw0515",
-      locked: true,
-      wantedList: true
-    },
     {
       name: "Jedi Bob",
       info: "Bobarian Afol",
@@ -441,20 +455,6 @@ export const starWarsGroups = [{
       info: "Episonde VII",
       image: "sw0655",
     },
-        {
-      name: "Clone Bomb Squad Trooper",
-      info: "Phase 1",
-      image: "sw0299",
-    },
-    {
-      name: "Clone ARF Trooper Razor",
-      info: "91st Mobile Reconnaissance Corps",
-      image: "sw0297",
-    },
-    {
-      name: "Clone Trooper, Horn Company",
-      info: "Phase 1",
-      image: "sw0298",
-    },
+
   ]
 }];

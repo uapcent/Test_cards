@@ -5,7 +5,7 @@ export const miscGroups = [
             {
                 name: "Frodo Saquet",
                 image: "lor112",
-                locked: true
+                locked: true, wantedList: true
             },
             {
                 name: "Samwise Gamgee",
@@ -29,8 +29,7 @@ export const miscGroups = [
                 name: "Gandalf",
                 variants: [{
                     info: "The Grey",
-                    image: "lor001",
-                    locked: true
+                    image: "lor001"
                 }, {
                     info: "The Grey",
                     image: "lor063",
@@ -428,6 +427,8 @@ export const miscGroups = [
                 name: "Johnny Thunder",
                 variants: [{
                     info: "Desert",
+                    year: 1998,
+                    appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=5938-1",
                     image: "adv010"
                 }, {
                     info: "Jungle Explorer",
@@ -436,22 +437,29 @@ export const miscGroups = [
             },
             {
                 name: "Jake Raines",
+                year: 2011,
                 info: "Pharaoh's Quest",
                 image: "pha009",
             },
             {
                 name: "Slyboots / Sam Sinister",
                 info: "Adventurers: Desert",
+                year: 1998,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=5938-1",
                 image: "adv038",
             },
             {
                 name: "King Kahuka",
                 info: "Pirates: Islander",
+                year: 1994,
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1",
                 image: "pi068",
             },
             {
                 name: "Female Islander",
                 info: "Pirates: Islander",
+                year: 1994,
+                apepars_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1",
                 image: "pi066",
             },
             {
