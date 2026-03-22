@@ -40,11 +40,16 @@ export const marvelGroups = [
             {
                 name: "Hawkeye",
                 variants: [{
+                    info: "The Avengers",
+                    year: "2012",
+                    image: "sh0034"
+                }, {
                     image: "colmar18",
+                    year: 2023,
                     locked: true
                 }],
-
             },
+
             {
                 name: "Black Widow",
                 variants: [{
@@ -106,6 +111,7 @@ export const marvelGroups = [
             // X-Men Series
             {
                 name: "Storm",
+                year: 2023,
                 image: "colmar23"
 
             },
@@ -203,11 +209,13 @@ export const marvelGroups = [
             {
                 name: "Patrick O'Hara / Web-Slinger",
                 info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi12"
             },
             {
                 name: "Peter Parker / Werewolf Spider-Man",
                 info: "Across the Spider-Verse",
+                year: 2025,
                 image: "colspi13"
             },
             // Fantastic Four Series

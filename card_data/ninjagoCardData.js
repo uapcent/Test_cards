@@ -62,6 +62,8 @@ export const ninjagoGroups = [{
         },
         {
           info: "Tournament of Elements",
+          year: 2015,
+          appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=70748-1",
           image: "njo0111"
         },
         {
@@ -71,6 +73,9 @@ export const ninjagoGroups = [{
         {
           info: "Dragons Rising",
           image: "njo0922"
+        },{
+          info: "Honor Robe - Day of the Departed",
+          image: "njo0306"
         }
       ],
       glow_color: '#ffffffff'
@@ -133,8 +138,20 @@ export const ninjagoGroups = [{
     },
     {
       name: "Sensei Wu",
-      info: "Lego Ninjago Movie",
-      image: "njo0354",
+      variants: [
+        {
+          info: "Lego Ninjago Movie",
+          year: 2017,
+          appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=70608-1",
+          image: "njo0354"
+        },
+        {
+          info: "Lego Ninjago Movie",
+          year: 2012,
+          appears_in: "Bricklink",
+          image: "njo0064"
+        }
+      ]
     },
     {
       name: "Garmadon",
@@ -145,6 +162,8 @@ export const ninjagoGroups = [{
         },
         {
           info: "Lego Ninjago Movie",
+          year: 2017,
+          appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=70608-1",
           image: "njo0310"
         }
       ],
@@ -177,16 +196,16 @@ export const ninjagoGroups = [{
         appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125",
         image: "njo0247",
       }]
-    },{
+    }, {
       name: "Nuckal",
       image: "njo0003",
       locked: true
-    },{
+    }, {
       name: "Wyplash",
       image: "njo0028",
       locked: true
     },
-    
+
     {
       name: "Samukai (Skulkin)",
       info: "The Golden Weapons",
@@ -249,6 +268,8 @@ export const ninjagoGroups = [{
     {
       name: "Clouse",
       info: "Tournament of Elements",
+      year: 2015,
+      appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=70748-1",
       image: "njo0112",
     }, {
       name: "Chop'rai",
@@ -269,6 +290,11 @@ export const ninjagoGroups = [{
       name: "Flintlocke",
       info: "Skybound",
       image: "njo0197",
+    },
+        {
+      name: "General Vex",
+      info: "Secrets of the Forbidden Spinjitzu",
+      image: "njo0523",
     },
     {
       name: "Drix",
