@@ -233,6 +233,12 @@ export const miscGroups = [
                 appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962",
                 year: 2012,
                 image: "mof012",
+            },
+            {
+                name: "Swamp Creature",
+                appears_in: "Bricklink",
+                year: 2012,
+                image: "mof014",
             }
 
         ]
@@ -469,7 +475,6 @@ export const miscGroups = [
                 wantedList: true,
                 locked: true
             },
-
             {
                 name: "Emmet",
                 info: "The Lego Movie",
@@ -554,6 +559,22 @@ export const miscGroups = [
                 name: "Rootbeer Belle",
                 info: "The Lego Movie",
                 image: "tlm037",
+            }, {
+                name: "Waiter with Moustache",
+                info: "Town: Paradisa",
+                image: "wtr001",
+            },
+            {
+                name: "Ninja",
+                year: 1998,
+                image: "cas048",
+            },
+            {
+                name: "Fireman",
+                info: "Classic Town",
+                year: 1995,
+                appears_in: "Bricklink",
+                image: "firec011",
             },
             {
                 name: "Sudds Backwash",
@@ -618,6 +639,26 @@ export const miscGroups = [
                 image: "col444",
             },
             {
+                name: "Doc",
+                info: "Life On Mars",
+                year: 2001,
+                appears_in: "Bricklink",
+                image: "lom016",
+            },
+            {
+                name: "Spyrius",
+                year: 1994,
+                appears_in: "Bricklink",
+                image: "sp039",
+            },
+            {
+                name: "Launch Command",
+                info: "Classic Town",
+                year: 1995,
+                appears_in: "Bricklink",
+                image: "splc001",
+            },
+            {
                 name: "Astronaut",
                 info: "Mars Mission",
                 image: "mm007",
@@ -676,8 +717,6 @@ export const miscGroups = [
                 appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=7310-1",
                 year: 2001
             }
-
-
         ]
     }, {
         name: "Miscellaneous",

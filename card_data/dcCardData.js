@@ -78,6 +78,8 @@ export const dcGroups = [
       {
         name: "Red Hood",
         image: "sh0282",
+        year: 2016,
+        appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=146014",
         locked: true,
         wantedList: true
 

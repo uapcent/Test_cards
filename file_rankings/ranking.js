@@ -11,6 +11,13 @@ function normalizeImage(image) {
   return name.replace(/\.(png|jpg|jpeg|webp)$/i, "");
 }
 
+function shuffle(array) {
+  return array
+    .map(v => ({ v, r: Math.random() }))
+    .sort((a, b) => a.r - b.r)
+    .map(o => o.v);
+}
+
 // Flatten all groups into a single list of cards with image
 function extractCards(groupsArray) {
   const map = new Map(); // image → { name, image }
@@ -66,10 +73,21 @@ function vote(winner, loser, ratings) {
 
 // ---------- pick pair ----------
 function pickPair(images, ratings) {
-  const sorted = [...images].sort((a, b) => ratings[a].rating - ratings[b].rating);
-  const i = Math.floor(Math.random() * (sorted.length - 1));
-  return [sorted[i], sorted[i + 1]];
+  const a = images[Math.floor(Math.random() * images.length)];
+  const ratingA = ratings[a].rating;
+
+  const candidates = images.filter(
+    b => b !== a && Math.abs(ratings[b].rating - ratingA) < 150
+  );
+
+  const b = candidates.length
+    ? candidates[Math.floor(Math.random() * candidates.length)]
+    : images[Math.floor(Math.random() * images.length)];
+
+  return [a, b];
 }
+
+
 
 // ---------- UI ----------
 const cardMap = extractCards([marvelGroups, dcGroups, ninjagoGroups, starWarsGroups, miscGroups]);
@@ -140,3 +158,5 @@ rightBtn.onclick = () => {
 // Initial render
 renderPair();
 renderRanking();
+
+
