@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0c0e12; font-family: 'IBM Plex Sans', sans-serif; color: #ecebe6; }
+    a { color: #f2c14e; } a:hover { color: #ffd978; }
+  </style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #111318; display: flex; flex-direction: column;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 8px 0 4px; flex-shrink: 0;">
+    <button type="button" aria-label="Switch layout" style="width: 44px; height: 44px; border: none; background: transparent; color: #ecebe6; display: flex; align-items: center; justify-content: center;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+    <span style="font-family: 'Chakra Petch', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">Tokens</span>
+    <div style="display: flex; align-items: center; gap: 6px; padding-right: 8px; color: #f2c14e;">
+      <svg width="22" height="17" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true"><rect x="5" y="1" width="6" height="4" rx="1"></rect><rect x="13" y="1" width="6" height="4" rx="1"></rect><rect x="21" y="1" width="6" height="4" rx="1"></rect><rect x="2" y="5" width="28" height="17" rx="2"></rect></svg>
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 18px; font-weight: 700;">270</span>
+      <span style="font-size: 13px; color: #a3a9b4;">/ 453</span>
+    </div>
+  </header>
+
+  <nav aria-label="Themes" style="display: flex; gap: 8px; padding: 0 16px; height: 48px; align-items: center; overflow: hidden; flex-shrink: 0;">
+    <a href="#all" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #3a404c; color: #ecebe6; text-decoration: none; font-size: 14px; display: flex; align-items: center;">All</a>
+    <a href="#marvel" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #3a404c; color: #ecebe6; text-decoration: none; font-size: 14px; display: flex; align-items: center;">Marvel</a>
+    <a href="#dc" aria-current="true" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #f2c14e; background: #2a2718; color: #ecebe6; text-decoration: none; font-size: 14px; display: flex; align-items: center;">DC Comics 28/85</a>
+    <a href="#ninjago" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #3a404c; color: #ecebe6; text-decoration: none; font-size: 14px; display: flex; align-items: center;">Ninjago</a>
+    <a href="#star-wars" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #3a404c; color: #ecebe6; text-decoration: none; font-size: 14px; display: flex; align-items: center;">Star Wars</a>
+  </nav>
+
+  <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: 6px; row-gap: 8px; padding: 12px 16px 0;">
+    <sc-for list="{{tokens}}" as="t" hint-placeholder-count="42">
+      <div style="height: 50px; display: flex; align-items: center; justify-content: center;">
+        <span style="position: relative; display: block; width: {{t.size}}; height: {{t.size}}; padding: 3px; box-sizing: border-box; border-radius: 50%; background: {{t.ring}};">
+          <span style="display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center; background: {{t.fill}}; color: {{t.ink}};">
+            <sc-if value="{{t.glyph}}" hint-placeholder-val="{{true}}"><svg width="26" height="26" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg></sc-if>
+            <sc-if value="{{t.lock}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></sc-if>
+          </span>
+          <sc-if value="{{t.wish}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; border-radius: 50%; background: #111318; color: #f2c14e; display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"></path></svg></span></sc-if>
+        </span>
+      </div>
+    </sc-for>
+  </div>
+
+  <section role="dialog" aria-labelledby="sheet-name" style="position: absolute; left: 0; right: 0; bottom: 0; height: 356px; box-sizing: border-box; padding: 10px 20px 20px; background: #1a1d24; border-top: 1px solid #3a404c; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
+    <span aria-hidden="true" style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #4a5162;"></span>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 60px; height: 60px; flex-shrink: 0; box-sizing: border-box; padding: 3px; border-radius: 50%; background: #f2c14e;">
+        <div style="width: 100%; height: 100%; border-radius: 50%; background: #dcd8cf; color: #3b3f47; display: flex; align-items: center; justify-content: center;">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg>
+        </div>
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px;">
+        <h1 id="sheet-name" style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.1;">Batman</h1>
+        <span style="font-size: 14px; color: #a3a9b4;">DC Comics · owns 6 of 7</span>
+      </div>
+      <button type="button" aria-label="Close details" style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; border: 1px solid #3a404c; background: transparent; color: #ecebe6; display: flex; align-items: center; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
+
+    <div style="display: flex; gap: 8px; overflow: hidden;">
+      <sc-for list="{{variants}}" as="v" hint-placeholder-count="7">
+        <button type="button" aria-pressed="{{v.pressed}}" style="flex-shrink: 0; width: 78px; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 2px; border: none; border-radius: 10px; background: {{v.cell}}; color: #ecebe6;">
+          <span style="display: block; width: 50px; height: 50px; box-sizing: border-box; padding: 3px; border-radius: 50%; background: {{v.ring}};">
+            <span style="display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center; background: {{v.fill}}; color: {{v.ink}};">
+              <sc-if value="{{v.owned}}" hint-placeholder-val="{{true}}"><svg width="28" height="28" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg></sc-if>
+              <sc-if value="{{v.locked}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></sc-if>
+            </span>
+          </span>
+          <span style="font-size: 12px; line-height: 1.25; text-align: center;">{{v.label}}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <dl style="margin: 0; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: center; height: 40px; border-top: 1px solid #2c313b;"><dt style="color: #a3a9b4; font-size: 14px;">Released</dt><dd style="margin: 0; font-size: 15px;">2015</dd></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; height: 40px; border-top: 1px solid #2c313b;"><dt style="color: #a3a9b4; font-size: 14px;">Appears in</dt><dd style="margin: 0; font-size: 15px;"><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1">Set 76034-1</a></dd></div>
+    </dl>
+  </section>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var codes = 'p7,o,p2,lw,lw,lw,p2,o2,o2,l2,o,od,o,l,pd2,l,l,l,l,l,l,l,o2,o,o,lw,lw,lw,p2,lw,n,lw,p2,o,lw,o,o,l,lw2,l,l,l';
+    var tokens = codes.split(',').map(function (code, i) {
+      var state = code.charAt(0);
+      var ring = '#4a5162';
+      if (state === 'p') ring = 'conic-gradient(#f2c14e 0 50%, #4a5162 50% 100%)';
+      if (code.indexOf('d') !== -1) ring = '#ef5350';
+      if (i === 0) ring = '#f2c14e';
+      return {
+        ring: ring,
+        size: i === 0 ? '50px' : '44px',
+        fill: state === 'l' ? '#262a33' : state === 'n' ? '#07080a' : '#dcd8cf',
+        ink: state === 'l' ? '#8a909b' : '#3b3f47',
+        glyph: state === 'o' || state === 'p',
+        lock: state === 'l',
+        wish: code.indexOf('w') !== -1
+      };
+    });
+    var variants = [
+      ['New 52', false], ['Lego Batman Movie', false], ['Wing Suit', false], ['Armored Suit', false],
+      ['Space Suit', false], ['Fairy Batman', false], ['The Batman Movie', true]
+    ].map(function (entry, i) {
+      var locked = entry[1];
+      return {
+        label: entry[0],
+        owned: !locked,
+        locked: locked,
+        pressed: i === 0 ? 'true' : 'false',
+        cell: i === 0 ? '#262a33' : 'transparent',
+        ring: i === 0 ? '#f2c14e' : '#4a5162',
+        fill: locked ? '#262a33' : '#dcd8cf',
+        ink: locked ? '#8a909b' : '#3b3f47'
+      };
+    });
+    return { tokens: tokens, variants: variants };
+  }
+}
+</script>
+</body>
+</html>

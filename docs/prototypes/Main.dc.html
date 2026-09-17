@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0c0e12; font-family: 'IBM Plex Sans', sans-serif; color: #ecebe6; }
+    a { color: #f2c14e; } a:hover { color: #ffd978; }
+  </style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; padding: 24px 40px 20px; display: flex; flex-direction: column; gap: 16px; background: #111318; overflow: hidden;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; height: 56px;">
+    <nav aria-label="Layouts" style="display: flex; align-items: center; gap: 4px; width: 440px;">
+      <a href="Classic.dc.html" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Classic</a>
+      <a href="Main.dc.html" aria-current="page" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #ecebe6; text-decoration: none; border-bottom: 2px solid #f2c14e;">Tokens</a>
+      <a href="Showcase.dc.html" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Showcase</a>
+      <a href="#rankings" style="margin-left: 12px; padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Rankings</a>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 12px; color: #f2c14e;">
+      <svg width="34" height="26" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true"><rect x="5" y="1" width="6" height="4" rx="1"></rect><rect x="13" y="1" width="6" height="4" rx="1"></rect><rect x="21" y="1" width="6" height="4" rx="1"></rect><rect x="2" y="5" width="28" height="17" rx="2"></rect></svg>
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 40px; font-weight: 700; line-height: 1;">270</span>
+      <span style="font-size: 16px; color: #a3a9b4;">/ 453 figures owned</span>
+    </div>
+
+    <div role="group" aria-label="Filter figures" style="display: flex; justify-content: flex-end; gap: 6px; width: 440px;">
+      <button type="button" aria-pressed="true" style="height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid #f2c14e; background: #2a2718; color: #ecebe6; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500;">All</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid #3a404c; background: transparent; color: #ecebe6; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500;">Owned</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid #3a404c; background: transparent; color: #ecebe6; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500;">Not owned</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid #3a404c; background: transparent; color: #ecebe6; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500;">Wishlist</button>
+    </div>
+  </header>
+
+  <section aria-label="Selected figure" style="display: grid; grid-template-columns: 1fr 260px 1fr; align-items: center; height: 230px;">
+    <div style="justify-self: end; text-align: right; padding-right: 48px; display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a3a9b4;">DC Comics</span>
+      <span style="font-size: 15px; color: #a3a9b4;">Figure 1 of 65</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <div style="width: 164px; height: 164px; box-sizing: border-box; padding: 5px; border-radius: 50%; background: #f2c14e; box-shadow: 0 0 0 6px #111318, 0 0 0 8px #4a5162;">
+        <div style="width: 100%; height: 100%; border-radius: 50%; background: #dcd8cf; color: #3b3f47; display: flex; align-items: center; justify-content: center;">
+          <svg width="96" height="96" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg>
+        </div>
+      </div>
+      <h1 style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 40px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1;">Batman</h1>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 0 0 0 48px; display: flex; flex-direction: column; gap: 10px; font-family: 'Chakra Petch', sans-serif; font-size: 21px; font-weight: 500;">
+      <li>* Variant <span style="color: #f2c14e;">New 52</span> (1 of 7)</li>
+      <li>* Owns <span style="color: #f2c14e;">6 of 7</span> variants</li>
+      <li>* Released in <span style="color: #f2c14e;">2015</span></li>
+      <li>* Appears in set <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1">76034-1</a></li>
+    </ul>
+  </section>
+
+  <section aria-label="All figures" style="flex-grow: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #2c313b; padding-top: 14px;">
+    <div style="display: flex; align-items: baseline; gap: 12px;">
+      <h2 style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">DC Comics</h2>
+      <span style="font-size: 14px; color: #a3a9b4;">28 / 85 owned</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); column-gap: 10px; row-gap: 6px;">
+      <sc-for list="{{dcTokens}}" as="t" hint-placeholder-count="65">
+        <div style="height: 58px; display: flex; align-items: center; justify-content: center;">
+          <a href="TokenDetails.dc.html" aria-label="{{t.label}}" style="position: relative; display: block; width: {{t.size}}; height: {{t.size}}; padding: {{t.pad}}; box-sizing: border-box; border-radius: 50%; background: {{t.ring}};">
+            <span style="display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center; background: {{t.fill}}; color: {{t.ink}};">
+              <sc-if value="{{t.glyph}}" hint-placeholder-val="{{true}}"><svg width="30" height="30" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg></sc-if>
+              <sc-if value="{{t.lock}}" hint-placeholder-val="{{false}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></sc-if>
+            </span>
+            <sc-if value="{{t.wish}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; border-radius: 50%; background: #111318; color: #f2c14e; display: flex; align-items: center; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"></path></svg></span></sc-if>
+            <sc-if value="{{t.multi}}" hint-placeholder-val="{{false}}"><span style="position: absolute; bottom: -4px; right: -6px; min-width: 18px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 8px; background: #3a404c; color: #ecebe6; font-size: 11px; font-weight: 600; line-height: 16px; text-align: center;">{{t.count}}</span></sc-if>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 6px;">
+      <h2 style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">Ninjago</h2>
+      <span style="font-size: 14px; color: #a3a9b4;">57 / 63 owned</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); column-gap: 10px; row-gap: 6px;">
+      <sc-for list="{{ninjagoTokens}}" as="t" hint-placeholder-count="43">
+        <div style="height: 58px; display: flex; align-items: center; justify-content: center;">
+          <a href="TokenDetails.dc.html" aria-label="{{t.label}}" style="position: relative; display: block; width: {{t.size}}; height: {{t.size}}; padding: {{t.pad}}; box-sizing: border-box; border-radius: 50%; background: {{t.ring}};">
+            <span style="display: flex; width: 100%; height: 100%; border-radius: 50%; align-items: center; justify-content: center; background: {{t.fill}}; color: {{t.ink}};">
+              <sc-if value="{{t.glyph}}" hint-placeholder-val="{{true}}"><svg width="30" height="30" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><rect x="16" y="3" width="8" height="3" rx="1"></rect><rect x="11" y="6" width="18" height="14" rx="4"></rect><path d="M8 38 L11 23 H29 L32 38 Z"></path></svg></sc-if>
+              <sc-if value="{{t.lock}}" hint-placeholder-val="{{false}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></sc-if>
+            </span>
+            <sc-if value="{{t.wish}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; border-radius: 50%; background: #111318; color: #f2c14e; display: flex; align-items: center; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"></path></svg></span></sc-if>
+            <sc-if value="{{t.multi}}" hint-placeholder-val="{{false}}"><span style="position: absolute; bottom: -4px; right: -6px; min-width: 18px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 8px; background: #3a404c; color: #ecebe6; font-size: 11px; font-weight: 600; line-height: 16px; text-align: center;">{{t.count}}</span></sc-if>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="display: flex; align-items: center; justify-content: space-between; height: 40px; border-top: 1px solid #2c313b; padding-top: 12px;">
+    <ul aria-label="Legend" style="display: flex; align-items: center; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 13px; color: #a3a9b4;">
+      <li style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; box-sizing: border-box; padding: 2px; border-radius: 50%; background: #4a5162;"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: #dcd8cf;"></span></span>Owned</li>
+      <li style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; box-sizing: border-box; padding: 2px; border-radius: 50%; background: conic-gradient(#f2c14e 0 50%, #4a5162 50% 100%);"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: #dcd8cf;"></span></span>Some variants owned</li>
+      <li style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; box-sizing: border-box; padding: 2px; border-radius: 50%; background: #4a5162;"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: #262a33;"></span></span>Not owned</li>
+      <li style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; box-sizing: border-box; padding: 2px; border-radius: 50%; background: #4a5162;"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: #07080a;"></span></span>No image</li>
+      <li style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; box-sizing: border-box; padding: 2px; border-radius: 50%; background: #ef5350;"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: #dcd8cf;"></span></span>Defective</li>
+      <li style="display: flex; align-items: center; gap: 8px; color: #a3a9b4;"><span style="color: #f2c14e; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"></path></svg></span>Wishlist</li>
+    </ul>
+    <div style="display: flex; align-items: center; gap: 24px; font-size: 14px;">
+      <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Arrows</kbd>Move</span>
+      <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Enter</kbd>Details</span>
+      <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Tab</kbd>Next theme</span>
+      <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Esc</kbd>Close</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  // Codes per character, from the real card data: o owned, p some variants owned,
+  // l not owned, n no image; w wishlist, d defective; trailing number = variant count
+  tokens(codes, selected) {
+    var states = { o: 'owned', p: 'some variants owned', l: 'not owned', n: 'no image' };
+    return codes.split(',').map(function (code, i) {
+      var state = code.charAt(0);
+      var count = parseInt(code.replace(/\D/g, ''), 10) || 1;
+      var isSelected = i === selected;
+      var ring = '#4a5162';
+      if (state === 'p') ring = 'conic-gradient(#f2c14e 0 50%, #4a5162 50% 100%)';
+      if (code.indexOf('d') !== -1) ring = '#ef5350';
+      if (isSelected) ring = '#f2c14e';
+      return {
+        ring: ring,
+        fill: state === 'l' ? '#262a33' : state === 'n' ? '#07080a' : '#dcd8cf',
+        ink: state === 'l' ? '#8a909b' : '#3b3f47',
+        size: isSelected ? '58px' : '50px',
+        pad: isSelected ? '4px' : '3px',
+        glyph: state === 'o' || state === 'p',
+        lock: state === 'l',
+        wish: code.indexOf('w') !== -1,
+        multi: count > 1,
+        count: String(count),
+        label: 'Figure ' + (i + 1) + ', ' + states[state] + (count > 1 ? ', ' + count + ' variants' : '')
+      };
+    });
+  }
+
+  renderVals() {
+    return {
+      dcTokens: this.tokens('p7,o,p2,lw,lw,lw,p2,o2,o2,l2,o,od,o,l,pd2,l,l,l,l,l,l,l,o2,o,o,lw,lw,lw,p2,lw,n,lw,p2,o,lw,o,o,l,lw2,l,l,l,o,lw3,lw,l,l,l2,n,l,n,n,l,l,l,l,l,l,l,l,l,n,n,l2,o', 0),
+      ninjagoTokens: this.tokens('o4,p5,o5,o3,o3,o3,o2,o2,o,o,o,o2,l,l,l,o,o,o,o,lw,o,o,o,o,o,o,o,od,o,o,o,o,o,o,o,o,o,o,o,o,l,o,o', -1)
+    };
+  }
+}
+</script>
+</body>
+</html>

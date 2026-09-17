@@ -1,0 +1,136 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Classic.dc.html": {
+      "h": 800,
+      "is_interactive": true,
+      "title": "Classic · desktop",
+      "w": 1280,
+      "x": 0,
+      "y": 2640
+    },
+    "Main.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "title": "Tokens · desktop",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Shared.dc.html": {
+      "h": 800,
+      "title": "Shared pieces",
+      "w": 1280,
+      "x": 1360,
+      "y": 2640
+    },
+    "Showcase.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "title": "Showcase · desktop",
+      "w": 1440,
+      "x": 0,
+      "y": 1320
+    },
+    "ShowcasePhone.dc.html": {
+      "h": 844,
+      "title": "Showcase · phone",
+      "w": 390,
+      "x": 1520,
+      "y": 1320
+    },
+    "TokenDetails.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "title": "Tokens · details menu",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "TokenPhone.dc.html": {
+      "h": 844,
+      "title": "Tokens · phone",
+      "w": 390,
+      "x": 3040,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-17T13:10:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "classicStructure": {
+      "color": "gray",
+      "maxH": 800,
+      "text": "CLASSIC\n\nToday's page, ported unchanged. The only addition is the layout switcher, which replaces the Super Secret link.\n\nSHARED PIECES\n\nThe data, figure states and details logic are written once. Each layout only decides how to draw them: card, token or tile.",
+      "w": 460,
+      "x": 2720,
+      "y": 2640
+    },
+    "openQuestions": {
+      "color": "green",
+      "maxH": 900,
+      "text": "DECIDED\n\n1. One token or tile per character. Characters that differ enough stay separate; only close variants sit inside one character.\n\n2. No merging by name. Repeats are expected, like the game listing characters in episode order.\n\n3. Theme icons: simple monochrome ones, found or drawn.\n\n4. Tokens opens first.\n\n5. Tokens: hovering previews the figure above; clicking keeps it shown and opens its details. Showcase: only a click changes the right-hand panel, because it is a much bigger panel to move.\n\nBuilt so far on the react-redesign branch: Tokens, Classic and Rankings in React, data in YAML. Showcase is next.",
+      "w": 560,
+      "x": 2590,
+      "y": 1320
+    },
+    "showcaseStructure": {
+      "color": "purple",
+      "maxH": 844,
+      "text": "SHOWCASE · STRUCTURE\n\n1. Theme tabs (12). Q and E switch themes; the active tab shows its owned count.\n\n2. Tile grid, 5 columns, one tile per character. Not owned = black silhouette, no image = silhouette with ?.\n\n3. Name, owned count and the variant list with padlocks. Choosing a variant swaps the large figure.\n\n4. Large figure of the selected variant with a floor reflection.\n\n5. Key prompts.\n\nPhone: the large figure moves to the top, variants become chips, tiles drop to 3 columns.\n\nNeeds images we don't have yet: cutouts without the white background (for silhouettes and the large figure) and a bigger size.",
+      "w": 520,
+      "x": 1990,
+      "y": 1320
+    },
+    "titleClassic": {
+      "kind": "title1",
+      "maxW": 3180,
+      "text": "Classic page and shared pieces",
+      "w": 240,
+      "x": 0,
+      "y": 2340
+    },
+    "titleShowcase": {
+      "kind": "title1",
+      "maxW": 3150,
+      "text": "Showcase: theme tabs, tiles and a large figure",
+      "w": 240,
+      "x": 0,
+      "y": 1020
+    },
+    "titleTokens": {
+      "kind": "title1",
+      "maxW": 4030,
+      "text": "Tokens: round portraits, one screen for everything",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "tokensStructure": {
+      "color": "blue",
+      "maxH": 844,
+      "text": "TOKENS · STRUCTURE\n\n1. Top bar: layout switcher, owned counter (270 / 453), filters.\n\n2. Selected figure: portrait, name and facts. Arrow keys or hover change it, like moving the cursor in the game.\n\n3. Grid: one token per character, grouped by theme with inline labels. Tab jumps to the next theme.\n\n4. Token states: owned, some variants owned (gold ring segment), not owned (padlock), no image (black), defective (red ring), wishlist (star), variant count badge.\n\n5. Details menu: Enter or click opens it. Variant strip on top, facts for the selected variant below, Esc closes. Try it: click any token in Play.\n\nPhone: no hover, so a tap opens the details as a bottom sheet. Theme chips replace Tab.",
+      "w": 520,
+      "x": 3510,
+      "y": 0
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "TokenDetails.dc.html",
+    "TokenPhone.dc.html",
+    "Showcase.dc.html",
+    "ShowcasePhone.dc.html",
+    "Classic.dc.html",
+    "Shared.dc.html"
+  ],
+  "pages": [],
+  "title": "Minifigure Selector Structures"
+}

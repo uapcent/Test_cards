@@ -21,6 +21,7 @@
   name: Ninjago
   icon: mask
   accent: "#9a7b12"
+  art: ninjago-dojo.webp
 - key: star-wars
   name: Star Wars
   icon: saber

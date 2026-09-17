@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0c0e12; font-family: 'IBM Plex Sans', sans-serif; color: #ecebe6; }
+    a { color: #f2c14e; } a:hover { color: #ffd978; }
+  </style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; padding: 36px 56px 28px; display: flex; flex-direction: column; gap: 24px; background: #111318; overflow: hidden;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; height: 60px;">
+    <h1 style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 42px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;">Collection</h1>
+    <nav aria-label="Layouts" style="display: flex; align-items: center; gap: 4px;">
+      <a href="Classic.dc.html" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Classic</a>
+      <a href="Main.dc.html" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Tokens</a>
+      <a href="Showcase.dc.html" aria-current="page" style="padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #ecebe6; text-decoration: none; border-bottom: 2px solid #f2c14e;">Showcase</a>
+      <a href="#rankings" style="margin-left: 12px; padding: 10px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a9b4; text-decoration: none; border-bottom: 2px solid transparent;">Rankings</a>
+    </nav>
+  </header>
+
+  <div style="flex-grow: 1; min-height: 0; display: flex; gap: 40px;">
+
+    <div style="width: 660px; flex-shrink: 0; display: flex; flex-direction: column;">
+      <nav aria-label="Themes" style="display: flex; align-items: flex-end; gap: 2px; height: 84px;">
+        <kbd style="align-self: center; margin-right: 8px; padding: 4px 8px; border: 1px solid #4a5162; border-radius: 6px; font-family: 'Chakra Petch', sans-serif; font-size: 14px; color: #ecebe6;">Q</kbd>
+        <sc-for list="{{themes}}" as="th" hint-placeholder-count="12">
+          <a href="#theme" aria-label="{{th.name}}" aria-current="{{th.current}}" style="width: {{th.width}}; height: {{th.height}}; box-sizing: border-box; padding-top: 10px; background: {{th.bg}}; border-top: 3px solid {{th.accent}}; border-radius: 6px 6px 0 0; color: #ecebe6; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="width: 34px; height: 34px; box-sizing: border-box; border: 2px solid #a3a9b4; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Chakra Petch', sans-serif; font-size: 12px; font-weight: 700;">{{th.short}}</span>
+            <sc-if value="{{th.active}}" hint-placeholder-val="{{false}}">
+              <span style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; line-height: 1;">{{th.name}}</span>
+              <span style="font-size: 12px; color: #a3a9b4; line-height: 1;">{{th.count}}</span>
+            </sc-if>
+          </a>
+        </sc-for>
+        <kbd style="align-self: center; margin-left: 8px; padding: 4px 8px; border: 1px solid #4a5162; border-radius: 6px; font-family: 'Chakra Petch', sans-serif; font-size: 14px; color: #ecebe6;">E</kbd>
+      </nav>
+
+      <div style="flex-grow: 1; min-height: 0; box-sizing: border-box; padding: 20px 26px 12px; background: #1a1d24; border-radius: 0 8px 8px 8px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;">
+          <sc-for list="{{tiles}}" as="t" hint-placeholder-count="15">
+            <button type="button" aria-label="{{t.label}}" style="position: relative; height: 168px; padding: 0; box-sizing: border-box; border: 3px solid {{t.frame}}; border-radius: 6px; background: {{t.bg}}; transform: skewX(-8deg); overflow: hidden; cursor: pointer;">
+              <span style="display: flex; width: 100%; height: 100%; align-items: flex-end; justify-content: center; transform: skewX(8deg); color: {{t.figure}};">
+                <svg width="116" height="150" viewBox="10 0 80 104" fill="currentColor" aria-hidden="true"><rect x="40" y="0" width="20" height="8" rx="2"></rect><rect x="30" y="7" width="40" height="34" rx="10"></rect><rect x="41" y="40" width="18" height="6"></rect><path d="M24 46 H76 L84 110 H16 Z"></path><path d="M24 48 L8 96 L17 101 L31 62 Z"></path><path d="M76 48 L92 96 L83 101 L69 62 Z"></path></svg>
+              </span>
+              <sc-if value="{{t.unknown}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 42px; left: 0; right: 0; text-align: center; transform: skewX(8deg); font-family: 'Chakra Petch', sans-serif; font-size: 30px; font-weight: 700; color: #ecebe6;">?</span></sc-if>
+              <sc-if value="{{t.wish}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; right: 12px; transform: skewX(8deg); color: #f2c14e; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"></path></svg></span></sc-if>
+              <sc-if value="{{t.defective}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; left: 16px; transform: skewX(8deg); color: #ef5350; display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3L2 21h20L12 3z"></path><path d="M12 10v5M12 18v.5"></path></svg></span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <span aria-hidden="true" style="align-self: center; color: #ecebe6; display: flex;"><svg width="28" height="16" viewBox="0 0 28 16" fill="currentColor"><path d="M2 2h24L14 14z"></path></svg></span>
+      </div>
+    </div>
+
+    <div style="width: 330px; flex-shrink: 0; display: flex; flex-direction: column; padding-top: 110px; gap: 10px;">
+      <h2 style="margin: 0; font-family: 'Chakra Petch', sans-serif; font-size: 50px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1;">Batman</h2>
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 17px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #a3a9b4;">DC Comics · owns 6 of 7</span>
+
+      <ul aria-label="Variants" style="list-style: none; margin: 36px 0 0; padding: 0; display: flex; flex-direction: column; gap: 2px;">
+        <sc-for list="{{variants}}" as="v" hint-placeholder-count="7">
+          <li>
+            <button type="button" aria-pressed="{{v.pressed}}" style="width: 100%; height: 44px; padding: 0 16px; border: none; background: {{v.bg}}; color: {{v.ink}}; display: flex; align-items: center; justify-content: space-between; font-family: 'Chakra Petch', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">
+              <span>{{v.label}}</span>
+              <sc-if value="{{v.locked}}" hint-placeholder-val="{{false}}"><span style="color: #f2c14e; display: flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-label="Not owned" role="img"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></sc-if>
+            </button>
+          </li>
+        </sc-for>
+      </ul>
+
+      <dl style="margin: 24px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: 15px;">
+        <div style="display: flex; gap: 10px;"><dt style="color: #a3a9b4; width: 96px;">Released</dt><dd style="margin: 0;">2015</dd></div>
+        <div style="display: flex; gap: 10px;"><dt style="color: #a3a9b4; width: 96px;">Appears in</dt><dd style="margin: 0;"><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1">Set 76034-1</a></dd></div>
+        <div style="display: flex; gap: 10px;"><dt style="color: #a3a9b4; width: 96px;">BrickLink</dt><dd style="margin: 0;"><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?M=sh0151">sh0151</a></dd></div>
+      </dl>
+    </div>
+
+    <div style="flex-grow: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 40px;">
+      <div style="color: #dcd8cf; display: flex;">
+        <svg width="250" height="475" viewBox="0 0 100 190" fill="currentColor" role="img" aria-label="Large image of Batman, New 52"><rect x="40" y="0" width="20" height="8" rx="2"></rect><rect x="30" y="7" width="40" height="34" rx="10"></rect><rect x="41" y="40" width="18" height="6"></rect><path d="M24 46 H76 L84 110 H16 Z"></path><path d="M24 48 L8 96 L17 101 L31 62 Z"></path><path d="M76 48 L92 96 L83 101 L69 62 Z"></path><rect x="18" y="109" width="64" height="13" rx="2"></rect><rect x="18" y="121" width="30" height="67" rx="3"></rect><rect x="52" y="121" width="30" height="67" rx="3"></rect></svg>
+      </div>
+      <div aria-hidden="true" style="height: 70px; overflow: hidden; opacity: 0.12; color: #dcd8cf; display: flex; align-items: flex-start;">
+        <svg width="250" height="475" viewBox="0 0 100 190" fill="currentColor" style="transform: scaleY(-1);"><rect x="40" y="0" width="20" height="8" rx="2"></rect><rect x="30" y="7" width="40" height="34" rx="10"></rect><rect x="41" y="40" width="18" height="6"></rect><path d="M24 46 H76 L84 110 H16 Z"></path><path d="M24 48 L8 96 L17 101 L31 62 Z"></path><path d="M76 48 L92 96 L83 101 L69 62 Z"></path><rect x="18" y="109" width="64" height="13" rx="2"></rect><rect x="18" y="121" width="30" height="67" rx="3"></rect><rect x="52" y="121" width="30" height="67" rx="3"></rect></svg>
+      </div>
+      <span style="position: absolute; bottom: 8px; font-size: 13px; color: #a3a9b4;">[Large cutout of the selected variant]</span>
+    </div>
+  </div>
+
+  <footer style="display: flex; justify-content: flex-end; align-items: center; gap: 28px; height: 32px; font-size: 15px;">
+    <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Enter</kbd>Select</span>
+    <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Up Down</kbd>Variant</span>
+    <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Q E</kbd>Theme</span>
+    <span><kbd style="margin-right: 8px; padding: 2px 8px; border: 1px solid #4a5162; border-radius: 4px; background: #1a1d24; font-family: 'Chakra Petch', sans-serif; font-size: 13px;">Esc</kbd>Back</span>
+  </footer>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var themes = [
+      ['MV', 'Marvel', '31/73'], ['DC', 'DC Comics', '28/85'], ['NJ', 'Ninjago', '57/63'], ['SW', 'Star Wars', '39/86'],
+      ['LR', 'Lord of the Rings', '1/24'], ['HP', 'Harry Potter', '5/5'], ['OP', 'One Piece', '8/11'],
+      ['MF', 'Monster Fighters', '5/6'], ['MD', 'Medieval', '13/13'], ['DD', 'Dungeons and Dragons', '21/21'],
+      ['CT', 'Lego City', '52/54'], ['MS', 'Miscellaneous', '10/12']
+    ].map(function (entry, i) {
+      var active = i === 1;
+      return {
+        short: entry[0], name: entry[1], count: entry[2], active: active,
+        current: active ? 'page' : 'false',
+        width: active ? '118px' : '40px',
+        height: active ? '84px' : '62px',
+        bg: active ? '#1a1d24' : '#16191f',
+        accent: active ? '#f2c14e' : 'transparent'
+      };
+    });
+
+    // The first 15 DC Comics characters, from the real data
+    var tiles = 'p7,o,p2,lw,lw,lw,p2,o2,o2,l2,o,od,o,l,pd2'.split(',').map(function (code, i) {
+      var state = code.charAt(0);
+      var selected = i === 0;
+      var names = { o: 'owned', p: 'some variants owned', l: 'not owned', n: 'no image' };
+      return {
+        frame: selected ? '#f2c14e' : 'transparent',
+        bg: selected ? '#3a404c' : '#262a33',
+        figure: state === 'l' || state === 'n' ? '#07080a' : '#dcd8cf',
+        unknown: state === 'n',
+        wish: code.indexOf('w') !== -1,
+        defective: code.indexOf('d') !== -1,
+        label: 'Character ' + (i + 1) + ', ' + names[state]
+      };
+    });
+
+    var variants = [
+      ['New 52', false], ['Lego Batman Movie', false], ['Wing Suit', false], ['Armored Suit', false],
+      ['Space Suit', false], ['Fairy Batman', false], ['The Batman Movie', true]
+    ].map(function (entry, i) {
+      var selected = i === 0;
+      return {
+        label: entry[0],
+        locked: entry[1],
+        pressed: selected ? 'true' : 'false',
+        bg: selected ? '#ecebe6' : 'transparent',
+        ink: selected ? '#111318' : entry[1] ? '#a3a9b4' : '#ecebe6'
+      };
+    });
+
+    return { themes: themes, tiles: tiles, variants: variants };
+  }
+}
+</script>
+</body>
+</html>
