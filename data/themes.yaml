@@ -1,0 +1,36 @@
+- key: marvel
+  name: Marvel
+  icon: shield
+- key: dc
+  name: DC Comics
+  icon: bat
+- key: ninjago
+  name: Ninjago
+  icon: mask
+- key: star-wars
+  name: Star Wars
+  icon: saber
+- key: lord-of-the-rings
+  name: Lord of the Rings
+  icon: ring
+- key: harry-potter
+  name: Harry Potter
+  icon: wand
+- key: one-piece
+  name: One Piece
+  icon: hat
+- key: monster-fighters
+  name: Monster Fighters
+  icon: ghost
+- key: medieval
+  name: Medieval
+  icon: tower
+- key: dungeons-and-dragons
+  name: Dungeons & Dragons
+  icon: dice
+- key: lego-city
+  name: Lego City
+  icon: cone
+- key: miscellaneous
+  name: Miscellaneous
+  icon: brick

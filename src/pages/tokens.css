@@ -1,0 +1,246 @@
+.tokens {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 40px 20px;
+}
+
+.tokens__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--gold);
+}
+
+.counter__icon {
+  display: flex;
+}
+
+.counter__owned {
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.counter__total {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filters button {
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--ring);
+  border-radius: 22px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filters button.is-current {
+  border-color: var(--gold);
+  background: #2a2718;
+}
+
+/* ---------- selected figure ---------- */
+.selected {
+  display: grid;
+  grid-template-columns: 1fr 260px 1fr;
+  align-items: center;
+  min-height: 210px;
+}
+
+.selected__side {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.selected__side--left {
+  justify-self: end;
+  padding-right: 48px;
+  text-align: right;
+}
+
+.selected__theme {
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.selected__muted {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.selected__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 156px;
+  height: 156px;
+  overflow: hidden;
+  border: 5px solid var(--gold);
+  border-radius: 50%;
+  background: var(--disc);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--ring);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.5) translateY(10%);
+}
+
+.portrait--missing img {
+  filter: grayscale(1) brightness(0.55);
+}
+
+.portrait--unknown {
+  background: #07080a;
+}
+
+.selected__figure h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.selected__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 0 48px;
+  font-family: var(--display);
+  font-size: 20px;
+  list-style: none;
+}
+
+.selected__facts strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- grids ---------- */
+.tokens__grids {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.tokens__theme h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tokens__theme h2 span {
+  color: var(--muted);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tokens__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+  gap: 12px 10px;
+  justify-items: center;
+}
+
+.tokens__hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-end;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .tokens {
+    padding: 8px 16px 20px;
+  }
+
+  .selected {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    min-height: 0;
+    text-align: center;
+  }
+
+  .selected__side--left {
+    justify-self: center;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .selected__facts {
+    align-items: center;
+    padding: 0;
+    font-size: 17px;
+  }
+
+  .portrait {
+    width: 112px;
+    height: 112px;
+  }
+
+  .selected__figure h1 {
+    font-size: 28px;
+  }
+
+  .tokens__grid {
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  }
+
+  .tokens__hints {
+    display: none;
+  }
+}

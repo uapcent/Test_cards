@@ -1,0 +1,365 @@
+- name: Batman
+  variants:
+    - label: New 52
+      image: sh0151
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1
+    - label: Lego Batman Movie
+      image: sh0329
+      owned: true
+    - label: Wing Suit
+      image: sh0402
+      owned: true
+    - label: Armored Suit
+      image: sh0217
+      owned: true
+    - label: Space Suit
+      image: sh0146
+      owned: true
+    - label: Fairy Batman
+      image: coltlbm03
+      owned: true
+    - label: The Batman Movie
+      image: sh0786
+      owned: false
+- name: Robin - Dick Grayson
+  variants:
+    - label: Lego Batman Movie
+      image: sh0315
+      owned: true
+- name: Robin - Tim Drake
+  variants:
+    - label: New 52
+      image: sh0195
+      owned: true
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76034-1
+    - label: Batman 2
+      image: sh0011
+      owned: false
+- name: Robin - Damian Wayne
+  variants:
+    - image: sh0289
+      owned: false
+      wishlist: true
+- name: Nightwing
+  variants:
+    - image: sh0659
+      owned: false
+      wishlist: true
+- name: Red Hood
+  variants:
+    - image: sh0282
+      owned: false
+      wishlist: true
+      year: 2016
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=146014
+- name: Batgirl
+  variants:
+    - label: Lego Batman Movie
+      image: sh0305
+      owned: true
+    - label: Rebirth
+      image: sh0658
+      owned: false
+- name: Superman
+  variants:
+    - label: Classic Superman
+      image: sh1055
+      owned: true
+    - label: Dawn of Justice
+      image: sh0219
+      owned: true
+- name: Wonder Woman
+  variants:
+    - label: Silver
+      image: sh0150
+      owned: true
+      year: 2015
+    - image: sh0456
+      owned: true
+- name: Aquaman
+  variants:
+    - label: Classic Aquaman
+      image: sh0050
+      owned: false
+    - label: 'Aquaman: The New 52'
+      image: colsh03
+      owned: false
+- name: Green Lantern
+  glow: '#09ff00ff'
+  variants:
+    - label: Hal Jordan
+      image: sh0145
+      owned: true
+- name: Green Lantern
+  glow: '#09ff00ff'
+  variants:
+    - label: Guy Gardner
+      image: tp302
+      owned: true
+      defective: true
+- name: The Flash
+  glow: '#ffe600ff'
+  variants:
+    - image: sh0087
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1
+- name: Hawkman
+  variants:
+    - image: sh0154
+      owned: false
+- name: Hawkgirl
+  variants:
+    - label: Justice Gang
+      image: tp301
+      owned: true
+      defective: true
+    - label: Classic
+      image: sh0461
+      owned: false
+- name: Cyborg
+  variants:
+    - image: sh0155
+      owned: false
+- name: Martian Manhunter
+  variants:
+    - image: sh0158
+      owned: false
+- name: Supergirl
+  variants:
+    - image: sh0670
+      owned: false
+- name: Superboy
+  variants:
+    - image: sh0143
+      owned: false
+- name: Plastic Man
+  variants:
+    - image: sh0142
+      owned: false
+- name: Blue Beetle
+  variants:
+    - image: sh0278
+      owned: false
+- name: Flash - Jay Garrick
+  variants:
+    - image: colsh15
+      owned: false
+- name: The Joker
+  variants:
+    - image: dim017
+      owned: true
+    - label: Lego Batman Movie
+      image: sh0353
+      owned: true
+- name: Harley Quinn
+  variants:
+    - image: sh0024
+      owned: true
+- name: Scarecrow
+  variants:
+    - label: Lego Batman Movie
+      image: sh0391
+      owned: true
+- name: Two Face
+  variants:
+    - image: sh0007
+      owned: false
+      wishlist: true
+      year: 2012
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=6864-1
+- name: Poison Ivy
+  variants:
+    - image: sh0327
+      owned: false
+      wishlist: true
+- name: The Penguin
+  variants:
+    - label: Lego Batman Movie
+      image: sh0314
+      owned: false
+      wishlist: true
+- name: Catwoman
+  variants:
+    - label: Lego Batman Movie
+      image: sh0330
+      owned: true
+    - image: sh0595
+      owned: false
+- name: Mr Freeze
+  variants:
+    - image: sh0049
+      owned: false
+      wishlist: true
+- name: Killer Crock
+  variants:
+    - owned: false
+- name: Bane
+  variants:
+    - image: sh0009
+      owned: false
+      wishlist: true
+- name: The Riddler
+  variants:
+    - image: sh1081
+      owned: true
+    - image: sh0593
+      owned: false
+- name: Sinestro
+  glow: '#ffe600ff'
+  variants:
+    - image: sh0144
+      owned: true
+- name: Condiment King
+  variants:
+    - image: sh0488
+      owned: false
+      wishlist: true
+- name: Deathstroke
+  variants:
+    - image: sh0194
+      owned: true
+- name: Gorilla Grodd
+  variants:
+    - image: sh0147
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1
+- name: Black Manta
+  variants:
+    - image: sh0526
+      owned: false
+- name: Lex Luthor
+  variants:
+    - label: Black suit
+      image: sh0012
+      owned: false
+    - label: Power Armor
+      image: sh1007
+      owned: false
+      wishlist: true
+- name: Bizarro
+  variants:
+    - image: sh0043
+      owned: false
+- name: Metamorpho
+  variants:
+    - image: colsh12
+      owned: false
+- name: Reverse Flash
+  variants:
+    - image: sh0471
+      owned: false
+- name: Captain Cold
+  variants:
+    - image: sh0148
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1
+- name: Commissioner Gordon
+  variants:
+    - image: sh0591
+      owned: false
+      wishlist: true
+    - label: Lego Batman Movie
+      image: coltlbm07
+      owned: false
+      wishlist: true
+    - label: The Dark Knight Trilogy
+      image: sh0063
+      owned: false
+      wishlist: true
+- name: Alfred Pennyworth
+  variants:
+    - label: Lego Batman Movie
+      image: sh0313
+      owned: false
+      wishlist: true
+- name: Huntress
+  variants:
+    - image: colsh11
+      owned: false
+- name: Black Canary
+  variants:
+    - image: coltlbm43
+      owned: false
+- name: Captain Boomerang
+  variants:
+    - label: Lego Batman Movie
+      image: sh0491
+      owned: false
+    - label: Batman II
+      image: sh0281
+      owned: false
+- name: Mad Hatter
+  variants:
+    - owned: false
+- name: Killer Moth
+  variants:
+    - image: coltlbm36
+      owned: false
+- name: Clayface
+  variants:
+    - owned: false
+- name: Hush
+  variants:
+    - owned: false
+- name: Ra's Al Ghul
+  variants:
+    - image: sh0290
+      owned: false
+- name: Talia Al Ghul
+  variants:
+    - image: sh0291
+      owned: false
+- name: General Zod
+  variants:
+    - image: sh0078
+      owned: false
+- name: Shazam
+  variants:
+    - image: sh0586
+      owned: false
+- name: Brainiac
+  variants:
+    - image: sh0159
+      owned: false
+- name: Bruce Wayne
+  variants:
+    - image: sh0308
+      owned: false
+- name: Dick Grayson
+  variants:
+    - image: sh0236
+      owned: false
+- name: Clark Kent
+  variants:
+    - image: sh0083
+      owned: false
+- name: Lois Lane
+  variants:
+    - label: Man of Steel
+      image: sh0075
+      owned: false
+- name: Zatanna
+  variants:
+    - owned: false
+- name: Black Adam
+  variants:
+    - owned: false
+- name: Green Arrow
+  variants:
+    - label: New 52
+      image: sh0153
+      owned: false
+    - label: Classic
+      image: sh0465
+      owned: false
+- name: Truck Driver
+  variants:
+    - label: Overalls
+      image: sh0149
+      owned: true
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=76026-1

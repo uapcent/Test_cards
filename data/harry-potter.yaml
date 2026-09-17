@@ -1,0 +1,22 @@
+- name: Harry Potter
+  variants:
+    - label: Gryffindor Robe
+      image: hp314
+      owned: true
+    - label: Lego Dimensions
+      image: dim036
+      owned: true
+- name: Ron Weasley
+  variants:
+    - label: Gryffindor Robe
+      image: hp283
+      owned: true
+- name: Draco Malfoy
+  variants:
+    - image: hp254
+      owned: true
+- name: Voldemort
+  variants:
+    - label: Lego Dimensions
+      image: dim037
+      owned: true

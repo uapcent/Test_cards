@@ -1,0 +1,47 @@
+- name: Luffy
+  variants:
+    - label: Straw Hat
+      image: op016
+      owned: true
+    - label: Young
+      image: op003
+      owned: true
+- name: Nami
+  variants:
+    - image: op005
+      owned: true
+- name: Zoro
+  variants:
+    - image: op013
+      owned: true
+- name: Sanji
+  variants:
+    - image: op014
+      owned: true
+- name: Usopp
+  variants:
+    - image: op015
+      owned: true
+- name: Shanks
+  variants:
+    - image: op001
+      owned: true
+- name: Buggy the Clown
+  variants:
+    - image: op004
+      owned: false
+      wishlist: true
+- name: Garp
+  variants:
+    - image: op021
+      owned: false
+      wishlist: true
+- name: Mihawk
+  variants:
+    - image: op017
+      owned: false
+      wishlist: true
+- name: Makino
+  variants:
+    - image: op002
+      owned: true

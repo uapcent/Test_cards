@@ -5,40 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Minifigure Checklist</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/effects_styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 </head>
 
 <body>
-  <h1>Minifigure checklist</h1>
-  <div id="filters">
-    <label>
-      <input type="checkbox" id="filter-wantedList">
-      Wishlist only
-    </label>
-
-    <label>
-      <input type="checkbox" id="filter-unlocked">
-      Unlocked only
-    </label>
-  </div>
-
-  <div id="groupsContainer"></div>
-  <script type="module" src="main.js"></script>
-
-  <br>
-
-  <div id="cardModal" class="modal hidden">
-    <div class="modal-content">
-      <button class="modal-close">✕</button>
-      <h2 id="modalTitle"></h2>
-      <div id="modalVariants"></div>
-    </div>
-  </div>
-
-  <a href="./file_rankings/rankings.html" class="button">Super Secret</a>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>

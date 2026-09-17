@@ -1,0 +1,106 @@
+- name: Elf Bard
+  variants:
+    - image: coldnd09
+      owned: true
+      year: 2024
+- name: Szass Tam
+  variants:
+    - image: coldnd11
+      owned: true
+      year: 2024
+- name: Mind Flayer
+  variants:
+    - image: coldnd07
+      owned: true
+      year: 2024
+- name: Gith Warlock
+  variants:
+    - image: coldnd02
+      owned: true
+      year: 2024
+- name: Halfling Druid
+  variants:
+    - image: coldnd05
+      owned: true
+      year: 2024
+- name: Dwarf Barbarian
+  variants:
+    - image: coldnd01
+      owned: true
+      year: 2024
+- name: Aarakocra Ranger
+  variants:
+    - image: coldnd06
+      owned: true
+      year: 2024
+- name: The Lady of Pain
+  variants:
+    - image: coldnd10
+      owned: true
+      year: 2024
+- name: Tiefling Sorcerer
+  variants:
+    - image: coldnd03
+      owned: true
+      year: 2024
+- name: Dragonborn Paladin
+  variants:
+    - image: coldnd04
+      owned: true
+      year: 2024
+- name: Strahd von Zarovich
+  variants:
+    - image: coldnd08
+      owned: true
+      year: 2024
+- name: Tasha the Witch
+  variants:
+    - image: coldnd12
+      owned: true
+      year: 2024
+- name: Dragonborn Alax Jadescales
+  variants:
+    - image: idea185
+      owned: true
+      defective: true
+- name: Dwarf Cleric
+  variants:
+    - image: idea180
+      owned: true
+      defective: true
+- name: Elf Wizard
+  variants:
+    - image: idea181
+      owned: true
+      defective: true
+- name: Gnome Fighter
+  variants:
+    - image: idea182
+      owned: true
+      defective: true
+- name: Merry Rumwell
+  variants:
+    - label: Ervan Soulfallen in Disguise
+      image: idea184
+      owned: true
+      defective: true
+- name: Myconid
+  variants:
+    - image: idea186
+      owned: true
+      defective: true
+- name: Orc Rogue
+  variants:
+    - image: idea183
+      owned: true
+      defective: true
+- name: Colin the Fighter
+  variants:
+    - image: idea187
+      owned: true
+      defective: true
+- name: Kildar the Wizard
+  variants:
+    - image: idea188
+      owned: true
+      defective: true

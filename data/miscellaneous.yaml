@@ -1,0 +1,60 @@
+- name: Chell
+  variants:
+    - label: Portal
+      image: dim006
+      owned: true
+      year: 2015
+- name: The Doctor
+  variants:
+    - label: Doctor Who
+      image: dim009
+      owned: false
+- name: Cyberman
+  variants:
+    - label: Doctor Who
+      image: dim014
+      owned: true
+- name: Dalek
+  variants:
+    - label: Doctor Who
+      image: dim014b
+      owned: true
+- name: Marty McFly
+  variants:
+    - label: Back to the Future
+      image: idea001
+      owned: true
+- name: Doc Brown
+  variants:
+    - label: Back to the Future
+      image: dim015
+      owned: true
+- name: Dr. Peter Venkman
+  variants:
+    - label: Ghostbusters
+      image: dim016
+      owned: true
+- name: Indiana Jones
+  variants:
+    - image: iaj001
+      owned: false
+- name: Woody
+  variants:
+    - label: Toy Story
+      image: toy003
+      owned: true
+- name: Buzz Lightyear
+  variants:
+    - label: Toy Story
+      image: toy004
+      owned: true
+- name: Jessie
+  variants:
+    - label: Toy Story
+      image: toy008
+      owned: true
+- name: Alien
+  variants:
+    - label: Toy Story
+      image: toy006
+      owned: true

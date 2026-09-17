@@ -1,0 +1,94 @@
+- name: Frodo Saquet
+  variants:
+    - image: lor112
+      owned: false
+      wishlist: true
+- name: Samwise Gamgee
+  variants:
+    - image: lor113
+      owned: false
+- name: Merry Brandybuck
+  variants:
+    - image: https://img.bricklink.com/ItemImage/MN/0/lor124.original.png
+      owned: false
+- name: Pippin Took
+  variants:
+    - image: https://img.bricklink.com/ItemImage/MN/0/lor123.original.png
+      owned: false
+- name: Aragorn
+  variants:
+    - image: lor017
+      owned: false
+- name: Gandalf
+  variants:
+    - label: The Grey
+      image: lor001
+      owned: true
+    - label: The Grey
+      image: lor063
+      owned: false
+- name: Legolas
+  variants:
+    - image: dim008
+      owned: false
+- name: Gimli
+  variants:
+    - image: dim007
+      owned: false
+- name: Boromir
+  variants:
+    - image: lor126
+      owned: false
+- name: Gollum
+  variants:
+    - image: lor031
+      owned: false
+- name: Saruman the White
+  variants:
+    - image: lor074
+      owned: false
+- name: Elrond
+  variants:
+    - image: lor128
+      owned: false
+- name: Arwen
+  variants:
+    - image: lor121
+      owned: false
+- name: Galadriel
+  variants:
+    - image: lor103
+      owned: false
+- name: Bilbo Saquet
+  variants:
+    - image: lor144
+      owned: false
+- name: Orc Warrior
+  variants:
+    - owned: false
+- name: Uruk-hai Warrior
+  variants:
+    - image: lor022
+      owned: false
+- name: Nazgûl
+  variants:
+    - image: lor018
+      owned: false
+- name: Mouth of Sauron
+  variants:
+    - image: lor140
+      owned: false
+- name: Sauron
+  variants:
+    - image: lor139
+      owned: false
+- name: King of the Dead
+  variants:
+    - image: lor071
+      owned: false
+- name: Soldier of the Dead
+  variants:
+    - image: lor069
+      owned: false
+    - image: lor070
+      owned: false

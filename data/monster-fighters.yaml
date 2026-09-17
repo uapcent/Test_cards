@@ -1,0 +1,33 @@
+- name: Doctor Rodney Rathbone
+  variants:
+    - image: mof005
+      owned: true
+      year: 2012
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962
+- name: Ann Lee
+  variants:
+    - image: mof002
+      owned: true
+      year: 2012
+- name: Lord Vampyre
+  variants:
+    - image: mof013
+      owned: true
+      year: 2012
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962
+- name: Lord Vampyre's Bride
+  variants:
+    - image: mof008
+      owned: false
+      year: 2012
+- name: Zombie Driver
+  variants:
+    - image: mof012
+      owned: true
+      year: 2012
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=109962
+- name: Swamp Creature
+  variants:
+    - image: mof014
+      owned: true
+      year: 2012

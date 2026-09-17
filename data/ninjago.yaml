@@ -1,0 +1,297 @@
+- name: Kai
+  glow: '#ff0000ff'
+  variants:
+    - label: The Golden Weapons
+      image: njo0007
+      owned: true
+    - label: DX
+      image: njo0009
+      owned: true
+    - label: The Lego Ninjago Movie
+      image: njo0360
+      owned: true
+    - label: Legacy
+      image: njo0492
+      owned: true
+- name: Jay
+  glow: '#00c3ffff'
+  variants:
+    - label: The Golden Weapons
+      image: njo0004
+      owned: true
+    - label: Tournament of Elements
+      image: njo0137
+      owned: true
+    - label: Skybound
+      image: njo0210
+      owned: true
+    - label: Rogue (Jay)
+      image: njo0986
+      owned: false
+    - label: Dragons Rising Season 2
+      image: njo0852
+      owned: true
+- name: Zane
+  glow: '#ffffffff'
+  variants:
+    - label: DX
+      image: njo0018
+      owned: true
+    - label: Tournament of Elements
+      image: njo0111
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=70748-1
+    - label: (Honor Robe) - Day of the Departed
+      image: njo0266
+      owned: true
+    - label: Dragons Rising
+      image: njo0922
+      owned: true
+    - label: Honor Robe - Day of the Departed
+      image: njo0306
+      owned: true
+- name: Cole
+  glow: '#ff9900ff'
+  variants:
+    - label: RX
+      image: njo0262
+      owned: true
+    - label: Legacy Rebooted
+      image: njo0575
+      owned: true
+    - label: Dragons Rising - Mech
+      image: njo0900
+      owned: true
+- name: Lloyd
+  glow: '#00ff22ff'
+  variants:
+    - label: The Golden Weapons
+      image: njo0123
+      owned: true
+    - label: Skybound
+      image: njo0209
+      owned: true
+    - label: Dragons Rising Season 2
+      image: njo0853
+      owned: true
+- name: Nya
+  glow: '#0051ffff'
+  variants:
+    - label: The Golden Weapons
+      image: njo0012
+      owned: true
+    - label: Samurai X - Rise of the Snakes
+      image: njo0050
+      owned: true
+    - label: Skybound
+      image: njo0245
+      owned: true
+      year: 2016
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125
+- name: Sensei Wu
+  variants:
+    - label: Lego Ninjago Movie
+      image: njo0354
+      owned: true
+      year: 2017
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=70608-1
+    - label: Lego Ninjago Movie
+      image: njo0064
+      owned: true
+      year: 2012
+- name: Garmadon
+  variants:
+    - label: The Golden Weapons
+      image: njo0013
+      owned: true
+    - label: Lego Ninjago Movie
+      image: njo0310
+      owned: true
+      year: 2017
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=70608-1
+- name: Bonezai (Skulkin)
+  variants:
+    - label: The Golden Weapons
+      image: njo0008
+      owned: true
+- name: Chopov (Skulkin)
+  variants:
+    - label: The Golden Weapons
+      image: njo0005
+      owned: true
+- name: Frakjaw (Skulkin)
+  variants:
+    - label: Day of the Departed
+      image: njo0244
+      owned: true
+      year: 2016
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125
+- name: Krazi (Skulkin)
+  variants:
+    - label: The Golden Weapons
+      image: njo0017
+      owned: true
+    - label: Day of the Departed
+      image: njo0247
+      owned: true
+      year: 2016
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125
+- name: Nuckal
+  variants:
+    - image: njo0003
+      owned: false
+- name: Wyplash
+  variants:
+    - image: njo0028
+      owned: false
+- name: Samukai (Skulkin)
+  variants:
+    - label: The Golden Weapons
+      image: njo0014
+      owned: false
+- name: Snike
+  variants:
+    - label: Rise of the Snakes
+      image: njo0063
+      owned: true
+- name: Bytar
+  variants:
+    - label: Rise of the Snakes
+      image: njo0062
+      owned: true
+- name: Dareth
+  variants:
+    - image: njo0110
+      owned: true
+- name: Ronin
+  variants:
+    - label: Day of the Departed
+      image: njo0246
+      owned: true
+      year: 2016
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=146125
+- name: Pixal
+  variants:
+    - image: njo0742
+      owned: false
+      wishlist: true
+- name: Nindroid
+  variants:
+    - label: Day of the Departed
+      image: njo0267
+      owned: true
+- name: Ghost Archer
+  variants:
+    - label: Legacy
+      image: njo0804
+      owned: true
+- name: Morro
+  glow: '#03da15ff'
+  variants:
+    - label: Possession
+      image: njo0158
+      owned: true
+- name: Chope
+  variants:
+    - label: Tournament of Elements
+      image: njo0138
+      owned: true
+- name: Kapau
+  variants:
+    - label: Tournament of Elements
+      image: njo0122
+      owned: true
+- name: Clouse
+  variants:
+    - label: Tournament of Elements
+      image: njo0112
+      owned: true
+      year: 2015
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=70748-1
+- name: Chop'rai
+  variants:
+    - label: Tournament of Elements
+      image: njo0113
+      owned: true
+- name: Chen
+  variants:
+    - label: Tournament of Elements
+      image: njo0126
+      owned: true
+      defective: true
+- name: Cyren
+  variants:
+    - label: Skybound
+      image: njo0211
+      owned: true
+- name: Flintlocke
+  variants:
+    - label: Skybound
+      image: njo0197
+      owned: true
+- name: General Vex
+  variants:
+    - label: Secrets of the Forbidden Spinjitzu
+      image: njo0523
+      owned: true
+- name: Drix
+  variants:
+    - label: Dragons Rising Season 3
+      image: njo0924
+      owned: true
+- name: Wildfire
+  variants:
+    - label: Dragons Rising Season 3
+      image: njo0923
+      owned: true
+- name: Wolf Mask Guard
+  variants:
+    - label: Dragons Rising Season 2
+      image: njo0854
+      owned: true
+- name: Wolf Mask Claw Warrior
+  variants:
+    - label: Dragons Rising Season 2
+      image: njo0851
+      owned: true
+- name: Dragonian Scout
+  variants:
+    - label: Dragons Rising Season 3
+      image: njo0926
+      owned: true
+- name: Spectral Dragonian Scout
+  variants:
+    - label: Dragons Rising Season 3
+      image: njo0983
+      owned: true
+- name: Lil' Nelson
+  variants:
+    - label: Day of the Departed
+      image: njo0263
+      owned: true
+- name: Stone Army Scout
+  variants:
+    - label: Day of the Departed
+      image: njo0264
+      owned: true
+- name: Stone Army Swordsman
+  variants:
+    - label: Day of the Departed
+      image: njo0222
+      owned: true
+- name: GPL Tech
+  variants:
+    - label: The Lego Ninjago Movie
+      image: coltlnm18
+      owned: false
+- name: Ham
+  variants:
+    - label: The Lego Ninjago Movie
+      image: njo0358
+      owned: true
+- name: Dummy, Training
+  variants:
+    - label: The Golden Weapons
+      image: gen035
+      owned: true

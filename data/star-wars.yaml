@@ -1,0 +1,381 @@
+- name: Qui-Gon Jinn
+  glow: '#4bff27ff'
+  variants:
+    - image: sw1334b
+      owned: true
+    - image: sw1404
+      owned: false
+- name: Obi-Wan Kenobi
+  glow: '#0099ffff'
+  variants:
+    - label: Padawan
+      image: sw0812
+      owned: false
+- name: TC-14
+  variants:
+    - image: sw0385
+      owned: false
+- name: Jar Jar Binks
+  variants:
+    - label: Episode I
+      image: sw0301
+      owned: true
+- name: Queen Amidala
+  variants:
+    - label: Episode I
+      image: sw0387
+      owned: false
+- name: Captain Panaka
+  variants:
+    - label: Episode I
+      image: sw0321
+      owned: false
+- name: Padmé Amidala
+  variants:
+    - label: Battle
+      image: sw1303
+      owned: false
+- name: R2-D2
+  variants:
+    - image: sw0217
+      owned: true
+- name: Anakin Skywalker
+  variants:
+    - label: Boy
+      image: sw1332
+      owned: false
+- name: Watto
+  variants:
+    - image: sw0649
+      owned: false
+- name: Darth Maul
+  glow: '#ff0000ff'
+  variants:
+    - image: sw1415
+      owned: true
+    - image: sw1333
+      owned: true
+- name: Obi-Wan Kenobi
+  glow: '#0099ffff'
+  variants:
+    - label: Episode II
+      image: sw1255
+      owned: true
+- name: Jango Fett
+  variants:
+    - image: sw1406
+      owned: false
+      wishlist: true
+- name: Boba Fett
+  variants:
+    - label: Boy
+      image: sw0844
+      owned: false
+- name: Clone
+  variants:
+    - image: sw0442
+      owned: false
+- name: Obi-Wan Kenobi
+  glow: '#0099ffff'
+  variants:
+    - label: Clone Wars
+      image: sw1424
+      owned: false
+      wishlist: true
+    - label: Clone Wars (Old)
+      image: sw0449
+      owned: true
+- name: Anakin Skywalker
+  variants:
+    - label: Clone Wars
+      image: sw0939
+      owned: false
+- name: Ahsoka Tano
+  glow: '#00ffafff'
+  variants:
+    - label: Padawan
+      image: sw1396
+      owned: true
+- name: R4-P17
+  variants:
+    - image: sw1221
+      owned: false
+- name: Anakin Skywalker
+  variants:
+    - label: Padawan
+      image: sw0488
+      owned: false
+- name: Padmé Amidala
+  variants:
+    - label: Geonosis
+      image: sw0490
+      owned: false
+- name: C-3PO
+  variants:
+    - image: sw0365
+      owned: true
+- name: Mace Windu
+  glow: '#9900ffff'
+  variants:
+    - image: sw1205
+      owned: false
+- name: Plo Koon
+  glow: '#0099ffff'
+  variants:
+    - image: sw1414
+      owned: false
+- name: Ki-Adi-Mundi
+  glow: '#ffff00ff'
+  variants:
+    - image: sw0911
+      owned: false
+- name: Kit Fisto
+  glow: '#00ffafff'
+  variants:
+    - image: sw0422
+      owned: false
+- name: Yoda
+  glow: '#33ff00ff'
+  variants:
+    - image: sw0707
+      owned: false
+      wishlist: true
+- name: Obi-Wan Kenobi
+  glow: '#0099ffff'
+  variants:
+    - label: Episode III
+      image: sw0362
+      owned: false
+- name: Anakin Skywalker
+  glow: '#0099ffff'
+  variants:
+    - label: Episode III
+      image: '80564'
+      owned: true
+- name: Chancellor Palpatine
+  variants:
+    - image: sw1306
+      owned: false
+- name: Captain Rex
+  variants:
+    - image: sw0450
+      owned: true
+- name: Clone Bomb Squad Trooper
+  variants:
+    - label: Phase 1
+      image: sw0299
+      owned: true
+- name: Clone ARF Trooper Razor
+  variants:
+    - label: 91st Mobile Reconnaissance Corps
+      image: sw0297
+      owned: true
+- name: Clone Trooper, Horn Company
+  variants:
+    - label: Phase 1
+      image: sw0298
+      owned: true
+- name: Count Dooku
+  glow: '#ff0000ff'
+  variants:
+    - image: sw0472
+      owned: false
+      wishlist: true
+- name: General Grievous
+  variants:
+    - image: sw0515
+      owned: false
+      wishlist: true
+- name: Commander Cody
+  variants:
+    - image: sw1233
+      owned: false
+- name: Chewbacca
+  variants:
+    - image: sw0532
+      owned: true
+- name: Princess Leia
+  variants:
+    - image: sw0337
+      owned: false
+    - label: Hoth
+      image: sw0878
+      owned: false
+    - label: Bespin
+      owned: false
+- name: Captain Antilles
+  variants:
+    - image: sw1328
+      owned: false
+- name: Rebel Friend
+  variants:
+    - image: sw1285
+      owned: true
+- name: Luke Skywalker
+  variants:
+    - label: Tatooine
+      image: sw0778
+      owned: false
+      wishlist: true
+    - label: Stormtrooper
+      image: sw1203
+      owned: false
+- name: Ben Kenobi
+  glow: '#0099ffff'
+  variants:
+    - image: sw0552
+      owned: false
+      wishlist: true
+- name: Han Solo
+  variants:
+    - image: sw0539
+      owned: true
+    - label: Stormtrooper
+      image: sw1204
+      owned: false
+    - label: Celebration
+      image: sw0356
+      owned: true
+    - label: Hoth
+      image: sw0709
+      owned: false
+    - label: Endor
+      image: sw0644
+      owned: false
+- name: Luke Skywalker
+  variants:
+    - label: X-Wing Pilot
+      image: sw0295
+      owned: true
+    - label: Dagobah
+      image: sw1199
+      owned: false
+    - label: Cloud City
+      image: sw0971
+      owned: false
+- name: Jek Porkins
+  variants:
+    - image: sw0372
+      owned: true
+- name: R7-A7
+  variants:
+    - label: Astromech Droid
+      image: sw1397
+      owned: true
+- name: Lando Calrissian
+  variants:
+    - image: sw0973
+      owned: false
+- name: Luke Skywalker
+  glow: '#00ff0dff'
+  variants:
+    - label: Jedi
+      image: sw1262
+      owned: false
+    - label: Endor
+      owned: false
+- name: Princess Leia
+  variants:
+    - label: Boushh
+      image: sw0407
+      owned: false
+    - label: Slave
+      image: sw1389
+      owned: false
+    - label: Endor
+      owned: false
+    - owned: true
+- name: Wicket
+  variants:
+    - image: sw1435
+      owned: false
+- name: Darth Vader
+  glow: '#ff0000ff'
+  variants:
+    - image: sw1273
+      owned: true
+      year: 2023
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=227299
+- name: Imperial Stormtrooper
+  variants:
+    - image: sw1327
+      owned: false
+- name: Gonk Droid
+  variants:
+    - label: Servo (SR-V0)
+      image: sw1380
+      owned: true
+- name: PK Droid
+  variants:
+    - image: sw0591
+      owned: false
+- name: Battle Droid
+  variants:
+    - image: sw0001c
+      owned: true
+- name: Battle Droid Pilot
+  variants:
+    - image: sw0300
+      owned: true
+- name: Commando Droid
+  variants:
+    - image: sw0359
+      owned: true
+- name: Super Battle Droid
+  variants:
+    - image: sw0092
+      owned: true
+- name: Droideka
+  variants:
+    - label: Destroyer Droid
+      image: sw1340
+      owned: true
+- name: Gungan Soldier
+  variants:
+    - label: Episode I
+      image: sw0302
+      owned: true
+- name: Clone Scout Trooper
+  variants:
+    - label: 41st Elite Corps Scout Battalion
+      image: sw0518
+      owned: true
+- name: Clone ARC Trooper Hammer
+  variants:
+    - label: Rancor Battalion (Phase 2)
+      image: sw0377
+      owned: true
+- name: Clone ARF Trooper
+  variants:
+    - label: Rancor Battalion (Phase 1)
+      image: sw0378
+      owned: true
+- name: Jedi Bob
+  variants:
+    - label: Bobarian Afol
+      image: sw1379
+      owned: true
+- name: Ackbar Trooper
+  variants:
+    - label: Rebuild the Galaxy
+      image: sw1378
+      owned: true
+- name: R5-D8 / R5-D4
+  variants:
+    - image: sw0373
+      owned: true
+- name: Boba Fett
+  variants:
+    - label: The Book of Boba Fett
+      image: sw1245
+      owned: true
+- name: Rey
+  variants:
+    - label: Episode VII
+      image: sw0677
+      owned: true
+- name: Unkar's Thug
+  variants:
+    - label: Episode VII
+      image: sw0655
+      owned: true

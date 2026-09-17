@@ -1,0 +1,329 @@
+- name: Iron Man
+  glow: '#04e2ffff'
+  variants:
+    - label: Mark 45 Armor
+      image: sh0164
+      owned: true
+- name: Hulk
+  glow: '#09ff00ff'
+  variants:
+    - label: Strongest Avenger
+      image: lego-hulk-large-with-dark-tan-pants-minifigure-1219731
+      owned: false
+- name: Captain America
+  variants:
+    - label: Age of Ultron
+      image: sh0177
+      owned: false
+- name: Thor
+  variants:
+    - image: sh0734
+      owned: false
+- name: Hawkeye
+  variants:
+    - label: The Avengers
+      image: sh0034
+      owned: true
+      year: '2012'
+    - image: colmar18
+      owned: false
+      year: 2023
+- name: Black Widow
+  variants:
+    - label: 'Captain America: Civil War'
+      image: sh0186
+      owned: true
+- name: Scarlet Witch
+  glow: '#ff0000ff'
+  variants:
+    - label: Infinity Saga
+      image: sh0897
+      owned: true
+- name: Vision
+  glow: '#fbff00ff'
+  variants:
+    - image: sh0303
+      owned: false
+- name: Falcon
+  variants:
+    - label: 'Captain America: Civil War'
+      image: sh0261
+      owned: true
+- name: Dr Strange
+  glow: '#00ff37ff'
+  variants:
+    - image: sh0802
+      owned: false
+- name: Moon Knight
+  glow: '#ffffffff'
+  variants:
+    - image: colmar14
+      owned: true
+- name: Black Panther
+  variants:
+    - image: sh1019
+      owned: false
+- name: Winter Soldier
+  variants:
+    - image: sh0257
+      owned: false
+- name: Daredevil
+  variants:
+    - image: sh0724
+      owned: false
+- name: Storm
+  variants:
+    - image: colmar23
+      owned: true
+      year: 2023
+- name: Jean Grey
+  variants:
+    - owned: false
+- name: Quicksilver
+  variants:
+    - image: sh1072
+      owned: false
+- name: Magneto
+  variants:
+    - label: Classic
+      image: sh0031
+      owned: false
+      wishlist: true
+    - label: X-Men '97
+      image: sh0940
+      owned: false
+- name: Professor X
+  variants:
+    - owned: false
+- name: Cyclops
+  variants:
+    - image: sh0992
+      owned: false
+- name: Deadpool
+  variants:
+    - image: sh0032
+      owned: false
+- name: Wolverine
+  variants:
+    - image: sh0017
+      owned: false
+- name: Spider-Man
+  variants:
+    - label: Black Web Pattern
+      image: sh0038
+      owned: true
+- name: Spider-Man - Miles Morales
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi01
+      owned: true
+      year: 2025
+- name: Spider-Gwen - Gwen Stacy
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi04
+      owned: true
+      year: 2025
+- name: Spider-Man 2099 - Miguel O'Hara
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi05
+      owned: true
+      year: 2025
+- name: Spider-Punk - Hobart Brown
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi02
+      owned: true
+      year: 2025
+- name: Peter B. Parker
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi10
+      owned: true
+      year: 2025
+- name: May 'Mayday' Parker
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi11
+      owned: true
+      year: 2025
+- name: Pavitr Prabhakar / Spider-Man India
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi06
+      owned: true
+      year: 2025
+- name: Patrick O'Hara / Web-Slinger
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi12
+      owned: true
+      year: 2025
+- name: Peter Parker / Werewolf Spider-Man
+  variants:
+    - label: Across the Spider-Verse
+      image: colspi13
+      owned: true
+      year: 2025
+- name: Mr. Fantastic
+  variants:
+    - image: TP285
+      owned: true
+      defective: true
+- name: Invisible Woman
+  variants:
+    - image: TP286
+      owned: true
+      defective: true
+- name: Human Torch
+  variants:
+    - image: TP287
+      owned: false
+- name: The Thing
+  variants:
+    - owned: false
+- name: War Machine
+  variants:
+    - image: sh0819
+      owned: false
+    - label: Iron Patriot
+      image: sh0084
+      owned: false
+- name: Captain Marvel
+  variants:
+    - image: sh0639
+      owned: false
+- name: Hawkeye
+  variants:
+    - label: Kate Bishop
+      image: colmar19
+      owned: false
+      wishlist: true
+- name: She-Hulk
+  variants:
+    - image: colmar17
+      owned: false
+- name: Nova
+  variants:
+    - image: sh0051
+      owned: true
+- name: Ms. Marvel
+  variants:
+    - image: sh0375
+      owned: true
+- name: Star-Lord
+  variants:
+    - label: Masked
+      image: sh0127
+      owned: false
+    - label: Guardians of the Galaxy Vol. 2
+      image: sh0380
+      owned: false
+- name: Gamora
+  variants:
+    - image: sh0506
+      owned: false
+- name: Drax
+  variants:
+    - image: sh0977
+      owned: false
+- name: Groot
+  variants:
+    - owned: false
+- name: Rocket Raccoon
+  variants:
+    - image: sh0384
+      owned: false
+- name: Dr Doom
+  variants:
+    - image: sh0052
+      owned: false
+- name: Thanos
+  variants:
+    - image: sh0504
+      owned: false
+- name: Crossbones
+  variants:
+    - label: 'Captain America: Civil War'
+      image: sh0262
+      owned: true
+- name: Ultron
+  variants:
+    - image: sh1009
+      owned: false
+- name: Ultron Sentry
+  variants:
+    - image: sh0166
+      owned: true
+    - label: Officer
+      image: sh0165
+      owned: true
+- name: Ghost Rider
+  variants:
+    - image: sh0861
+      owned: false
+      wishlist: true
+- name: Adam Warlock
+  variants:
+    - image: sh0877
+      owned: false
+- name: Loki
+  glow: '#07ca00ff'
+  variants:
+    - label: Infinity Saga
+      image: sh0860
+      owned: false
+    - label: TVA Variant
+      image: colmar06
+      owned: false
+      wishlist: true
+- name: Green Goblin
+  variants:
+    - image: sh0695
+      owned: true
+- name: Mysterio
+  variants:
+    - image: sh0709
+      owned: true
+- name: Sandman
+  variants:
+    - image: sh0685
+      owned: true
+- name: Venom
+  variants:
+    - image: sh0542
+      owned: true
+- name: Dr. Octopus (Otto Octavius)
+  variants:
+    - label: Black Web Pattern
+      image: sh0110
+      owned: true
+- name: Lizard
+  variants:
+    - image: sh0938
+      owned: false
+- name: Vulture
+  variants:
+    - image: sh0618
+      owned: false
+- name: Electro
+  variants:
+    - owned: false
+- name: Agatha Harkness
+  variants:
+    - label: Minifigures Series 2
+      image: colmar13
+      owned: false
+- name: Nick Fury
+  variants:
+    - image: sh0585a
+      owned: false
+- name: J. Jonah Jameson
+  variants:
+    - image: sh0710
+      owned: true
+- name: Armored Truck Driver
+  variants:
+    - image: sh0109
+      owned: true

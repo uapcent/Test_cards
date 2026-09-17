@@ -1,0 +1,281 @@
+- name: Johnny Thunder
+  variants:
+    - label: Desert
+      image: adv010
+      owned: true
+      year: 1998
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=5938-1
+    - label: Jungle Explorer
+      image: cty1765
+      owned: true
+- name: Jake Raines
+  variants:
+    - label: Pharaoh's Quest
+      image: pha009
+      owned: true
+      year: 2011
+- name: Slyboots / Sam Sinister
+  variants:
+    - label: 'Adventurers: Desert'
+      image: adv038
+      owned: true
+      year: 1998
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=5938-1
+- name: King Kahuka
+  variants:
+    - label: 'Pirates: Islander'
+      image: pi068
+      owned: true
+      year: 1994
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1
+- name: Female Islander
+  variants:
+    - label: 'Pirates: Islander'
+      image: pi066
+      owned: true
+      year: 1994
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1
+- name: Pirate Captain
+  variants:
+    - label: 'Pirates: III'
+      image: pi148
+      owned: false
+      wishlist: true
+- name: Emmet
+  variants:
+    - label: The Lego Movie
+      image: tlm096
+      owned: true
+- name: Benny
+  variants:
+    - label: The Lego Movie
+      image: tlm094
+      owned: true
+- name: Unikitty
+  variants:
+    - image: tlm093
+      owned: true
+    - label: Angry Kitty
+      image: tlm091
+      owned: true
+- name: Vitruvius
+  variants:
+    - label: The Lego Movie
+      image: tlm021
+      owned: false
+      wishlist: true
+    - label: Ghost
+      image: tlm092
+      owned: true
+- name: Wyldstyle
+  variants:
+    - label: The Lego Movie
+      image: tlm099
+      owned: true
+- name: Bad Cop
+  variants:
+    - label: The Lego Movie
+      image: tlm098
+      owned: true
+- name: President Business
+  variants:
+    - label: The Lego Movie
+      image: tlm095
+      owned: true
+- name: Robo Skeleton
+  variants:
+    - label: Lego Movie
+      image: tlm048
+      owned: true
+- name: Robo SWAT
+  variants:
+    - label: Lego Movie
+      image: tlm046
+      owned: true
+- name: Robo SWAT - Cap
+  variants:
+    - label: Lego Movie
+      image: tlm100
+      owned: true
+- name: Wiley Fusebot
+  variants:
+    - label: The Lego Movie
+      image: tlm014
+      owned: true
+- name: Frank the Foreman
+  variants:
+    - label: The Lego Movie
+      image: tlm047
+      owned: true
+- name: Executive Ellen
+  variants:
+    - label: The Lego Movie
+      image: tlm034
+      owned: true
+- name: Kebab Bob
+  variants:
+    - label: The Lego Movie
+      image: tlm035
+      owned: true
+- name: Rootbeer Belle
+  variants:
+    - label: The Lego Movie
+      image: tlm037
+      owned: true
+- name: Waiter with Moustache
+  variants:
+    - label: 'Town: Paradisa'
+      image: wtr001
+      owned: true
+- name: Ninja
+  variants:
+    - image: cas048
+      owned: true
+      year: 1998
+- name: Fireman
+  variants:
+    - label: Classic Town
+      image: firec011
+      owned: true
+      year: 1995
+- name: Sudds Backwash
+  variants:
+    - label: The Lego Movie
+      image: tlm036
+      owned: true
+- name: Chase McCain
+  variants:
+    - label: Lego City Undercover
+      image: cty0356
+      owned: true
+- name: Elite Police Motorcycle Officer
+  variants:
+    - image: cty0357
+      owned: true
+- name: City Burglar
+  variants:
+    - image: cty0358
+      owned: true
+- name: Rocket Racer
+  variants:
+    - image: cty1319
+      owned: true
+- name: Steampunk Inventor
+  variants:
+    - label: Series 27
+      image: col460
+      owned: true
+- name: Film Noir Detective
+  variants:
+    - label: Series 25
+      image: col424
+      owned: true
+- name: Agent Chase
+  variants:
+    - label: Agents
+      image: agt004
+      owned: true
+      year: 2008
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=77813
+- name: Saw Fist
+  variants:
+    - label: Agents
+      image: agt005
+      owned: true
+      year: 2008
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?id=77813
+- name: Spacewalking Astronaut
+  variants:
+    - label: Series 26
+      image: col436
+      owned: true
+- name: Jetpack Racer
+  variants:
+    - label: Series 27
+      image: col451
+      owned: true
+      year: 2025
+- name: Ice Planet Explorer
+  variants:
+    - label: Series 26
+      image: col444
+      owned: true
+- name: Doc
+  variants:
+    - label: Life on Mars
+      image: lom016
+      owned: true
+      year: 2001
+- name: Spyrius
+  variants:
+    - image: sp039
+      owned: true
+      year: 1994
+- name: Launch Command
+  variants:
+    - label: Classic Town
+      image: splc001
+      owned: true
+      year: 1995
+- name: Astronaut
+  variants:
+    - label: Mars Mission
+      image: mm007
+      owned: true
+- name: Alien
+  variants:
+    - label: Mars Mission
+      image: mm001
+      owned: true
+- name: Alien Commander
+  variants:
+    - label: Mars Mission
+      image: mm010
+      owned: true
+- name: M-Tron Powerlifter
+  variants:
+    - label: Series 26
+      image: col440
+      owned: true
+- name: Blacktron Mutant
+  variants:
+    - label: Series 26
+      image: col448
+      owned: true
+- name: Alien Tourist
+  variants:
+    - label: Series 26
+      image: col438
+      owned: true
+- name: Imposter
+  variants:
+    - label: Series 26
+      image: col437
+      owned: true
+- name: Nurse Android
+  variants:
+    - label: Series 26
+      image: col441
+      owned: true
+- name: Spacebaby
+  variants:
+    - label: Series 26
+      image: col442
+      owned: true
+- name: Alien Beetlezoid
+  variants:
+    - label: Series 26
+      image: col446
+      owned: true
+- name: Orion
+  variants:
+    - label: Series 26
+      image: col447
+      owned: true
+- name: LOM Assistant
+  variants:
+    - label: Life on Mars
+      image: lom014
+      owned: true
+      year: 2001
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=7310-1
