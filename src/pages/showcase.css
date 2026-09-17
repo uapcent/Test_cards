@@ -16,6 +16,7 @@
 }
 
 .showcase__body {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) 290px minmax(240px, 0.75fr);
   gap: 28px;
@@ -25,6 +26,8 @@
 
 /* ---------- tabs and tiles ---------- */
 .showcase__picker {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -152,7 +155,7 @@
   border-radius: 10px;
 }
 
-.showcase__stage.has-photo .showcase__reflection {
+.showcase__stage.has-photo .showcase__reflection-clip {
   display: none;
 }
 
@@ -202,6 +205,8 @@
 
 /* ---------- name, variants, facts ---------- */
 .showcase__info {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -298,32 +303,89 @@
 
 /* ---------- the large figure ---------- */
 .showcase__stage {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   min-height: 0;
   padding-bottom: 8px;
+  overflow: hidden;
+}
+
+/* Theme backdrop: strongest behind the figure on the right, gone on the left,
+   dimmed and softened so it never competes with the figure. Themes without a
+   picture fall back to a wash of their own colour. */
+.showcase__backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  z-index: 0;
+  background-image: var(--theme-art, none);
+  background-color: transparent;
+  background-position: center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  filter: saturate(0.6) brightness(0.55) blur(2px);
+  mask-image:
+    linear-gradient(to right, transparent 4%, rgba(0, 0, 0, 0.25) 42%, #000 100%),
+    linear-gradient(to bottom, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* the colour wash sits underneath, so a theme picture is optional */
+.showcase__backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(110% 80% at 80% 45%, var(--theme-accent, #3a404c) 0%, transparent 72%);
+}
+
+.showcase__figure-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  /* both the figure and its reflection use this, so the mirror matches */
+  --figure-height: clamp(180px, 44vh, 420px);
 }
 
 .showcase__figure {
-  min-height: 0;
+  height: var(--figure-height);
   max-width: 100%;
-  max-height: 72%;
   object-fit: contain;
+}
+
+/* shows only the top strip of the flipped image, which is the figure's feet */
+.showcase__reflection-clip {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 64px;
+  margin-top: 4px;
+  overflow: hidden;
+  opacity: 0.22;
+  mask-image: linear-gradient(to bottom, #000, transparent);
 }
 
 .showcase__reflection {
+  flex-shrink: 0;
+  height: var(--figure-height);
   max-width: 100%;
-  height: 70px;
-  margin-top: 2px;
   object-fit: contain;
-  object-position: top;
-  opacity: 0.14;
   transform: scaleY(-1);
 }
 
-.showcase__stage.is-missing .showcase__figure {
+.showcase__stage.is-missing .showcase__figure,
+.showcase__stage.is-missing .showcase__reflection {
   filter: grayscale(1) brightness(0.65);
 }
 
@@ -367,6 +429,14 @@
     gap: 16px;
   }
 
+  .showcase__backdrop {
+    top: 0;
+    bottom: auto;
+    width: 100%;
+    height: 290px;
+    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  }
+
   /* on a phone the figure comes first, above the tiles */
   .showcase__stage {
     display: flex;
@@ -375,12 +445,12 @@
     padding-bottom: 0;
   }
 
-  .showcase__figure {
-    max-height: 210px;
+  .showcase__figure-wrap {
+    --figure-height: 205px;
   }
 
-  .showcase__reflection {
-    height: 46px;
+  .showcase__reflection-clip {
+    height: 40px;
   }
 
   .showcase__info {

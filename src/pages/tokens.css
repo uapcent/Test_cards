@@ -61,11 +61,15 @@
 }
 
 /* ---------- selected figure ---------- */
+/* The height is fixed on purpose. If a long name wrapped onto a second line,
+   the grid below moved, the pointer fell off the token it was hovering, the
+   name went back to one line, and the whole thing flickered in a loop. */
 .selected {
   display: grid;
-  grid-template-columns: 1fr 260px 1fr;
+  grid-template-columns: 1fr 300px 1fr;
   align-items: center;
-  min-height: 210px;
+  height: 250px;
+  overflow: hidden;
 }
 
 .selected__side {
@@ -129,18 +133,27 @@
   background: #07080a;
 }
 
+/* room for two lines either way, so the block never changes height */
 .selected__figure h1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 2.1em;
   margin: 0;
+  overflow: hidden;
   font-family: var(--display);
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  line-height: 1;
+  line-height: 1.05;
   text-align: center;
   text-transform: uppercase;
 }
 
 .selected__facts {
+  /* fixed room for five facts: the list must not change the height either */
+  height: 156px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -211,8 +224,12 @@
   .selected {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
-    min-height: 0;
+    height: auto;
     text-align: center;
+  }
+
+  .selected__facts {
+    height: 104px;
   }
 
   .selected__side--left {
@@ -233,7 +250,8 @@
   }
 
   .selected__figure h1 {
-    font-size: 28px;
+    min-height: 0;
+    font-size: 26px;
   }
 
   .tokens__grid {

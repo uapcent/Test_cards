@@ -4,6 +4,7 @@ const themeFiles = import.meta.glob("../../data/*.yaml", { eager: true, import: 
 
 const THUMBNAILS = `${import.meta.env.BASE_URL}minifigures_images/thumbnails/`;
 const CUTOUTS = `${import.meta.env.BASE_URL}minifigures_images/cutouts/`;
+const THEME_ART = `${import.meta.env.BASE_URL}theme_backgrounds/`;
 
 export const UNKNOWN_IMAGE = `${THUMBNAILS}unknown_character.webp`;
 
@@ -81,6 +82,8 @@ export const themes = themeIndex.map(theme => {
 
   return {
     ...theme,
+    // optional picture behind the large figure on the Showcase page
+    art: theme.art ? `${THEME_ART}${theme.art}` : null,
     characters: built,
     ownedVariants: variants.filter(variant => variant.owned).length,
     totalVariants: variants.length

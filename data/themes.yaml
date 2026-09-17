@@ -1,36 +1,59 @@
+# Themes, in the order they appear.
+#
+#   key     the data file, data/<key>.yaml
+#   name    shown on the tabs and headings
+#   icon    one of the drawings in src/components/icons.jsx
+#   accent  colour washed behind the large figure on the Showcase page
+#   art     optional picture for that wash: put the file in
+#           assets/theme_backgrounds/ and name it here, for example
+#           art: star-wars.webp
+#           It is dimmed, blurred and faded out towards the left, so a wide,
+#           calm picture works better than a busy one.
 - key: marvel
   name: Marvel
   icon: shield
+  accent: "#8e2b26"
 - key: dc
   name: DC Comics
   icon: bat
+  accent: "#1f4c94"
 - key: ninjago
   name: Ninjago
   icon: mask
+  accent: "#9a7b12"
 - key: star-wars
   name: Star Wars
   icon: saber
+  accent: "#2f5d86"
 - key: lord-of-the-rings
   name: Lord of the Rings
   icon: ring
+  accent: "#3f5c3a"
 - key: harry-potter
   name: Harry Potter
   icon: wand
+  accent: "#5d2b2b"
 - key: one-piece
   name: One Piece
   icon: hat
+  accent: "#b5601f"
 - key: monster-fighters
   name: Monster Fighters
   icon: ghost
+  accent: "#4b2f6b"
 - key: medieval
   name: Medieval
   icon: tower
+  accent: "#6b5433"
 - key: dungeons-and-dragons
   name: Dungeons & Dragons
   icon: dice
+  accent: "#7a2b2b"
 - key: lego-city
   name: Lego City
   icon: cone
+  accent: "#2b6b74"
 - key: miscellaneous
   name: Miscellaneous
   icon: brick
+  accent: "#4a5162"

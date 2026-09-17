@@ -42,7 +42,14 @@ export default function ShowcasePage() {
     <div className="showcase">
       <h1>Collection</h1>
 
-      <div className="showcase__body">
+      <div
+        className="showcase__body"
+        style={{
+          ...(theme.accent ? { "--theme-accent": theme.accent } : {}),
+          ...(theme.art ? { "--theme-art": `url("${theme.art}")` } : {})
+        }}
+      >
+        <span className="showcase__backdrop" aria-hidden="true" />
         <div className="showcase__picker">
           <nav className="showcase__tabs" aria-label="Themes">
             <kbd aria-hidden="true">Q</kbd>
@@ -159,10 +166,12 @@ export default function ShowcasePage() {
 
         <div className={`showcase__stage ${variant.owned ? "" : "is-missing"} ${variant.hasCutout ? "" : "has-photo"}`}>
           {variant.hasImage ? (
-            <>
+            <div className="showcase__figure-wrap">
               <img className="showcase__figure" src={variant.cutout} alt={`${selected.name}, ${variant.label || "standard"}`} />
-              <img className="showcase__reflection" src={variant.cutout} alt="" aria-hidden="true" />
-            </>
+              <span className="showcase__reflection-clip" aria-hidden="true">
+                <img className="showcase__reflection" src={variant.cutout} alt="" />
+              </span>
+            </div>
           ) : (
             <p className="showcase__nofigure">No picture yet</p>
           )}
