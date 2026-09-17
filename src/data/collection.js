@@ -3,6 +3,7 @@ import themeIndex from "../../data/themes.yaml";
 const themeFiles = import.meta.glob("../../data/*.yaml", { eager: true, import: "default" });
 
 const THUMBNAILS = `${import.meta.env.BASE_URL}minifigures_images/thumbnails/`;
+const CUTOUTS = `${import.meta.env.BASE_URL}minifigures_images/cutouts/`;
 
 export const UNKNOWN_IMAGE = `${THUMBNAILS}unknown_character.webp`;
 
@@ -28,6 +29,9 @@ function buildVariant(raw, characterId, index) {
     label: raw.label ?? "",
     image: resolveImage(image),
     hasImage: !!image,
+    // background removed, for the showcase tiles and its large figure
+    cutout: localId ? `${CUTOUTS}${localId}.webp` : resolveImage(image),
+    hasCutout: !!localId,
     brickLinkId: localId,
     catalogUrl: localId
       ? `https://www.bricklink.com/v2/catalog/catalogitem.page?M=${localId}`

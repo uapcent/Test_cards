@@ -28,7 +28,9 @@ function loadRatings(entries) {
 
   const ratings = {};
   for (const entry of entries) {
-    ratings[entry.id] = saved[entry.id] ?? { rating: 1000, games: 0 };
+    // two Lord of the Rings pictures used to come from BrickLink, so older
+    // votes for them sit under keys ending in ".original"
+    ratings[entry.id] = saved[entry.id] ?? saved[`${entry.id}.original`] ?? { rating: 1000, games: 0 };
   }
   return ratings;
 }

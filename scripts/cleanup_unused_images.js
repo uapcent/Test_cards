@@ -9,8 +9,9 @@ import { load } from "js-yaml";
 // ===== PATHS =====
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const DATA_DIR = path.join(ROOT, "data");
-const IMAGE_DIR = path.join(ROOT, "assets/minifigures_images");
-const THUMB_DIR = path.join(IMAGE_DIR, "thumbnails");
+const SOURCE_DIR = path.join(ROOT, "source_images");
+const THUMB_DIR = path.join(ROOT, "assets/minifigures_images/thumbnails");
+const CUTOUT_DIR = path.join(ROOT, "assets/minifigures_images/cutouts");
 
 const SUPPORTED_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 
@@ -48,9 +49,12 @@ function findUnused(dir, idOf) {
     .map(entry => path.join(dir, entry.name));
 }
 
+const plainName = file => path.parse(file).name;
+
 const unused = [
-  ...findUnused(IMAGE_DIR, originalId),
-  ...findUnused(THUMB_DIR, file => path.parse(file).name)
+  ...findUnused(SOURCE_DIR, originalId),
+  ...findUnused(THUMB_DIR, plainName),
+  ...findUnused(CUTOUT_DIR, plainName)
 ];
 
 for (const file of unused) {

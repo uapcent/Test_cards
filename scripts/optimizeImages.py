@@ -3,15 +3,15 @@ from PIL import Image
 import re
 
 # ===== CONFIG =====
-IMAGE_DIR = Path("assets/minifigures_images")
-THUMB_DIR = IMAGE_DIR / "thumbnails"
+SOURCE_DIR = Path("source_images")
+THUMB_DIR = Path("assets/minifigures_images/thumbnails")
 
 TARGET_WIDTH = 200
 TARGET_HEIGHT = 200
 WEBP_QUALITY = 80
 # ==================
 
-THUMB_DIR.mkdir(exist_ok=True)
+THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
 SUPPORTED_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
 
@@ -54,10 +54,8 @@ def create_thumbnail(image_path: Path):
         print(f"{image_path.name} -> thumbnails/{out_path.name}")
 
 def main():
-    for img_path in IMAGE_DIR.iterdir():
+    for img_path in SOURCE_DIR.iterdir():
         if img_path.is_file() and img_path.suffix.lower() in SUPPORTED_EXTS:
-            if img_path.parent.name == "thumbnails":
-                continue
             create_thumbnail(img_path)
 
     print("Done.")

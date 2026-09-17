@@ -7,5 +7,7 @@ export default defineConfig({
   base: "/Test_cards/",
   // Images are served as they are, under their own names
   publicDir: "assets",
+  // stale files from an earlier build must not ship
+  build: { emptyOutDir: true },
   plugins: [react(), yaml()]
 });

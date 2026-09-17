@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import TokensPage from "./pages/TokensPage.jsx";
+import ShowcasePage from "./pages/ShowcasePage.jsx";
 import ClassicPage from "./pages/ClassicPage.jsx";
 import RankingsPage from "./pages/RankingsPage.jsx";
 
 // Hash routes keep every page reachable on GitHub Pages without server rules
 const PAGES = [
   { route: "tokens", label: "Tokens", Page: TokensPage },
+  { route: "showcase", label: "Showcase", Page: ShowcasePage },
   { route: "classic", label: "Classic", Page: ClassicPage },
   { route: "rankings", label: "Rankings", Page: RankingsPage }
 ];

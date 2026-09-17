@@ -9,11 +9,11 @@
       owned: false
 - name: Merry Brandybuck
   variants:
-    - image: https://img.bricklink.com/ItemImage/MN/0/lor124.original.png
+    - image: lor124
       owned: false
 - name: Pippin Took
   variants:
-    - image: https://img.bricklink.com/ItemImage/MN/0/lor123.original.png
+    - image: lor123
       owned: false
 - name: Aragorn
   variants:
