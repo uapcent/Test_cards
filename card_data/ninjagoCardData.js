@@ -99,7 +99,7 @@ export const ninjagoGroups = [{
       glow_color: '#ff9900ff'
     },
     {
-      name: "Lloid",
+      name: "Lloyd",
       variants: [
         {
           info: "The Golden Weapons",
@@ -327,17 +327,12 @@ export const ninjagoGroups = [{
       image: "njo0983",
     },
     {
-      name: "Nindroid",
-      info: "Day of the Departed",
-      image: "njo0267",
-    },
-    {
       name: "Lil' Nelson",
       info: "Day of the Departed",
       image: "njo0263",
     },
     {
-      name: "	Stone Army Scout",
+      name: "Stone Army Scout",
       info: "Day of the Departed",
       image: "njo0264",
     },

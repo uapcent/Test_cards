@@ -1,105 +1,65 @@
+// Lists images that no card uses. Nothing is deleted unless you pass --delete.
+//   node scripts/cleanup_unused_images.js
+//   node scripts/cleanup_unused_images.js --delete
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { pathToFileURL } from "url";
-
+import { allGroups } from "../card_data/index.js";
+import { isRemoteImage } from "./images.js";
 
 // ===== PATHS =====
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const DATA_FILES = [
-  "./card_data/dcCardData.js",
-  "./card_data/marvelCardData.js",
-  "./card_data/miscCardData.js",
-  "./card_data/ninjagoCardData.js",
-  "./card_data/starWarsCardData.js",
-];
-
-const IMAGE_DIR = path.resolve("assets/minifigures_images");
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
+const IMAGE_DIR = path.join(ROOT, "assets/minifigures_images");
 const THUMB_DIR = path.join(IMAGE_DIR, "thumbnails");
 
 const SUPPORTED_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
+
+// Used by the code (fallback for cards without an image), not by card data
+const ALWAYS_KEEP = ["unknown_character"];
 // =================
 
-// -------- helpers --------
-function normalizeFilename(value) {
-  if (!value) return null;
+const shouldDelete = process.argv.includes("--delete");
 
-  // full URL → filename
-  const name = value.includes("/")
-    ? value.substring(value.lastIndexOf("/") + 1)
-    : value;
-
-  return name;
-}
-
-function toThumbnailName(filename) {
-  return filename
+// Same rule as clean_stem() in optimizeImages.py: "sw0812.original.png" → "sw0812"
+function originalId(file) {
+  return path.parse(file).name
     .replace(/original/gi, "")
-    .replace(/\.(png|jpg|jpeg|webp)$/i, ".webp")
     .replace(/[._-]+$/, "");
 }
 
-function collectImagesFromCards(cards, set) {
-  for (const card of cards) {
-    if (card.image) {
-      const img = normalizeFilename(card.image);
-      if (img) set.add(img);
-    }
+function thumbnailId(file) {
+  return path.parse(file).name;
+}
 
-    if (Array.isArray(card.variants)) {
-      for (const v of card.variants) {
-        if (v.image) {
-          const img = normalizeFilename(v.image);
-          if (img) set.add(img);
-        }
-      }
+// Card data stores local images as IDs ("sw0812"); URLs have no local file
+const usedIds = new Set(ALWAYS_KEEP);
+
+for (const group of allGroups) {
+  for (const card of group.cards) {
+    for (const { image } of [card, ...(card.variants ?? [])]) {
+      if (image && !isRemoteImage(image)) usedIds.add(image);
     }
   }
 }
-// -------------------------
 
-// Load data files
-const usedOriginals = new Set();
-const usedThumbs = new Set();
-
-for (const file of DATA_FILES) {
-  const mod = await import(pathToFileURL(path.resolve(file)).href);
-  const groups = Object.values(mod).flat();
-
-  for (const group of groups) {
-    if (!group.cards) continue;
-
-    collectImagesFromCards(group.cards, usedOriginals);
-  }
+function findUnused(dir, idOf) {
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter(entry => entry.isFile())
+    .filter(entry => SUPPORTED_EXTS.has(path.extname(entry.name).toLowerCase()))
+    .filter(entry => !usedIds.has(idOf(entry.name)))
+    .map(entry => path.join(dir, entry.name));
 }
 
-// Build thumbnail set
-for (const img of usedOriginals) {
-  usedThumbs.add(toThumbnailName(img));
+const unused = [
+  ...findUnused(IMAGE_DIR, originalId),
+  ...findUnused(THUMB_DIR, thumbnailId)
+];
+
+for (const file of unused) {
+  if (shouldDelete) fs.unlinkSync(file);
+  console.log(`${shouldDelete ? "Deleted" : "Unused"}: ${path.relative(ROOT, file)}`);
 }
 
-// ---- cleanup originals ----
-for (const file of fs.readdirSync(IMAGE_DIR)) {
-  const full = path.join(IMAGE_DIR, file);
-  if (fs.statSync(full).isDirectory()) continue;
-
-  const ext = path.extname(file).toLowerCase();
-  if (!SUPPORTED_EXTS.has(ext)) continue;
-
-  if (!usedOriginals.has(file)) {
-    fs.unlinkSync(full);
-    console.log("Deleted original:", file);
-  }
-}
-
-// ---- cleanup thumbnails ----
-for (const file of fs.readdirSync(THUMB_DIR)) {
-  if (!usedThumbs.has(file)) {
-    fs.unlinkSync(path.join(THUMB_DIR, file));
-    console.log("Deleted thumbnail:", file);
-  }
-}
-
-console.log("Cleanup complete.");
+console.log(shouldDelete
+  ? `Deleted ${unused.length} unused images.`
+  : `Found ${unused.length} unused images. Run with --delete to remove them.`);

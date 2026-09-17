@@ -15,7 +15,7 @@ export const marvelGroups = [
             {
                 name: "Hulk",
                 variants: [{
-                    info: "Strongest Avenger.",
+                    info: "Strongest Avenger",
                     image: "lego-hulk-large-with-dark-tan-pants-minifigure-1219731",
                     locked: true,
                 }],
@@ -159,7 +159,7 @@ export const marvelGroups = [
             },
             // Spider-man Series
             {
-                name: "Spider-man",
+                name: "Spider-Man",
                 info: "Black Web Pattern",
                 image: "sh0038"
             },
@@ -225,7 +225,7 @@ export const marvelGroups = [
                 defective: true
             },
             {
-                name: "Inivisible Woman",
+                name: "Invisible Woman",
                 image: "TP286",
                 defective: true
             },
@@ -343,7 +343,7 @@ export const marvelGroups = [
                 }]
             },
             {
-                name: "GhostRider",
+                name: "Ghost Rider",
                 image: "sh0861",
                 locked: true,
                 wantedList: true

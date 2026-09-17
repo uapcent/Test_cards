@@ -119,7 +119,7 @@ export const miscGroups = [
             {
                 name: "Harry Potter",
                 variants: [{
-                    info: "Griffindor Robe",
+                    info: "Gryffindor Robe",
                     image: "hp314"
                 },
                 {
@@ -129,7 +129,7 @@ export const miscGroups = [
             },
             {
                 name: "Ron Weasley",
-                info: "Griffindor Robe",
+                info: "Gryffindor Robe",
                 image: "hp283"
             },
             {
@@ -465,7 +465,7 @@ export const miscGroups = [
                 name: "Female Islander",
                 info: "Pirates: Islander",
                 year: 1994,
-                apepars_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1",
+                appears_in: "https://www.bricklink.com/v2/catalog/catalogitem.page?S=6256-1",
                 image: "pi066",
             },
             {
@@ -640,7 +640,7 @@ export const miscGroups = [
             },
             {
                 name: "Doc",
-                info: "Life On Mars",
+                info: "Life on Mars",
                 year: 2001,
                 appears_in: "Bricklink",
                 image: "lom016",

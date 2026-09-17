@@ -16,7 +16,7 @@ export const dcGroups = [
           },
           {
             image: "sh0329",
-            info: "Lego Batman movie",
+            info: "Lego Batman Movie",
             locked: false
           },
           {
@@ -108,7 +108,7 @@ export const dcGroups = [
           },
           {
             image: "sh0219",
-            info: "Down of Justice",
+            info: "Dawn of Justice",
           }
         ]
       },
@@ -185,7 +185,7 @@ export const dcGroups = [
         locked: true
       },
       {
-        name: "Martian ManHunter",
+        name: "Martian Manhunter",
         image: "sh0158",
         locked: true
       },
@@ -375,7 +375,7 @@ export const dcGroups = [
 
           },
           {
-            info: "The Dark Knight Triology",
+            info: "The Dark Knight Trilogy",
             image: "sh0063",
             locked: true,
             wantedList: true

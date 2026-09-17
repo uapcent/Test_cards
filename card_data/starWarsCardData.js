@@ -417,7 +417,7 @@ export const starWarsGroups = [{
       image: "sw0518",
     },
     {
-      name: "Clone ARC Tropper Hammer",
+      name: "Clone ARC Trooper Hammer",
       info: "Rancor Battalion (Phase 2)",
       image: "sw0377",
     },
@@ -447,12 +447,12 @@ export const starWarsGroups = [{
     },
     {
       name: "Rey",
-      info: "Episonde VII",
+      info: "Episode VII",
       image: "sw0677",
     },
     {
       name: "Unkar's Thug",
-      info: "Episonde VII",
+      info: "Episode VII",
       image: "sw0655",
     },
 

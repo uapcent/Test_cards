@@ -1,3 +1,5 @@
+import { showVariant } from "./card_view.js";
+
 let filters = {
   wantedList: false,
   unlocked: false
@@ -29,10 +31,7 @@ export function applyFilters() {
 
     card.filteredVariants = card.variants.filter(v => {
       if (filters.unlocked && v.locked) return false;
-
-      // Card-level wishlist
-      if (filters.wantedList && !v.wantedList) return false; // per-variant check
-
+      if (filters.wantedList && !v.wantedList) return false;
       return true;
     });
 
@@ -44,13 +43,7 @@ export function applyFilters() {
     }
 
     cardDiv.style.display = "";
-
-    const variant = card.filteredVariants[0];
-    const img = cardDiv.querySelector("img");
-
-    img.src = variant.image;
-    img.style.filter = variant.locked ? "grayscale(100%)" : "";
-    cardDiv.querySelector(".card-desc").textContent = variant.info;
+    showVariant(cardDiv, card.filteredVariants[0]);
   });
 
   updateGroupVisibility();

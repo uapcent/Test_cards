@@ -1,76 +1,40 @@
 import { initFilters, applyFilters } from "./scripts/filter_logic.js";
+import { showVariant } from "./scripts/card_view.js";
+import { resolveImage } from "./scripts/images.js";
+import { allGroups } from "./card_data/index.js";
 
-import { marvelGroups } from "./card_data/marvelCardData.js";
-import { dcGroups } from "./card_data/dcCardData.js";
-import { ninjagoGroups } from "./card_data/ninjagoCardData.js";
-import { starWarsGroups } from "./card_data/starWarsCardData.js";
-import { miscGroups } from "./card_data/miscCardData.js";
-import { testGroups } from "./card_data/testData.js";
-
-const IMAGE_BASE_PATH = "assets/minifigures_images/thumbnails/";
-const IMAGE_FORMAT = ".webp";
-const UNKNOWN_IMAGE = IMAGE_BASE_PATH + "unknown_character.webp";
 const modal = document.getElementById("cardModal");
 const modalTitle = document.getElementById("modalTitle");
 const modalVariants = document.getElementById("modalVariants");
 const closeBtn = modal.querySelector(".modal-close");
 
-
-const allGroups = [
-  ...marvelGroups,
-  ...dcGroups,
-  ...ninjagoGroups,
-  ...starWarsGroups,
-  ...miscGroups
-  // ...testGroups
-];
-
 // -------- Normalization --------
-function normalizeCard(card) {
-  if (card.variants && card.variants.length) {
-    const variants = card.variants.map(v => ({
-      image: resolveImage(v.image),
-      info: v.info || "",
-      appears_in: v.appears_in ?? card.appears_in ?? "",
-      year: v.year ?? card.year ?? null,
-      locked: !!v.locked,
-      wantedList: !!v.wantedList,
-      defective: !!v.defective
-    }));
-
-
-    return {
-      name: card.name,
-      glow_color: card.glow_color,
-      variants,
-      filteredVariants: [...variants],
-      currentIndex: 0,
-      defective: !!card.defective
-    };
-  }
-
-  // Single-image card → wrap into a single variant
-  const variant = {
-    image: resolveImage(card.image),
-    info: card.info || "",
-    appears_in: card.appears_in || "",
-    locked: !!card.locked,
-    wantedList: !!card.wantedList,
-    defective: !!card.defective,
-    year: card.year ?? null
+function normalizeVariant(variant, card) {
+  return {
+    image: resolveImage(variant.image),
+    info: variant.info || "",
+    appears_in: variant.appears_in ?? card.appears_in ?? "",
+    year: variant.year ?? card.year ?? null,
+    locked: !!variant.locked,
+    wantedList: !!variant.wantedList,
+    defective: !!variant.defective
   };
+}
 
+function normalizeCard(card) {
+  // Single-image cards become a card with one variant
+  const variants = card.variants?.length
+    ? card.variants.map(v => normalizeVariant(v, card))
+    : [normalizeVariant(card, card)];
 
   return {
     name: card.name,
     glow_color: card.glow_color,
-    variants: [variant],
-    filteredVariants: [variant],
-    currentIndex: 0,
-    defective: !!card.defective
+    variants,
+    filteredVariants: [...variants],
+    currentIndex: 0
   };
 }
-
 
 function normalizeGroups(groups) {
   groups.forEach(group => {
@@ -112,89 +76,68 @@ function renderGroups(groups) {
 function createCardElement(card, groupName, cardIdx) {
   const div = document.createElement("div");
   div.className = "card";
-
+  div.tabIndex = 0;
   div.dataset.group = groupName;
   div.dataset.cardIdx = cardIdx;
 
-  div.style.setProperty("--glow-color", card.glow_color);
-
-  const variant = card.filteredVariants[0];
-
-  div.className = "card";
-  if (variant.defective) div.classList.add("defective");
-
-
-  const variantInfo = variant ? variant.info : "No available variants";
-  const variantImage = variant
-    ? variant.image
-    : UNKNOWN_IMAGE;
-
-  const lockedVariant = variant ? variant.locked : true;
+  // Only cards with a glow color glow on hover
+  if (card.glow_color) {
+    div.classList.add("glow");
+    div.style.setProperty("--glow-color", card.glow_color);
+  }
 
   div.innerHTML = `
-  <img
-    src="${variantImage}"
-    alt="${card.name}"
-    loading="lazy"
-    style="${lockedVariant ? "filter: grayscale(100%)" : ""}"
-  >
+  <img alt="${card.name}" loading="lazy">
 
   <button class="info-btn" aria-label="Card info">i</button>
 
   <div class="overlay">
-    <strong>${card.name}</strong><br>
-    <span class="card-desc">${variantInfo}</span>
+    <strong class="card-name">${card.name}</strong>
+    <span class="card-desc"></span>
   </div>
 `;
 
-
+  showVariant(div, card.filteredVariants[0]);
   return div;
 }
 
-
 // -------- Interactions --------
+function findCard(groups, cardDiv) {
+  const group = groups.find(g => g.name === cardDiv.dataset.group);
+  return group?.cards[cardDiv.dataset.cardIdx];
+}
+
+function showNextVariant(groups, cardDiv) {
+  const card = findCard(groups, cardDiv);
+  if (!card?.filteredVariants.length) return;
+
+  card.currentIndex = (card.currentIndex + 1) % card.filteredVariants.length;
+  showVariant(cardDiv, card.filteredVariants[card.currentIndex]);
+}
+
 function attachCardInteractions(groups) {
   const container = document.getElementById("groupsContainer");
 
   container.addEventListener("click", e => {
-
     const infoBtn = e.target.closest(".info-btn");
     if (infoBtn) {
-      e.stopPropagation(); // 🔴 key line
-
-      const cardDiv = infoBtn.closest(".card");
-      const group = groups.find(g => g.name === cardDiv.dataset.group);
-      const card = group.cards[cardDiv.dataset.cardIdx];
-
-      openCardModal(card);
+      // Opening info shouldn't also switch the card's variant
+      e.stopPropagation();
+      openCardModal(findCard(groups, infoBtn.closest(".card")));
       return;
     }
 
     const cardDiv = e.target.closest(".card");
-    if (!cardDiv) return;
-
-    const group = groups.find(g => g.name === cardDiv.dataset.group);
-    if (!group) return;
-
-    const card = group.cards[cardDiv.dataset.cardIdx];
-    if (!card.filteredVariants.length) return;
-
-    card.currentIndex = (card.currentIndex + 1) % card.filteredVariants.length;
-    const variant = card.filteredVariants[card.currentIndex];
-
-    const img = cardDiv.querySelector("img");
-    img.src = variant.image;
-    img.style.filter = variant.locked ? "grayscale(100%)" : "";
-    cardDiv.querySelector(".card-desc").textContent = variant.info;
-
-    // 🔴 update defective class
-    if (variant.defective) cardDiv.classList.add("defective");
-    else cardDiv.classList.remove("defective");
-
-
-    cardDiv.querySelector(".card-desc").textContent = variant.info;
+    if (cardDiv) showNextVariant(groups, cardDiv);
   });
 
+  container.addEventListener("keydown", e => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    if (!e.target.classList.contains("card")) return;
+
+    e.preventDefault();
+    showNextVariant(groups, e.target);
+  });
 
   container.addEventListener("mousemove", e => {
     const cardDiv = e.target.closest(".card");
@@ -221,24 +164,12 @@ function attachCardInteractions(groups) {
   );
 }
 
-function resolveImage(image) {
-  if (!image) return UNKNOWN_IMAGE;
-
-  // If already a full URL (http, https, protocol-relative)
-  if (/^(https?:)?\/\//i.test(image)) {
-    return image;
-  }
-
-  // Otherwise, treat as local asset
-  return IMAGE_BASE_PATH + image + IMAGE_FORMAT;
-}
-
+// -------- Modal --------
 function openCardModal(card) {
   modalTitle.textContent = card.name;
   modalVariants.innerHTML = "";
 
-  card.variants.forEach((variant, idx) => {
-
+  card.variants.forEach(variant => {
     const appearsIn = variant.appears_in
       ? `<a href="${variant.appears_in}" target="_blank" rel="noopener noreferrer">
        ${variant.appears_in}
@@ -248,7 +179,7 @@ function openCardModal(card) {
     const div = document.createElement("div");
     div.className = "modal-variant";
     div.innerHTML = `
-      <img src="${variant.image}">
+      <img src="${variant.image}" alt="${card.name}">
       <p>${variant.info || "No info"}</p>
       <p>Appears in: ${appearsIn}</p>
       <p>Year: ${variant.year || "Unknown"}</p>
@@ -260,14 +191,19 @@ function openCardModal(card) {
   modal.classList.remove("hidden");
 }
 
-closeBtn.addEventListener("click", () => {
+function closeCardModal() {
   modal.classList.add("hidden");
-});
+}
+
+closeBtn.addEventListener("click", closeCardModal);
 
 modal.addEventListener("click", e => {
-  if (e.target === modal) modal.classList.add("hidden");
+  if (e.target === modal) closeCardModal();
 });
 
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeCardModal();
+});
 
 // -------- Init --------
 normalizeGroups(allGroups);
@@ -276,4 +212,3 @@ attachCardInteractions(allGroups);
 
 initFilters(allGroups);
 applyFilters();
-

@@ -1,36 +1,21 @@
-import { marvelGroups } from "../card_data/marvelCardData.js";
-import { dcGroups } from "../card_data/dcCardData.js";
-import { ninjagoGroups } from "../card_data/ninjagoCardData.js";
-import { starWarsGroups } from "../card_data/starWarsCardData.js";
-import { miscGroups } from "../card_data/miscCardData.js";
+import { allGroups } from "../card_data/index.js";
+import { imageId, resolveImage } from "../scripts/images.js";
 
 // ---------- helpers ----------
-function normalizeImage(image) {
-  if (!image) return null;
-  const name = image.includes("/") ? image.slice(image.lastIndexOf("/") + 1) : image;
-  return name.replace(/\.(png|jpg|jpeg|webp)$/i, "");
-}
+// Flatten all groups into one entry per image, keyed by image ID
+function extractCards(groups) {
+  const map = new Map(); // image ID → { name, year, image }
 
-function shuffle(array) {
-  return array
-    .map(v => ({ v, r: Math.random() }))
-    .sort((a, b) => a.r - b.r)
-    .map(o => o.v);
-}
+  for (const group of groups) {
+    for (const card of group.cards ?? []) {
+      for (const entry of [card, ...(card.variants ?? [])]) {
+        if (!entry.image) continue;
 
-// Flatten all groups into a single list of cards with image
-function extractCards(groupsArray) {
-  const map = new Map(); // image → { name, image }
-
-  for (const groups of groupsArray) {
-    for (const group of groups) {
-      for (const card of group.cards ?? []) {
-        if (card.image) map.set(normalizeImage(card.image), { name: card.name, year: card.year, image: normalizeImage(card.image) });
-        if (Array.isArray(card.variants)) {
-          for (const v of card.variants) {
-            if (v.image) map.set(normalizeImage(v.image), { name: card.name, year: card.year, image: normalizeImage(v.image) });
-          }
-        }
+        map.set(imageId(entry.image), {
+          name: card.name,
+          year: entry.year ?? card.year,
+          image: resolveImage(entry.image)
+        });
       }
     }
   }
@@ -87,10 +72,8 @@ function pickPair(images, ratings) {
   return [a, b];
 }
 
-
-
 // ---------- UI ----------
-const cardMap = extractCards([marvelGroups, dcGroups, ninjagoGroups, starWarsGroups, miscGroups]);
+const cardMap = extractCards(allGroups);
 const images = [...cardMap.keys()];
 const ratings = initRatings(images);
 
@@ -100,23 +83,21 @@ const rankingEl = document.getElementById("ranking");
 
 let currentPair = [];
 
+function renderChoice(button, id) {
+  const card = cardMap.get(id);
+
+  button.innerHTML = `
+    <img src="${card.image}" alt="${card.name}">
+    <p> ${card.name} </p>
+    <p> Year: ${card.year || "Unknown"} </p>
+  `;
+}
+
 function renderPair() {
   currentPair = pickPair(images, ratings);
 
-  const leftImg = `../assets/minifigures_images/thumbnails/${currentPair[0]}.webp`;
-  const rightImg = `../assets/minifigures_images/thumbnails/${currentPair[1]}.webp`;
-
-  leftBtn.innerHTML = `
-    <img src="${leftImg}" alt="${cardMap.get(currentPair[0]).name}">  
-    <p> ${cardMap.get(currentPair[0]).name} </p>
-    <p> Year: ${cardMap.get(currentPair[0]).year || "Unknown"} </p>
-
-    `;
-  rightBtn.innerHTML = `
-    <img src="${rightImg}" alt="${cardMap.get(currentPair[1]).name}">
-    <p> ${cardMap.get(currentPair[1]).name} </p>
-    <p> Year: ${cardMap.get(currentPair[1]).year || "Unknown"} </p>
-  `;
+  renderChoice(leftBtn, currentPair[0]);
+  renderChoice(rightBtn, currentPair[1]);
 
   console.log(`New pair: ${cardMap.get(currentPair[0]).name} vs ${cardMap.get(currentPair[1]).name}`);
 }
@@ -126,21 +107,16 @@ function renderRanking() {
 
   rankingEl.innerHTML = "";
   for (const img of sorted.slice(0, 15)) {
+    const card = cardMap.get(img);
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <img src="../assets/minifigures_images/thumbnails/${img}.webp" alt="${cardMap.get(img).name}" width="40" height="40">
-      <span>${cardMap.get(img).name} — ${Math.round(ratings[img].rating)}</span>
+      <img src="${card.image}" alt="${card.name}" width="40" height="40">
+      <span>${card.name} — ${Math.round(ratings[img].rating)}</span>
     `;
-
-    li.style.display = "flex";
-    li.style.alignItems = "center";
-    li.style.gap = "0.5rem";
 
     rankingEl.appendChild(li);
   }
-
-  // console.log("Top ranking:", sorted.slice(0, 5).map(i => `${cardMap.get(i).name}(${Math.round(ratings[i].rating)})`));
 }
 
 leftBtn.onclick = () => {
@@ -158,5 +134,3 @@ rightBtn.onclick = () => {
 // Initial render
 renderPair();
 renderRanking();
-
-

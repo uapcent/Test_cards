@@ -28,14 +28,24 @@ h1 {
   will-change: transform;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-visible {
   transform: scale(1.2);
   z-index: 10;
-  box-shadow: 0 0 24px 8px var(--glow-color, #d85f5f), 0 0 48px 16px #97979779;
+}
+
+.card:focus-visible {
+  outline: 2px solid white;
+}
+
+.card.glow:hover,
+.card.glow:focus-visible {
+  box-shadow: 0 0 24px 8px var(--glow-color), 0 0 48px 16px #97979779;
 }
 
 @media (pointer: coarse) {
-  .card:hover {
+  .card:hover,
+  .card.glow:hover {
     transform: none;
     box-shadow: none;
   }
@@ -64,8 +74,25 @@ h1 {
   font-size: 12px;
 }
 
-.card:hover .overlay {
+.card-name,
+.card-desc {
+  display: block;
+}
+
+.card:hover .overlay,
+.card:focus-visible .overlay {
   opacity: 1;
+}
+
+/* Touch screens can't hover, so always show the name */
+@media (hover: none) {
+  .overlay {
+    opacity: 1;
+  }
+
+  .card-desc {
+    display: none;
+  }
 }
 
 a.button {
@@ -75,10 +102,6 @@ a.button {
     color:#d85f5f;
     background-color: #222;
     text-decoration: none;
-}
-
-.card {
-  position: relative;
 }
 
 .info-btn {
@@ -144,7 +167,8 @@ a.button {
     transition: opacity 0.15s ease;
   }
 
-  .card:hover .info-btn {
+  .card:hover .info-btn,
+  .card:focus-within .info-btn {
     opacity: 1;
     pointer-events: auto;
   }
