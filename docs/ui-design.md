@@ -90,6 +90,39 @@ Two pictures, pick the better one, Elo ratings with K = 32 stored in the browser
 Pairs are drawn from figures within 150 rating points of each other so the
 comparisons stay interesting. Reached from the layout switcher.
 
+It is drawn as the versus screen of a fighting game, built from the pieces the
+other layouts already use, because the first version (white photo cards and a
+plain list) looked like a different site.
+
+**Two slanted panels, one per figure.** They are the Showcase tiles made large:
+the same slant, the same gold border on hover, the cutout standing on a
+reflection, and the theme's colour washed behind it, with its picture when the
+theme has one. The right panel mirrors the left. Each row inside is skewed back
+around its own middle rather than the whole block at once, so the theme line
+follows the slant at the top and the name follows it at the bottom; skewing the
+block as one cut text off the corners.
+
+**The figure fits whatever height is left.** The stage is a size container and
+the figure's height is worked out from it, leaving room for the reflection and
+for the lift on hover, so the name plate is never pushed out and a raised weapon
+never runs into the theme line. The page fits a 700 px tall laptop screen
+without scrolling.
+
+**Standing on show.** Each panel carries its rank and rating, or "Unrated". The
+leaderboard lists only figures that have had at least one vote, since everyone
+else sitting at 1000 says nothing, and highlights the last winner. A line at the
+bottom reports the last round, and is announced to screen readers.
+
+**Keys**: Left and Right (or A and D) pick, S skips a pair without recording
+anything. Held keys are ignored so one press is one vote, and nothing fires with
+Alt, Ctrl or Cmd held, because Alt+Left is the browser's Back.
+
+**Not-owned figures are shown in full colour**, unlike the Showcase silhouettes,
+because you cannot judge a black shape. A padlock and "Not owned" mark them.
+
+On a phone the panels stay side by side, since comparing is the point; the theme
+name shrinks to its icon and the leaderboard moves below.
+
 ## Details panel
 
 Shared by Tokens and Classic: portrait, name, a bar per variant showing what is

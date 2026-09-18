@@ -1,96 +1,716 @@
 .rankings {
-  padding: 8px 24px 32px;
-  text-align: center;
-}
-
-.rankings h1 {
-  margin: 16px 0;
-  font-size: 28px;
-}
-
-.rankings h2 {
-  margin: 32px 0 12px;
-  font-size: 22px;
-}
-
-.rankings__battle {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem 0;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - 60px);
+  min-height: 620px;
+  padding: 8px 40px 16px;
 }
 
-.rankings__choice {
-  width: 220px;
-  padding: 8px;
-  border: none;
-  border-radius: 12px;
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.rankings__choice:hover,
-.rankings__choice:focus-visible {
-  outline: none;
-  transform: scale(1.05);
-  box-shadow: 0 0 0 2px #fff;
-}
-
-.rankings__choice img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-}
-
-.rankings__choice p {
-  margin: 6px 0 0;
-}
-
-.rankings__year {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.rankings__vs {
-  font-family: var(--display);
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.rankings__list {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 0;
-  list-style-position: inside;
-}
-
-.rankings__list li {
+.rankings__bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.25rem 0;
-  font-size: 0.9rem;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  .rankings__battle {
-    gap: 0.75rem;
+.rankings h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.rankings__counter {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+}
+
+.rankings__votes {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rankings__muted {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* the arena shares its rows with this grid, so the leaderboard starts level
+   with the panels rather than with the question above them */
+.rankings__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-rows: auto minmax(0, 1fr);
+  column-gap: 28px;
+  min-height: 0;
+  flex-grow: 1;
+}
+
+/* ---------- the versus screen ---------- */
+.arena {
+  display: grid;
+  grid-row: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+  grid-template-rows: subgrid;
+  min-height: 0;
+  /* room for the slanted panels, which lean out past their boxes */
+  padding: 0 44px;
+}
+
+.arena__prompt {
+  grid-column: 1 / -1;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.arena__middle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.arena__vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 58px;
+  border-radius: 6px;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--ring);
+  color: var(--bg);
+  font-family: var(--display);
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transform: skewX(-8deg);
+}
+
+.arena__skip {
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--ring);
+  border-radius: 22px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.arena__skip:hover,
+.arena__skip:focus-visible {
+  border-color: var(--text);
+  color: var(--text);
+  outline: none;
+}
+
+/* Slanted like the Showcase tiles, only larger. The panel is skewed and the
+   content inside is skewed back, so the figure stands upright. */
+.contender {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform: skewX(-8deg);
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.contender:hover,
+.contender:focus-visible {
+  border-color: var(--gold);
+  background: #20242c;
+  outline: none;
+}
+
+.contender:active {
+  background: #262a33;
+}
+
+/* the theme wash, as on the Showcase: accent colour, optional picture,
+   dimmed and softened. Skewed back and widened so the picture is not sheared. */
+.contender__backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -14%;
+  right: -14%;
+  background-image: var(--theme-art, none);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: saturate(0.6) brightness(0.55) blur(2px);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 70%, transparent 100%);
+  transform: skewX(8deg);
+}
+
+.contender__backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(70% 60% at 50% 58%, var(--theme-accent, #3a404c) 0%, transparent 80%);
+}
+
+.contender__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px 30px 18px;
+  animation: contender-in-left 0.22s ease-out;
+}
+
+/* Each row is skewed back around its own middle rather than the whole block
+   at once, so the top row follows the slant at the top and the name plate
+   follows it at the bottom, and neither runs off a corner. */
+.contender__top,
+.contender__stage,
+.contender__plate {
+  transform: skewX(8deg);
+}
+
+.contender--right .contender__inner {
+  animation-name: contender-in-right;
+}
+
+@keyframes contender-in-left {
+  from {
+    opacity: 0;
+    translate: -28px 0;
+  }
+}
+
+@keyframes contender-in-right {
+  from {
+    opacity: 0;
+    translate: 28px 0;
+  }
+}
+
+.contender__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* the right panel mirrors the left, like the two sides of a fight screen */
+.contender--right .contender__top,
+.contender--right .contender__plate {
+  flex-direction: row-reverse;
+}
+
+.contender--right .contender__text {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.contender__theme {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contender__theme span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contender__theme svg {
+  flex-shrink: 0;
+}
+
+.contender__standing {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contender__standing strong {
+  color: var(--gold);
+}
+
+/* A size container, so the figure is as tall as the panel allows and the
+   name below it never gets pushed out. The height leaves room for the
+   reflection (62px) and for the lift on hover, so a raised weapon does not
+   run into the row above. */
+.contender__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  min-height: 0;
+  container-type: size;
+  --figure-height: min(400px, calc(100cqh - 84px));
+}
+
+.contender__figure {
+  flex-shrink: 0;
+  height: var(--figure-height);
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.15s ease;
+}
+
+.contender:hover .contender__figure,
+.contender:focus-visible .contender__figure {
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* the same picture flipped, clipped to its feet, as on the Showcase */
+.contender__reflection-clip {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  justify-content: center;
+  height: 58px;
+  margin-top: 4px;
+  overflow: hidden;
+  opacity: 0.22;
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+.contender__reflection {
+  flex-shrink: 0;
+  height: var(--figure-height);
+  max-width: 100%;
+  object-fit: contain;
+  transform: scaleY(-1);
+}
+
+/* a few figures have no cutout yet, so they keep their own background */
+.contender--photo .contender__figure {
+  height: min(var(--figure-height), 260px);
+  border-radius: 10px;
+}
+
+.contender--photo .contender__reflection-clip {
+  visibility: hidden;
+}
+
+.contender__plate {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.contender__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* two lines at most, so a long name cannot push the figure about */
+.contender__name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.contender:hover .contender__name,
+.contender:focus-visible .contender__name {
+  color: var(--gold);
+}
+
+.contender__sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contender--right .contender__sub {
+  justify-content: flex-end;
+}
+
+.contender__lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+}
+
+.contender__plate kbd {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* ---------- leaderboard ---------- */
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  grid-row: 2;
+  min-height: 0;
+  padding: 18px 16px 12px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.leaderboard h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 4px 12px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.leaderboard h2 span {
+  color: var(--muted);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.leaderboard__list {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  scrollbar-color: var(--ring) transparent;
+  scrollbar-width: thin;
+}
+
+.leaderboard__row {
+  display: grid;
+  grid-template-columns: 26px 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 10px 0 6px;
+  border-radius: 6px;
+}
+
+.leaderboard__row.is-recent {
+  background: var(--panel-soft);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.leaderboard__rank {
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.leaderboard__row.is-podium .leaderboard__rank {
+  color: var(--gold);
+}
+
+/* a small token: a ring around a disc, zoomed on the head and chest */
+.leaderboard__disc {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--ring);
+}
+
+.leaderboard__row:first-child .leaderboard__disc {
+  background: var(--gold);
+}
+
+.leaderboard__disc > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--disc);
+}
+
+.leaderboard__disc img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.75) translateY(13%);
+}
+
+.leaderboard__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.leaderboard__name,
+.leaderboard__theme {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard__name {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.leaderboard__theme {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.leaderboard__rating {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.leaderboard__empty {
+  margin: 8px 4px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- last round and key prompts ---------- */
+.rankings__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 30px;
+  font-size: 14px;
+}
+
+.rankings__last {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 18px;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.rankings__last .rankings__muted {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.rankings__last-label {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rankings__last .is-up {
+  color: var(--gold);
+}
+
+.rankings__last .is-down {
+  color: var(--muted);
+}
+
+.rankings__hints {
+  display: flex;
+  flex-shrink: 0;
+  gap: 24px;
+}
+
+.rankings__hints kbd + kbd {
+  margin-left: -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contender__inner {
+    animation: none;
   }
 
-  .rankings__choice {
-    width: 38vw;
+  .contender__figure {
+    transition: none;
+  }
+}
+
+/* ---------- narrower screens ---------- */
+@media (max-width: 1100px) {
+  .rankings {
+    height: auto;
+    min-height: 0;
   }
 
-  .rankings__choice img {
-    height: 38vw;
+  .rankings__body {
+    display: flex;
+    flex-direction: column;
   }
 
-  .rankings__vs {
-    font-size: 1.25rem;
+  .arena {
+    grid-template-rows: auto 540px;
+  }
+
+  /* columns rather than a grid, so the ranks read down and then across */
+  .leaderboard__list {
+    columns: 300px 2;
+    column-gap: 16px;
+  }
+
+  .leaderboard__row {
+    break-inside: avoid;
+  }
+}
+
+@media (max-width: 820px) {
+  .rankings {
+    gap: 14px;
+    padding: 8px 16px 20px;
+  }
+
+  .rankings h1 {
+    font-size: 24px;
+    letter-spacing: 0.2em;
+  }
+
+  .rankings__votes {
+    font-size: 26px;
+  }
+
+  .rankings__muted {
+    font-size: 14px;
+  }
+
+  .arena {
+    grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+    grid-template-rows: auto 380px;
+    padding: 0 26px;
+  }
+
+  .arena__prompt {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .arena__middle {
+    gap: 14px;
+  }
+
+  .arena__vs {
+    width: 46px;
+    height: 36px;
+    box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--ring);
+    font-size: 18px;
+  }
+
+  .arena__skip {
+    width: 48px;
+    padding: 0;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .contender__inner {
+    padding: 12px 14px 14px;
+  }
+
+  /* the icon is enough on a phone, the name would not fit */
+  .contender__theme span {
+    display: none;
+  }
+
+  .contender__standing {
+    font-size: 13px;
+  }
+
+  .contender__stage {
+    --figure-height: min(220px, calc(100cqh - 56px));
+  }
+
+  .contender__reflection-clip {
+    height: 36px;
+  }
+
+  .contender__name {
+    font-size: 17px;
+    letter-spacing: 0.04em;
+  }
+
+  .contender__sub {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .contender__plate kbd,
+  .rankings__hints {
+    display: none;
+  }
+
+  .leaderboard__list {
+    columns: auto;
   }
 }
