@@ -14,8 +14,8 @@ the figure, so they appear in the large view. Six pictures have one clearly
 detached. Cropping to the main shape would fix this and the sizing issue together.
 
 **Details are mostly empty.** Only 62 of 453 variants have a year and 27 a set
-link, because that information was typed in by hand. Filling it automatically was
-the plan below.
+link, because most were typed in by hand before `npm run register` existed (see
+below). New entries added through it carry both.
 
 **Rankings votes are per browser.** They live in `localStorage`, so they do not
 follow you to another device and cannot be shared.
@@ -26,24 +26,25 @@ stay.
 
 ## Planned but not built
 
-**Adding figures automatically.** Registering a figure by hand is the slowest part
-of owning this collection: find it on BrickLink, copy the ID, save the picture,
-type the entry. The plan was a command that takes a BrickLink ID and does the rest:
+**Adding figures automatically.** Done, differently from the plan below:
+`npm run register` (see [data-model.md](data-model.md#adding-a-figure)) takes a
+BrickLink URL or ID, scrapes the catalog page directly instead of using the
+BrickLink API, downloads the picture into `source_images/`, and appends the entry
+to the right YAML file. It does not yet run `npm run thumbnails` / `npm run
+cutouts` for you, and there is still no command that reads a BrickLink order and
+adds or marks as owned everything in it. The original idea, kept here in case the
+scraping approach ever breaks:
 
 ```
 npm run add sw0812 -- --theme star-wars
 ```
 
-It would fetch the name, the year and the sets the figure appears in from the
-BrickLink API, download the picture into `source_images/`, generate the thumbnail
-and cutout, and append the entry to the right YAML file. A second command would
-read a BrickLink order and add or mark as owned everything in it.
-
-This needs BrickLink API credentials, registered at their API page against an IP
-address (or `0.0.0.0`). The limit is 5,000 requests a day, far more than needed.
-It could not be confirmed whether a store is required or any account will do.
-Rebrickable is not a substitute: it does not publish the mapping from its
-minifigure IDs to BrickLink's, and this collection is keyed on BrickLink IDs.
+fetching the name, the year and the sets the figure appears in from the BrickLink
+API. This needs BrickLink API credentials, registered at their API page against an
+IP address (or `0.0.0.0`). The limit is 5,000 requests a day, far more than
+needed. It could not be confirmed whether a store is required or any account
+will do. Rebrickable is not a substitute: it does not publish the mapping from
+its minifigure IDs to BrickLink's, and this collection is keyed on BrickLink IDs.
 
 Optionally the same script could run as a GitHub Action triggered from the GitHub
 website, so figures can be added from a phone with no laptop involved.

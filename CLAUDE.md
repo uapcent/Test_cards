@@ -21,6 +21,7 @@ Image helpers, all skipping work that is already done:
 npm run thumbnails    # source_images/ -> assets/minifigures_images/thumbnails/
 npm run cutouts       # source_images/ -> assets/minifigures_images/cutouts/
 npm run images:unused # lists images no character uses; add -- --delete to remove
+npm run register       # interactive: add a figure from a BrickLink URL
 ```
 
 ## Where things are

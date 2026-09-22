@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "thumbnails": "python scripts/optimizeImages.py",
     "images:unused": "node scripts/cleanup_unused_images.js",
-    "cutouts": "python scripts/makeCutouts.py"
+    "cutouts": "python scripts/makeCutouts.py",
+    "register": "node scripts/registerFigure.js"
   },
   "dependencies": {
     "react": "^19.3.0",

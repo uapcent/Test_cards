@@ -97,7 +97,21 @@ variant.
 Each layout draws those four states in its own shape, but the rules live in one
 place.
 
-## Adding a figure by hand
+## Adding a figure
+
+`npm run register` asks for a BrickLink minifigure URL or ID (`sw0812`), fetches
+that catalog page, and guesses the name, year and theme from it. It downloads the
+full-size picture into `source_images/`, then appends the entry to the right file
+in `data/` — either as a new character or, if you confirm, as another variant of
+one that's already there (it lists every same-named match, since names repeat on
+purpose). Everything it guesses can be overridden before it writes anything, and
+it refuses to write if the result wouldn't be valid YAML. It only touches your
+local files; there's nothing to run against the deployed site.
+
+Afterwards run `npm run thumbnails` and `npm run cutouts` to generate the other
+two image sizes.
+
+### By hand
 
 1. Put the full-size picture in `source_images/` named after its BrickLink ID,
    for example `sw1234.png`. `.original` in the name is stripped, so
