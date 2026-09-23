@@ -6,7 +6,7 @@
 fixed height, but each cutout was trimmed to its own content, so a figure with a
 raised weapon, a cape or wide wings fills its box differently and reads as smaller
 or larger. Aspect ratios across the cutouts run from 0.41 to 2.13. A manual
-per-character `scale` now exists as a patch for the worst offenders (see
+per-variant `scale` now exists as a patch for the worst offenders (see
 [images.md](images.md#known-issue-figures-look-different-sizes)), but the
 underlying different-share-of-the-box effect is still there for everyone else,
 just usually too subtle to notice.

@@ -1,4 +1,5 @@
 import themeIndex from "../../data/themes.yaml";
+import { resolveScale } from "./figureScale.js";
 
 const themeFiles = import.meta.glob("../../data/*.yaml", { eager: true, import: "default" });
 
@@ -41,7 +42,10 @@ function buildVariant(raw, characterId, index) {
     wishlist: !!raw.wishlist,
     defective: !!raw.defective,
     year: raw.year ?? null,
-    set: raw.set ?? null
+    set: raw.set ?? null,
+    // how tall to draw this variant on the Showcase page's large figure,
+    // relative to a standard minifig — see docs/data-model.md
+    scale: resolveScale(raw.scale)
   };
 }
 
@@ -57,9 +61,6 @@ function buildCharacter(raw, themeKey, themeName, index) {
     themeName,
     name: raw.name,
     glow: raw.glow ?? null,
-    // how tall to draw this character on the Showcase page's large figure,
-    // relative to Lex Luthor (sh0012) at 1 — see docs/data-model.md
-    scale: raw.scale ?? 1,
     variants,
     ownedCount,
     // Shown on the token or card: the first variant that has a picture

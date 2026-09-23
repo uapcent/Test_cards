@@ -148,6 +148,7 @@
       image: colspi11
       owned: true
       year: 2025
+      scale: toddler
 - name: Pavitr Prabhakar / Spider-Man India
   variants:
     - label: Across the Spider-Verse
@@ -240,10 +241,10 @@
     - image: sh0052
       owned: false
 - name: Thanos
-  scale: 1.35
   variants:
     - image: sh0504
       owned: false
+      scale: big_figure
 - name: Crossbones
   variants:
     - label: 'Captain America: Civil War'

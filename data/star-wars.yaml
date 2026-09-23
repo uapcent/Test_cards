@@ -36,10 +36,10 @@
       image: sw1303
       owned: false
 - name: R2-D2
-  scale: 0.55
   variants:
     - image: sw0217
       owned: true
+      scale: astromech
 - name: Anakin Skywalker
   variants:
     - label: Boy
@@ -101,6 +101,7 @@
   variants:
     - image: sw1221
       owned: false
+      scale: astromech
 - name: Anakin Skywalker
   variants:
     - label: Padawan
@@ -263,6 +264,7 @@
     - label: Astromech Droid
       image: sw1397
       owned: true
+      scale: astromech
 - name: Lando Calrissian
   variants:
     - image: sw0973
@@ -365,6 +367,7 @@
   variants:
     - image: sw0373
       owned: true
+      scale: astromech
 - name: Boba Fett
   variants:
     - label: The Book of Boba Fett

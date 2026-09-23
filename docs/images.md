@@ -118,15 +118,16 @@ spread wide, fills its box differently from a plain one, and ends up looking
 smaller or larger on screen. Cutout aspect ratios run from 0.41 to 2.13, which is
 the measurement behind the effect.
 
-`data/*.yaml` characters take an optional `scale` (see
-[data-model.md](data-model.md)) as a manual, per-character fix for the ones
-that look visibly wrong — used so far for Gorilla Grodd and Thanos (both
-oversized "big figure" pieces, not standard minifigs) and R2-D2 (a small
-droid). It only affects the Showcase page's large figure. Nobody has to guess
-what "1" (the default) means: it's simply unscaled, the same as every other
-character, and Lex Luthor (`sh0012`) — bald, no accessories, nothing to throw
-the measurement off — is as good a mental reference as any for what
-"correctly sized" looks like.
+`data/*.yaml` variants take an optional `scale` (see
+[data-model.md](data-model.md#working-out-a-scale)) as a manual fix for the
+ones that look visibly wrong, worked out from BrickLink's own measurements —
+used so far for Gorilla Grodd, Thanos and Harry Potter's child variant (all a
+genuinely different kind of piece from a standard minifig) and every
+astromech droid. It's per-variant rather than per-character, since a
+character's variants aren't always the same kind of piece — and it only
+affects the Showcase page's large figure, not the tile grid. Nobody has to
+guess what "1" (the default) means: it's simply unscaled, the same as every
+other figure.
 
 The Showcase **tile grid** had a related but different bug, now fixed: tiles
 capped both the image's width and height, so a cutout wider than it was tall

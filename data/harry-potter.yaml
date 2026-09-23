@@ -3,6 +3,7 @@
     - label: Gryffindor Robe
       image: hp314
       owned: true
+      scale: child
     - label: Lego Dimensions
       image: dim036
       owned: true
