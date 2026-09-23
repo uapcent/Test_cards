@@ -5,9 +5,11 @@
 **Figures look different sizes on the Showcase.** The large figure is drawn at a
 fixed height, but each cutout was trimmed to its own content, so a figure with a
 raised weapon, a cape or wide wings fills its box differently and reads as smaller
-or larger. Aspect ratios across the cutouts run from 0.41 to 2.13. Candidate
-fixes are in [images.md](images.md#known-issue-figures-look-different-sizes);
-scaling by the largest connected shape is the most promising.
+or larger. Aspect ratios across the cutouts run from 0.41 to 2.13. A manual
+per-character `scale` now exists as a patch for the worst offenders (see
+[images.md](images.md#known-issue-figures-look-different-sizes)), but the
+underlying different-share-of-the-box effect is still there for everyone else,
+just usually too subtle to notice.
 
 **Accessories in the pictures.** BrickLink photographs spare heads and parts beside
 the figure, so they appear in the large view. Six pictures have one clearly
@@ -53,8 +55,10 @@ website, so figures can be added from a phone with no laptop involved.
 here — a shield, a bat, a ninja band, a laser sword — chosen over brand logos,
 which are trademarked. They are easy to replace one at a time.
 
-**Theme backdrops.** One exists so far (`ninjago-dojo.webp`). The rest fall back to
-their accent colour, which is a perfectly good end state if no picture is added.
+**Theme backdrops.** Five exist so far: Ninjago, Marvel, DC Comics, Star Wars and
+Lego City. It's also now used behind the selected figure on the Tokens page, not
+just Showcase. The rest fall back to their accent colour, which is a perfectly
+good end state if no picture is added.
 
 ## Decisions already made, so they do not get relitigated
 

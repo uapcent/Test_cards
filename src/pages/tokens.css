@@ -28,10 +28,17 @@
 
 .counter {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+  color: var(--gold);
+}
+
+.counter__line {
+  display: flex;
   align-items: center;
   gap: 12px;
   margin: 0;
-  color: var(--gold);
 }
 
 .counter__icon {
@@ -50,6 +57,29 @@
   font-size: 15px;
 }
 
+.counter__percent {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.counter__bar {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--panel-soft);
+  overflow: hidden;
+}
+
+.counter__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -57,6 +87,9 @@
 }
 
 .filters button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   height: 44px;
   padding: 0 16px;
   border: 1px solid var(--ring);
@@ -73,16 +106,67 @@
   background: #2a2718;
 }
 
+.filters__count {
+  padding: 1px 7px;
+  border-radius: 9px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.filters button.is-current .filters__count {
+  background: rgba(242, 193, 78, 0.18);
+  color: var(--gold);
+}
+
 /* ---------- selected figure ---------- */
 /* The height is fixed on purpose. If a long name wrapped onto a second line,
    the grid below moved, the pointer fell off the token it was hovering, the
    name went back to one line, and the whole thing flickered in a loop. */
 .selected {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 300px 1fr;
   align-items: center;
   height: 250px;
   overflow: hidden;
+  border-radius: 16px;
+}
+
+/* the theme's own picture, behind everything else in .selected — same
+   treatment as the Showcase page's backdrop, so a theme's identity carries
+   over here too */
+.selected__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--theme-art, none);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.65;
+  filter: saturate(0.85) brightness(0.9) blur(1px);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* the colour wash sits underneath, so a theme picture is optional */
+.selected__backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(90% 100% at 50% 50%, var(--theme-accent, #3a404c) 0%, transparent 72%);
+}
+
+.selected__side,
+.selected__figure,
+.selected__facts {
+  position: relative;
+  z-index: 1;
 }
 
 .selected__side {
@@ -98,6 +182,10 @@
 }
 
 .selected__theme {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
   color: var(--muted);
   font-family: var(--display);
   font-size: 18px;

@@ -22,8 +22,6 @@ export default function FigureToken({ character, selected, tabIndex, onPreview, 
       tabIndex={tabIndex}
       data-token={character.id}
       style={{ "--owned-share": `${(character.ownedCount / character.variants.length) * 100}%` }}
-      onMouseEnter={() => onPreview(character.id)}
-      onMouseLeave={() => onPreview(null)}
       onFocus={() => onPreview(character.id)}
       onBlur={() => onPreview(null)}
       onClick={() => onOpen(character.id)}

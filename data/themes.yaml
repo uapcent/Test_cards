@@ -13,10 +13,12 @@
   name: Marvel
   icon: shield
   accent: "#8e2b26"
+  art: Avengers.webp
 - key: dc
   name: DC Comics
   icon: bat
   accent: "#1f4c94"
+  art: Batcave.webp
 - key: ninjago
   name: Ninjago
   icon: mask
@@ -26,6 +28,7 @@
   name: Star Wars
   icon: saber
   accent: "#2f5d86"
+  art: death-star.webp
 - key: lord-of-the-rings
   name: Lord of the Rings
   icon: ring
@@ -54,6 +57,7 @@
   name: Lego City
   icon: cone
   accent: "#2b6b74"
+  art: lego-city.webp
 - key: miscellaneous
   name: Miscellaneous
   icon: brick

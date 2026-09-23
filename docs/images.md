@@ -17,17 +17,21 @@ in the served folder every build copied them into the deployment.
 ## The scripts
 
 ```bash
-npm run cutouts      # python scripts/makeCutouts.py     (--force to redo them all)
-npm run thumbnails   # python scripts/optimizeImages.py  (--force to redo them all)
+npm run cutouts            # python scripts/makeCutouts.py               — only missing ones (--force for all)
+npm run thumbnails         # python scripts/optimizeImages.py            — always regenerates every one
+npm run theme-backgrounds  # python scripts/optimizeThemeBackgrounds.py  — always redoes every one
 npm run images:unused
 ```
 
 `optimizeImages.py` builds each thumbnail from that figure's cutout, not the raw
 original, so run `cutouts` first when adding a figure — a thumbnail made before
-its cutout exists falls back to the (white-background) original, and won't be
-touched again on a later run since both scripts skip files that already exist.
-`npm run register` already leaves cutouts to be generated afterwards, so this
-only matters if you're scripting around it.
+its cutout exists falls back to the (white-background) original. Unlike cutouts,
+a thumbnail is never edited by hand, only ever a mechanical resize of its
+cutout, so there's nothing to protect by skipping existing ones: `thumbnails`
+always redoes every single one, which also means it picks up a hand-fixed
+cutout automatically next time it runs. `npm run register` already leaves
+cutouts to be generated afterwards, so the run-`cutouts`-first ordering only
+matters if you're scripting around it.
 
 Centering a thumbnail on the whole cutout would centre it on a raised weapon or
 an accessory held out to one side just as much as on the figure itself, so
@@ -48,8 +52,8 @@ zooms into. Scaling by height keeps the figure itself full-height and lets an
 accessory that sticks out past 200px simply get cropped by the canvas, which
 the head-centring above already copes with.
 
-Both scripts skip files that already exist, so they are cheap to re-run after
-adding a figure. They need Pillow, NumPy and PyYAML.
+`makeCutouts.py` skips files that already exist, so it's cheap to re-run after
+adding a figure. Both need Pillow, NumPy and PyYAML.
 
 The flood fill in `makeCutouts.py` can't always tell a mostly-white figure
 apart from the BrickLink background, so some cutouts get fixed by hand instead.
@@ -95,11 +99,15 @@ silhouette — which is worth keeping for figures that are not on BrickLink at a
 
 ## Theme backdrops
 
-`assets/theme_backgrounds/` holds optional pictures behind the large figure on the
-Showcase page, named per theme in `data/themes.yaml`. They are dimmed to 40%,
-desaturated, darkened, blurred by 2 px and masked so they fade out towards the
-left and at the top and bottom edges. The intent is atmosphere, not decoration you
-notice.
+`assets/theme_backgrounds/` holds optional pictures behind the large figure on
+the Showcase page, and behind the selected figure on Tokens, named per theme
+in `data/themes.yaml`. They are dimmed, desaturated, blurred and masked so
+they fade out towards the edges. The intent is atmosphere, not decoration you
+notice — but dimmed and blurred is not the same as tiny: run
+`npm run theme-backgrounds` after dropping a new one in, which shrinks
+anything over 1600 px wide and re-saves it as a `.webp` at a size that still
+looks right blurred, so a screenshot or a stock clip dropped in at full size
+doesn't make that theme's first load noticeably slower than the others.
 
 ## Known issue: figures look different sizes
 
@@ -110,13 +118,24 @@ spread wide, fills its box differently from a plain one, and ends up looking
 smaller or larger on screen. Cutout aspect ratios run from 0.41 to 2.13, which is
 the measurement behind the effect.
 
-Possible fixes, none applied yet:
+`data/*.yaml` characters take an optional `scale` (see
+[data-model.md](data-model.md)) as a manual, per-character fix for the ones
+that look visibly wrong — used so far for Gorilla Grodd and Thanos (both
+oversized "big figure" pieces, not standard minifigs) and R2-D2 (a small
+droid). It only affects the Showcase page's large figure. Nobody has to guess
+what "1" (the default) means: it's simply unscaled, the same as every other
+character, and Lex Luthor (`sh0012`) — bald, no accessories, nothing to throw
+the measurement off — is as good a mental reference as any for what
+"correctly sized" looks like.
 
-- Scale by the largest connected shape in the picture, which is almost always the
-  body, rather than by the whole trimmed box.
-- Store a per-variant scale in the YAML for the handful that look wrong.
-- Keep a fixed canvas per figure instead of trimming, so every picture shares one
-  frame of reference.
+The Showcase **tile grid** had a related but different bug, now fixed: tiles
+capped both the image's width and height, so a cutout wider than it was tall
+— the same spread-cape-or-wings case, or a big-figure villain — hit the width
+cap first and rendered visibly shorter than a plain figure, even though both
+were meant to be the same height. Tiles now size by height only, same as the
+large figure, and let extra width run past the tile's edge, cropped by its
+own `overflow: hidden`.
 
 Six pictures also have an accessory sitting clearly apart from the figure, such as
-a spare head beside it, which is the same problem in its most visible form.
+a spare head beside it, which is the same fixed-height-different-box-share
+problem in its most visible form, and `scale` doesn't help with those.

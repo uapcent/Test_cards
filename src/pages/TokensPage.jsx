@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from "react";
-import { themes, collection, charactersById } from "../data/collection.js";
+import { themes, characters, collection, charactersById } from "../data/collection.js";
 import FigureToken from "../components/FigureToken.jsx";
 import DetailsDialog from "../components/DetailsDialog.jsx";
-import { Icon } from "../components/icons.jsx";
+import { Icon, ThemeIcon } from "../components/icons.jsx";
 import { moveFocus } from "../lib/gridNav.js";
 import "./tokens.css";
 
@@ -39,10 +39,16 @@ export default function TokensPage() {
         .filter(theme => theme.visible.length > 0),
     [filter]
   );
+  const filterCounts = useMemo(
+    () => Object.fromEntries(FILTERS.map(entry => [entry.key, characters.filter(entry.matches).length])),
+    []
+  );
 
   const shown = charactersById.get(previewId) ?? charactersById.get(pinnedId);
   const shownVariant = shown.variants[variantIndexes[shown.id] ?? 0] ?? shown.variants[0];
+  const shownTheme = themes.find(theme => theme.key === shown.themeKey);
   const details = detailsId ? charactersById.get(detailsId) : null;
+  const ownedPercent = Math.round((collection.owned / collection.total) * 100);
 
   const open = id => {
     setPinnedId(id);
@@ -56,11 +62,17 @@ export default function TokensPage() {
     <div className="tokens" onKeyDown={event => moveFocus(gridsRef.current, event)}>
       <div className="tokens__top">
         <header className="tokens__bar">
-          <p className="counter">
-            <span className="counter__icon"><Icon name="brickCount" size={30} /></span>
-            <span className="counter__owned">{collection.owned}</span>
-            <span className="counter__total">/ {collection.total} figures owned</span>
-          </p>
+          <div className="counter">
+            <p className="counter__line">
+              <span className="counter__icon"><Icon name="brickCount" size={30} /></span>
+              <span className="counter__owned">{collection.owned}</span>
+              <span className="counter__total">/ {collection.total} figures owned</span>
+              <span className="counter__percent">{ownedPercent}%</span>
+            </p>
+            <span className="counter__bar" aria-hidden="true">
+              <span className="counter__bar-fill" style={{ width: `${ownedPercent}%` }} />
+            </span>
+          </div>
 
           <div className="filters" role="group" aria-label="Filter figures">
             {FILTERS.map(entry => (
@@ -72,14 +84,27 @@ export default function TokensPage() {
                 onClick={() => setFilterKey(entry.key)}
               >
                 {entry.label}
+                <span className="filters__count">{filterCounts[entry.key]}</span>
               </button>
             ))}
           </div>
         </header>
 
-        <section className="selected" aria-label="Selected figure">
+        <section
+          className="selected"
+          aria-label="Selected figure"
+          style={{
+            ...(shownTheme?.accent ? { "--theme-accent": shownTheme.accent } : {}),
+            ...(shownTheme?.art ? { "--theme-art": `url("${shownTheme.art}")` } : {})
+          }}
+        >
+          <span className="selected__backdrop" aria-hidden="true" />
+
           <div className="selected__side selected__side--left">
-            <span className="selected__theme">{shown.themeName}</span>
+            <span className="selected__theme">
+              {shownTheme && <ThemeIcon name={shownTheme.icon} size={18} />}
+              {shown.themeName}
+            </span>
             <span className="selected__muted">
               {shown.ownedCount} of {shown.variants.length} owned
             </span>
@@ -111,7 +136,15 @@ export default function TokensPage() {
         </section>
       </div>
 
-      <div className="tokens__grids" ref={gridsRef}>
+      <div
+        className="tokens__grids"
+        ref={gridsRef}
+        onMouseOver={event => {
+          const token = event.target.closest("[data-token]");
+          if (token) setPreviewId(token.dataset.token);
+        }}
+        onMouseLeave={() => setPreviewId(null)}
+      >
         {visibleThemes.map(theme => {
           const collapsed = collapsedThemes.has(theme.key);
           return (

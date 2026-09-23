@@ -11,7 +11,21 @@ artwork from those games — the icons and shapes are drawn here.
 ## Tokens — the home page
 
 Round portraits, one per character, grouped by theme with the owned count beside
-each heading. A counter at the top shows the whole collection, 270 / 453.
+each heading. A counter at the top shows the whole collection, with a percentage
+and a thin progress bar under it, and each filter button shows how many
+characters it currently matches.
+
+**The counter, filters and selected figure stay on screen.** That block is
+sticky, so it never scrolls out of view while the grid below it does — on a
+collection this size you'd otherwise lose sight of what's selected a few
+themes down. Each theme heading is also a button that collapses its grid, for
+jumping past a theme you're not looking at right now. Both only apply above the
+720px breakpoint: stacked on a phone, the selected figure is too tall to pin
+without hiding most of the grid, so there it scrolls away normally instead.
+
+**The selected figure gets the theme's own backdrop**, the same picture-behind-
+a-colour-wash treatment as the Showcase page below, dimmed and blurred so it
+reads as atmosphere rather than another figure.
 
 **One token per character, not per variant.** Variants live inside the details
 menu, the way the games let you pick a character and then a costume.

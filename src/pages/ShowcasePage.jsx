@@ -166,7 +166,7 @@ export default function ShowcasePage() {
 
         <div className={`showcase__stage ${variant.owned ? "" : "is-missing"} ${variant.hasCutout ? "" : "has-photo"}`}>
           {variant.hasImage ? (
-            <div className="showcase__figure-wrap">
+            <div className="showcase__figure-wrap" style={{ "--figure-scale": selected.scale }}>
               <img className="showcase__figure" src={variant.cutout} alt={`${selected.name}, ${variant.label || "standard"}`} />
               <span className="showcase__reflection-clip" aria-hidden="true">
                 <img className="showcase__reflection" src={variant.cutout} alt="" />

@@ -15,18 +15,22 @@ npm run build    # writes dist/
 npm run preview  # serves dist/
 ```
 
-Image helpers, all skipping work that is already done:
+Image helpers:
 
 ```bash
-npm run cutouts       # source_images/ -> assets/minifigures_images/cutouts/
-npm run thumbnails    # cutouts/ (falls back to source_images/) -> .../thumbnails/
-npm run images:unused # lists images no character uses; add -- --delete to remove
-npm run register      # interactive: add a figure from a BrickLink URL
+npm run cutouts             # source_images/ -> assets/minifigures_images/cutouts/, skips existing
+npm run thumbnails          # cutouts/ (falls back to source_images/) -> .../thumbnails/, always redone
+npm run theme-backgrounds   # shrinks assets/theme_backgrounds/*, always redone
+npm run images:unused       # lists images no character uses; add -- --delete to remove
+npm run register            # interactive: add a figure from a BrickLink URL
 ```
 
 Run `cutouts` before `thumbnails` when adding a figure — thumbnails are built
 from the cutout so the padding is transparent, and fall back to the
-white-background original if no cutout exists yet.
+white-background original if no cutout exists yet. `cutouts` never replaces one
+that's already there, since some are fixed by hand; `thumbnails` always
+regenerates every one, since a thumbnail is only ever a mechanical resize of
+its cutout, never edited by hand itself.
 
 ## Where things are
 

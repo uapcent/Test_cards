@@ -9,7 +9,8 @@
     "thumbnails": "python scripts/optimizeImages.py",
     "images:unused": "node scripts/cleanup_unused_images.js",
     "cutouts": "python scripts/makeCutouts.py",
-    "register": "node scripts/registerFigure.js"
+    "register": "node scripts/registerFigure.js",
+    "theme-backgrounds": "python scripts/optimizeThemeBackgrounds.py"
   },
   "dependencies": {
     "react": "^19.3.0",

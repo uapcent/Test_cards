@@ -48,6 +48,7 @@ out towards the left, so wide calm pictures work better than busy ones. Without
 | --- | --- |
 | `name` | Shown everywhere. Duplicates across the file are expected — see below. |
 | `glow` | Optional colour. The Classic page glows in it on hover; characters without one do not glow, by choice. |
+| `scale` | Optional multiplier for how tall the figure is drawn on the Showcase page's large view. Every cutout is otherwise shown at the same height regardless of the character's real size, since that's right for the overwhelming majority — a standing minifig next to another standing minifig. `scale` is the deliberate exception, for the handful that are a different kind of piece: `1.3`–`1.35` for an oversized "big figure" villain (Gorilla Grodd, Thanos), `0.55` for a small droid (R2-D2). Leave it out — the default is `1` — unless a figure is visibly the wrong size sitting next to the others. |
 | `variants` | At least one. A figure with a single version still has a one-entry list. |
 
 ### Variant fields

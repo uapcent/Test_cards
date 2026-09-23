@@ -57,6 +57,9 @@ function buildCharacter(raw, themeKey, themeName, index) {
     themeName,
     name: raw.name,
     glow: raw.glow ?? null,
+    // how tall to draw this character on the Showcase page's large figure,
+    // relative to Lex Luthor (sh0012) at 1 — see docs/data-model.md
+    scale: raw.scale ?? 1,
     variants,
     ownedCount,
     // Shown on the token or card: the first variant that has a picture

@@ -5,13 +5,16 @@ BrickLink originals, so the padding around the figure is transparent and the
 token's own disc colour shows through instead of a white square. Falls back
 to the original for anything that has no cutout yet, e.g. unknown_character.
 
-    python scripts/optimizeImages.py            only missing ones
-    python scripts/optimizeImages.py --force    all of them again
+Always regenerates every thumbnail, unlike makeCutouts.py: a thumbnail is
+nothing but a mechanical resize of its cutout, never edited by hand, so
+there's no reason to skip one that already exists — re-running this after
+fixing a cutout by hand picks the fix up automatically.
+
+    python scripts/optimizeImages.py
 """
 from pathlib import Path
 from PIL import Image
 import re
-import sys
 
 import numpy as np
 
@@ -103,11 +106,8 @@ def find_head_center_x(alpha_mask: np.ndarray) -> float | None:
         return float(np.median(centers))
     return (int(cols[0]) + int(cols[-1])) / 2
 
-def create_thumbnail(image_id: str, source: Path, force: bool):
+def create_thumbnail(image_id: str, source: Path):
     out_path = THUMB_DIR / f"{image_id}.webp"
-
-    if out_path.exists() and not force:
-        return
 
     with Image.open(source) as original:
         img = original.convert("RGBA")
@@ -152,7 +152,6 @@ def create_thumbnail(image_id: str, source: Path, force: bool):
         print(f"{source.relative_to(ROOT)} -> thumbnails/{out_path.name}")
 
 def main():
-    force = "--force" in sys.argv
     THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
     originals = find_originals()
@@ -164,7 +163,7 @@ def main():
         else:
             source = original
             no_cutout += 1
-        create_thumbnail(image_id, source, force)
+        create_thumbnail(image_id, source)
 
     print("Done.")
     if no_cutout:
