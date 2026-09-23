@@ -279,3 +279,38 @@
       owned: true
       year: 2001
       set: https://www.bricklink.com/v2/catalog/catalogitem.page?S=7310-1
+- name: Robot T. rex
+  variants:
+    - label: Minifigure Only without Stand and Accessories
+      image: col473
+      owned: true
+      year: 2026
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col473
+- name: Bionicle Cosplayer (Toa Tahu)
+  variants:
+    - label: Minifigure Only without Stand and Accessories
+      image: col475
+      owned: true
+      year: 2026
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col475
+- name: Monster Hunter
+  variants:
+    - label: Minifigure Only without Stand and Accessories
+      image: col476
+      owned: false
+      year: 2026
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col476
+- name: Trash Monster
+  variants:
+    - label: Minifigure Only without Stand and Accessories
+      image: col478
+      owned: true
+      year: 2026
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col478
+- name: Mysterious Ronin
+  variants:
+    - label: Series 29
+      image: col483
+      owned: true
+      year: 2026
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col483

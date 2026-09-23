@@ -100,13 +100,18 @@ place.
 ## Adding a figure
 
 `npm run register` asks for a BrickLink minifigure URL or ID (`sw0812`), fetches
-that catalog page, and guesses the name, year and theme from it. It downloads the
-full-size picture into `source_images/`, then appends the entry to the right file
-in `data/` — either as a new character or, if you confirm, as another variant of
-one that's already there (it lists every same-named match, since names repeat on
-purpose). Everything it guesses can be overridden before it writes anything, and
-it refuses to write if the result wouldn't be valid YAML. It only touches your
-local files; there's nothing to run against the deployed site.
+that catalog page, and guesses the name, year and theme from it. It checks that
+ID against every theme file first, since it can only ever be one specific casting
+of one figure, and warns before letting you register it a second time. It
+downloads the full-size picture into `source_images/`, then appends the entry to
+the right file in `data/` — either as a new character or, if you confirm, as
+another variant of one that's already there (it lists every same-named match,
+since names repeat on purpose). The BrickLink link defaults to that same catalog
+page, since one can always be built from the ID; type over it only when the
+figure came from a specific set instead. Everything it guesses can be overridden
+before it writes anything, and it refuses to write if the result wouldn't be
+valid YAML. It only touches your local files; there's nothing to run against the
+deployed site.
 
 Afterwards run `npm run thumbnails` and `npm run cutouts` to generate the other
 two image sizes.
