@@ -124,7 +124,8 @@ const UI_PATHS = {
       <rect x="15" y="4" width="4" height="3" rx="1" />
       <rect x="3" y="7" width="18" height="11" rx="2" />
     </g>
-  )
+  ),
+  chevron: <path d="M6 9l6 6 6-6" {...stroke} strokeWidth="2.2" />
 };
 
 export function Icon({ name, size = 18, title }) {

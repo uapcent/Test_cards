@@ -4,7 +4,12 @@ The pictures come from BrickLink on a plain white background. Filling inwards
 from the corners removes it without touching white parts inside the figure.
 
     python scripts/makeCutouts.py            only missing ones
-    python scripts/makeCutouts.py --force    all of them again
+    python scripts/makeCutouts.py --force    all of them again, except manual_cutouts.txt
+
+The flood fill struggles when the figure itself is mostly white — those get
+fixed up by hand instead. List their IDs, one per line, in
+scripts/manual_cutouts.txt (created next to this file) and --force will leave
+them alone rather than overwriting the manual edit.
 """
 from pathlib import Path
 import re
@@ -19,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 SOURCE_DIR = ROOT / "source_images"
 OUT_DIR = ROOT / "assets/minifigures_images/cutouts"
+MANUAL_LIST = Path(__file__).resolve().parent / "manual_cutouts.txt"
 
 MAX_HEIGHT = 600        # tall enough for the large figure, never upscaled
 WEBP_QUALITY = 82
@@ -46,6 +52,14 @@ def used_image_ids() -> list[str]:
                 if image and not re.match(r"^(https?:)?//", image):
                     ids.add(image)
     return sorted(ids)
+
+
+def manual_ids() -> set[str]:
+    """IDs whose cutout was fixed by hand and must survive --force."""
+    if not MANUAL_LIST.exists():
+        return set()
+    lines = MANUAL_LIST.read_text(encoding="utf-8").splitlines()
+    return {line.strip() for line in lines if line.strip() and not line.strip().startswith("#")}
 
 
 def find_sources() -> dict[str, Path]:
@@ -108,10 +122,11 @@ def make_cutout(source: Path, out_path: Path) -> str:
 
 def main() -> None:
     force = "--force" in sys.argv
+    protected = manual_ids()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     sources = find_sources()
-    written, skipped, missing, suspicious = 0, 0, [], []
+    written, skipped, kept_manual, missing, suspicious = 0, 0, 0, [], []
 
     for image_id in used_image_ids():
         source = sources.get(image_id)
@@ -120,6 +135,9 @@ def main() -> None:
             continue
 
         out_path = OUT_DIR / f"{image_id}.webp"
+        if out_path.exists() and image_id in protected:
+            kept_manual += 1
+            continue
         if out_path.exists() and not force:
             skipped += 1
             continue
@@ -130,6 +148,8 @@ def main() -> None:
             suspicious.append(f"{image_id} ({result})")
 
     print(f"wrote {written}, already there {skipped}")
+    if kept_manual:
+        print(f"kept {kept_manual} manually edited (see {MANUAL_LIST.name})")
     if missing:
         print(f"no original for {len(missing)}: {', '.join(missing[:10])}")
     if suspicious:

@@ -9,6 +9,9 @@
   --gold: #f2c14e;
   --red: #ef5350;
   --disc: #dcd8cf;
+  /* behind a figure's transparent padding: darkest at the centre, so it frames
+     the figure instead of clashing with whatever colour the figure itself is */
+  --disc-radial: radial-gradient(circle, #05060a 0%, #333a4a 100%);
   --display: "Chakra Petch", system-ui, sans-serif;
 }
 
@@ -101,19 +104,19 @@ kbd {
   height: 100%;
   overflow: hidden;
   border-radius: 50%;
-  background: var(--disc);
+  background: var(--disc-radial);
 }
 
 .token__disc img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* the thumbnails show the whole figure; zoom in on the head and chest */
-  transform: scale(1.75) translateY(13%);
-}
-
-.token--missing .token__disc {
-  background: var(--panel-soft);
+  /* the thumbnails show the whole figure, and the head is always right at the
+     top of the frame (however tightly BrickLink's own photo was cropped), so
+     zooming from the top edge lands on the face regardless of the figure's
+     proportions */
+  transform-origin: 50% 0%;
+  transform: scale(2.15);
 }
 
 .token--missing .token__disc img {
@@ -210,14 +213,15 @@ kbd {
   overflow: hidden;
   border: 4px solid var(--gold);
   border-radius: 50%;
-  background: var(--disc);
+  background: var(--disc-radial);
 }
 
 .details__portrait img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.6) translateY(11%);
+  transform-origin: 50% 0%;
+  transform: scale(2.15);
 }
 
 .details__title {
