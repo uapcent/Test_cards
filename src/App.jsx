@@ -3,7 +3,7 @@ import TokensPage from "./pages/TokensPage.jsx";
 import ShowcasePage from "./pages/ShowcasePage.jsx";
 import ClassicPage from "./pages/ClassicPage.jsx";
 import RankingsPage from "./pages/RankingsPage.jsx";
-import PacksPage from "./pages/PacksPage.jsx";
+import PacksPage from "./pages/packs/PacksPage.jsx";
 
 // Hash routes keep every page reachable on GitHub Pages without server rules
 const PAGES = [

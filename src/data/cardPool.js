@@ -1,19 +1,6 @@
 import cardConfig from "../../data/cards.yaml";
-import { themes } from "./collection.js";
-
-// The rarity ladder, lowest to highest. `layout` picks the card template,
-// `finish` the effect on it and `border` the frame material. Sticker is not
-// on the ladder: every pack carries one, and it never has a finish.
-export const TIERS = ["common", "rare", "epic", "legendary", "gold"];
-
-export const TIER_INFO = {
-  common: { label: "Common", layout: "frame", finish: "none", border: "gray", color: "#9aa3b2" },
-  rare: { label: "Rare", layout: "frame", finish: "holo", border: "gray", color: "#4aa3ff" },
-  epic: { label: "Epic", layout: "art", finish: "none", border: "gold", color: "#b06dff" },
-  legendary: { label: "Legendary", layout: "art", finish: "foil", border: "gold", color: "#ffb020" },
-  gold: { label: "Gold", layout: "frame", finish: "gold", border: "gold", color: "#ffd84a" },
-  sticker: { label: "Die-cut", layout: "sticker", finish: "none", border: "white", color: "#f4f1e8" }
-};
+import { characters, variants } from "./collection.js";
+import { TIERS } from "./tiers.js";
 
 // What share of the collection lands in each base tier, best first. Gold is not
 // a base tier: it is a rare upgrade of an Epic or Legendary figure, rolled per pull.
@@ -111,52 +98,48 @@ function subthemeFor(themeKey, name, label, id) {
 }
 
 function buildPool() {
+  // how many figures of each name the collection holds, a rough measure of how often
+  // LEGO remade the character
   const appearances = new Map();
-  for (const theme of themes) {
-    for (const character of theme.characters) {
-      appearances.set(character.name, (appearances.get(character.name) ?? 0) + character.variants.length);
-    }
+  for (const character of characters) {
+    appearances.set(character.name, (appearances.get(character.name) ?? 0) + character.variants.length);
   }
 
   const cards = [];
-  for (const theme of themes) {
-    for (const character of theme.characters) {
-      for (const variant of character.variants) {
-        if (!variant.hasCutout) continue;
-        const fullArtFile = fullArtFiles.get(variant.id);
-        const subtheme = subthemeFor(theme.key, character.name, variant.label, variant.id);
-        cards.push({
-          id: variant.id,
-          name: character.name,
-          label: variant.label,
-          year: variant.year,
-          bricklinkId: variant.brickLinkId,
-          owned: variant.owned,
-          themeKey: theme.key,
-          themeName: theme.name,
-          // what the card looks like: its sub-theme's icon, colour and backdrop, and
-          // wherever the sub-theme says nothing, its theme's
-          subtheme: subtheme?.name ?? null,
-          icon: overrides[variant.id]?.icon ?? subtheme?.icon ?? theme.icon,
-          accent: subtheme?.accent ?? theme.accent,
-          art: subtheme?.art ?? theme.art,
-          glow: character.glow,
-          cutout: variant.cutout,
-          thumbnail: variant.image,
-          scale: variant.scale,
-          fullArt: fullArtFile ? `${FULL_ARTS}${fullArtFile}` : null,
-          // Fame (the iconic list, and how often LEGO remade the name) plus scarcity
-          // (BrickLink), plus a tiny stable nudge so exact ties always break the same
-          // way. Scarcity can carry a rare non-iconic figure past a common iconic one,
-          // and it is what tells a convention exclusive from the everyday Batman.
-          score:
-            (iconic.some(match => match(character.name)) ? 5 : 0) +
-            Math.min(appearances.get(character.name), 4) * 0.5 +
-            scarcity(variant.id) * 5 +
-            jitter(variant.id) * 0.5
-        });
-      }
-    }
+  for (const { theme, character, variant } of variants) {
+    if (!variant.hasCutout) continue;
+    const fullArtFile = fullArtFiles.get(variant.id);
+    const subtheme = subthemeFor(theme.key, character.name, variant.label, variant.id);
+    cards.push({
+      id: variant.id,
+      name: character.name,
+      label: variant.label,
+      year: variant.year,
+      bricklinkId: variant.brickLinkId,
+      owned: variant.owned,
+      themeKey: theme.key,
+      themeName: theme.name,
+      // what the card looks like: its sub-theme's icon, colour and backdrop, and
+      // wherever the sub-theme says nothing, its theme's
+      subtheme: subtheme?.name ?? null,
+      icon: overrides[variant.id]?.icon ?? subtheme?.icon ?? theme.icon,
+      accent: subtheme?.accent ?? theme.accent,
+      art: subtheme?.art ?? theme.art,
+      glow: character.glow,
+      cutout: variant.cutout,
+      thumbnail: variant.image,
+      scale: variant.scale,
+      fullArt: fullArtFile ? `${FULL_ARTS}${fullArtFile}` : null,
+      // Fame (the iconic list, and how often LEGO remade the name) plus scarcity
+      // (BrickLink), plus a tiny stable nudge so exact ties always break the same
+      // way. Scarcity can carry a rare non-iconic figure past a common iconic one,
+      // and it is what tells a convention exclusive from the everyday Batman.
+      score:
+        (iconic.some(match => match(character.name)) ? 5 : 0) +
+        Math.min(appearances.get(character.name), 4) * 0.5 +
+        scarcity(variant.id) * 5 +
+        jitter(variant.id) * 0.5
+    });
   }
 
   // Rank by score and cut into tiers by share, so the mix is always the same
@@ -174,8 +157,6 @@ function buildPool() {
 }
 
 export const cardPool = buildPool();
-
-export const cardsById = new Map(cardPool.map(card => [card.id, card]));
 
 // Figures grouped by their base tier; a Gold pull is drawn from the top two
 export const poolByTier = Object.fromEntries(

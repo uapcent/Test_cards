@@ -96,6 +96,12 @@ export const themes = themeIndex.map(theme => {
 
 export const characters = themes.flatMap(theme => theme.characters);
 
+// Every variant in the collection, each with the character and theme it belongs to, for
+// the pages that work one picture at a time (Rankings, the trading cards)
+export const variants = themes.flatMap(theme =>
+  theme.characters.flatMap(character => character.variants.map(variant => ({ theme, character, variant })))
+);
+
 export const charactersById = new Map(characters.map(character => [character.id, character]));
 
 export const collection = {

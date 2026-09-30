@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { TIER_INFO } from "../data/cardPool.js";
+import { prefersReducedMotion } from "../lib/hooks.js";
+import { TIER_INFO } from "../data/tiers.js";
 import { ThemeIcon } from "./icons.jsx";
 import "./tradingCard.css";
 
@@ -43,8 +44,6 @@ function useFigure(url, fallback) {
 
   return [src, aspect];
 }
-
-const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function Front({ card, tier, info }) {
   const number = (card.bricklinkId ?? card.id).toUpperCase();
@@ -126,7 +125,7 @@ export default function TradingCard({ card, tier, flipped = true, tell = null, s
 
   const move = event => {
     const el = ref.current;
-    if (!el || reducedMotion()) return;
+    if (!el || prefersReducedMotion()) return;
     const box = el.getBoundingClientRect();
     const x = (event.clientX - box.left) / box.width;
     const y = (event.clientY - box.top) / box.height;

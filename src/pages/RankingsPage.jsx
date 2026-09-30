@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { themes } from "../data/collection.js";
+import { variants } from "../data/collection.js";
 import { Icon, ThemeIcon } from "../components/icons.jsx";
 import "./rankings.css";
 
@@ -11,26 +11,22 @@ const LEADERBOARD_SIZE = 15;
 // so votes saved earlier still count
 function buildEntries() {
   const byId = new Map();
-  for (const theme of themes) {
-    for (const character of theme.characters) {
-      for (const variant of character.variants) {
-        if (!variant.hasImage) continue;
-        byId.set(variant.id, {
-          id: variant.id,
-          name: character.name,
-          label: variant.label,
-          year: variant.year,
-          owned: variant.owned,
-          image: variant.image,
-          cutout: variant.cutout,
-          hasCutout: variant.hasCutout,
-          themeName: theme.name,
-          icon: theme.icon,
-          accent: theme.accent,
-          art: theme.art
-        });
-      }
-    }
+  for (const { theme, character, variant } of variants) {
+    if (!variant.hasImage) continue;
+    byId.set(variant.id, {
+      id: variant.id,
+      name: character.name,
+      label: variant.label,
+      year: variant.year,
+      owned: variant.owned,
+      image: variant.image,
+      cutout: variant.cutout,
+      hasCutout: variant.hasCutout,
+      themeName: theme.name,
+      icon: theme.icon,
+      accent: theme.accent,
+      art: theme.art
+    });
   }
   return [...byId.values()];
 }

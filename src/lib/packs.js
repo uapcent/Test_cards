@@ -1,4 +1,5 @@
-import { TIERS, cardPool, poolByTier } from "../data/cardPool.js";
+import { cardPool, poolByTier } from "../data/cardPool.js";
+import { TIERS, tierRank } from "../data/tiers.js";
 
 // Everything a player can change about how packs are rolled. Odds are weights,
 // not percentages, so they do not need to add up to anything.
@@ -61,6 +62,10 @@ export function rollPack(settings) {
     }
   }
 
-  cards.sort((a, b) => TIERS.indexOf(a.tier) - TIERS.indexOf(b.tier));
+  cards.sort((a, b) => tierRank(a.tier) - tierRank(b.tier));
   return settings.sticker ? [entry(pick(cardPool), "sticker"), ...cards] : cards;
 }
+
+// The best card of a pack (or of part of one); the first wins a tie
+export const bestOf = cards =>
+  cards.reduce((top, item) => (tierRank(item.tier) > tierRank(top.tier) ? item : top), cards[0]);
