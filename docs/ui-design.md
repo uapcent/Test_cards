@@ -1,6 +1,6 @@
 # The layouts and why they work this way
 
-The site keeps three ways of looking at the same collection, plus the voting page.
+The site keeps three ways of looking at the same collection, plus the voting page and the card packs.
 They were drawn as wireframes before any of them was built; the boards are in
 [prototypes/](prototypes/) and the decisions taken from them are recorded here.
 
@@ -136,6 +136,96 @@ because you cannot judge a black shape. A padlock and "Not owned" mark them.
 
 On a phone the panels stay side by side, since comparing is the point; the theme
 name shrinks to its icon and the leaderboard moves below.
+
+## Packs
+
+Booster packs of trading cards, one card per variant with a picture (443 today).
+Tear the pack, turn the cards over one at a time, keep them in an album. Nothing is
+saved: closing the tab empties the album, on purpose.
+
+**Rarity ladder.** Each tier is a template, an effect and a border:
+
+| Tier | Template | Effect | Border |
+| --- | --- | --- | --- |
+| Common | Classic frame | none | grey |
+| Rare | Classic frame | holographic figure | grey |
+| Epic | Full art | none | gold |
+| Legendary | Full art | foil | gold |
+| Gold | Classic frame | gold-tinted figure | gold |
+| Die-cut | Sticker | none | white |
+
+Gold is the top of the ladder and is drawn from the Epic and Legendary figures, so a
+Gold Common cannot exist. Every pack also carries one die-cut sticker; stickers never
+get an effect, and are not a tier that can be rolled.
+
+**A figure's tier is fixed, a pull is random.** Each variant has a base tier, worked
+out in `src/data/cardPool.js` from a score and cut into shares (5% Legendary, 10% Epic,
+25% Rare, the rest Common). A pull first rolls a tier from the odds, then draws a figure
+of that tier, so Darth Vader is always Legendary and Jar Jar always is not. The score
+is fame plus scarcity:
+
+- **Fame:** 5 points for being in the `iconic` list in `data/cards.yaml`, and half a
+  point for each time LEGO remade the name in the collection (up to 2).
+- **Scarcity, up to 5 points**, from BrickLink numbers in `data/card-stats.yaml`: how
+  few lots are for sale (half the weight), how few sets the figure came in (0.3) and how
+  old the release is (0.2). Each is a standing among all figures, not a raw number, so
+  one very expensive or very common figure cannot distort the rest. This is what puts a
+  convention-exclusive Batman above the everyday one, and lets a scarce figure that is
+  not on the iconic list outrank a common one that is.
+- A tiny stable nudge, so exact ties always break the same way.
+
+A figure with no stats counts as middling, not rare or common. `overrides` in
+`cards.yaml` pin single figures by BrickLink ID.
+
+**Full art is the exception to "no hand-made images".** `assets/full_arts/<id>.webp`
+replaces the cutout on Epic and Legendary cards; without one the cutout is used. Drop a
+PNG there and run `npm run full-arts`.
+
+**Sub-themes give a card its look.** Every card has a theme and often something narrower
+inside it: a faction (Galactic Empire, Jedi), a hero family (Bat Family, X-Men), an
+episode or a season (The Prequels), a series (Skulkin, Pirates). A sub-theme is defined
+in `data/cards.yaml` and supplies an icon, a colour and, if you add a picture, a
+backdrop; whatever it leaves out comes from the theme. A card belongs to one, chosen
+by its character name or by its variant label (labels already say "Episode III" or
+"Mars Mission"), and the first match in the theme's list wins, so narrow ones go
+before broad ones. The card's footer names the sub-theme, or the theme without one.
+The icon replaces the diamond; the drawings are generic placeholders in `icons.jsx`.
+
+**Fitting the figure.** Every figure is drawn at the same height with its feet on the
+same line, and its width simply follows the picture, the way the Showcase does it; the
+per-variant `scale` shrinks small pieces (droids, children) but never enlarges a big
+one, since it would only lose its head to the frame. On a frame card (Common, Rare, Gold)
+the art window is a fixed size, so figures stand on its lower edge with a little room
+above, and a wide one (wings, a cloak) is cut by the inner frame. On a full-art card
+nothing clips it and a wide figure spills past the card, limited to about 130% of the
+card's width, and on hover it also grows and slides with the pointer. A figure's shape
+is read from its picture the first time it is shown. Head and foot bars have fixed
+heights, because the window used to shrink whenever a name carried a variant label,
+which is what made some figures seem to hover.
+
+**Foil flows.** Bands of the whole spectrum stream across the card, faster and further
+the more the pointer moves, and drift by themselves while nothing is hovering. A soft
+bright band follows the pointer, and a few sparkles twinkle at irregular spots (evenly
+spaced dots read as a grid). It uses `screen` blending so it shows on dark art, and
+reduced motion switches the drift and the twinkle off.
+
+**Gold is always a dark card**, whatever the theme, so the gold has something to
+stand out against.
+
+**The pack is a stack.** The cards still to open fan out behind the current one, up
+to five, with plain backs that give nothing away. Only the card on top glows in its
+tier's colour.
+
+**The reveal is built for anticipation.** The back of an unopened card glows in its
+tier's colour before it is turned, Epic and above wait a moment while a riser builds,
+then flash, shake and burst. Cards come worst to best, the die-cut first, and a run of
+good pulls raises the chime's pitch. Reveal all skips ahead and plays only the best
+card's sound. Reduced motion turns off tilt, shake and the flash.
+
+**Settings are on the page** (pack size up to 100, the odds of each tier, sticker and
+guaranteed-Rare toggles, sound and volume) with presets for Normal, Lucky, All
+Legendary and All Gold. Odds are weights, not percentages; the page shows the
+resulting percentages.
 
 ## Details panel
 

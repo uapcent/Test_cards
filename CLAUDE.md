@@ -23,6 +23,8 @@ npm run thumbnails          # cutouts/ (falls back to source_images/) -> .../thu
 npm run theme-backgrounds   # shrinks assets/theme_backgrounds/*, always redone
 npm run images:unused       # lists images no character uses; add -- --delete to remove
 npm run register            # interactive: add a figure from a BrickLink URL
+npm run full-arts           # assets/full_arts/*.png -> trimmed WebP; originals go to source_images/full_arts/
+npm run card-stats          # fetches BrickLink lots/sets/year into data/card-stats.yaml (slow, resumable)
 ```
 
 Run `cutouts` before `thumbnails` when adding a figure — thumbnails are built
@@ -36,11 +38,11 @@ its cutout, never edited by hand itself.
 
 | Path | What |
 | --- | --- |
-| `data/` | The collection, as YAML. `themes.yaml` lists the themes; one file per theme. |
-| `src/pages/` | One file per layout: Tokens, Showcase, Classic, Rankings. |
+| `data/` | The collection, as YAML. `themes.yaml` lists the themes; one file per theme. `cards.yaml` is the trading-card layer on top. |
+| `src/pages/` | One file per layout: Tokens, Showcase, Classic, Rankings, Packs. |
 | `src/components/` | Pieces shared between layouts: the token, the details dialog, the icons. |
 | `src/data/collection.js` | Reads the YAML and builds the model every page uses. |
-| `assets/` | What the site serves: `minifigures_images/thumbnails/`, `.../cutouts/`, `theme_backgrounds/`. |
+| `assets/` | What the site serves: `minifigures_images/thumbnails/`, `.../cutouts/`, `theme_backgrounds/`, `full_arts/`. |
 | `source_images/` | Full-size originals. Not served, only used to make the two sizes above. |
 | `scripts/` | Image tools. |
 | `docs/` | Longer explanations, listed below. |
@@ -62,7 +64,7 @@ its cutout, never edited by hand itself.
 - [docs/architecture.md](docs/architecture.md) — how the app is put together.
 - [docs/data-model.md](docs/data-model.md) — the YAML, field by field, and how to add a figure.
 - [docs/images.md](docs/images.md) — the three image sizes and the scripts that make them.
-- [docs/ui-design.md](docs/ui-design.md) — the layouts and why each one behaves as it does.
+- [docs/ui-design.md](docs/ui-design.md) — the layouts, the card packs, and why each one behaves as it does.
 - [docs/deployment.md](docs/deployment.md) — GitHub Pages, the workflow, the push problem.
 - [docs/prototypes/](docs/prototypes/) — the wireframes the design came from.
 - [docs/open-items.md](docs/open-items.md) — known issues and what was planned next.

@@ -7,7 +7,7 @@ server and no database. The collection lives in YAML files that are read at buil
 time, so the whole site is HTML, CSS, one JavaScript bundle and a folder of images.
 
 ```
-data/*.yaml ──(build)──> one bundle ──> src/data/collection.js ──> the four pages
+data/*.yaml ──(build)──> one bundle ──> src/data/collection.js ──> the pages
 assets/**            copied as-is ──> images the pages request by URL
 ```
 
@@ -65,6 +65,7 @@ reading this model and deciding how to draw it.
 | Showcase | `#/showcase` | Theme tabs, slanted tiles, the chosen figure shown large. |
 | Classic | `#/classic` | The original page, ported. Cards that cycle their variants. |
 | Rankings | `#/rankings` | Elo voting between two pictures. |
+| Packs | `#/packs` | Trading-card booster packs and an album. See below. |
 
 Behaviour and the reasoning behind each layout is in [ui-design.md](ui-design.md).
 
@@ -73,8 +74,10 @@ Behaviour and the reasoning behind each layout is in [ui-design.md](ui-design.md
 - `components/FigureToken.jsx` — one round token with its state, badges and count.
 - `components/DetailsDialog.jsx` — the details panel, used by Tokens and Classic.
   Closes on Escape, moves between variants with the arrow keys.
-- `components/icons.jsx` — every icon, drawn as inline SVG. Theme icons are
-  deliberately generic shapes rather than brand logos, which are trademarked.
+- `components/icons.jsx` — every icon, drawn as inline SVG. Theme icons and the
+  finer sub-theme symbols (skull, rocket, imperial...) share one registry and are drawn
+  by the same `ThemeIcon`. They are deliberately generic shapes rather than brand
+  logos, which are trademarked.
 - `lib/gridNav.js` — arrow-key movement in a grid. Left and right step through the
   document order; up and down measure the boxes on screen and pick the nearest one
   in the row above or below, so uneven rows still behave.
@@ -99,3 +102,42 @@ The one exception is the Rankings page, which stores its Elo ratings in
 `localStorage` under the key `ratings`, keyed by image ID. Those votes are per
 browser: they do not sync between devices and Claude never sees them. The keys
 have been kept stable across refactors on purpose, so older votes still count.
+
+## The card layer (Packs)
+
+The Packs page turns the collection into trading cards. It follows the same rule as
+the rest of the app — the model is built once and pages only draw it — with one
+addition: card facts that are not about the figure itself live in their own file.
+
+```
+data/cards.yaml ─┐
+                 ├─> src/data/cardPool.js ──> src/lib/packs.js ──> src/lib/packStore.js ──> PacksPage
+collection.js ───┘        (one card per          (rolls a pack)       (session state)
+                           variant, its rarity
+                           and emblem)
+```
+
+**Composition, not inheritance.** YAML cannot extend another file, and would not
+help here: the figure data is spread over twelve theme files. `cards.yaml` is a
+second layer keyed by name or by BrickLink ID, joined to the collection in
+`cardPool.js`, the way image paths are already built from the ID. Nothing in a theme
+file knows cards exist, and a figure that `cards.yaml` never mentions still becomes
+a card.
+
+**Session state lives outside React**, in `src/lib/packStore.js`, so the album,
+the settings and a half-opened pack survive switching pages. It is a plain module
+with `useSyncExternalStore`, and it writes nothing anywhere: a reload starts over.
+This is deliberately unlike Rankings, which keeps its votes in `localStorage`.
+
+**Card classes are `tcard`, not `card`.** `classic.css` is loaded on every page and
+defines a global `.card` (with `overflow: hidden`), which silently clipped the
+trading cards' figures until they were renamed. Any new stylesheet should either
+prefix its classes or nest them under its page.
+
+**Sound is synthesised** in `src/lib/sound.js` with the Web Audio API, so there
+are no audio files in the repository.
+
+**Full arts** in `assets/full_arts/<id>.png|webp` are found by `vite.config.js`,
+which lists the folder once and hands the names to the page as `__FULL_ARTS__`. A
+new file needs the dev server restarted. A figure with no full art shows its normal
+cutout on the theme backdrop instead.

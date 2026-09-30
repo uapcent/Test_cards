@@ -9,6 +9,9 @@ it in `data/themes.yaml` under the theme's `art`, for example:
       accent: "#2f5d86"
       art: star-wars.webp
 
+A sub-theme of the trading cards can name a picture from this folder in the same way
+(`art:` in `data/cards.yaml`); a card with none uses its theme's.
+
 It is drawn behind the large figure on the Showcase page, and behind the
 selected figure on Tokens: dimmed, slightly blurred, faded out at the edges,
 so wide and calm pictures work better than busy ones. Themes without one fall

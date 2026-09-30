@@ -60,6 +60,31 @@ Lego City. It's also now used behind the selected figure on the Tokens page, not
 just Showcase. The rest fall back to their accent colour, which is a perfectly
 good end state if no picture is added.
 
+## Trading cards (Packs)
+
+Built: the packs, the six card looks, sub-themes, synthesised sound, the settings panel
+and the session album. Still open:
+
+- **Sound has never been tuned by ear.** The riser, the impact and the pitch climb were
+  written blind; expect to adjust them.
+- **Finishes still to add:** a misprint for `defective: true` figures, an etched or
+  textured finish, and theme-flavoured effects (hyperspace streaks for Star Wars, a
+  halftone for Marvel). The foil may be too vivid, the Rare holographic is subtle and
+  Gold reads more yellow than metallic.
+- **Sub-theme backdrops** need pictures; until then a sub-theme differs by icon and
+  colour only. Some figures match no sub-theme (Marvel and Lego City mostly) and keep
+  their theme's look.
+- **A card belongs to one sub-theme**, so a faction and an episode cannot both show.
+- **The widest figures are smaller than standing ones** on a portrait card. A
+  landscape card for the widest four (winged figures) is the alternative to cropping.
+- **The card icons are placeholders**, generic drawings meant to be replaced by hand.
+- **Rarity has no BrickLink price**, only lots, sets and year: the price guide answers
+  a plain request with a bot challenge. The script (`npm run card-stats`) is meant to be
+  rerun now and then, since lots for sale drift.
+- **Album:** no filter by theme, no silhouettes for figures not yet pulled, and the
+  pool is always the whole collection.
+- **Touch:** tilt follows a finger drag; device-orientation tilt would suit a phone.
+
 ## Decisions already made, so they do not get relitigated
 
 1. One token or tile per character; variants live inside it.
@@ -70,3 +95,5 @@ good end state if no picture is added.
    changes the figure.
 5. `glow` is optional; characters without one do not glow.
 6. Theme icons are drawn here rather than taken from brand artwork.
+7. Trading cards are session-only: nothing about the packs or the album is ever stored.
+8. A trading card is one variant, and its rarity is fixed per figure; only the pull is random.

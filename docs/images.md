@@ -99,6 +99,21 @@ silhouette — which is worth keeping for figures that are not on BrickLink at a
 
 ## Theme backdrops
 
+## Full arts
+
+`assets/full_arts/<id>.webp` holds hand-made renders for the Epic and Legendary trading
+cards, named after the same BrickLink ID. They are not generated from anything: they
+are made by hand and replace the cutout on those cards, which use the cutout when
+there is no full art.
+
+Drop a PNG or JPEG in and run `npm run full-arts`. It trims the transparent border
+(every card draws its figure at one height with its feet on one line, so padding under
+the feet would make it float), shrinks it to at most 900 px tall, saves a WebP and moves
+the original to `source_images/full_arts/`. A file that is already a WebP is never
+touched, so a finished render is safe. The dev server needs a restart to notice a new
+one, because the list of files is read once when it starts (`vite.config.js`).
+`npm run images:unused` reports a full art that matches no figure, but never deletes one.
+
 `assets/theme_backgrounds/` holds optional pictures behind the large figure on
 the Showcase page, and behind the selected figure on Tokens, named per theme
 in `data/themes.yaml`. They are dimmed, desaturated, blurred and masked so
