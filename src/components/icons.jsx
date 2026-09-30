@@ -94,10 +94,135 @@ const THEME_PATHS = {
   )
 };
 
+// Finer-grained symbols for sub-themes: a faction, a hero family, a series (see
+// `subthemes` in data/cards.yaml). Placeholders in the same spirit as the theme
+// icons — generic shapes, meant to be swapped for custom drawings.
+const SUBTHEME_PATHS = {
+  // skull
+  skull: (
+    <g {...stroke}>
+      <path d="M12 3a7 7 0 0 0-7 7c0 2.200 1 4 2.500 5.200V19h9v-3.800C18 14 19 12.200 19 10a7 7 0 0 0-7-7z" />
+      <circle cx="9.200" cy="10.500" r="1.400" />
+      <circle cx="14.800" cy="10.500" r="1.400" />
+      <path d="M10 19v-2.500M14 19v-2.500" />
+    </g>
+  ),
+  // rocket
+  rocket: (
+    <g {...stroke}>
+      <path d="M12 3c3 2.500 4.500 6 4.500 10l-2 2.500h-5L7.500 13C7.500 9 9 5.500 12 3z" />
+      <circle cx="12" cy="10" r="1.600" />
+      <path d="M7.500 13 5 16.500l3 .5M16.500 13l2.500 3.500-3 .5M10.500 18.500 12 21l1.500-2.500" />
+    </g>
+  ),
+  // anchor
+  anchor: (
+    <g {...stroke}>
+      <circle cx="12" cy="5.500" r="2" />
+      <path d="M12 7.500V20M6.500 12h11M5 14c0 3.500 3 6 7 6s7-2.500 7-6" />
+    </g>
+  ),
+  // compass
+  compass: (
+    <g {...stroke}>
+      <circle cx="12" cy="12" r="8.500" />
+      <path d="m9 15 2-5 5-2-2 5z" />
+    </g>
+  ),
+  // police badge
+  badge: (
+    <g {...stroke}>
+      <path d="M12 3l2.500 2.500H18V9l2 3-2 3v3.500h-3.500L12 21l-2.500-2.500H6V15l-2-3 2-3V5.500h3.500z" />
+      <circle cx="12" cy="12" r="2.500" />
+    </g>
+  ),
+  // gear with spokes
+  imperial: (
+    <g {...stroke}>
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="2.2" />
+      <path d="M12 3.5v6.3M12 14.2v6.3M3.5 12h6.3M14.2 12h6.3M6 6l4.4 4.4M13.6 13.6 18 18M18 6l-4.4 4.4M10.4 13.6 6 18" />
+    </g>
+  ),
+  // winged bird
+  rebel: (
+    <path
+      d="M12 20.5 9.6 14 3 8.5c3.6-.3 6 .6 7.4 2.3L12 7l1.6 3.8C15 9.1 17.400 8.200 21 8.500L14.400 14z"
+      {...stroke}
+    />
+  ),
+  // jagged blade
+  sith: (
+    <g {...stroke}>
+      <path d="M19 4 13 10l2 1.500-3 3-.8-1.800L8 14.500" />
+      <path d="m9 15-3 3" />
+      <rect x="3.200" y="16.200" width="5" height="4.600" rx="1" transform="rotate(-45 5.700 18.500)" />
+    </g>
+  ),
+  // droid: dome head with an eye
+  droid: (
+    <g {...stroke}>
+      <path d="M5 13a7 7 0 0 1 14 0z" />
+      <circle cx="12" cy="10.500" r="1.600" />
+      <path d="M6 16.500h12M8 20h8" />
+    </g>
+  ),
+  // trooper helmet
+  helmet: (
+    <g {...stroke}>
+      <path d="M5 13a7 7 0 0 1 14 0v5.500a1.500 1.500 0 0 1-1.500 1.500h-11A1.500 1.500 0 0 1 5 18.500z" />
+      <path d="M7.500 12.500h9v2.500h-9z" />
+    </g>
+  ),
+  // web
+  web: (
+    <g {...stroke}>
+      <path d="M12 3v18M3 12h18M5.600 5.600l12.800 12.800M18.400 5.600 5.600 18.400" />
+      <path d="M12 7.500 16.500 12 12 16.500 7.500 12z" />
+    </g>
+  ),
+  // angular A
+  avengers: (
+    <g {...stroke}>
+      <path d="M4.500 20 12 4l7.500 16" />
+      <path d="M8 14.500h8" />
+    </g>
+  ),
+  // X
+  xmen: (
+    <g {...stroke}>
+      <path d="M5 5l14 14M19 5 5 19" strokeWidth="2.600" />
+    </g>
+  ),
+  // diamond crest
+  superman: <path d="M12 3.500 20.500 9 12 20.500 3.500 9z" {...stroke} />,
+  // lightning bolt
+  bolt: <path d="M13.500 3 6 13.500h5L10 21l8-11h-5.200z" {...stroke} />,
+  // ring lantern
+  lantern: (
+    <g {...stroke}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3" />
+    </g>
+  ),
+  // trident
+  trident: (
+    <g {...stroke}>
+      <path d="M12 21V8M6.500 5v4.500a5.500 5.500 0 0 0 11 0V5" />
+      <path d="M12 3v5" />
+    </g>
+  ),
+  star: <path d="M12 3l2.600 5.800 6.400.7-4.800 4.300 1.400 6.300L12 16.800 6.400 20.100l1.400-6.300L3 9.500l6.400-.7z" {...stroke} />
+};
+
+// One registry for every symbol a theme, a sub-theme or a card can wear, so they are
+// all drawn, named and replaced the same way. A name with no drawing shows the brick.
+const SYMBOL_PATHS = { ...THEME_PATHS, ...SUBTHEME_PATHS };
+
 export function ThemeIcon({ name, size = 22 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      {THEME_PATHS[name] ?? THEME_PATHS.brick}
+      {SYMBOL_PATHS[name] ?? SYMBOL_PATHS.brick}
     </svg>
   );
 }

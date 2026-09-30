@@ -1,0 +1,607 @@
+/* A trading card is always drawn 220 x 308 and scaled from outside, so every
+   measurement in here is in plain pixels. Layout comes from the tier's
+   template (frame / art / sticker), effect from its finish, border from its
+   material — see TIER_INFO in src/data/cardPool.js. */
+.tcard-box {
+  flex: none;
+}
+
+.tcard {
+  --mx: 50%;
+  --my: 30%;
+  --rx: 0deg;
+  --ry: 0deg;
+  --px: 0;
+  --py: 0;
+  position: relative;
+  width: 220px;
+  height: 308px;
+  perspective: 700px;
+  transform-origin: 0 0;
+  color: var(--text);
+  user-select: none;
+}
+
+.tcard__tilt {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+.tcard.hover .tcard__tilt {
+  transition: none;
+}
+
+.tcard__flip {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transition: transform 0.6s cubic-bezier(0.3, 1.35, 0.5, 1);
+}
+
+.tcard--up .tcard__flip {
+  transform: rotateY(0);
+}
+
+.tcard__front,
+.tcard__back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.tcard__front * {
+  backface-visibility: hidden;
+}
+
+/* ---------- the back ---------- */
+.tcard__back {
+  transform: rotateY(180deg);
+  background: linear-gradient(150deg, #262b37, #12151c);
+  border: 2px solid #4a5162;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.back__pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(rgba(242, 193, 78, 0.16) 1.4px, transparent 1.6px) 0 0 / 14px 14px,
+    repeating-linear-gradient(45deg, transparent 0 12px, rgba(255, 255, 255, 0.03) 12px 24px);
+}
+
+.back__mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  width: 92px;
+  height: 92px;
+  transform: translate(-50%, -50%);
+  place-items: center;
+  border: 2px solid rgba(242, 193, 78, 0.7);
+  border-radius: 50%;
+  background: #0d0f14;
+  color: var(--gold);
+}
+
+/* a back on its own, in the stack of cards still to open */
+.tcard--static .tcard__back {
+  transform: none;
+  backface-visibility: visible;
+}
+
+/* the hint of what is inside: the edge of the back glows in the tier's colour */
+.tcard--tell.tcard--down .tcard__back {
+  border-color: var(--tell);
+  box-shadow:
+    0 0 0 2px var(--tell),
+    0 0 26px 4px var(--tell),
+    0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- shared layers ---------- */
+.tcard .bg,
+.tcard .fig,
+.tcard .holo,
+.tcard .glare {
+  position: absolute;
+}
+
+/* Every figure is drawn at the same height, with its feet on the same line, and its
+   width simply follows the picture, as on the Showcase. A wide one is therefore wider
+   than the window, and what the window does with the overhang is up to the layout:
+   the frame cuts it, the full art lets it spill. --fig-h and --fig-bottom are set per
+   layout; --fig-scale shrinks the odd small piece. */
+.fig,
+.holo {
+  bottom: var(--fig-bottom, 0);
+  left: 50%;
+  /* centred by offset, since auto margins cannot centre a box wider than its parent */
+  width: calc(var(--fig-h) * var(--fig-scale, 1) * var(--aspect, 0.62));
+  height: calc(var(--fig-h) * var(--fig-scale, 1));
+  margin-left: calc(var(--fig-h) * var(--fig-scale, 1) * var(--aspect, 0.62) / -2);
+}
+
+.fig {
+  background: var(--fig) 0 0 / 100% 100% no-repeat;
+}
+
+/* the rainbow only shows where the figure is: the same picture is its mask */
+.holo {
+  background: conic-gradient(
+    from calc(var(--mx) * 3.6) at var(--mx) var(--my),
+    #ff5e7e,
+    #ffd15e,
+    #6dff9a,
+    #5ec8ff,
+    #b06dff,
+    #ff5e7e
+  );
+  -webkit-mask: var(--fig) 0 0 / 100% 100% no-repeat;
+  mask: var(--fig) 0 0 / 100% 100% no-repeat;
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glare {
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.5;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.38), transparent 45%);
+  mix-blend-mode: overlay;
+}
+
+.emblem {
+  display: grid;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+}
+
+/* ---------- finishes ---------- */
+.finish-holo .holo {
+  opacity: 0.95;
+}
+
+.finish-holo .glare {
+  opacity: 0.7;
+}
+
+/* Foil: bands of the whole spectrum that stream across the card, faster and further
+   the more the pointer moves, and keep drifting by themselves at rest; a soft bright
+   band that follows the pointer; and a few sparkles at irregular spots, since evenly
+   spaced dots read as a grid. --flow is what moves at rest, and it is registered so
+   the browser can animate it. */
+@property --flow {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.finish-foil .glare {
+  --shift: calc(var(--flow) + var(--px) * 260px + var(--py) * 160px);
+  opacity: 1;
+  mix-blend-mode: screen;
+  background:
+    linear-gradient(
+      105deg,
+      transparent calc(var(--mx) - 22%),
+      rgba(255, 255, 255, 0.4) var(--mx),
+      transparent calc(var(--mx) + 22%)
+    ),
+    repeating-linear-gradient(
+      115deg,
+      hsl(340 100% 62% / 0.5) calc(var(--shift) + 0px),
+      hsl(28 100% 58% / 0.5) calc(var(--shift) + 22px),
+      hsl(56 100% 56% / 0.45) calc(var(--shift) + 44px),
+      hsl(140 100% 52% / 0.5) calc(var(--shift) + 68px),
+      hsl(190 100% 58% / 0.52) calc(var(--shift) + 92px),
+      hsl(262 100% 68% / 0.52) calc(var(--shift) + 118px),
+      hsl(340 100% 62% / 0.5) calc(var(--shift) + 144px)
+    );
+}
+
+.finish-foil .glare::before,
+.finish-foil .glare::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: foil-twinkle 1.9s ease-in-out infinite alternate;
+}
+
+.finish-foil .glare::before {
+  background:
+    radial-gradient(circle at 16% 20%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px),
+    radial-gradient(circle at 71% 13%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px),
+    radial-gradient(circle at 44% 47%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 6px),
+    radial-gradient(circle at 88% 62%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px);
+}
+
+.finish-foil .glare::after {
+  animation-delay: 0.95s;
+  background:
+    radial-gradient(circle at 33% 71%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px),
+    radial-gradient(circle at 58% 28%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 6px),
+    radial-gradient(circle at 9% 54%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px),
+    radial-gradient(circle at 81% 86%, #fff 0 1px, rgba(255, 255, 255, 0.45) 2px, transparent 7px);
+}
+
+.tcard:not(.hover).finish-foil .glare {
+  animation: foil-flow 2.6s linear infinite;
+}
+
+@keyframes foil-flow {
+  to {
+    --flow: 144px;
+  }
+}
+
+@keyframes foil-twinkle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Gold is always a dark card, whatever the theme, so the gold reads against it */
+.layout-frame.finish-gold .face {
+  background: #08080a;
+}
+
+.layout-frame.finish-gold .head {
+  background: linear-gradient(#1c1b17, #0a0a0b);
+}
+
+.layout-frame.finish-gold .head__name b {
+  color: #f6dc84;
+}
+
+.layout-frame.finish-gold .art {
+  background: #0a0a0c;
+}
+
+.layout-frame.finish-gold .art .bg {
+  background:
+    radial-gradient(circle at 50% 60%, rgba(214, 160, 23, 0.3), transparent 65%),
+    var(--art, none) center / cover;
+  opacity: 0.2;
+}
+
+.finish-gold .fig {
+  filter: sepia(1) saturate(3.2) hue-rotate(-12deg) brightness(1.15) contrast(1.1);
+}
+
+.finish-gold .glare {
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(
+    105deg,
+    transparent calc(var(--mx) - 22%),
+    rgba(255, 244, 190, 0.95) var(--mx),
+    transparent calc(var(--mx) + 22%)
+  );
+}
+
+/* ---------- frame (Common, Rare, Gold) ---------- */
+.layout-frame .tcard__front {
+  padding: 9px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
+.layout-frame.border-gray .tcard__front {
+  background: linear-gradient(145deg, #b4bac6, #5b616d 45%, #c4c9d3);
+}
+
+.layout-frame.border-gold .tcard__front {
+  background: linear-gradient(145deg, #fff2b0, #d4a017 40%, #fff2b0 60%, #b8860b);
+}
+
+.layout-frame .face {
+  position: relative;
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 22%, #0e1015);
+  grid-template-rows: auto 1fr auto;
+}
+
+.layout-frame .head {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 10px;
+  border-bottom: 1px solid #000;
+  background: linear-gradient(color-mix(in srgb, var(--accent) 55%, #1c2029), color-mix(in srgb, var(--accent) 30%, #12151b));
+}
+
+.head__name {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.head__name b {
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.head__name small {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.layout-frame .art {
+  position: relative;
+  margin: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+.layout-frame.border-gold .art {
+  border-color: #b89240;
+}
+
+.layout-frame .art .bg {
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 60%),
+    var(--art, none) center / cover;
+  opacity: 0.85;
+}
+
+/* the window is 182 x 204 whatever the name says (see .head and .foot), and the
+   figure's feet stand on its lower edge with a little room above the head. A wide
+   one runs past the sides and is cut by the inner frame. */
+.layout-frame {
+  --fig-h: 184px;
+}
+
+.layout-frame .foot {
+  display: flex;
+  height: 26px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: #c9ccd4;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.layout-frame .foot i {
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ---------- art (Epic, Legendary): full bleed, the figure breaks out ---------- */
+.layout-art .tcard__front {
+  overflow: visible;
+}
+
+.layout-art .clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 3px solid #e2b93d;
+  border-radius: 14px;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 55%),
+    var(--art, none) center / cover,
+    var(--accent);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.55),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Tilting the card makes the figure grow and slide with the pointer, in front of the border. */
+/* Full art lets a wide figure spill past the card, but not without limit: one
+   twice as wide as it is tall is shrunk until it spans about 130% of the card. */
+.layout-art {
+  --fig-bottom: 74px;
+  --fig-h: min(212px, calc(286px / var(--aspect, 0.62)));
+}
+
+.layout-art .fig,
+.layout-art .holo {
+  transition: transform 0.2s ease-out;
+}
+
+.layout-art.hover .fig,
+.layout-art.hover .holo {
+  transform: translate(calc(var(--px) * 44px), calc(var(--py) * 26px)) scale(1.24) translateZ(50px);
+  transition: transform 0.08s linear;
+}
+
+.layout-art .fig {
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.6));
+}
+
+.layout-art .top {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 3px #000;
+  text-transform: uppercase;
+}
+
+.layout-art .plate {
+  position: absolute;
+  z-index: 2;
+  right: -6px;
+  bottom: 16px;
+  left: -6px;
+  padding: 8px 16px 8px 22px;
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(90deg, rgba(10, 12, 18, 0.94), rgba(10, 12, 18, 0.75));
+  transform: skewX(-8deg) translateZ(60px);
+}
+
+.layout-art .plate > * {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: skewX(8deg);
+  white-space: nowrap;
+}
+
+.layout-art .plate b {
+  font-family: var(--display);
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.layout-art .plate span {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* the glare sits inside the clip so it never spills past the border */
+.layout-art .clip .glare {
+  opacity: 0.55;
+}
+
+.layout-art.finish-foil .clip .glare {
+  opacity: 1;
+}
+
+/* ---------- sticker (one per pack) ---------- */
+.layout-sticker .tcard__front {
+  padding: 8px;
+  border-radius: 16px;
+  background: #f4f1e8;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
+.layout-sticker .face {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.layout-sticker .bg {
+  inset: 0;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.16) 1.4px, transparent 1.6px) 0 0 / 9px 9px,
+    linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.4));
+}
+
+.layout-sticker .burst {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 150%;
+  aspect-ratio: 1;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.13) 0 8deg, transparent 8deg 16deg);
+  transform: translate(-50%, -50%);
+}
+
+.layout-sticker {
+  --fig-bottom: 62px;
+  --fig-h: 186px;
+}
+
+.layout-sticker .fig {
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff)
+    drop-shadow(0 -3px 0 #fff) drop-shadow(0 6px 6px rgba(0, 0, 0, 0.5));
+}
+
+.layout-sticker .num {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
+}
+
+.layout-sticker .emblem {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.layout-sticker .banner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 10px 9px;
+  border-top: 4px solid #fff;
+  background: #0d0f14;
+  text-align: center;
+}
+
+.layout-sticker .banner b {
+  display: block;
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.layout-sticker .banner span {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tcard:not(.hover).finish-foil .glare,
+  .finish-foil .glare::before,
+  .finish-foil .glare::after {
+    animation: none;
+  }
+
+  .tcard__tilt,
+  .tcard__flip {
+    transition: none;
+  }
+}
