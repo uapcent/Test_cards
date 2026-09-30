@@ -10,6 +10,8 @@
     "images:unused": "node scripts/cleanup_unused_images.js",
     "cutouts": "python scripts/makeCutouts.py",
     "register": "node scripts/registerFigure.js",
+    "card-stats": "node scripts/fetchCardStats.js",
+    "full-arts": "python scripts/optimizeFullArts.py",
     "theme-backgrounds": "python scripts/optimizeThemeBackgrounds.py"
   },
   "dependencies": {

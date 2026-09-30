@@ -1,4 +1,5 @@
 // Lists images that no character uses. Nothing is deleted unless you pass --delete.
+// Full arts in assets/full_arts/ are checked too, but only ever reported.
 //   node scripts/cleanup_unused_images.js
 //   node scripts/cleanup_unused_images.js --delete
 import fs from "fs";
@@ -12,6 +13,7 @@ const DATA_DIR = path.join(ROOT, "data");
 const SOURCE_DIR = path.join(ROOT, "source_images");
 const THUMB_DIR = path.join(ROOT, "assets/minifigures_images/thumbnails");
 const CUTOUT_DIR = path.join(ROOT, "assets/minifigures_images/cutouts");
+const FULL_ART_DIR = path.join(ROOT, "assets/full_arts");
 
 const SUPPORTED_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 
@@ -60,6 +62,13 @@ const unused = [
 for (const file of unused) {
   if (shouldDelete) fs.unlinkSync(file);
   console.log(`${shouldDelete ? "Deleted" : "Unused"}: ${path.relative(ROOT, file)}`);
+}
+
+// Full arts are hand-made, so they are only reported, never deleted, even with --delete:
+// one that matches no figure is more likely a mistyped ID than something to throw away
+if (fs.existsSync(FULL_ART_DIR)) {
+  const orphans = findUnused(FULL_ART_DIR, plainName);
+  for (const file of orphans) console.log(`Full art with no matching figure (kept): ${path.relative(ROOT, file)}`);
 }
 
 console.log(shouldDelete
