@@ -219,6 +219,9 @@ const SUBTHEME_PATHS = {
 // all drawn, named and replaced the same way. A name with no drawing shows the brick.
 const SYMBOL_PATHS = { ...THEME_PATHS, ...SUBTHEME_PATHS };
 
+// every symbol name a theme, sub-theme or card can use, for pickers
+export const SYMBOL_NAMES = Object.keys(SYMBOL_PATHS);
+
 export function ThemeIcon({ name, size = 22 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">

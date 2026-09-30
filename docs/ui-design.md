@@ -227,6 +227,36 @@ guaranteed-Rare toggles, sound and volume) with presets for Normal, Lucky, All
 Legendary and All Gold. Odds are weights, not percentages; the page shows the
 resulting percentages.
 
+## Card editor (local only)
+
+`#/card-editor` is a tool for setting up the trading cards' look without editing YAML by
+hand. **It only exists under `npm run dev`.** `App.jsx` adds the page only when
+`import.meta.env.DEV` is true, which Vite turns into `false` in a build and drops the
+branch, so the editor, its styles and the `yaml` package it needs never reach the
+deployed site (a build was checked for them). The page refuses to render outside dev as
+well, as a second lock.
+
+It edits two files in memory and gives them back as downloads, to be put over
+`data/cards.yaml` and `data/themes.yaml`; the dev server then reloads them. Nothing is
+written anywhere else.
+
+- **Themes:** a theme's icon, colour and backdrop picture (`themes.yaml`).
+- **Sub-themes:** add, delete, rename and reorder them, set an icon, colour and backdrop
+  (each can be left to inherit the theme's), and which character names and variant
+  labels they take. The order matters, since the first match wins.
+- **Figures:** pin a rarity, choose a sub-theme or give an icon to one figure: the
+  `overrides` of `cards.yaml`.
+
+Every change shows on a real card in three layouts (frame, full art, sticker). A backdrop
+can also be tried from a picture on your computer before it is in the folder: it is
+previewed only in that tab, and the editor reminds you to put it in
+`assets/theme_backgrounds/`, run `npm run theme-backgrounds` and restart the dev server,
+which reads the folder once at start-up.
+
+The files are edited as YAML documents, so every comment survives, and an unedited file
+comes back byte for byte (one blank line before the `overrides` comment in `cards.yaml`
+is the only known difference).
+
 ## Details panel
 
 Shared by Tokens and Classic: portrait, name, a bar per variant showing what is

@@ -1,0 +1,333 @@
+/* The card editor is a local tool, so its look is plain. Every class is prefixed ed-,
+   since all stylesheets are loaded on every page. */
+.ed {
+  padding: 8px 24px 64px;
+}
+
+.ed-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 0 16px;
+}
+
+.ed h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 26px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ed-header p {
+  max-width: 70ch;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.ed code {
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--panel-soft);
+  font-size: 13px;
+}
+
+.ed-badge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--red);
+  border-radius: 4px;
+  color: var(--red);
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.ed-downloads,
+.ed-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ed-button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ed-button:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.ed-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ed-button--primary {
+  border-color: var(--gold);
+}
+
+.ed-button--danger:hover:not(:disabled) {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.ed-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ed-tabs button {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ed-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--gold);
+  color: var(--text);
+}
+
+.ed-split {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.ed-side {
+  display: grid;
+  gap: 10px;
+}
+
+.ed-list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ed-list--tall {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.ed-list button {
+  display: flex;
+  width: 100%;
+  min-height: 38px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ed-list button span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ed-list button i {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.ed-list button .ed-dot {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  background: var(--gold);
+}
+
+.ed-list button small,
+.ed-form h2 small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ed-list button.is-on {
+  border-color: var(--gold);
+}
+
+.ed-form {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+}
+
+.ed-form h2 {
+  margin: 0;
+  font-family: var(--display);
+  letter-spacing: 0.06em;
+}
+
+.ed-form > label {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ed-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.ed-hint--warn {
+  color: var(--gold);
+}
+
+.ed input[type="text"],
+.ed input[type="search"],
+.ed select,
+.ed textarea {
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+}
+
+.ed textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.ed-icons,
+.ed-choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ed-icons button,
+.ed-choice button {
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ed-icons button.is-on,
+.ed-choice button.is-on {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.ed-color {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ed-color input[type="color"] {
+  width: 44px;
+  height: 38px;
+  padding: 2px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.ed-color input[type="text"] {
+  width: 120px;
+}
+
+.ed-color button {
+  min-height: 34px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.ed-art {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.ed-art__thumb {
+  width: 280px;
+  max-width: 100%;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.ed-file {
+  color: var(--gold);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ed-file input {
+  display: none;
+}
+
+.ed-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+@media (max-width: 760px) {
+  .ed-split {
+    grid-template-columns: 1fr;
+  }
+}

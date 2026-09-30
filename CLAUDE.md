@@ -15,6 +15,10 @@ npm run build    # writes dist/
 npm run preview  # serves dist/
 ```
 
+With `npm run dev` running there is one extra page, `#/card-editor`, for setting up the
+trading cards' look (see [docs/ui-design.md](docs/ui-design.md#card-editor-local-only)).
+It does not exist in a build.
+
 Image helpers:
 
 ```bash

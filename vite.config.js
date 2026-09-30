@@ -14,6 +14,16 @@ const fullArts = (() => {
   }
 })();
 
+// The pictures available as theme backdrops, for the dev-only card editor's picker. Read
+// once at start-up like the full arts.
+const themeArt = (() => {
+  try {
+    return readdirSync("assets/theme_backgrounds").filter(file => /\.(png|webp|jpe?g)$/i.test(file));
+  } catch {
+    return [];
+  }
+})();
+
 export default defineConfig({
   // The site is served from https://uapcent.github.io/Test_cards/
   base: "/Test_cards/",
@@ -21,6 +31,6 @@ export default defineConfig({
   publicDir: "assets",
   // stale files from an earlier build must not ship
   build: { emptyOutDir: true },
-  define: { __FULL_ARTS__: JSON.stringify(fullArts) },
+  define: { __FULL_ARTS__: JSON.stringify(fullArts), __THEME_ART__: JSON.stringify(themeArt) },
   plugins: [react(), yaml()]
 });

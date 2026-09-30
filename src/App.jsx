@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import TokensPage from "./pages/TokensPage.jsx";
 import ShowcasePage from "./pages/ShowcasePage.jsx";
 import ClassicPage from "./pages/ClassicPage.jsx";
@@ -13,6 +13,17 @@ const PAGES = [
   { route: "rankings", label: "Rankings", Page: RankingsPage },
   { route: "packs", label: "Packs", Page: PacksPage }
 ];
+
+// A local tool for setting up the trading cards, NOT part of the site. It is added only
+// when import.meta.env.DEV is true; Vite turns that into `false` in a build and drops
+// the dead branch, so the editor (and the YAML library it needs) is never shipped.
+if (import.meta.env.DEV) {
+  PAGES.push({
+    route: "card-editor",
+    label: "Card editor",
+    Page: lazy(() => import("./pages/editor/CardEditorPage.jsx"))
+  });
+}
 
 function useHashRoute() {
   const read = () => window.location.hash.replace(/^#\/?/, "") || "tokens";
@@ -45,7 +56,9 @@ export default function App() {
           </a>
         ))}
       </nav>
-      <Page />
+      <Suspense fallback={null}>
+        <Page />
+      </Suspense>
     </>
   );
 }
