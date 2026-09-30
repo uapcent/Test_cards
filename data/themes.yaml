@@ -58,11 +58,6 @@
   icon: cone
   accent: "#2b6b74"
   art: lego-city.webp
-- key: lego-city
-  name: Space
-  icon: cone
-  accent: "#2b6b74"
-  art: lego-city.webp
 - key: miscellaneous
   name: Miscellaneous
   icon: brick
