@@ -294,6 +294,7 @@ subthemes:
       name: Space
       icon: rocket
       accent: "#2b3d6b"
+      art: space.webp
       names:
         - Spacewalking Astronaut
         - Astronaut
