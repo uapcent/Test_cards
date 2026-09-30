@@ -17,11 +17,9 @@
 // than pushing on. Run it again later and it carries on where it left off.
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 import { dump, load } from "js-yaml";
+import { DATA_DIR, localImageIds } from "./lib/collection.js";
 
-const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const DATA_DIR = path.join(ROOT, "data");
 const STATS_FILE = path.join(DATA_DIR, "card-stats.yaml");
 
 const USER_AGENT =
@@ -56,20 +54,6 @@ function writeStats(stats) {
 # middling rather than rare or common.
 `;
   fs.writeFileSync(STATS_FILE, header + dump(sorted, { flowLevel: 1, lineWidth: 200 }), "utf8");
-}
-
-function allFigureIds() {
-  const themes = load(fs.readFileSync(path.join(DATA_DIR, "themes.yaml"), "utf8"));
-  const ids = new Set();
-  for (const theme of themes) {
-    const characters = load(fs.readFileSync(path.join(DATA_DIR, `${theme.key}.yaml`), "utf8")) ?? [];
-    for (const character of characters) {
-      for (const variant of character.variants) {
-        if (variant.image && !/^(https?:)?\/\//i.test(variant.image)) ids.add(variant.image);
-      }
-    }
-  }
-  return [...ids];
 }
 
 // Something we should not push past: stop the whole run
@@ -113,7 +97,7 @@ async function main() {
   const only = value("only")?.split(",").map(id => id.trim().toLowerCase());
   const limit = Number(value("limit")) || Infinity;
 
-  let queue = only ?? allFigureIds();
+  let queue = only ?? localImageIds();
   if (!flag("refresh") && !only) queue = queue.filter(id => !(id in stats));
   queue = queue.slice(0, limit);
 
@@ -162,7 +146,7 @@ async function main() {
     save();
   }
 
-  const left = allFigureIds().filter(id => !(id in stats)).length;
+  const left = localImageIds().filter(id => !(id in stats)).length;
   console.log(`Fetched ${done}. ${Object.keys(stats).length} on file, ${left} still missing.`);
 }
 

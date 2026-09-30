@@ -39,12 +39,12 @@ its cutout, never edited by hand itself.
 | Path | What |
 | --- | --- |
 | `data/` | The collection, as YAML. `themes.yaml` lists the themes; one file per theme. `cards.yaml` is the trading-card layer on top. |
-| `src/pages/` | One file per layout: Tokens, Showcase, Classic, Rankings, Packs. |
+| `src/pages/` | One file per layout: Tokens, Showcase, Classic, Rankings; Packs is a folder of its own. |
 | `src/components/` | Pieces shared between layouts: the token, the details dialog, the icons. |
 | `src/data/collection.js` | Reads the YAML and builds the model every page uses. |
 | `assets/` | What the site serves: `minifigures_images/thumbnails/`, `.../cutouts/`, `theme_backgrounds/`, `full_arts/`. |
 | `source_images/` | Full-size originals. Not served, only used to make the two sizes above. |
-| `scripts/` | Image tools. |
+| `scripts/` | Image tools and the BrickLink scripts; `scripts/lib/collection.js` is how the JS ones read the collection. |
 | `docs/` | Longer explanations, listed below. |
 
 ## Rules worth knowing before changing things

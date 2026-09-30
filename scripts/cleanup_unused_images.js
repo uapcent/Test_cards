@@ -4,12 +4,9 @@
 //   node scripts/cleanup_unused_images.js --delete
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-import { load } from "js-yaml";
+import { ROOT, localImageIds } from "./lib/collection.js";
 
 // ===== PATHS =====
-const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const DATA_DIR = path.join(ROOT, "data");
 const SOURCE_DIR = path.join(ROOT, "source_images");
 const THUMB_DIR = path.join(ROOT, "assets/minifigures_images/thumbnails");
 const CUTOUT_DIR = path.join(ROOT, "assets/minifigures_images/cutouts");
@@ -30,18 +27,7 @@ function originalId(file) {
     .replace(/[._-]+$/, "");
 }
 
-const themes = load(fs.readFileSync(path.join(DATA_DIR, "themes.yaml"), "utf8"));
-
-// Images are BrickLink IDs, or full URLs that have no local file
-const usedIds = new Set(ALWAYS_KEEP);
-for (const theme of themes) {
-  const characters = load(fs.readFileSync(path.join(DATA_DIR, `${theme.key}.yaml`), "utf8"));
-  for (const character of characters) {
-    for (const variant of character.variants) {
-      if (variant.image && !/^(https?:)?\/\//i.test(variant.image)) usedIds.add(variant.image);
-    }
-  }
-}
+const usedIds = new Set([...ALWAYS_KEEP, ...localImageIds()]);
 
 function findUnused(dir, idOf) {
   return fs.readdirSync(dir, { withFileTypes: true })

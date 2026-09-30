@@ -78,6 +78,8 @@ Behaviour and the reasoning behind each layout is in [ui-design.md](ui-design.md
   finer sub-theme symbols (skull, rocket, imperial...) share one registry and are drawn
   by the same `ThemeIcon`. They are deliberately generic shapes rather than brand
   logos, which are trademarked.
+- `lib/hooks.js` — `prefersReducedMotion()` and media-query hooks, for anything that
+  animates or changes layout on a phone.
 - `lib/gridNav.js` — arrow-key movement in a grid. Left and right step through the
   document order; up and down measure the boxes on screen and pick the nearest one
   in the row above or below, so uneven rows still behave.
@@ -111,11 +113,17 @@ addition: card facts that are not about the figure itself live in their own file
 
 ```
 data/cards.yaml ─┐
-                 ├─> src/data/cardPool.js ──> src/lib/packs.js ──> src/lib/packStore.js ──> PacksPage
+                 ├─> src/data/cardPool.js ──> src/lib/packs.js ──> src/lib/packStore.js ──> pages/packs/
+                 │     (+ data/tiers.js: the rarity ladder)
 collection.js ───┘        (one card per          (rolls a pack)       (session state)
                            variant, its rarity
                            and emblem)
 ```
+
+**The Packs page is a folder**, `src/pages/packs/`: `PacksPage.jsx` is the shell, and the
+sealed pack, the pack being opened, the settings, the album and the confetti are a file
+each, with `packs.css` beside them. `collection.js` exports a flat `variants` list, which
+this page and Rankings both use, since both work one picture at a time.
 
 **Composition, not inheritance.** YAML cannot extend another file, and would not
 help here: the figure data is spread over twelve theme files. `cards.yaml` is a
