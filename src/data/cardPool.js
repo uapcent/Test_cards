@@ -142,6 +142,7 @@ function buildPool() {
           art: subtheme?.art ?? theme.art,
           glow: character.glow,
           cutout: variant.cutout,
+          thumbnail: variant.image,
           scale: variant.scale,
           fullArt: fullArtFile ? `${FULL_ARTS}${fullArtFile}` : null,
           // Fame (the iconic list, and how often LEGO remade the name) plus scarcity

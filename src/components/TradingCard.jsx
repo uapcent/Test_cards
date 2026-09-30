@@ -12,21 +12,36 @@ export const CARD_HEIGHT = 308;
 // first time it is needed and remembered.
 const aspects = new Map();
 
-function useAspect(url) {
-  const [aspect, setAspect] = useState(aspects.get(url) ?? null);
+//
+// The same load tells whether the picture exists at all. A figure whose cutout was
+// never generated would otherwise be an empty card, so it falls back to its thumbnail.
+const missing = new Set();
+
+function useFigure(url, fallback) {
+  const [failed, setFailed] = useState(missing.has(url));
+  const src = failed && fallback ? fallback : url;
+  const [aspect, setAspect] = useState(aspects.get(src) ?? null);
+
   useEffect(() => {
-    if (aspects.has(url)) {
-      setAspect(aspects.get(url));
+    if (aspects.has(src)) {
+      setAspect(aspects.get(src));
       return;
     }
     const image = new Image();
     image.onload = () => {
-      aspects.set(url, image.naturalWidth / image.naturalHeight);
-      setAspect(aspects.get(url));
+      aspects.set(src, image.naturalWidth / image.naturalHeight);
+      setAspect(aspects.get(src));
     };
-    image.src = url;
-  }, [url]);
-  return aspect;
+    image.onerror = () => {
+      if (src === url) {
+        missing.add(url);
+        setFailed(true);
+      }
+    };
+    image.src = src;
+  }, [src, url]);
+
+  return [src, aspect];
 }
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -131,8 +146,7 @@ export default function TradingCard({ card, tier, flipped = true, tell = null, s
     for (const name of ["--mx", "--my", "--rx", "--ry", "--px", "--py"]) el.style.removeProperty(name);
   };
 
-  const figure = info.layout === "art" && card.fullArt ? card.fullArt : card.cutout;
-  const aspect = useAspect(figure);
+  const [figure, aspect] = useFigure(info.layout === "art" && card.fullArt ? card.fullArt : card.cutout, card.thumbnail);
 
   const style = {
     "--accent": card.accent,
