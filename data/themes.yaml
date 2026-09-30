@@ -37,6 +37,7 @@
   name: Harry Potter
   icon: wand
   accent: "#5d2b2b"
+  art: Hogwarts2.webp
 - key: one-piece
   name: One Piece
   icon: hat
@@ -45,6 +46,7 @@
   name: Monster Fighters
   icon: ghost
   accent: "#4b2f6b"
+  art: monster-fighters.webp
 - key: medieval
   name: Medieval
   icon: tower
@@ -53,6 +55,7 @@
   name: Dungeons & Dragons
   icon: dice
   accent: "#7a2b2b"
+  art: dungeons-dragons.webp
 - key: lego-city
   name: Lego City
   icon: cone

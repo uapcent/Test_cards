@@ -328,6 +328,7 @@ subthemes:
       names: [Chase McCain, Elite Police*, City Burglar, Agent Chase, Fireman, Rocket Racer, Jetpack Racer]
       labels: [Classic Town, Town*, Agents*, Lego City Undercover]
 
+
 # Single-figure corrections, keyed by BrickLink ID. `rarity` is one of common, rare,
 # epic, legendary; `subtheme` is a sub-theme key from the figure's own theme; `icon`
 # is any drawing. Use it where the rules get one wrong, the way `scale` is used for
