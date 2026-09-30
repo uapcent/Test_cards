@@ -7,6 +7,8 @@
     - label: DX
       image: njo0009
       owned: true
+    - label: Tournament of Elements
+      image: njo0121
     - label: The Lego Ninjago Movie
       image: njo0360
       owned: true
