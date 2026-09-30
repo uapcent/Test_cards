@@ -1,0 +1,336 @@
+# The trading-card layer, on top of the collection. Nothing here is required:
+# a figure that is not mentioned still becomes a card, with a rarity worked out
+# from the rules in src/data/cardPool.js and the look of its theme.
+#
+# Names are matched against a character's NAME as written in the theme files, or
+# against a variant's LABEL. A trailing * matches anything starting with what comes
+# before it ("Clone*" covers every clone trooper), and a lone * matches everything.
+
+# Names that fame alone lifts into the top rarities. The order does not matter.
+iconic:
+  # Star Wars
+  - Darth Vader
+  - Luke Skywalker
+  - Yoda
+  - Han Solo
+  - Chewbacca
+  - Boba Fett
+  - Obi-Wan Kenobi
+  - Princess Leia
+  # DC
+  - Batman
+  - The Joker
+  - Superman
+  - Wonder Woman
+  # Marvel
+  - Spider-Man
+  - Iron Man
+  - Captain America
+  - Thanos
+  - Hulk
+  # Ninjago
+  - Kai
+  - Lloyd
+  - Sensei Wu
+  # Everything else
+  - Harry Potter
+  - Gandalf
+  - Frodo Saquet
+  - Sauron
+  - Luffy
+
+# Sub-themes: a faction, a hero family, an episode, a season. Each card belongs to
+# at most one, inside its own theme, and takes from it an icon, a colour and a
+# background, falling back to its theme's for whatever a sub-theme leaves out.
+#
+#   key      how `overrides` refers to it
+#   name     shown on the card
+#   icon     a drawing in src/components/icons.jsx (SUBTHEME_PATHS, or any theme icon)
+#   accent   the card colour
+#   art      a picture in assets/theme_backgrounds/, like a theme's `art`
+#   names    character names it takes
+#   labels   variant labels it takes: an episode, a season, a series
+#
+# The FIRST matching sub-theme of a theme wins, so list the narrow ones (a faction)
+# before the broad ones (an episode or a catch-all).
+subthemes:
+  star-wars:
+    - key: empire
+      name: Galactic Empire
+      icon: imperial
+      accent: "#4b4f58"
+      names: [Darth Vader, Imperial Stormtrooper, Chancellor Palpatine]
+      labels: [Stormtrooper*]
+    - key: sith
+      name: Sith
+      icon: sith
+      accent: "#7a1f1f"
+      names: [Darth Maul*, Count Dooku, General Grievous]
+    - key: jedi
+      name: Jedi
+      icon: saber
+      accent: "#1f6b6b"
+      names:
+        - Obi-Wan Kenobi
+        - Ben Kenobi
+        - Qui-Gon Jinn*
+        - Anakin Skywalker
+        - Luke Skywalker
+        - Mace Windu
+        - Plo Koon
+        - Ki-Adi-Mundi
+        - Kit Fisto
+        - Ahsoka Tano
+        - Yoda
+        - Jedi Bob
+        - Rey
+      labels: [Padawan, Jedi]
+    - key: rebels
+      name: Rebel Alliance
+      icon: rebel
+      accent: "#a4581c"
+      names:
+        - Princess Leia
+        - Han Solo
+        - Chewbacca
+        - Lando Calrissian
+        - Wicket
+        - Jek Porkins
+        - Rebel Friend
+        - Captain Antilles
+        - Ackbar Trooper
+      labels: [X-Wing Pilot, Endor, Hoth]
+    - key: clones
+      name: Clone Army
+      icon: helmet
+      accent: "#4a6a8a"
+      names: [Clone*, Captain Rex, Commander Cody, Boba Fett*, Jango Fett]
+      labels: [Clone Wars*, Phase*, "*Corps*", "*Battalion*"]
+    - key: droids
+      name: Droids
+      icon: droid
+      accent: "#6b6b5a"
+      names:
+        - R2-D2
+        - R4-P17
+        - R5-D8*
+        - R7-A7
+        - C-3PO
+        - TC-14
+        - Gonk Droid
+        - PK Droid
+        - Battle Droid*
+        - Commando Droid
+        - Super Battle Droid
+        - Droideka
+      labels: [Astromech Droid, Destroyer Droid]
+    - key: prequels
+      name: The Prequels
+      icon: star
+      accent: "#3f5a7a"
+      names: [Jar Jar Binks, Queen Amidala, Captain Panaka, Padmé Amidala*, Watto]
+      labels: [Episode I, Episode II, Episode III, Boy, Geonosis]
+    - key: sequels
+      name: The Sequels
+      icon: star
+      accent: "#7a5a2a"
+      labels: [Episode VII*, "*Celebration*"]
+
+  marvel:
+    - key: avengers
+      name: Avengers
+      icon: avengers
+      accent: "#8e2b26"
+      names:
+        - Iron Man
+        - Captain America
+        - Thor
+        - Hulk
+        - Hawkeye*
+        - Black Widow
+        - Scarlet Witch
+        - Vision
+        - Falcon
+        - War Machine*
+        - Captain Marvel
+        - Black Panther
+        - Winter Soldier
+      labels: [The Avengers, Infinity Saga, Age of Ultron, Captain America*]
+    - key: xmen
+      name: X-Men
+      icon: xmen
+      accent: "#b08a12"
+      names: [Storm, Jean Grey, Quicksilver, Magneto*, Professor X, Cyclops, Wolverine, Deadpool]
+      labels: [X-Men*]
+    - key: spider-verse
+      name: Spider-Verse
+      icon: web
+      accent: "#a01d2d"
+      names: [Spider*, Peter*, Pavitr*, Patrick*, "May *"]
+      labels: [Across the Spider-Verse]
+    - key: guardians
+      name: Guardians of the Galaxy
+      icon: star
+      accent: "#3a3f7a"
+      names: [Star-Lord*, Gamora, Drax, Groot, Rocket Raccoon, Nova, Adam Warlock]
+      labels: [Guardians*]
+    - key: marvel-villains
+      name: Villains
+      icon: skull
+      accent: "#3b2a4a"
+      names:
+        - Thanos
+        - Ultron*
+        - Loki*
+        - Dr Doom
+        - Green Goblin
+        - Mysterio
+        - Sandman
+        - Venom
+        - Dr. Octopus*
+        - Lizard
+        - Vulture
+        - Electro
+        - Crossbones
+
+  dc:
+    - key: gotham-rogues
+      name: Gotham Rogues
+      icon: skull
+      accent: "#3d2a52"
+      names:
+        - The Joker*
+        - Harley Quinn
+        - Scarecrow
+        - Two Face
+        - Poison Ivy
+        - The Penguin
+        - Catwoman*
+        - Mr Freeze
+        - Killer Crock
+        - Bane
+        - The Riddler*
+        - Clayface
+        - Mad Hatter
+        - Killer Moth
+        - Hush
+        - Ra's Al Ghul
+        - Talia Al Ghul
+        - Condiment King
+    - key: bat-family
+      name: Bat Family
+      icon: bat
+      accent: "#23262e"
+      names:
+        - Batman*
+        - Robin*
+        - Nightwing
+        - Red Hood
+        - Batgirl*
+        - Alfred Pennyworth
+        - Huntress
+        - Commissioner Gordon*
+        - Bruce Wayne
+        - Dick Grayson
+      labels: [Lego Batman Movie*, The Batman Movie*, The Dark Knight*]
+    - key: superman-family
+      name: Superman Family
+      icon: superman
+      accent: "#1c4a9c"
+      names: [Superman*, Supergirl, Superboy, Clark Kent, Lois Lane, General Zod, Bizarro, Brainiac, Lex Luthor*]
+      labels: [Man of Steel, Classic Superman]
+    - key: lanterns
+      name: Lantern Corps
+      icon: lantern
+      accent: "#1f6b3a"
+      names: [Green Lantern*, Sinestro]
+      labels: [Hal Jordan, Guy Gardner]
+    - key: speedsters
+      name: Speed Force
+      icon: bolt
+      accent: "#a3271f"
+      names: [The Flash, Flash - Jay Garrick, Reverse Flash, Shazam, Black Adam]
+    - key: atlantis
+      name: Atlantis
+      icon: trident
+      accent: "#0f5f7a"
+      names: [Aquaman*, Black Manta]
+      labels: [Aquaman*, Classic Aquaman]
+    - key: justice-league
+      name: Justice League
+      icon: star
+      names: ["*"]
+
+  ninjago:
+    - key: ninja
+      name: The Ninja
+      icon: mask
+      names: [Kai*, Jay*, Zane*, Cole*, Lloyd*, Nya*, Sensei Wu*, Pixal, Dareth]
+    - key: skulkin
+      name: Skulkin
+      icon: skull
+      accent: "#3a4a5a"
+      names: [Bonezai*, Chopov*, Frakjaw*, Krazi*, Nuckal, Wyplash, Samukai*, Snike, Bytar]
+    - key: spirits
+      name: The Departed
+      icon: ghost
+      accent: "#2a5a5a"
+      names: [Morro, Chope, Kapau, Clouse, Chop'rai, Ghost Archer, Cyren]
+      labels: [Day of the Departed*, "*Day of the Departed"]
+    - key: stone-army
+      name: Armies
+      icon: helmet
+      accent: "#5a4a3a"
+      names: [Stone Army*, Wolf Mask*, Dragonian*, Spectral Dragonian*, Wildfire, General Vex, Drix]
+
+  lego-city:
+    - key: lego-movie
+      name: The Lego Movie
+      icon: brick
+      accent: "#b8501f"
+      names: [Emmet, Benny, Unikitty*, Vitruvius*, Wyldstyle, Bad Cop, President Business, Robo*, Wiley Fusebot, Frank the Foreman, Executive Ellen, Kebab Bob, Rootbeer Belle]
+      labels: [The Lego Movie*, Lego Movie*]
+    - key: space
+      name: Space
+      icon: rocket
+      accent: "#2b3d6b"
+      names:
+        - Spacewalking Astronaut
+        - Astronaut
+        - Ice Planet Explorer
+        - Spyrius
+        - Launch Command
+        - Alien*
+        - M-Tron Powerlifter
+        - Blacktron Mutant
+        - Orion
+        - LOM Assistant
+        - Nurse Android
+        - Spacebaby
+      labels: [Mars Mission*, Life on Mars*]
+    - key: pirates
+      name: Pirates
+      icon: anchor
+      accent: "#6b3a1f"
+      names: [Pirate Captain, Slyboots*, King Kahuka, Female Islander]
+      labels: [Pirates*]
+    - key: adventurers
+      name: Adventurers
+      icon: compass
+      accent: "#7a5a1f"
+      names: [Johnny Thunder*, Jake Raines]
+      labels: [Adventurers*, Jungle Explorer, Pharaoh's Quest, Desert]
+    - key: town
+      name: Town
+      icon: badge
+      accent: "#2a5a86"
+      names: [Chase McCain, Elite Police*, City Burglar, Agent Chase, Fireman, Rocket Racer, Jetpack Racer]
+      labels: [Classic Town, Town*, Agents*, Lego City Undercover]
+
+# Single-figure corrections, keyed by BrickLink ID. `rarity` is one of common, rare,
+# epic, legendary; `subtheme` is a sub-theme key from the figure's own theme; `icon`
+# is any drawing. Use it where the rules get one wrong, the way `scale` is used for
+# the odd-sized figures.
+overrides:
+  sw1273:
+    rarity: legendary
