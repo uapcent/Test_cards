@@ -8,7 +8,7 @@
   glow: '#09ff00ff'
   variants:
     - label: Strongest Avenger
-      image: lego-hulk-large-with-dark-tan-pants-minifigure-1219731
+      image: sh0013
       owned: false
 - name: Captain America
   variants:
