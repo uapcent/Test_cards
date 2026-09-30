@@ -385,3 +385,18 @@ kbd {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* five layouts no longer fit a phone: tighten, and scroll as a last resort */
+@media (max-width: 520px) {
+  .layout-nav {
+    gap: 0;
+    padding: 6px 6px 0;
+    overflow-x: auto;
+  }
+
+  .layout-nav a {
+    padding: 10px 6px;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+}
