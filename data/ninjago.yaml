@@ -39,6 +39,9 @@
     - label: DX
       image: njo0018
       owned: true
+    - label: ZX
+      image: njo0031
+      owned: true
     - label: Tournament of Elements
       image: njo0111
       owned: true
