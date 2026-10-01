@@ -1,5 +1,6 @@
 import TradingCard from "../../components/TradingCard.jsx";
 import { cardPool } from "../../data/cardPool.js";
+import { TIER_INFO } from "../../data/tiers.js";
 import { artUrl } from "./pickers.jsx";
 
 // A real card to show a look on: the first one of the theme (or sub-theme) that has a
@@ -24,13 +25,24 @@ export function withLook(card, look, parent = {}) {
   };
 }
 
+// What a preview is of, for the caption under it: the tier, and for the full-art layout
+// whether there is a full art to show or only the cutout
+function caption(card, tier) {
+  const info = TIER_INFO[tier];
+  if (info.layout !== "art") return info.label;
+  return `${info.label} · ${card.fullArt ? "full art" : "no full art, cutout"}`;
+}
+
 // The same card in the three layouts, so a colour, icon or backdrop can be judged on
 // the frame, the full art and the sticker at once
 export default function CardPreview({ card, tiers = ["common", "epic", "sticker"] }) {
   return (
     <div className="ed-preview">
       {tiers.map(tier => (
-        <TradingCard key={tier} card={card} tier={tier} scale={0.62} />
+        <figure key={tier} className="ed-preview__card">
+          <TradingCard card={card} tier={tier} scale={0.62} />
+          <figcaption>{caption(card, tier)}</figcaption>
+        </figure>
       ))}
     </div>
   );

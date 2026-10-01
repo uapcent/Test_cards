@@ -3,7 +3,7 @@ import { parseDocument } from "yaml";
 
 // How a file is written back: no re-wrapping of long lines, and [a, b] rather than [ a, b ],
 // to match how the files are written by hand
-const OUTPUT = { lineWidth: 0, flowCollectionPadding: false };
+export const OUTPUT = { lineWidth: 0, flowCollectionPadding: false };
 
 // A YAML file held in memory for editing. It is a Document, not a plain object, so the
 // comments and the layout of the file come back out when it is written: cards.yaml

@@ -3,7 +3,7 @@ import { Icon } from "./icons.jsx";
 
 export default function DetailsDialog({ character, variantIndex, onVariant, onClose }) {
   const closeRef = useRef(null);
-  const variant = character.variants[variantIndex] ?? character.variants[0];
+  const variant = character.variants[variantIndex] ?? character.displayVariant;
 
   useEffect(() => {
     closeRef.current?.focus();
@@ -89,6 +89,18 @@ export default function DetailsDialog({ character, variantIndex, onVariant, onCl
             <div>
               <dt>Variant</dt>
               <dd>{variant.label || "No label"}</dd>
+            </div>
+          )}
+          {variant.description && (
+            <div className="details__wide">
+              <dt>About</dt>
+              <dd>{variant.description}</dd>
+            </div>
+          )}
+          {variant.source && (
+            <div>
+              <dt>Inspired by</dt>
+              <dd>{variant.source}</dd>
             </div>
           )}
           <div>

@@ -45,7 +45,7 @@ export default function TokensPage() {
   );
 
   const shown = charactersById.get(previewId) ?? charactersById.get(pinnedId);
-  const shownVariant = shown.variants[variantIndexes[shown.id] ?? 0] ?? shown.variants[0];
+  const shownVariant = shown.variants[variantIndexes[shown.id] ?? shown.displayIndex] ?? shown.displayVariant;
   const shownTheme = themes.find(theme => theme.key === shown.themeKey);
   const details = detailsId ? charactersById.get(detailsId) : null;
   const ownedPercent = Math.round((collection.owned / collection.total) * 100);
@@ -108,6 +108,12 @@ export default function TokensPage() {
             <span className="selected__muted">
               {shown.ownedCount} of {shown.variants.length} owned
             </span>
+            {shownVariant.description && <span className="selected__note">{shownVariant.description}</span>}
+            {shownVariant.source && (
+              <span className="selected__note">
+                Inspired by <strong>{shownVariant.source}</strong>
+              </span>
+            )}
           </div>
 
           <div className="selected__figure">
@@ -190,7 +196,7 @@ export default function TokensPage() {
       {details && (
         <DetailsDialog
           character={details}
-          variantIndex={variantIndexes[details.id] ?? 0}
+          variantIndex={variantIndexes[details.id] ?? details.displayIndex}
           onVariant={index => setVariant(details.id, index)}
           onClose={() => setDetailsId(null)}
         />

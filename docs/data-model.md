@@ -61,7 +61,26 @@ out towards the left, so wide calm pictures work better than busy ones. Without
 | `defective` | Optional; marks it in red. |
 | `year` | Optional release year. |
 | `set` | Optional link to the set or figure on BrickLink. |
+| `description` | Optional. The part of a long name that does not fit in the label: `Hammerhead - Space Suit` next to the label `Mark 45`. Shown on Showcase, on the Tokens page's selected panel and in the details panel. |
+| `source` | Optional. The film, comic or game the look comes from (`Iron Man 3`), shown as "Inspired by". |
+| `favourite` | Optional. Marks the variant that stands for the character: the picture on its token and tile, and the variant a page opens on. One per character. See below. |
 | `scale` | Optional multiplier for how tall this variant is drawn on the Showcase page's large view. Every cutout is otherwise shown at the same height regardless of the figure's real size, since that's right for the overwhelming majority — a standing minifig next to another standing minifig. `scale` is the deliberate exception, for the handful that are a genuinely different kind of piece: an oversized "big figure" villain, a small droid, a child-proportioned figure. It's per-*variant*, not per-character, because a character's variants aren't always the same kind of piece — Harry Potter's `Gryffindor Robe` is a shorter child mold, his `Lego Dimensions` variant isn't. Leave it out and it's `1`, meaning "a standard minifig." |
+
+Both `description` and `source` are free text. Write them in quotes when they contain a colon
+(`source: "Avengers: Age of Ultron"`), or the file stops being valid YAML; the Register page
+does this by itself.
+
+### Which variant stands for a character
+
+The token and the Showcase tile show one variant, and the pages open on it. It is chosen
+among the variants with a picture:
+
+1. If you own any of them, only the owned ones are considered. A character you partly own
+   never shows a locked variant just because it is first in the list.
+2. Of those, the one marked `favourite: true`, otherwise the first.
+
+So a favourite you do not own yet gives way to one you do, and takes over once you own it.
+`displayVariant` and `displayIndex` in `src/data/collection.js` hold the result.
 
 Only 62 variants carry a `year` and 27 a `set`, so details panels are mostly
 sparse until those are filled in. Every variant with a local `image` still gets a

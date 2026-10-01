@@ -314,3 +314,19 @@
       owned: true
       year: 2026
       set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=col483
+- name: LEGO Loco Station Master
+  variants:
+    - image: trn102
+      owned: true
+      year: 1998
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=trn102
+    - label: Super Heroe
+      image: trn102a
+      owned: true
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=trn102a
+- name: Railway Brickster with Red Brick on Chest
+  variants:
+    - image: trn067
+      owned: true
+      year: 1998
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=trn067

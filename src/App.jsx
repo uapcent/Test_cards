@@ -14,15 +14,16 @@ const PAGES = [
   { route: "packs", label: "Packs", Page: PacksPage }
 ];
 
-// A local tool for setting up the trading cards, NOT part of the site. It is added only
-// when import.meta.env.DEV is true; Vite turns that into `false` in a build and drops
-// the dead branch, so the editor (and the YAML library it needs) is never shipped.
+// Local tools for the owner, NOT part of the site: the card editor, the page that registers
+// new figures and the one that checks the collection. They are added only when
+// import.meta.env.DEV is true; Vite turns that into `false` in a build and drops the dead
+// branch, so they (and the YAML library they need) are never shipped.
 if (import.meta.env.DEV) {
-  PAGES.push({
-    route: "card-editor",
-    label: "Card editor",
-    Page: lazy(() => import("./pages/editor/CardEditorPage.jsx"))
-  });
+  PAGES.push(
+    { route: "card-editor", label: "Card editor", Page: lazy(() => import("./pages/editor/CardEditorPage.jsx")) },
+    { route: "register", label: "Register", Page: lazy(() => import("./pages/editor/RegisterPage.jsx")) },
+    { route: "check", label: "Check", Page: lazy(() => import("./pages/editor/CheckPage.jsx")) }
+  );
 }
 
 function useHashRoute() {

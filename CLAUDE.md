@@ -17,7 +17,9 @@ npm run preview  # serves dist/
 
 With `npm run dev` running there is one extra page, `#/card-editor`, for setting up the
 trading cards' look (see [docs/ui-design.md](docs/ui-design.md#card-editor-local-only)).
-It does not exist in a build.
+It does not exist in a build. Likewise `#/register` (add figures from a BrickLink code,
+export the theme YAML) and `#/check` (what is missing: codes, cutouts, thumbnails); see
+[docs/ui-design.md](docs/ui-design.md#register-and-check-local-only).
 
 Image helpers:
 

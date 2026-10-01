@@ -236,18 +236,24 @@ branch, so the editor, its styles and the `yaml` package it needs never reach th
 deployed site (a build was checked for them). The page refuses to render outside dev as
 well, as a second lock.
 
-It edits two files in memory and gives them back as downloads, to be put over
-`data/cards.yaml` and `data/themes.yaml`; the dev server then reloads them. Nothing is
-written anywhere else.
+It edits files in memory and gives them back as downloads, to be put over the ones in
+`data/`; the dev server then reloads them. `cards.yaml` and `themes.yaml` are always
+offered, and a theme file (`ninjago.yaml`) appears as a third download once a figure of
+that theme has been changed. Nothing is written anywhere else.
 
 - **Themes:** a theme's icon, colour and backdrop picture (`themes.yaml`).
 - **Sub-themes:** add, delete, rename and reorder them, set an icon, colour and backdrop
   (each can be left to inherit the theme's), and which character names and variant
   labels they take. The order matters, since the first match wins.
 - **Figures:** pin a rarity, choose a sub-theme or give an icon to one figure: the
-  `overrides` of `cards.yaml`.
+  `overrides` of `cards.yaml`. The same panel sets the variant's **favourite**,
+  **description** and **source**, which are collection data and so are written to the
+  theme file. Making a variant the favourite clears the character's previous one.
 
-Every change shows on a real card in three layouts (frame, full art, sticker). A backdrop
+Every change shows on a real card in three layouts (frame, full art, sticker), each with
+a caption. A figure that has a full-art file gets a full-art card beside the others even
+when its rarity is a frame one, so it can be judged before the rarity is raised; a
+full-art tier without a file says "no full art, cutout". A backdrop
 can also be tried from a picture on your computer before it is in the folder: it is
 previewed only in that tab, and the editor reminds you to put it in
 `assets/theme_backgrounds/`, run `npm run theme-backgrounds` and restart the dev server,
@@ -257,12 +263,48 @@ The files are edited as YAML documents, so every comment survives, and an unedit
 comes back byte for byte (one blank line before the `overrides` comment in `cards.yaml`
 is the only known difference).
 
+## Register and Check (local only)
+
+Two more pages that exist only under `npm run dev`, added and locked the same way as the
+card editor.
+
+**`#/register`** adds figures from BrickLink. Give a catalog URL or a code; the dev server
+fetches the page (the browser cannot, BrickLink sends no CORS headers) and the form comes
+filled with the name, label, year and a guessed theme, the same guesses `npm run register`
+makes. It warns if the code is already in the collection or the list, and when the name is
+already in the theme it asks whether this is a variant of one of them or a separate
+character, since names repeat on purpose. *Add to the list* keeps the figure in the tab
+and saves its full-size picture into `source_images/` (the one file this page writes; it
+skips a picture already there). *Download* gives each touched theme file with the new
+figures written in, comments intact, to put over the file in `data/`. Then the *Make
+cutouts and thumbnails* button (`POST /__dev/make-images`) runs `makeCutouts.py` and
+`optimizeImages.py --missing` for the figures in `data/` that lack them. It has to come
+after the files are in `data/`, since the scripts read the collection from there, and it
+only fills gaps: `--missing` skips thumbnails that exist, because the full
+`npm run thumbnails` redoes all of them and takes about six minutes.
+
+**`#/check`** goes through every figure straight from the YAML and lists what is missing.
+Problems: no code, an odd or repeated code, no cutout, no thumbnail, no `owned`. Notes
+(hidden until you tick them): no original in `source_images/`, a web link instead of a
+code, no year, no set. It also lists image files no figure uses, and a full art that is
+not named after a code or not yet optimised. The folders are read from the dev server
+each time, so *Check again* sees a fix without a restart.
+
+The endpoints behind both are `/__dev/files`, `/__dev/bricklink` and `/__dev/picture`, in
+`vite.config.js`. They are a dev-server plugin (`apply: "serve"`), so a build has none.
+The parsing of a catalog page is shared with the command-line script in
+`scripts/lib/bricklink.js`.
+
 ## Details panel
 
 Shared by Tokens and Classic: portrait, name, a bar per variant showing what is
 owned, the variant strip, and the facts — status, year, set link, BrickLink ID.
 Rows with nothing to show print a dash rather than disappearing, so the panel does
-not change shape as you move between variants.
+not change shape as you move between variants. The two exceptions are About
+(`description`) and Inspired by (`source`): few variants have them yet, so they appear
+only when there is something to say. The same two show on Showcase (under the variant
+list and in the facts) and on the Tokens page, in the left column of the selected panel,
+whose height is fixed so that they cannot move the layout.
 
 ## Accessibility
 

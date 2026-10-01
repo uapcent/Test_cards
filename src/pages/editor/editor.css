@@ -331,3 +331,170 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Register and Check pages */
+.ed-split--wide {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.ed-grow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ed-found {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.ed-found img,
+.ed-pending img,
+.ed-issues img {
+  flex: none;
+  border-radius: 6px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.ed-choice--column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ed-choice--column button {
+  text-align: left;
+}
+
+.ed-checks,
+.ed-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+}
+
+.ed-filters {
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.ed-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.ed-pending,
+.ed-issues,
+.ed-stray {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ed-pending li,
+.ed-issues li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.ed-pending li > div,
+.ed-issues__who {
+  flex: 1;
+  min-width: 0;
+}
+
+.ed-pending p,
+.ed-issues p {
+  margin: 2px 0 0;
+}
+
+.ed-pending small,
+.ed-issues small {
+  color: var(--muted);
+}
+
+.ed-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  max-width: 45%;
+}
+
+.ed-tag {
+  padding: 2px 8px;
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.ed-tag--problem {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.ed-tag--note {
+  color: var(--muted);
+}
+
+.ed-summary {
+  margin: 0 0 12px;
+}
+
+.ed-subhead {
+  margin: 28px 0 8px;
+  font-family: var(--display);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ed-stray li {
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .ed-split--wide {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* a caption under each card of a preview */
+.ed-preview__card {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  margin: 0;
+}
+
+.ed-preview__card figcaption {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ed-form h3.ed-subhead {
+  margin: 20px 0 0;
+}
+
+.ed-log {
+  max-height: 240px;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  font-size: 12px;
+  white-space: pre-wrap;
+}

@@ -6,9 +6,20 @@ import { IconPicker } from "./pickers.jsx";
 
 const RARITIES = ["common", "rare", "epic", "legendary"];
 
+// Where a figure sits in its theme file: the character and variant that carry its code
+function locate(characters, bricklinkId) {
+  for (const [characterIndex, character] of characters.entries()) {
+    const variantIndex = (character.variants ?? []).findIndex(variant => variant.image != null && String(variant.image) === bricklinkId);
+    if (variantIndex >= 0) return { characterIndex, variantIndex, character, variant: character.variants[variantIndex] };
+  }
+  return null;
+}
+
 // One figure at a time: pin its rarity, put it in a particular sub-theme, or give it an
-// icon of its own. These are the `overrides` of cards.yaml.
-export default function FiguresPanel({ cards, themes }) {
+// icon of its own (the `overrides` of cards.yaml), and set what the collection says about
+// the variant: whether it is the character's favourite, its description and its source
+// (in the theme file, which is why those come back as a theme download).
+export default function FiguresPanel({ cards, themes, files }) {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
@@ -45,6 +56,29 @@ export default function FiguresPanel({ cards, themes }) {
       : { ...card, icon: override.icon ?? card.icon }
     : null;
   const tier = override.rarity ?? card?.tier;
+
+  const spot = card ? locate(files.data(card.themeKey), card.bricklinkId) : null;
+  const siblings = spot ? spot.character.variants.filter((_, index) => index !== spot.variantIndex) : [];
+  const otherFavourite = siblings.find(variant => variant.favourite);
+
+  // empty text removes the field, so the file is not left with blank lines
+  const setVariantField = (field, value) =>
+    files.change(card.themeKey, doc => {
+      const path = [spot.characterIndex, "variants", spot.variantIndex, field];
+      if (value == null || value === "") doc.deleteIn(path);
+      else doc.setIn(path, value);
+    });
+
+  // a character has one favourite: choosing this one clears any other
+  const setFavourite = on =>
+    files.change(card.themeKey, doc => {
+      spot.character.variants.forEach((_, index) => doc.deleteIn([spot.characterIndex, "variants", index, "favourite"]));
+      if (on) doc.setIn([spot.characterIndex, "variants", spot.variantIndex, "favourite"], true);
+    });
+
+  // the layouts to show: the tier's own, a full art beside it when the figure has one but
+  // the tier would not show it, and the sticker
+  const tiers = [tier, ...(card?.fullArt && TIER_INFO[tier].layout !== "art" ? ["epic"] : []), "sticker"];
 
   return (
     <div className="ed-split">
@@ -102,7 +136,43 @@ export default function FiguresPanel({ cards, themes }) {
           <label>Icon</label>
           <IconPicker value={override.icon ?? null} onChange={value => set("icon", value)} inherit />
 
-          <CardPreview card={preview} tiers={[tier, "sticker"]} />
+          <CardPreview card={preview} tiers={tiers} />
+
+          {spot && (
+            <>
+              <h3 className="ed-subhead">In the collection</h3>
+              <p className="ed-hint">These go in {card.themeKey}.yaml, so they come back as a download of that file.</p>
+
+              <label>Favourite</label>
+              <div className="ed-choice" role="group" aria-label="Favourite">
+                <button type="button" className={!spot.variant.favourite ? "is-on" : ""} onClick={() => setFavourite(false)}>
+                  no
+                </button>
+                <button type="button" className={spot.variant.favourite ? "is-on" : ""} onClick={() => setFavourite(true)}>
+                  yes, it stands for {spot.character.name}
+                </button>
+              </div>
+              {otherFavourite && !spot.variant.favourite && (
+                <p className="ed-hint">
+                  {otherFavourite.label || otherFavourite.image} is the favourite now; choosing this one replaces it.
+                </p>
+              )}
+              <p className="ed-hint">It is the picture on the token and tile, as long as you own it; otherwise an owned variant is shown.</p>
+
+              <label htmlFor="fig-description">Description</label>
+              <input
+                id="fig-description"
+                type="text"
+                value={spot.variant.description ?? ""}
+                onChange={event => setVariantField("description", event.target.value)}
+              />
+              <p className="ed-hint">What does not fit in the label{spot.variant.label ? ` (${spot.variant.label})` : ""}.</p>
+
+              <label htmlFor="fig-source">Inspired by</label>
+              <input id="fig-source" type="text" value={spot.variant.source ?? ""} onChange={event => setVariantField("source", event.target.value)} />
+              <p className="ed-hint">The film, comic or game this look is from.</p>
+            </>
+          )}
         </div>
       ) : (
         <p className="ed-hint">Pick a figure on the left.</p>

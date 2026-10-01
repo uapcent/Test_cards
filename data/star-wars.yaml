@@ -383,3 +383,18 @@
     - label: Episode VII
       image: sw0655
       owned: true
+- name: Asajj Ventress
+  variants:
+    - label: Dark Purple Torso
+      image: sw1426
+      owned: true
+      year: 2025
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=sw1426
+      source: Clone Wars
+- name: Clone Trooper Pilot (Phase 1)
+  variants:
+    - label: Yellow Markings, Nougat Head
+      image: sw1425
+      owned: true
+      year: 2025
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=sw1425

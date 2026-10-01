@@ -10,11 +10,16 @@ nothing but a mechanical resize of its cutout, never edited by hand, so
 there's no reason to skip one that already exists — re-running this after
 fixing a cutout by hand picks the fix up automatically.
 
-    python scripts/optimizeImages.py
+    python scripts/optimizeImages.py            every thumbnail again (several minutes)
+    python scripts/optimizeImages.py --missing  only the ones that do not exist yet
+
+--missing is what the dev-only register page runs, to give new figures a thumbnail
+without redoing all of them.
 """
 from pathlib import Path
 from PIL import Image
 import re
+import sys
 
 import numpy as np
 
@@ -154,9 +159,12 @@ def create_thumbnail(image_id: str, source: Path):
 def main():
     THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
+    only_missing = "--missing" in sys.argv[1:]
     originals = find_originals()
     no_cutout = 0
     for image_id, original in sorted(originals.items()):
+        if only_missing and (THUMB_DIR / f"{image_id}.webp").exists():
+            continue
         cutout = CUTOUT_DIR / f"{image_id}.webp"
         if cutout.exists():
             source = cutout

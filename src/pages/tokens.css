@@ -177,8 +177,27 @@
 
 .selected__side--left {
   justify-self: end;
+  /* the same fixed room as the facts on the right, so the notes below cannot move
+     the theme name when the pointer goes from one token to another */
+  height: 156px;
+  overflow: hidden;
   padding-right: 48px;
   text-align: right;
+}
+
+.selected__note {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.selected__note strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .selected__theme {
@@ -363,6 +382,7 @@
 
   .selected__side--left {
     justify-self: center;
+    height: auto;
     padding-right: 0;
     text-align: center;
   }

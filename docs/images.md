@@ -19,6 +19,7 @@ in the served folder every build copied them into the deployment.
 ```bash
 npm run cutouts            # python scripts/makeCutouts.py               — only missing ones (--force for all)
 npm run thumbnails         # python scripts/optimizeImages.py            — always regenerates every one
+                            # (add --missing to the python command to make only absent ones)
 npm run theme-backgrounds  # python scripts/optimizeThemeBackgrounds.py  — always redoes every one
 npm run images:unused
 ```

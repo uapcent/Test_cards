@@ -14,8 +14,8 @@ export default function ShowcasePage() {
 
   const theme = themes[themeIndex];
   const selected = theme.characters.find(character => character.id === selectedId) ?? theme.characters[0];
-  const variantIndex = variantIndexes[selected.id] ?? 0;
-  const variant = selected.variants[variantIndex] ?? selected.variants[0];
+  const variantIndex = variantIndexes[selected.id] ?? selected.displayIndex;
+  const variant = selected.variants[variantIndex] ?? selected.displayVariant;
 
   // stepping by a delta keeps quick repeats from landing on the same theme
   const stepTheme = delta => setThemeIndex(current => (current + delta + themes.length) % themes.length);
@@ -138,11 +138,19 @@ export default function ShowcasePage() {
             </ul>
           )}
 
+          {variant.description && <p className="showcase__description">{variant.description}</p>}
+
           <dl className="showcase__facts">
             <div>
               <dt>Status</dt>
               <dd>{variant.owned ? "Owned" : "Not owned"}</dd>
             </div>
+            {variant.source && (
+              <div>
+                <dt>Inspired by</dt>
+                <dd>{variant.source}</dd>
+              </div>
+            )}
             {variant.year && (
               <div>
                 <dt>Released</dt>

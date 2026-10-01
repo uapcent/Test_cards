@@ -1,9 +1,30 @@
 - name: Iron Man
   glow: '#04e2ffff'
   variants:
-    - label: Mark 45 Armor
+    - label: Mark 1
+      image: sh0565
+      owned: false
+    - label: Mk 5 - Silver Centurion
+      image: sh0232
+      owned: false
+      year: '2016'
+    - label: Mk 37 Hammerhead
+      image: sh0213
+      year: '2016'
+      owned: false
+    - label: Mk 39 Gemini
+      image: sh0229
+      year: '2016'
+      owned: false
+    - label: Mk 45 Armor
       image: sh0164
       owned: true
+    - label: Mk 25 Thumper
+      image: sh0823
+      owned: false
+      year: 2022
+      set: https://www.bricklink.com/v2/catalog/catalogitem.page?M=sh0823
+      source: Iron Man 3
 - name: Hulk
   glow: '#09ff00ff'
   variants:
@@ -27,7 +48,7 @@
       year: '2012'
     - image: colmar18
       owned: false
-      year: 2023
+      year: '2023'
 - name: Black Widow
   variants:
     - label: 'Captain America: Civil War'

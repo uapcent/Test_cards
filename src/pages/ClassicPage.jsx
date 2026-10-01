@@ -53,7 +53,9 @@ export default function ClassicPage() {
           <h2>{theme.name}</h2>
           <div className="classic__grid">
             {theme.visible.map(({ character, variants }) => {
-              const index = (indexes[character.id] ?? 0) % variants.length;
+              // starts on the character's own pick, if the filters left it in
+              const start = Math.max(variants.indexOf(character.displayVariant), 0);
+              const index = (indexes[character.id] ?? start) % variants.length;
               const variant = variants[index];
 
               return (
@@ -109,7 +111,7 @@ export default function ClassicPage() {
       {details && (
         <DetailsDialog
           character={details}
-          variantIndex={(indexes[details.id] ?? 0) % details.variants.length}
+          variantIndex={(indexes[details.id] ?? details.displayIndex) % details.variants.length}
           onVariant={index => setIndexes(current => ({ ...current, [details.id]: index }))}
           onClose={() => setDetailsId(null)}
         />

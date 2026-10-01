@@ -43,10 +43,26 @@ function buildVariant(raw, characterId, index) {
     defective: !!raw.defective,
     year: raw.year ?? null,
     set: raw.set ?? null,
+    // the longer name that does not fit in the label, and the film, comic or game the
+    // look comes from — see docs/data-model.md
+    description: raw.description ?? null,
+    source: raw.source ?? null,
+    favourite: !!raw.favourite,
     // how tall to draw this variant on the Showcase page's large figure,
     // relative to a standard minifig — see docs/data-model.md
     scale: resolveScale(raw.scale)
   };
+}
+
+// The variant that stands for a character. Among those with a picture, an owned one beats
+// a locked one (a character you partly own must not look locked because its first variant
+// is), and within that the one marked `favourite` beats the first in the list. A favourite
+// you do not own gives way to one you do.
+function pickDisplayVariant(variants) {
+  const withImage = variants.filter(variant => variant.hasImage);
+  const owned = withImage.filter(variant => variant.owned);
+  const candidates = owned.length ? owned : withImage.length ? withImage : variants;
+  return candidates.find(variant => variant.favourite) ?? candidates[0];
 }
 
 function buildCharacter(raw, themeKey, themeName, index) {
@@ -54,6 +70,7 @@ function buildCharacter(raw, themeKey, themeName, index) {
   const variants = raw.variants.map((variant, i) => buildVariant(variant, id, i));
   const ownedCount = variants.filter(variant => variant.owned).length;
   const withImage = variants.find(variant => variant.hasImage);
+  const displayVariant = pickDisplayVariant(variants);
 
   return {
     id,
@@ -63,8 +80,9 @@ function buildCharacter(raw, themeKey, themeName, index) {
     glow: raw.glow ?? null,
     variants,
     ownedCount,
-    // Shown on the token or card: the first variant that has a picture
-    displayVariant: withImage ?? variants[0],
+    // Shown on the token or tile, and the one a page starts on
+    displayVariant,
+    displayIndex: variants.indexOf(displayVariant),
     wishlist: variants.some(variant => variant.wishlist),
     defective: variants.some(variant => variant.defective),
     state: !withImage
